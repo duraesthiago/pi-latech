@@ -5,13 +5,16 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../public/stylesheets/style.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+        </style>
+    <link rel="stylesheet" href="../public/stylesheets/index.css">
     <title>Latech</title>
 </head>
 
 <body>
     <header>
-        <div class="main-menu">
+        <section class= "container">
             <img src="../public/img/logo_latech_final.png" alt="logo-latech">
             <div class="search-bar">
                 <form id="search-form" action="" method="get"> <input type="text" name="q"
@@ -20,28 +23,37 @@
                     </button>
                 </form>
             </div>
-            <nav class="main-navbar">
+            <div>
+            <nav class="main-menu">
                 <ul class="left-navbar">
                     <li><a href="/products">Produtos</a></li>
                     <li><a href="/products/offer">Ofertas</a></li>
                     <li><a href="#">Sobre nós</a></li>
-                    <li><a href="/user/login">Login <img src="../public/img/user-login.svg" alt=""></a></li>
-                    <li><a href="#">Carrinho <img src="../public/img/shopping-cart.svg" alt=""></a></li>
+                    <li><a href="#">Login<img src="../public/img/user-login.svg" alt=""></a></li>
+                    <li><a href="#">Carrinho<img src="../public/img/shopping-cart.svg" alt=""></a></li>
                 </ul>
             </nav>
         </div>
+        </section>
         <div>
             <div id="main-banner">
                 <img src="../public/img/banner1.png" alt="">
             </div>
-            <div>
-                <ul class="banner-navbar">
-                    <li><a href="#">Notebook <img src="../public/img/computer.svg" alt=""></a></li>
-                    <li><a href="#">Desktop <img src="../public/img/desktop.svg" alt=""></a></li>
-                    <li><a href="#">Celulares <img src="../public/img/smartphone.svg" alt=""></a></li>
-                    <li><a href="#">Acessórios <img src="../public/img/accesories.svg" alt=""></a></li>
+            <div class="second-navbar banner-navbar-icons">
+                <ul class="banner-navbar banner-navbar-icons">
+                    <l1><img src="../public/img/computer.svg" alt=""></l1>
+                    <l1><img src="../public/img/desktop.svg" alt=""></l1>
+                    <l1><img src="../public/img/smartphone.svg" alt=""></l1>
+                    <l1><img src="../public/img/accesories.svg" alt=""></l1>
+                </ul>
+                <ul class="banner-navbar banner-navbar-links">
+                    <li><a href="#">Notebook</a></li>
+                    <li><a href="#">Desktop</a></li> 
+                    <li><a href="#">Celulares</a></li> 
+                    <li><a href="#">Acessórios</a></li> 
                 </ul>
             </div>
+        </div>
         </div>
     </header>
     <main>
