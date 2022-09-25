@@ -1,8 +1,164 @@
-body {
-  padding: 50px;
-  font: 14px 'Poppins', Helvetica, Arial, sans-serif;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-a {
-  color: #00b7ff;
+body {
+  font-family: 'Poppins', sans-serif;
+}
+
+section {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.search-bar {
+  width: 480px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 200px;
+  border: 1px solid #37c83d;
+  border-radius: 60px;
+  padding: 10px 10px;
+  background-color: #fbfbfb;
+}
+
+.search-bar input {
+  background: transparent;
+  border: 0;
+  outline: none;
+  color: #fbfbfb;
+}
+
+.search-bar button {
+  border: none;
+  background: transparent;
+  width: 45%;
+}
+
+::placeholder {
+  color: #cac7ff;
+}
+
+section img {
+  width: 20%;
+  height: 30%;
+}
+
+div nav {
+  width: 100%;
+  background: linear-gradient(
+    180deg,
+    #c837c2 0%,
+    #7c837d 52.08%,
+    #37c83d 100%
+  );
+}
+
+div nav ul {
+  width: 100%;
+  text-decoration: none;
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 70px;
+}
+
+div nav ul li img {
+  width: 35px;
+}
+
+li a {
+  text-decoration: none;
+}
+
+div nav ul li {
+  padding: 10px 0 0 50px;
+}
+
+div ul li a {
+  color: rgba(200, 55, 194, 1);
+}
+
+.main-menu li a {
+  color: #fbfbfb;
+}
+
+div .container-banner {
+  width: 100%;
+  height: 240px;
+  display: inline-block;
+}
+
+div .promo-banner {
+  width: 10%px;
+  height: 240px;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  background: url('/public/img/milky-way-2695569_960_720.jpg')
+    no-repeat;
+  background-size: cover;
+}
+
+p {
+  font-size: 50px;
+  line-height: 1;
+}
+.secondp {
+  background-color: #c837c2;
+  border-radius: 4px;
+}
+.info-banner {
+  display: inline-block;
+  color: #fbfbfb;
+  text-align: justify;
+  font-weight: bold;
+}
+
+.promo-banner img {
+  border-radius: 10px;
+  width: 400px;
+  background: transparent;
+}
+
+.banner-navbar {
+  width: 100%;
+  height: 50px;
+  padding-top: 10px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  list-style: none;
+  background-color: rgba(217, 217, 217, 1);
+}
+
+.banner-navbar-links {
+  gap: 60px;
+}
+
+.banner-navbar-icons {
+  gap: 90px;
+}
+
+hr {
+  width: 100%;
+  height: 4px;
+  background-color: #37c83d;
+}
+.divCorte {
+  clip-path: polygon(0 70px, 70px 0, 100% 0, 100% 100%, 0 100%);
 }
