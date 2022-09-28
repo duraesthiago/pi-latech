@@ -1,49 +1,83 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+/* Estilos Gerais */
+* {
+  font-family: Poppins, Arial, Helvetica, sans-serif;
+}
+
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.container {
+  width: 960px;
+  margin: 0 auto;
+  padding: 0px;
+  position: relative;
+}
+
+p {
+  font-family: Poppins, 'Times New Roman', Times, serif;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+img {
+  max-width: 100%;
+}
+.menu-home {
+  margin-bottom: 40px;
+  display: flex;
+  width: 100%;
+  height: 100px;
+  background-color: #d9d9d9;
+  flex-direction: row;
+  justify-content: center;
+
+  border-bottom: 4px solid #37c83d;
+}
 
 a {
-  display: inline-block;
   text-decoration: none;
-  text-align: center;
-  font-size: 25px;
+  font-size: 16px;
   text-transform: uppercase;
+  text-align: center;
+  color: #c837c2;
+  margin-bottom: 20px;
+}
+.menu-home img {
+  width: 50px;
+  height: 50px;
+}
+.menu-produtos img {
+  width: 80px;
+  height: 80px;
+  align-items: center;
+  margin: 0 auto;
+}
+.menu-produtos {
+  display: flex;
+  flex-direction: column;
+  width: 100px;
+  justify-content: center;
+}
+.layout-home {
+  display: block;
+}
+.layout-home h2 {
+  border: 3px solid #37c83d;
   color: #252525;
-}
-
-.banner-offer {
-  width: 100%;
-  position: relative;
-  border: 3px solid #252525;
-  padding-top: 30px;
-  border-radius: 20px;
-}
-
-.banner-offer img {
-  max-width: 80%;
-  max-height: 80%;
+  background-color: #d9d9d973;
   border-radius: 10px;
-  padding: 30px;
+  text-transform: uppercase;
+  padding: 60px;
+  font-size: 24px;
+  float: left;
 }
- .layout-products-images div{
-    width: 90%;
-    border: 3px solid #252525;
-    border-radius: 20px;
-    margin: auto;
-}
-
-.layout-products-images ul{
-    padding: 0;
-}
-
-.layout-products-images li {
-  max-width: 100%;
-  list-style: none;
-  margin-top: 30px;
-  border: 2px solid #252525;
-  border-radius: 20px;
-}
-.layout-products-images img{
-    max-width: 100%;
-    max-height: 100%;
-    margin-left: auto;
-    margin-right: auto;
+.layout-imagens {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
