@@ -1,0 +1,221 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+html,
+body {
+  font-family: "Poppins", sans-serif;
+  /* overflow: hidden; */
+}
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+header {
+  background-color: fbfbfb;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 1px 1px 5px 0px #7c837d;
+}
+.container {
+  background: linear-gradient(180deg, #c837c2 0%, #7c837d 52.08%, #37c83d 100%);
+}
+
+.logo {
+  max-width: 35%;
+  max-height: 35%;
+  padding-top: 10px;
+  padding-left: 10px;
+}
+.nav {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  background: linear-gradient(180deg, #c837c2 0%, #7c837d 52.08%, #37c83d 100%);
+  ;
+  overflow: hidden;
+  max-height: 0;
+  transition: max-heigth 0.5s ease-out;
+}
+.menu {
+  padding: 0;
+}
+
+.menu img {
+  max-width: 20px;
+  max-height: 20px;
+}
+.menu a {
+  display: block;
+  padding: 32px;
+  color: #fbfbfb;
+  text-transform: uppercase;
+}
+
+.menu a:hover {
+  background-color: #7c837d;
+}
+
+.hamburguer {
+  height: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+#checkbox-menu {
+  position: absolute;
+  opacity: 0;
+}
+
+label {
+  cursor: pointer;
+  position: absolute;
+  top: 20px;
+  width: 30px;
+  height: 22px;
+}
+label span {
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 4px;
+  border-radius: 30px;
+  background: greenyellow;
+  transition: 0.25s ease-in-out;
+}
+label span:nth-child(1) {
+  top: 0;
+}
+
+label span:nth-child(2) {
+  top: 8px;
+}
+
+label span:nth-child(3) {
+  top: 16px;
+}
+
+#checkbox-menu:checked + label span:nth-child(1) {
+  transform: rotate(-45deg);
+  top: 8px;
+}
+
+#checkbox-menu:checked + label span:nth-child(2) {
+  opacity: 0;
+}
+
+#checkbox-menu:checked + label span:nth-child(3) {
+  transform: rotate(45deg);
+  top: 8px;
+}
+
+#checkbox-menu:checked ~ nav {
+  max-height: 100%;
+}
+
+.search-form {
+  max-width: 300px;
+  border: 1px solid #37c83d;
+  border-radius: 60px;
+  margin: auto;
+  background-color: #fbfbfb;
+}
+
+input {
+  min-width: 200px;
+  display: inline-block;
+  position: relative;
+  border: 0;
+  outline: none;
+  background: transparent;
+}
+
+input::placeholder {
+  color: purple;
+  opacity: 0.2;
+}
+
+button {
+  display: none;
+}
+
+div .container-banner {
+  display: inline-block;
+  max-width: 100%;
+  max-height: 15%;
+}
+
+div .promo-banner {
+  max-width: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  background: url("/public/img/milky-way-2695569_960_720.jpg") no-repeat;
+  background-size: cover;
+}
+
+.promo-banner img {
+  max-width: 150px;
+  border-radius: 10px;
+  margin-left: 20px;
+}
+
+p {
+  font-size: 12px;
+  line-height: 1;
+  text-transform: uppercase;
+  margin-bottom: 0;
+  margin-top: 0;
+}
+
+p:nth-child(2) {
+  background-color: #c837c2;
+  border-radius: 4px;
+}
+
+.info-banner {
+  display: inline-block;
+  color: #fbfbfb;
+  text-align: justify;
+  font-weight: bold;
+}
+
+.banner-navbar {
+  max-width: 100%;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  background-color: fbfbfb;
+}
+.banner-navbar-links {
+  gap: 10px;
+}
+.banner-navbar-icons {
+  margin-top: 10px;
+  gap: 40px;
+}
+
+hr {
+  width: 100%;
+  height: 2px;
+  background-color: #37c83d;
+}
+
+@media (min-width: 801px) {
+  /* tablet, landscape iPad, lo-res laptops ands desktops */
+}
+
+@media (min-width: 1025px) {
+  /* big landscape tablets, laptops, and desktops */
+}
+
+@media (min-width: 1281px) {
+  /* hi-res laptops and desktops */
+}
