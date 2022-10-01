@@ -193,6 +193,7 @@ hr {
   height: 2px;
   background-color: #37c83d;
 }
+
 @media (min-width: 801px) {
   /* tablet, landscape iPad, lo-res laptops ands desktops */
   .container {

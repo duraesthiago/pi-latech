@@ -14,9 +14,19 @@
   <header>
     <div class="container">
       <img class="logo" src="../public/img/logo_latech_final.png" alt="logo-latech" />
-      <div class="hamburguer">
+      <div class="search-form">
+        <!-- Alterada a posição da div para funcionamento das medias queries-->
+        <form action="#" method="get" class="search-bar">
+          <input class="search-bar" type="text" name="q" placeholder="O que você procura?" />
+          <button type="submit">
+            <img class="search" src="../public/img/icons8-pesquisar.svg" />
+          </button>
+        </form>
+      </div>
+      <div class="menu-hamburguer">
+        <!--Alterado para funcionamento das medias querys-->
         <input class="checkbox-menu" type="checkbox" id="checkbox-menu" />
-        <label for="checkbox-menu">
+        <label class="hamburguer" for="checkbox-menu">
           <span class="hamburguer-line"></span>
           <span></span>
           <span></span>
@@ -34,14 +44,6 @@
             </li>
           </ul>
         </nav>
-      </div>
-      <div class="search-form">
-        <form action="#" method="get" class="search-bar">
-          <input class="search-bar" type="text" name="q" placeholder="O que você procura?" />
-          <button type="submit">
-            <img class="search" src="../public/img/icons8-pesquisar.svg" />
-          </button>
-        </form>
       </div>
     </div>
     <div class="container-banner">
@@ -61,31 +63,18 @@
       </div>
     </div>
     <div>
-      <<<<<<< HEAD <ul class="banner-navbar banner-navbar-icons">
+      <ul class="banner-navbar banner-navbar-icons">
         <l1><img src="../public/img/computer.svg" alt="" /></l1>
         <l1><img src="../public/img/desktop.svg" alt="" /></l1>
         <l1><img src="../public/img/smartphone.svg" alt="" /></l1>
         <l1><img src="../public/img/accesories.svg" alt="" /></l1>
-        </ul>
-        <ul class="banner-navbar banner-navbar-links">
-          <li><a href="#">Notebook</a></li>
-          <li><a href="#">Desktop</a></li>
-          <li><a href="#">Celulares</a></li>
-          <li><a href="#">Acessórios</a></li>
-        </ul>
-        =======
-        <div id="main-banner">
-          <img src="../public/img/banner11.png" alt="">
-        </div>
-        <div>
-          <ul class="banner-navbar">
-            <li><a href="#">Notebook <img src="../public/img/computer.svg" alt=""></a></li>
-            <li><a href="#">Desktop <img src="../public/img/desktop.svg" alt=""></a></li>
-            <li><a href="#">Celulares <img src="../public/img/smartphone.svg" alt=""></a></li>
-            <li><a href="#">Acessórios <img src="../public/img/accesories.svg" alt=""></a></li>
-          </ul>
-        </div>
-        >>>>>>> 6d3df14 (Criando a branch do Thiago)
+      </ul>
+      <ul class="banner-navbar banner-navbar-links">
+        <li><a href="#">Notebook</a></li>
+        <li><a href="#">Desktop</a></li>
+        <li><a href="#">Celulares</a></li>
+        <li><a href="#">Acessórios</a></li>
+      </ul>
     </div>
     <hr />
   </header>
