@@ -15,7 +15,6 @@ header {
   position: relative;
   display: flex;
   flex-direction: column;
-  box-shadow: 1px 1px 5px 0px #7c837d;
 }
 .container {
   background: linear-gradient(
@@ -169,7 +168,7 @@ div .promo-banner {
 .promo-banner img {
   max-width: 150px;
   border-radius: 10px;
-  margin-left: 20px;
+  margin-left: auto;
 }
 
 p {
@@ -178,6 +177,7 @@ p {
   text-transform: uppercase;
   margin-bottom: 0;
   margin-top: 0;
+  text-align: left;
 }
 
 p:nth-child(2) {
@@ -206,7 +206,7 @@ p:nth-child(2) {
   gap: 10px;
 }
 .banner-navbar-links a {
-  font-size: 14px;
+  font-size: 12px;
   gap: 10px;
 }
 .banner-navbar-icons {
@@ -220,21 +220,30 @@ hr {
   background-color: #37c83d;
 }
 
+main {
+  width: 100%;
+  max-height: fit-content;
+  overflow: hidden;
+}
+
 a {
   display: inline-block;
   text-decoration: none;
   text-align: center;
-  font-size: 25px;
+  font-size: 20px;
   text-transform: uppercase;
   color: #252525;
 }
 
 .banner-offer {
-  max-width: 100%;
+  max-width: 90%;
   position: relative;
+  background-color: #dee6e0;
   border: 3px solid #252525;
   padding-top: 30px;
   border-radius: 20px;
+  margin-top: 30px;
+  margin-left: 15px;
 }
 
 .banner-offer img {
@@ -243,11 +252,11 @@ a {
   border-radius: 10px;
   padding: 30px;
 }
-.layout-products-images div {
-  width: 90%;
-  border: 3px solid #252525;
-  border-radius: 20px;
-  margin: auto;
+
+.layout-products-images {
+  max-width: 100%;
+  position: relative;
+  padding-top: 30px;
 }
 
 .layout-products-images ul {
@@ -255,16 +264,65 @@ a {
 }
 
 .layout-products-images li {
-  max-width: 100%;
+  max-width: 90%;
   margin-top: 30px;
+  margin-left: 15px;
   border: 2px solid #252525;
   border-radius: 20px;
 }
+
 .layout-products-images img {
-  max-width: 100%;
-  max-height: 100%;
-  margin-left: auto;
-  margin-right: auto;
+  max-width: 90%;
+  max-height: 80%;
+  margin-left: 15px;
+}
+footer {
+  position: relative;
+  width: 100%;
+  background-color: #7c837d;
+  display: flex;
+  flex-direction: row;
+}
+
+footer a {
+  text-align: left;
+  font-size: 5px;
+  color: #fbfbfb;
+  text-transform: uppercase;
+  transition: 0.3s ease-out;
+}
+
+.logo-footer {
+  max-width: 80px;
+  max-height: 50px;
+  left: 230px;
+}
+
+.social-media-icons {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.social-media-icons ul {
+  margin: 0;
+  padding: 0;
+}
+
+.social-media-icons li {
+  display: inline;
+}
+
+.social-media-icons img {
+  max-width: 20px;
+}
+
+footer a:hover {
+  cursor: pointer;
+}
+.images {
+  padding-top: 25px;
+  padding-left: 30px;
 }
 
 @media (min-width: 801px) {
