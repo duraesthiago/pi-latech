@@ -1,12 +1,14 @@
 html,
 body {
   font-family: "Poppins", sans-serif;
- 
 }
 li {
   list-style: none;
 }
-
+ul{
+  padding: 0;
+  margin: 0;
+}
 a {
   text-decoration: none;
 }
@@ -55,7 +57,7 @@ header {
   background-color: #7c837d;
 }
 
-.hamburguer {
+.menu-hamburguer {
   height: 100%;
   display: flex;
   justify-content: flex-end;
@@ -111,8 +113,6 @@ label span:nth-child(3) {
 #checkbox-menu:checked ~ nav {
   max-height: 100%;
 }
-
-
 
 .search-form {
   max-width: 300px;
@@ -196,7 +196,6 @@ p:nth-child(2) {
 }
 .banner-navbar-links {
   gap: 10px;
-
 }
 .banner-navbar-links a {
   font-size: 12px;
@@ -250,7 +249,6 @@ a {
   max-width: 100%;
   position: relative;
   padding-top: 30px;
-
 }
 
 .layout-products-images ul {
@@ -269,8 +267,6 @@ a {
   max-width: 90%;
   max-height: 80%;
   margin-left: 15px;
-  
- 
 }
 footer {
   position: relative;
@@ -278,11 +274,12 @@ footer {
   background-color: #7c837d;
   display: flex;
   flex-direction: row;
+  justify-content: space-evenly;
 }
 
 footer a {
   text-align: left;
-  font-size: 5px;
+  font-size: 8px;
   color: #fbfbfb;
   text-transform: uppercase;
   transition: 0.3s ease-out;
@@ -310,25 +307,149 @@ footer a {
 }
 
 .social-media-icons img {
-  max-width: 20px;
+  max-width: 17px;
 }
 
 footer a:hover {
   cursor: pointer;
 }
-.images{
-  padding-top: 25px;
-  padding-left: 30px;
+.images {
+  padding-top: 20px;
 }
 
 @media (min-width: 801px) {
   /* tablet, landscape iPad, lo-res laptops ands desktops */
+  .container {
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .logo {
+    max-width: 40%;
+    max-height: 40%;
+    margin-left: 20px;
+  }
+
+  .menu-hamburguer {
+    justify-content: space-between;
+  }
+
+  .hamburguer {
+    display: none;
+  }
+
+  .nav {
+    max-height: none;
+    top: 0;
+    position: relative;
+    float: right;
+    width: fit-content;
+    overflow: auto;
+    background: none;
+    margin-right: 20px;
+  }
+  .menu a {
+    padding: 8px;
+    color: #fbfbfb;
+    font-size: 12px;
+  }
+  .menu li {
+    font-size: 10px;
+    float: left;
+  }
+  .search-form {
+    min-width: 300px;
+    min-height: 25px;
+    font-size: 12px;
+    margin: auto;
+  }
+  button {
+    display: inline;
+    border: none;
+    background: transparent;
+  }
+
+  input::placeholder {
+    font-size: 15px;
+  }
+  .search {
+    max-width: 20px;
+    max-height: 20px;
+  }
+
+  .promo-banner img {
+    max-width: 150px;
+    border-radius: 10px;
+    margin: auto;
+    margin-right: 20px;
+  }
+
+  div .promo-banner {
+    display: block;
+    padding-left: 210px;
+  }
+
+  .banner-offer {
+    padding-left: 80px;
+    margin-left: 10px;
+    margin-right: 12px;
+  }
+
+  .banner-offer a {
+    padding-left: 15px;
+  }
+
+  .layout-products-images {
+    margin-left: 40px;
+  }
+
+  footer a {
+    font-size: 10px;
+  }
+
+  .images {
+    padding-top: 12px;
+    padding-left: 80px;
+  }
+  .logo-footer {
+    max-width: 125px;
+  }
+  .social-media-icons img {
+    max-width: 30px;
+  }
 }
 
 @media (min-width: 1025px) {
   /* big landscape tablets, laptops, and desktops */
+  .logo {
+    max-width: 50%;
+    max-height: 50%;
+    margin-left: 30px;
+  }
+
+  .search-form {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    min-width: 400px;
+    font-size: 12px;
+  }
+
+  .banner-offer {
+    padding-left: 150px;
+  }
+
+  .banner-offer a {
+    padding-left: 180px;
+  }
+
+  .layout-products-images {
+    margin-left: 70px;
+  }
 }
 
 @media (min-width: 1281px) {
   /* hi-res laptops and desktops */
+ 
 }
