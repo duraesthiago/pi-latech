@@ -62,7 +62,8 @@ header {
 .menu a:hover {
   background-color: #7c837d;
 }
-.hamburguer {
+/* Alterado para funcionamento das medias querys */
+.menu-hamburguer {
   height: 100%;
   display: flex;
   justify-content: flex-end;
@@ -192,12 +193,62 @@ hr {
   height: 2px;
   background-color: #37c83d;
 }
+
 @media (min-width: 801px) {
   /* tablet, landscape iPad, lo-res laptops ands desktops */
-}
-@media (min-width: 1025px) {
-  /* big landscape tablets, laptops, and desktops */
-}
-@media (min-width: 1281px) {
-  /* hi-res laptops and desktops */
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .logo {
+    max-width: 12%;
+    max-height: 12%;
+    height: 100%;
+    padding-top: 0px;
+    padding-left: 0px;
+    margin-left: 20px;
+  }
+  .menu-hamburguer {
+    justify-content: space-between;
+  }
+  .hamburguer {
+    display: none;
+  }
+  .nav {
+    max-height: none;
+    top: 0;
+    position: relative;
+    float: right;
+    width: fit-content;
+    overflow: auto;
+    background: none;
+    margin-right: 20px;
+  }
+  .menu a {
+    padding: 8px;
+    color: #fbfbfb;
+    text-transform: uppercase;
+  }
+  .menu li {
+    font-size: 0.75em;
+    float: left;
+  }
+  .search-form {
+    min-width: 300px;
+    font-size: 0.75em;
+    margin: 0;
+  }
+
+  @media (min-width: 1025px) {
+    /* big landscape tablets, laptops, and desktops */
+    .search-form {
+      min-width: 400px;
+      font-size: 0.75em;
+      margin: 0;
+    }
+  }
+  @media (min-width: 1281px) {
+    /* hi-res laptops and desktops */
+  }
 }
