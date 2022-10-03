@@ -327,6 +327,16 @@ hr {
 }
 @media (min-width: 1281px) {
   /* hi-res laptops and desktops */
+
+  .container {
+    background: linear-gradient(
+      135deg,
+      #fbfbfb 65%,
+      #c837c2 75%,
+      #7c837d 85%,
+      #37c83d 100%
+    );
+  }
   .search-form {
     min-width: 650px;
     min-height: 30px;
