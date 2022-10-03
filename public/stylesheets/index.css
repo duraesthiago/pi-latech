@@ -37,7 +37,7 @@ header {
   height: 100%;
   position: fixed;
   background: linear-gradient(
-    180deg,
+    135deg,
     #c837c2 0%,
     #7c837d 52.08%,
     #37c83d 100%
@@ -225,6 +225,17 @@ hr {
     background: none;
     margin-right: 20px;
   }
+
+  .container {
+    background: linear-gradient(
+      135deg,
+      #fbfbfb 45%,
+      #c837c2 75%,
+      #7c837d 85%,
+      #37c83d 100%
+    );
+  }
+
   .menu a {
     padding: 8px;
     color: #fbfbfb;
@@ -242,6 +253,16 @@ hr {
 
   @media (min-width: 1025px) {
     /* big landscape tablets, laptops, and desktops */
+
+    .container {
+      background: linear-gradient(
+        135deg,
+        #fbfbfb 65%,
+        #c837c2 75%,
+        #7c837d 85%,
+        #37c83d 100%
+      );
+    }
     .search-form {
       min-width: 400px;
       font-size: 0.75em;
