@@ -2,15 +2,19 @@ html,
 body {
   font-family: "Poppins", sans-serif;
 }
+
 li {
   list-style: none;
 }
-ul{
+
+ul {
   padding: 0;
   margin: 0;
 }
+
 a {
   text-decoration: none;
+  margin: 0;
 }
 
 header {
@@ -19,8 +23,9 @@ header {
   display: flex;
   flex-direction: column;
 }
+
 .container {
-  background: linear-gradient(180deg, #c837c2 0%, #7c837d 52.08%, #37c83d 100%);
+  background: linear-gradient(180deg, #c837c2 0%, #7c837d 52%, #37c83d 100%);
 }
 
 .logo {
@@ -29,15 +34,17 @@ header {
   padding-top: 10px;
   padding-left: 10px;
 }
+
 .nav {
   width: 100%;
   height: 100%;
   position: fixed;
-  background: linear-gradient(180deg, #c837c2 0%, #7c837d 52.08%, #37c83d 100%);
+  background: transparent;
   overflow: hidden;
   max-height: 0;
   transition: max-heigth 0.5s ease-out;
 }
+
 .menu {
   padding: 0;
 }
@@ -46,6 +53,7 @@ header {
   max-width: 20px;
   max-height: 20px;
 }
+
 .menu a {
   display: block;
   padding: 32px;
@@ -54,13 +62,14 @@ header {
 }
 
 .menu a:hover {
-  background-color: #7c837d;
+  background-color: #e7eee8;
 }
 
 .menu-hamburguer {
   height: 100%;
   display: flex;
   justify-content: flex-end;
+  padding-right: 10px;
 }
 
 #checkbox-menu {
@@ -75,15 +84,17 @@ label {
   width: 30px;
   height: 22px;
 }
+
 label span {
   position: absolute;
   display: block;
   width: 100%;
   height: 4px;
   border-radius: 30px;
-  background: greenyellow;
+  background: #37c83d;
   transition: 0.25s ease-in-out;
 }
+
 label span:nth-child(1) {
   top: 0;
 }
@@ -112,20 +123,20 @@ label span:nth-child(3) {
 
 #checkbox-menu:checked ~ nav {
   max-height: 100%;
+  position: relative;
 }
 
 .search-form {
   max-width: 300px;
-  border: 1px solid #37c83d;
+  border: 0.3px solid #37c83d;
   border-radius: 60px;
-  margin: auto;
+  margin-bottom: 4px;
+  margin-left: 30px;
   background-color: #fbfbfb;
 }
 
 input {
   min-width: 200px;
-  display: inline-block;
-  position: relative;
   border: 0;
   outline: none;
   background: transparent;
@@ -194,13 +205,16 @@ p:nth-child(2) {
   justify-content: center;
   background-color: fbfbfb;
 }
+
 .banner-navbar-links {
-  gap: 10px;
+  gap: 20px;
 }
+
 .banner-navbar-links a {
+  margin: 0;
   font-size: 12px;
-  gap: 10px;
 }
+
 .banner-navbar-icons {
   margin-top: 10px;
   gap: 40px;
@@ -214,14 +228,14 @@ hr {
 
 main {
   width: 100%;
-  max-height: fit-content;
-  overflow: hidden;
+  margin: auto;
 }
 
 a {
   display: inline-block;
   text-decoration: none;
   text-align: center;
+  margin-left: 20px;
   font-size: 20px;
   text-transform: uppercase;
   color: #252525;
@@ -231,7 +245,7 @@ a {
   max-width: 90%;
   position: relative;
   background-color: #dee6e0;
-  border: 3px solid #252525;
+  border: 1px solid #37c83d;
   padding-top: 30px;
   border-radius: 20px;
   margin-top: 30px;
@@ -239,10 +253,9 @@ a {
 }
 
 .banner-offer img {
-  max-width: 80%;
-  max-height: 80%;
-  border-radius: 10px;
-  padding: 30px;
+  max-width: 60%;
+  max-height: 60%;
+  margin-left: 15%;
 }
 
 .layout-products-images {
@@ -258,8 +271,9 @@ a {
 .layout-products-images li {
   max-width: 90%;
   margin-top: 30px;
+  margin-bottom: 20px;
   margin-left: 15px;
-  border: 2px solid #252525;
+  border: 2px solid #37c83d;
   border-radius: 20px;
 }
 
@@ -268,10 +282,11 @@ a {
   max-height: 80%;
   margin-left: 15px;
 }
+
 footer {
   position: relative;
   width: 100%;
-  background-color: #7c837d;
+  background-color: #97a499;
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
@@ -291,19 +306,28 @@ footer a {
   left: 230px;
 }
 
+.logo-footer img {
+  padding-left: 20px;
+}
+
 .social-media-icons {
   display: flex;
-  flex-direction: row;
   align-items: center;
+  justify-content: center;
+  padding-left: 15px;
 }
 
 .social-media-icons ul {
-  margin: 0;
-  padding: 0;
+  width: 130px;
+  padding-inline-start: 0;
 }
 
 .social-media-icons li {
   display: inline;
+}
+
+.social-media-icons a {
+  width: 0;
 }
 
 .social-media-icons img {
@@ -313,21 +337,32 @@ footer a {
 footer a:hover {
   cursor: pointer;
 }
+
 .images {
-  padding-top: 20px;
+  width: 130px;
+  padding-top: 8px;
 }
 
 @media (min-width: 801px) {
   /* tablet, landscape iPad, lo-res laptops ands desktops */
   .container {
+    background: linear-gradient(
+      135deg,
+      #fbfbfb 50%,
+      #c837c2 75%,
+      #7c837d 85%,
+      #37c83d 100%
+    );
     height: 60px;
     display: flex;
     justify-content: space-between;
     align-items: center;
   }
+
   .logo {
     max-width: 40%;
     max-height: 40%;
+    margin-bottom: 5px;
     margin-left: 20px;
   }
 
@@ -341,29 +376,33 @@ footer a:hover {
 
   .nav {
     max-height: none;
-    top: 0;
+    top: 15px;
     position: relative;
     float: right;
     width: fit-content;
     overflow: auto;
-    background: none;
-    margin-right: 20px;
+    background: transparent;
+    margin-right: 10px;
   }
+
   .menu a {
-    padding: 8px;
+    padding: 0;
     color: #fbfbfb;
     font-size: 12px;
   }
+
   .menu li {
     font-size: 10px;
     float: left;
   }
+
   .search-form {
     min-width: 300px;
     min-height: 25px;
     font-size: 12px;
     margin: auto;
   }
+
   button {
     display: inline;
     border: none;
@@ -373,6 +412,7 @@ footer a:hover {
   input::placeholder {
     font-size: 15px;
   }
+
   .search {
     max-width: 20px;
     max-height: 20px;
@@ -412,11 +452,13 @@ footer a:hover {
     padding-top: 12px;
     padding-left: 80px;
   }
+
   .logo-footer {
     max-width: 125px;
   }
+
   .social-media-icons img {
-    max-width: 30px;
+    max-width: 25px;
   }
 }
 
@@ -428,6 +470,16 @@ footer a:hover {
     margin-left: 30px;
   }
 
+  .container {
+    background: linear-gradient(
+      135deg,
+      #fbfbfb 65%,
+      #c837c2 75%,
+      #7c837d 85%,
+      #37c83d 100%
+    );
+  }
+
   .search-form {
     display: flex;
     align-items: center;
@@ -437,11 +489,11 @@ footer a:hover {
   }
 
   .banner-offer {
-    padding-left: 150px;
+    padding-left: 90px;
   }
 
   .banner-offer a {
-    padding-left: 180px;
+    padding-left: 100px;
   }
 
   .layout-products-images {
@@ -451,5 +503,22 @@ footer a:hover {
 
 @media (min-width: 1281px) {
   /* hi-res laptops and desktops */
- 
+  .search-form {
+    min-width: 650px;
+    min-height: 30px;
+  }
+
+  main {
+    max-width: 1200px;
+    margin: auto;
+  }
+
+  .banner-offer a {
+    padding-left: 150px;
+  }
+
+  footer{
+    justify-content: center;
+    column-gap: 230px;
+  }
 }
