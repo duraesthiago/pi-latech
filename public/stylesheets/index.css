@@ -169,8 +169,7 @@ div .promo-banner {
   align-items: center;
   justify-content: center;
   gap: 20px;
-  background: url('/public/img/milky-way-2695569_960_720.jpg')
-    no-repeat;
+  background: url('/img/milky-way-2695569_960_720.jpg') no-repeat;
   background-size: cover;
 }
 
