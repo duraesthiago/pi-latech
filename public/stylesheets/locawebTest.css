@@ -1,16 +1,5 @@
-main {
-  width: 90%;
-  height: 100vh;
-}
 
-main input {
-  min-width: 100px;
-}
-main div{
-  max-width: 320px;
-  border: 1px solid #37c83d;
-  border-radius: 6px;
-}
+
 
 .ls-cart-header {
   width: 120px;
@@ -20,6 +9,7 @@ main div{
   margin: 0;
   margin-left: 180px;
   max-height: 60px;
+  text-align: center;
 }
 
 .ls-cart-header small,
@@ -46,12 +36,19 @@ strong {
   justify-content: center;
 }
 
-.ls-no-list-style{
+.ls-no-list-style {
   max-width: 350px;
   border: #37c83d .5px solid;
+  padding: 0;
+  margin: 0;
 }
+ ul{
+  margin: 0;
+ }
+
 
 .ls-no-list-style li {
+  width: 90%;
   margin: 2px 5px;
   transition: 0.3s ease-out;
   font-size: 10px;
@@ -177,4 +174,17 @@ a:hover {
 
 .ls-cart-footer{
   background-color: rgb(255, 255, 255);
+}
+
+.ls-about-your-order{
+  border: 1px solid #37c83d;
+  border-radius: 8px;
+}
+
+.ls-about-your-order h5{
+  margin: 0;
+  text-align: center;
+}
+.ls-about-your-order tr td{
+  border: .3px solid #252525;
 }

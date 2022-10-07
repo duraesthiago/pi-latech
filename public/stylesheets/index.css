@@ -17,7 +17,7 @@ a {
   margin: 0;
 }
 
-header {
+.index-header {
   background-color: fbfbfb;
   position: relative;
   display: flex;
@@ -25,7 +25,13 @@ header {
 }
 
 .container {
-  background: linear-gradient(180deg, #c837c2 0%, #7c837d 52%, #37c83d 100%);
+  background: linear-gradient(
+    135deg,
+    #fbfbfb 65%,
+    #c837c2 75%,
+    #7f7ae9 85%,
+    #070d40 100%
+  );
 }
 
 .logo {
@@ -77,7 +83,7 @@ header {
   opacity: 0;
 }
 
-label {
+.hamburguer {
   cursor: pointer;
   position: absolute;
   top: 20px;
@@ -85,25 +91,25 @@ label {
   height: 22px;
 }
 
-label span {
+span {
   position: absolute;
   display: block;
   width: 100%;
   height: 4px;
   border-radius: 30px;
-  background: #37c83d;
+  background:  #070d40;
   transition: 0.25s ease-in-out;
 }
 
-label span:nth-child(1) {
+span:nth-child(1) {
   top: 0;
 }
 
-label span:nth-child(2) {
+span:nth-child(2) {
   top: 8px;
 }
 
-label span:nth-child(3) {
+span:nth-child(3) {
   top: 16px;
 }
 
@@ -128,36 +134,36 @@ label span:nth-child(3) {
 
 .search-form {
   max-width: 300px;
-  border: 0.3px solid #37c83d;
+  border: 0.3px solid  #3786e1;;
   border-radius: 60px;
   margin-bottom: 4px;
   margin-left: 30px;
   background-color: #fbfbfb;
 }
 
-input {
+.search-bar input {
   min-width: 200px;
   border: 0;
   outline: none;
   background: transparent;
 }
 
-input::placeholder {
+.search-bar input::placeholder {
   color: purple;
   opacity: 0.2;
 }
 
-button {
+.btn-sb {
   display: none;
 }
 
-div .container-banner {
+.container-banner {
   display: inline-block;
   max-width: 100%;
   max-height: 15%;
 }
 
-div .promo-banner {
+.promo-banner {
   max-width: 100%;
   position: relative;
   display: flex;
@@ -174,7 +180,7 @@ div .promo-banner {
   margin-left: auto;
 }
 
-p {
+.info-banner p {
   font-size: 12px;
   line-height: 1;
   text-transform: uppercase;
@@ -183,7 +189,7 @@ p {
   text-align: left;
 }
 
-p:nth-child(2) {
+.info-banner p:nth-child(2) {
   background-color: #c837c2;
   border-radius: 4px;
 }
@@ -223,15 +229,15 @@ p:nth-child(2) {
 hr {
   width: 100%;
   height: 2px;
-  background-color: #37c83d;
+  background-color: #2C3AC1;
 }
 
-main {
+.index-main main {
   width: 100%;
   margin: auto;
 }
 
-a {
+.banner-offer a {
   display: inline-block;
   text-decoration: none;
   text-align: center;
@@ -244,8 +250,8 @@ a {
 .banner-offer {
   max-width: 90%;
   position: relative;
-  background-color: #dee6e0;
-  border: 1px solid #37c83d;
+  background-color: #cee3f0;
+  border: 1px solid #3786e1;
   padding-top: 30px;
   border-radius: 20px;
   margin-top: 30px;
@@ -273,7 +279,7 @@ a {
   margin-top: 30px;
   margin-bottom: 20px;
   margin-left: 15px;
-  border: 2px solid #37c83d;
+  border: 1px solid  #3786e1;
   border-radius: 20px;
 }
 
@@ -286,13 +292,14 @@ a {
 footer {
   position: relative;
   width: 100%;
-  background-color: #97a499;
+  background-color: #ccd9f9;
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
 }
 
-footer a {
+.footer-account,
+.footer-about-us {
   text-align: left;
   font-size: 8px;
   color: #fbfbfb;
@@ -334,7 +341,8 @@ footer a {
   max-width: 17px;
 }
 
-footer a:hover {
+.footer-account,
+.footer-about-us a:hover {
   cursor: pointer;
 }
 
@@ -348,10 +356,10 @@ footer a:hover {
   .container {
     background: linear-gradient(
       135deg,
-      #fbfbfb 50%,
+      #fbfbfb 65%,
       #c837c2 75%,
-      #7c837d 85%,
-      #37c83d 100%
+      #7f7ae9 85%,
+      #070d40 100%
     );
     height: 60px;
     display: flex;
@@ -403,13 +411,13 @@ footer a:hover {
     margin: auto;
   }
 
-  button {
+  .btn-sb {
     display: inline;
     border: none;
     background: transparent;
   }
 
-  input::placeholder {
+  .search-bar input::placeholder {
     font-size: 15px;
   }
 
@@ -425,26 +433,48 @@ footer a:hover {
     margin-right: 20px;
   }
 
-  div .promo-banner {
+  .promo-banner {
     display: block;
     padding-left: 210px;
   }
 
   .banner-offer {
+    width: 75%;
     padding-left: 80px;
-    margin-left: 10px;
-    margin-right: 12px;
+    margin: 30px 60px;
   }
 
   .banner-offer a {
-    padding-left: 15px;
+    margin: 20px 30px;
+    padding-right: 100px;
+  }
+
+  .banner-offer img{
+    width: 50%;
+    height: 50%;
+    padding-bottom: 60px;
   }
 
   .layout-products-images {
     margin-left: 40px;
   }
 
-  footer a {
+  .layout-products-images li {
+    width: 330px;
+    height: 330px;
+    margin: 10px 10px;
+    display: inline-block;
+  }
+
+  .layout-products-images img {
+    width: 80%;
+    height: 80%;
+    margin: auto;
+    padding: auto;
+  }
+
+  .footer-about-us,
+  .footer-account a {
     font-size: 10px;
   }
 
@@ -475,8 +505,8 @@ footer a:hover {
       135deg,
       #fbfbfb 65%,
       #c837c2 75%,
-      #7c837d 85%,
-      #37c83d 100%
+      #7f7ae9 85%,
+      #070d40 100%
     );
   }
 
@@ -490,35 +520,52 @@ footer a:hover {
 
   .banner-offer {
     padding-left: 90px;
+    margin: 30px 90px;
   }
 
   .banner-offer a {
-    padding-left: 100px;
+    padding-right: 150px;
   }
-
+  
   .layout-products-images {
     margin-left: 70px;
   }
+  .layout-products-images li {
+    width: 230px; 
+    height: 230px;
+    margin: 10px 30px;
+  }
+  .layout-products-images img{
+    margin: 25px;
 }
 
 @media (min-width: 1281px) {
   /* hi-res laptops and desktops */
+  .index-main {
+    max-width: 1280px;
+    margin: auto;
+  }
   .search-form {
     min-width: 650px;
     min-height: 30px;
-  }
-
-  main {
-    max-width: 1200px;
-    margin: auto;
   }
 
   .banner-offer a {
     padding-left: 150px;
   }
 
-  footer{
+  .banner-offer img {
+    padding-left: 60px;
+  }
+  .layout-products-images li {
+    width: 250px;
+    height: 250px;
+    margin: 10px 10px;
+}
+ 
+  footer {
     justify-content: center;
     column-gap: 230px;
   }
+}
 }
