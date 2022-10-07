@@ -26,10 +26,9 @@ a {
 
 .container {
   background: linear-gradient(
-    135deg,
-    #fbfbfb 65%,
-    #c837c2 75%,
-    #7f7ae9 85%,
+    180deg,
+    #c837c2 0%,
+    #7f7ae9 52%,
     #070d40 100%
   );
 }
@@ -63,7 +62,7 @@ a {
 .menu a {
   display: block;
   padding: 32px;
-  color: #fbfbfb;
+  color: #252525;
   text-transform: uppercase;
 }
 
@@ -149,7 +148,7 @@ span:nth-child(3) {
 }
 
 .search-bar input::placeholder {
-  color: purple;
+  color: #252525;
   opacity: 0.2;
 }
 
@@ -209,7 +208,7 @@ span:nth-child(3) {
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  background-color: fbfbfb;
+  background-color: #fbfbfb;
 }
 
 .banner-navbar-links {
@@ -275,37 +274,39 @@ hr {
 }
 
 .layout-products-images li {
-  max-width: 90%;
-  margin-top: 30px;
-  margin-bottom: 20px;
-  margin-left: 15px;
+  width: 300px;
+  height: 300px;
+  margin: 30px;
   border: 1px solid  #3786e1;
   border-radius: 20px;
 }
 
 .layout-products-images img {
-  max-width: 90%;
-  max-height: 80%;
-  margin-left: 15px;
+  width: 80%;
+  height: 80%;
+  margin: 30px;
+  padding: auto;
 }
 
 footer {
   position: relative;
   width: 100%;
-  background-color: #ccd9f9;
+  height: 100px;
+  background-color: #cee3f0;
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
+  align-items: center;
 }
 
-.footer-account,
-.footer-about-us {
+.footer-about-us, .footer-account {
   text-align: left;
   font-size: 8px;
-  color: #fbfbfb;
+  color: #252525;
   text-transform: uppercase;
   transition: 0.3s ease-out;
 }
+
 
 .logo-footer {
   max-width: 80px;
@@ -339,11 +340,13 @@ footer {
 
 .social-media-icons img {
   max-width: 17px;
+  font-size: 10px;
 }
 
 .footer-account,
 .footer-about-us a:hover {
   cursor: pointer;
+  font-size: 8px;
 }
 
 .images {
@@ -375,6 +378,7 @@ footer {
   }
 
   .menu-hamburguer {
+    align-items: center;
     justify-content: space-between;
   }
 
@@ -390,13 +394,13 @@ footer {
     width: fit-content;
     overflow: auto;
     background: transparent;
-    margin-right: 10px;
+    margin-right: 0px;
   }
 
   .menu a {
-    padding: 0;
-    color: #fbfbfb;
-    font-size: 12px;
+    padding: 5px;
+    color: #252525;
+    font-size: 10px;
   }
 
   .menu li {
@@ -438,6 +442,11 @@ footer {
     padding-left: 210px;
   }
 
+  .banner-navbar-links {
+    gap: 40px;
+  }
+  
+
   .banner-offer {
     width: 75%;
     padding-left: 80px;
@@ -473,19 +482,24 @@ footer {
     padding: auto;
   }
 
-  .footer-about-us,
-  .footer-account a {
-    font-size: 10px;
+ .footer-about-us, .footer-account{
+    font-size: 14px;
   }
 
   .images {
+    width: 210px;
     padding-top: 12px;
-    padding-left: 80px;
+    padding-left: 30px;
   }
 
   .logo-footer {
-    max-width: 125px;
+    max-width: 130px;
+    margin-left: 8px;
   }
+
+.social-media-icons{
+  padding: 0;
+}
 
   .social-media-icons img {
     max-width: 25px;
@@ -550,8 +564,13 @@ footer {
     min-height: 30px;
   }
 
+  .banner-offer {
+    padding-left: 90px;
+    margin: 30px 110px;
+  }
+
   .banner-offer a {
-    padding-left: 150px;
+    padding-left: 120px;
   }
 
   .banner-offer img {
