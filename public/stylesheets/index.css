@@ -17,7 +17,7 @@ a {
   margin: 0;
 }
 
-header {
+.index-header {
   background-color: fbfbfb;
   position: relative;
   display: flex;
@@ -26,7 +26,7 @@ header {
 
 .container {
   background: linear-gradient(
-    135deg,
+    180deg,
     #c837c2 0%,
     #7c837d 52%,
     #2c3ac1 100%
@@ -62,7 +62,7 @@ header {
 .menu a {
   display: block;
   padding: 32px;
-  color: #fbfbfb;
+  color: #252525;
   text-transform: uppercase;
 }
 
@@ -82,7 +82,7 @@ header {
   opacity: 0;
 }
 
-label {
+.hamburguer {
   cursor: pointer;
   position: absolute;
   top: 20px;
@@ -90,7 +90,7 @@ label {
   height: 22px;
 }
 
-label span {
+span {
   position: absolute;
   display: block;
   width: 100%;
@@ -100,15 +100,15 @@ label span {
   transition: 0.25s ease-in-out;
 }
 
-label span:nth-child(1) {
+span:nth-child(1) {
   top: 0;
 }
 
-label span:nth-child(2) {
+span:nth-child(2) {
   top: 8px;
 }
 
-label span:nth-child(3) {
+span:nth-child(3) {
   top: 16px;
 }
 
@@ -140,29 +140,29 @@ label span:nth-child(3) {
   background-color: #fbfbfb;
 }
 
-input {
+.search-bar input {
   min-width: 200px;
   border: 0;
   outline: none;
   background: transparent;
 }
 
-input::placeholder {
-  color: purple;
+.search-bar input::placeholder {
+  color: #252525;
   opacity: 0.2;
 }
 
-button {
+.btn-sb {
   display: none;
 }
 
-div .container-banner {
+.container-banner {
   display: inline-block;
   max-width: 100%;
   max-height: 15%;
 }
 
-div .promo-banner {
+.promo-banner {
   max-width: 100%;
   position: relative;
   display: flex;
@@ -180,7 +180,7 @@ div .promo-banner {
   margin-left: auto;
 }
 
-p {
+.info-banner p {
   font-size: 12px;
   line-height: 1;
   text-transform: uppercase;
@@ -189,7 +189,7 @@ p {
   text-align: left;
 }
 
-p:nth-child(2) {
+.info-banner p:nth-child(2) {
   background-color: #c837c2;
   border-radius: 4px;
 }
@@ -209,7 +209,7 @@ p:nth-child(2) {
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  background-color: fbfbfb;
+  background-color: #fbfbfb;
 }
 
 .banner-navbar-links {
@@ -232,12 +232,12 @@ hr {
   background-color: #2c3ac1;
 }
 
-main {
+.index-main main {
   width: 100%;
   margin: auto;
 }
 
-a {
+.banner-offer a {
   display: inline-block;
   text-decoration: none;
   text-align: center;
@@ -284,24 +284,28 @@ a {
 }
 
 .layout-products-images img {
-  max-width: 90%;
-  max-height: 80%;
-  margin-left: 15px;
+  width: 80%;
+  height: 80%;
+  margin: 30px;
+  padding: auto;
 }
 
 footer {
   position: relative;
   width: 100%;
-  background-color: #97a499;
+  height: 100px;
+  background-color: #cee3f0;
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
+  align-items: center;
 }
 
-footer a {
+.footer-about-us,
+.footer-account {
   text-align: left;
   font-size: 8px;
-  color: #fbfbfb;
+  color: #252525;
   text-transform: uppercase;
   transition: 0.3s ease-out;
 }
@@ -338,10 +342,13 @@ footer a {
 
 .social-media-icons img {
   max-width: 17px;
+  font-size: 10px;
 }
 
-footer a:hover {
+.footer-account,
+.footer-about-us a:hover {
   cursor: pointer;
+  font-size: 8px;
 }
 
 .images {
@@ -354,7 +361,7 @@ footer a:hover {
   .container {
     background: linear-gradient(
       135deg,
-      #fbfbfb 50%,
+      #fbfbfb 65%,
       #c837c2 75%,
       #7c837d 85%,
       #2c3ac1 100%
@@ -373,6 +380,7 @@ footer a:hover {
   }
 
   .menu-hamburguer {
+    align-items: center;
     justify-content: space-between;
   }
 
@@ -388,13 +396,13 @@ footer a:hover {
     width: fit-content;
     overflow: auto;
     background: transparent;
-    margin-right: 10px;
+    margin-right: 0px;
   }
 
   .menu a {
-    padding: 0;
-    color: #fbfbfb;
-    font-size: 12px;
+    padding: 5px;
+    color: #252525;
+    font-size: 10px;
   }
 
   .menu li {
@@ -409,13 +417,13 @@ footer a:hover {
     margin: auto;
   }
 
-  button {
+  .btn-sb {
     display: inline;
     border: none;
     background: transparent;
   }
 
-  input::placeholder {
+  .search-bar input::placeholder {
     font-size: 15px;
   }
 
@@ -431,36 +439,68 @@ footer a:hover {
     margin-right: 20px;
   }
 
-  div .promo-banner {
+  .promo-banner {
     display: block;
     padding-left: 210px;
   }
 
+  .banner-navbar-links {
+    gap: 40px;
+  }
+
   .banner-offer {
+    width: 75%;
     padding-left: 80px;
-    margin-left: 10px;
-    margin-right: 12px;
+    margin: 30px 60px;
   }
 
   .banner-offer a {
-    padding-left: 15px;
+    margin: 20px 30px;
+    padding-right: 100px;
+  }
+
+  .banner-offer img {
+    width: 50%;
+    height: 50%;
+    padding-bottom: 60px;
   }
 
   .layout-products-images {
     margin-left: 40px;
   }
 
-  footer a {
-    font-size: 10px;
+  .layout-products-images li {
+    width: 330px;
+    height: 330px;
+    margin: 10px 10px;
+    display: inline-block;
+  }
+
+  .layout-products-images img {
+    width: 80%;
+    height: 80%;
+    margin: auto;
+    padding: auto;
+  }
+
+  .footer-about-us,
+  .footer-account {
+    font-size: 14px;
   }
 
   .images {
+    width: 210px;
     padding-top: 12px;
-    padding-left: 80px;
+    padding-left: 30px;
   }
 
   .logo-footer {
-    max-width: 125px;
+    max-width: 130px;
+    margin-left: 8px;
+  }
+
+  .social-media-icons {
+    padding: 0;
   }
 
   .social-media-icons img {
@@ -496,35 +536,53 @@ footer a:hover {
 
   .banner-offer {
     padding-left: 90px;
+    margin: 30px 90px;
   }
 
   .banner-offer a {
-    padding-left: 100px;
+    padding-right: 150px;
   }
 
   .layout-products-images {
     margin-left: 70px;
   }
-}
-
-@media (min-width: 1281px) {
-  /* hi-res laptops and desktops */
-  .search-form {
-    min-width: 650px;
-    min-height: 30px;
+  .layout-products-images li {
+    width: 230px;
+    height: 230px;
+    margin: 10px 30px;
+  }
+  .layout-products-images img {
+    margin: 25px;
   }
 
-  main {
-    max-width: 1200px;
-    margin: auto;
-  }
+  @media (min-width: 1281px) {
+    /* hi-res laptops and desktops */
+    .index-main {
+      max-width: 1280px;
+      margin: auto;
+    }
+    .search-form {
+      min-width: 650px;
+      min-height: 30px;
+    }
 
-  .banner-offer a {
-    padding-left: 150px;
-  }
+    .banner-offer {
+      padding-left: 120px;
+      margin: 30px 110px;
+    }
 
-  footer {
-    justify-content: center;
-    column-gap: 230px;
+    .banner-offer img {
+      padding-left: 60px;
+    }
+    .layout-products-images li {
+      width: 250px;
+      height: 250px;
+      margin: 10px 10px;
+    }
+
+    footer {
+      justify-content: center;
+      column-gap: 230px;
+    }
   }
 }
