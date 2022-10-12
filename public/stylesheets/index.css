@@ -29,7 +29,7 @@ header {
     135deg,
     #c837c2 0%,
     #7c837d 52%,
-    #37c83d 100%
+    #2c3ac1 100%
   );
 }
 
@@ -96,7 +96,7 @@ label span {
   width: 100%;
   height: 4px;
   border-radius: 30px;
-  background: #37c83d;
+  background: #2c3ac1;
   transition: 0.25s ease-in-out;
 }
 
@@ -133,7 +133,7 @@ label span:nth-child(3) {
 
 .search-form {
   max-width: 300px;
-  border: 0.3px solid #37c83d;
+  border: 0.3px solid #2c3ac1;
   border-radius: 60px;
   margin-bottom: 4px;
   margin-left: 30px;
@@ -229,7 +229,7 @@ p:nth-child(2) {
 hr {
   width: 100%;
   height: 2px;
-  background-color: #37c83d;
+  background-color: #2c3ac1;
 }
 
 main {
@@ -251,7 +251,7 @@ a {
   max-width: 90%;
   position: relative;
   background-color: #dee6e0;
-  border: 1px solid #37c83d;
+  border: 1px solid #2c3ac1;
   padding-top: 30px;
   border-radius: 20px;
   margin-top: 30px;
@@ -279,7 +279,7 @@ a {
   margin-top: 30px;
   margin-bottom: 20px;
   margin-left: 15px;
-  border: 2px solid #37c83d;
+  border: 2px solid #2c3ac1;
   border-radius: 20px;
 }
 
@@ -357,7 +357,7 @@ footer a:hover {
       #fbfbfb 50%,
       #c837c2 75%,
       #7c837d 85%,
-      #37c83d 100%
+      #2c3ac1 100%
     );
     height: 60px;
     display: flex;
@@ -482,7 +482,7 @@ footer a:hover {
       #fbfbfb 65%,
       #c837c2 75%,
       #7c837d 85%,
-      #37c83d 100%
+      #2c3ac1 100%
     );
   }
 
