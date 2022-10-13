@@ -8,17 +8,9 @@
   margin: 15px;
 }
 
-.userMenuButton {
-  display: block;
-  width: 45%;
+.user-menu button {
   height: 40px;
-  margin: 0;
-  color: #fff;
-  font-size: 12px;
-  line-height: 40px;
-  text-align: center;
-  cursor: pointer;
-  background-color: #2c3ac1;
+  width: 45%;
 }
 
 .pedidos-container {
@@ -55,12 +47,26 @@
   margin-top: 10px;
 }
 
+.user-info-form button {
+  margin: auto;
+}
+
 .produto-pedido {
   display: grid;
   grid-template-columns: 20% 80%;
   align-items: center;
   justify-content: space-around;
   padding: 2%;
+}
+
+.produto-pedido-top,
+.produto-pedido-bottom {
+  display: inline-block;
+}
+
+.produto-pedido-top p {
+  font-weight: 700;
+  text-align: right;
 }
 
 .listOfProducts {
@@ -73,11 +79,11 @@
   max-width: 100%;
 }
 
-.produto-pedido-left {
+.produto-pedido-box {
   align-items: center;
 }
 
-.produto-pedido-left p {
+.produto-pedido-box p {
   color: #2c3ac1;
   font-size: 0.8em;
   background: none;
@@ -124,4 +130,81 @@
   font-size: 0.8em;
   border: 1px solid #2c3ac1;
   border-radius: 10px;
+}
+
+.userMenuButton {
+  box-shadow: 0px 10px 14px -7px #9fb4f2;
+  border-radius: 4px;
+  border: 1px solid #4e6096;
+  cursor: pointer;
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: bold;
+  text-decoration: none;
+  text-shadow: 0px 1px 0px #283966;
+  display: block;
+  width: 80px;
+  height: 30px;
+  margin: 0;
+  text-align: center;
+  background-color: #2c3ac1;
+}
+.userMenuButton:hover {
+  background-color: #476e9e;
+}
+.userMenuButton:active {
+  position: relative;
+  top: 1px;
+}
+
+@media (min-width: 801px) {
+  /* tablet, landscape iPad, lo-res laptops ands desktops */
+
+  .produto-pedido {
+    padding: 5px;
+  }
+  .produto-pedido img {
+    width: 70%;
+    padding: 0;
+  }
+
+  .produto-pedido-top,
+  .produto-pedido-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  }
+
+  .produto-pedido-top p,
+  .produto-pedido-bottom p {
+    display: flex;
+    justify-content: center;
+    width: 100px;
+  }
+
+  .produto-pedido-top p {
+    font-weight: 700;
+  }
+
+  .user-menu {
+    display: none;
+  }
+
+  .container-user {
+    margin-left: 10%;
+    margin-right: 10%;
+  }
+
+  .user-info {
+    margin-left: 20%;
+    margin-right: 20%;
+  }
+
+  @media (min-width: 1025px) {
+    /* big landscape tablets, laptops, and desktops */
+  }
+
+  @media (min-width: 1281px) {
+    /* hi-res laptops and desktops */
+  }
 }
