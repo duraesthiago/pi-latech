@@ -9,24 +9,26 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.css"
     />
     <link rel="stylesheet" href="../public/stylesheets/index.css" />
+    <link rel="stylesheet" href="../public/stylesheets/user.css">
+
     <title>Latech</title>
   </head>
   <body>
     <header class="index-header">
       <div class="container">
         <img
-          class="logo"
-          src="../public/img/logo_latech_final.png"
-          alt="logo-latech"
+        class="logo"
+        src="../public/img/logo_latech_final.png"
+        alt="logo-latech"
         />
         <div class="search-form">
           <!-- Alterada a posição da div para funcionamento das medias queries-->
           <form action="#" method="get" class="search-bar">
             <input
-              class="search-bar"
-              type="text"
-              name="q"
-              placeholder="O que você procura?"
+            class="search-bar"
+            type="text"
+            name="q"
+            placeholder="O que você procura?"
             />
             <button class="btn-sb" type="submit">
               <img class="search" src="../public/img/icons8-pesquisar.svg" />
@@ -47,27 +49,27 @@
               <li><a href="#">Sobre nós</a></li>
               <li>
                 <a href="#"
-                  ><img
-                    src="../public/img/icons8-adicionar-usuário-masculino-50.svg"
+                ><img
+                src="../public/img/icons8-adicionar-usuário-masculino-50.svg"
                 /></a>
               </li>
               <li>
                 <a href="#"
-                  ><img
-                    src="../public/img/icons8-carrinho-de-compras-carregado-50.svg"
+                ><img
+                src="../public/img/icons8-carrinho-de-compras-carregado-50.svg"
                 /></a>
               </li>
             </ul>
           </nav>
         </div>
       </div>
-
+      
       <div class="container-banner">
         <div class="promo-banner">
           <img
-            class="promo-banner-img"
-            src="../public/img/smart-technology-devices-gradient-background-responsive-web-design-flat-vector-illustration_582267-342.jpg"
-            alt=""
+          class="promo-banner-img"
+          src="../public/img/smart-technology-devices-gradient-background-responsive-web-design-flat-vector-illustration_582267-342.jpg"
+          alt=""
           />
           <div class="info-banner">
             <p>Dia da</p>
@@ -96,51 +98,95 @@
       </div>
       <hr />
     </header>
-
-    <main class="index-main">
-      <div class="banner-offer">
-        <a href="#"> As melhores ofertas estão aqui. Até 30% de desconto </a>
-        <img src="../public/img/pexels-pixabay-40739.jpg" alt="" />
+    <main class="user-container">
+     
+      <div class="user-menu">
+        <button class="btn-user-purchase-order">Meus pedidos</button>
+        <button class="btn-user-data">Meus dados</button>
       </div>
-      <div class="layout-products-images">
-        <ul>
-          <li>
-            <a href="#"><img src="../public/img/tablet.jpg" alt="" /></a>
-          </li>
-          <li>
-            <a href="#"><img src="../public/img/celular.png" alt="" /></a>
-          </li>
-          <li>
-            <a href="#"><img src="../public/img/monitor.png" alt="" /></a>
-          </li>
-          <li>
-            <a href="#"><img src="../public/img/watch.png" alt="" /></a>
-          </li>
-          <li>
-            <a href="#"><img src="../public/img/watch.png" alt="" /></a>
-          </li>
-          <li>
-            <a href="#"><img src="../public/img/watch.png" alt="" /></a>
-          </li>
-          <li>
-            <a href="#"><img src="../public/img/watch.png" alt="" /></a>
-          </li>
-          <li>
-            <a href="#"><img src="../public/img/watch.png" alt="" /></a>
-          </li>
-          <li>
-            <a href="#"><img src="../public/img/watch.png" alt="" /></a>
-          </li>
-          <li>
-            <a href="#"><img src="../public/img/watch.png" alt="" /></a>
-          </li>
-          <li>
-            <a href="#"><img src="../public/img/watch.png" alt="" /></a>
-          </li>
-          <li>
-            <a href="#"><img src="../public/img/watch.png" alt="" /></a>
-          </li>
-        </ul>
+      <div class="order-container">
+        <h3>Meus Pedidos</h3>
+        <div class="order-list">
+          <p>Pedido:</p>
+          <p>Status:</p>
+        </div>
+        <h3>Minhas Compras</h3>
+        <div class="ordered-products-container">
+          <div class="list-of-products">
+            <div class="ordered-product">
+              <img src="../public/img/celular.png" alt="" />
+              <div class="order-info">
+                <p>Produto</p>
+                <p>Preço</p>
+                <p>Quantidade</p>
+                <p>Subtotal</p>
+              </div>
+            </div>
+          </div>
+          <div class="total-of-products">
+            <p>Valor do Frete:</p>
+            <p>Total do Pedido:</p>
+          </div>
+        </div>
+      </div>
+      <div class="user-info-container">
+        <h3>Meus dados</h3>
+        <div class="user-avatar">
+          <div class="avatar-img">
+          <label for="avatar"class="avatar-label" ></label>
+          <input type="file" name="avatar" id="avatar" class="avatar"></input>
+        </div>
+          <button class="btn-update-avatar">Editar</button>
+        </div>
+        <div class="user-form">
+          <form class="user-info-form" action="" method="POST">
+            <div class="user-form-class">
+              <label class="form-label" for="nome">Nome do usuário:</label>
+              <input
+                class="input-label"
+                type="text"
+                id="nome"
+                name="nome"
+                placeholder=""
+                value=""
+              />
+            </div>
+            <div class="user-form-class">
+              <label class="form-label" for="email">E-mail:</label>
+              <input
+                class="input-label"
+                type="email"
+                id="email"
+                name="email"
+                placeholder=""
+                value=""
+              />
+            </div>
+            <div class="user-form-class">
+              <label class="form-label" for="endereco">Endereço:</label>
+              <input
+                class="input-label"
+                type="text"
+                id="endereco"
+                name="endereco"
+                placeholder=""
+                value=""
+              />
+            </div>
+            <div class="user-form-class">
+              <label class="form-label" for="telefone">Telefone:</label>
+              <input
+                class="input-label"
+                type="text"
+                id="telefone"
+                name="telefone"
+                placeholder=""
+                value=""
+              />
+            </div>
+            <button class="btn-update">Editar</button>
+          </form>
+        </div>
       </div>
     </main>
     <footer class="index-footer">
@@ -192,3 +238,4 @@
     </footer>
   </body>
 </html>
+
