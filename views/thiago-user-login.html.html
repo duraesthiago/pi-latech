@@ -5,7 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../public/stylesheets/index.css" />
-    <link rel="stylesheet" href="../public//stylesheets/user-login.css" />
+    <link rel="stylesheet" href="/stylesheets/user-login.css">
+
     <title>Latech</title>
   </head>
   <body>
@@ -93,32 +94,51 @@
       </div>
       <hr />
     </header>
+
     <main>
-      <div class="login">
-        <div class="input-container">
-          <form action="/login" method="post">
-            <label for="input-email">Email</label>
-            <input
-              class="email"
-              type="email"
-              name="email"
-              id="input-email"
-              placeholder="digite seu email"
-            />
-            <label for="input-password">Senha</label>
-            <input
-              class="password"
-              type="password"
-              name="password"
-              id="input-password"
-              placeholder="digite sua senha"
-            />
-            <button class="btn-login" type="submit">Login</button>
-          </form>
+        <div class="login-container">
+          <div class="create-account">
+            <div class="tittle-login">Login</div>
+            <div class="login-main-container">
+              <div class="left-container">
+                <div class="signupbox">
+                  <div class="loginboxtittle">Crie sua conta</div>
+                  <form class="login-box-form" action="" method="POST">
+                    <div class="form-group">
+                      <label class="form-label" for="email">E-mail:</label>
+                      <input class="imput-label" type="text" id="email" name="email" placeholder="Digite seu e-mail"
+                        value="">
+                    </div>
+                    <button class="loginFormButton">
+                      <span>Criar minha conta</span>
+                    </button>
+                  </form>
+                </div>
+              </div>
+              <div class="right-container">
+                <div class="signupbox">
+                  <div class="loginboxtittle">Já tem uma conta?
+                    <link rel="stylesheet" href="">login</div>
+                  <form class="login-box-form" action="" method="POST">
+                    <div class="form-group">
+                      <label class="form-label" for="email">E-mail:</label>
+                      <input class="imput-label" type="text" id="email" name="email" placeholder="Digite seu e-mail"
+                        class="form-input" value="">
+                    </div>
+                    <div class="form-group">
+                      <label class="form-label" for="password" class="form-label">Senha:</label>
+                      <input class="imput-label" type="password" id="password" name="password" placeholder="" value="">
+                    </div>
+                    <button class="loginFormButton">
+                      <span>Entrar</span>
+                    </button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-        <a href="" class="remember-password">esqueceu sua senha?</a>
-      </div>
-    </main>
+      </main>
     <footer class="index-footer">
       <div class="about-us">
         <ul class="about-us">
