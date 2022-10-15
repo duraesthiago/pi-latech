@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../public/stylesheets/index.css" />
-    <link rel="stylesheet" href="../public//stylesheets/user-login.css" />
+    <link rel="stylesheet" href="../public/stylesheets/user-register.css " />
     <title>Latech</title>
   </head>
   <body>
@@ -94,9 +94,9 @@
       <hr />
     </header>
     <main>
-      <div class="login">
-        <div class="input-container">
-          <form action="/login" method="post">
+      <div class="register-account">
+        <form class="">
+          <div class="input-container">
             <label for="input-email">Email</label>
             <input
               class="email"
@@ -111,12 +111,19 @@
               type="password"
               name="password"
               id="input-password"
-              placeholder="digite sua senha"
+              placeholder="digite uma senha"
             />
-            <button class="btn-login" type="submit">Login</button>
-          </form>
-        </div>
-        <a href="" class="remember-password">esqueceu sua senha?</a>
+            <label for="input-password">Confirme sua senha</label>
+            <input
+              class="password-confirmation"
+              type="password"
+              name="password-confirmation"
+              id="input-password-confirmation"
+              placeholder="confirme a senha"
+            />
+            <button class="btn-registration" type="submit">Cadastrar-se</button>
+          </div>
+        </form>
       </div>
     </main>
     <footer class="index-footer">
