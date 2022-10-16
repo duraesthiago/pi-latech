@@ -1,0 +1,123 @@
+:root {
+    --pink-degrade: #c837c2;
+    --ligth-lilac: #7f7ae9;
+    --ultra-ligth-blue: #cee3f0;
+    --ligth-blue: #3786e1;
+    --medium-blue: #2c3ac1;
+    --dark-blue: #070d40;
+    --dark-gray: #252525;
+    --dust-white: #fbfbfb;
+  }
+  .filters{
+    border: 1px solid var(--pink-degrade);
+    border-radius: 8px;
+    margin: 10px;
+  }
+   .filter-head > h3 {
+    margin:0px 10px;
+    text-transform: capitalize;
+    color: var(--medium-blue);
+   }
+   .gadget, .price, .brand, h5 {
+    margin: 10px 10px;
+    color: var(--medium-blue);
+    font-weight: bold;
+    font-size: 20px;
+   }
+
+   .gadget, .price, .brand, label {
+    font-size: 14px;
+    font-weight: normal;
+    margin: 10px;
+   }
+
+   input[type=checkbox]{
+    background-color:  var(--ultra-ligth-blue);
+    }
+
+  .filtered-products-images img{
+    width: 300px;
+    height: 300px;
+    border: 1px solid var(--pink-degrade);
+    border-radius: 8px;
+    margin: 10px;
+  }
+
+  .filtered-products-images li{
+    border: 1px solid var(--pink-degrade);
+    border-radius: 8px;
+    margin: 10px;
+  }
+
+  .filtered-products-images article{
+    margin: 10px;
+    color: var(--medium-blue);
+    line-height: 14px;
+  }
+
+  .filtered-products-images article :nth-child(2){
+    font-weight: bold;
+    
+  }
+  @media(min-width:801px){
+    .filter-container{
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+    }
+    .filters{
+     max-width: 200px;
+    }
+
+    .filtered-images{
+      margin-left: 20px;
+    }
+    .filtered-products-images img{
+      width: 390px;
+      height: 390px;
+      margin: 10px;
+    }
+  
+    .filtered-products-images li{
+      width: 410px;
+      height: 510px;
+      border: 1px solid var(--pink-degrade);
+      border-radius: 8px;
+      margin: 10px;
+    }  
+  }
+
+  @media(min-width:1025px){
+
+}
+
+  @media(min-width:1245px){
+    .filter-container{
+      margin: 40px;
+      justify-content: space-between;
+    }
+
+.filtered-images{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+    .filtered-products-images img{
+      width: 200px;
+      height: 200px;
+      margin-top: 50px;
+      margin-left: 50px;
+    }
+  
+    .filtered-products-images li{
+      width: 300px;
+      height: 350px;
+      border: 1px solid var(--pink-degrade);
+      border-radius: 8px;
+      margin: 10px;
+    }  
+}
+  
+
+  
