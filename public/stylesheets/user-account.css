@@ -249,6 +249,12 @@ input[type="file"] {
 }
 
 @media (min-width: 1281px) {
+  .user-container{
+    max-width: 1000px;
+    margin: 100px 200px;
+    
+  }
+
   .order-container {
     font-size: 20px;
   }

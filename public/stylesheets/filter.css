@@ -93,15 +93,15 @@
 
   @media(min-width:1245px){
     .filter-container{
-      margin: 40px;
+      margin: 40px 200px;
       justify-content: space-between;
     }
 
-.filtered-images{
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-}
+  .filtered-images{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
 
     .filtered-products-images img{
       width: 200px;
