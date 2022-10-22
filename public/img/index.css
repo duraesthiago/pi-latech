@@ -13,7 +13,7 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
 
@@ -146,11 +146,11 @@ span:nth-child(3) {
 }
 
 .search-form {
-  max-width: 270px;
+  max-width: 300px;
   border: 0.3px solid var(--ligth-blue);
   border-radius: 60px;
   margin-bottom: 4px;
-  margin-left: 32px;
+  margin-left: 30px;
   background-color: var(--dust-white);
 }
 
@@ -183,8 +183,7 @@ span:nth-child(3) {
   align-items: center;
   justify-content: center;
   gap: 20px;
-  background: url('/public/img/milky-way-2695569_960_720.jpg')
-    no-repeat;
+  background: url("/public/img/milky-way-2695569_960_720.jpg") no-repeat;
   background-size: cover;
 }
 
@@ -434,7 +433,6 @@ footer {
     display: inline;
     border: none;
     background: transparent;
-    margin-left: 60px ;
   }
 
   .search-bar input::placeholder {
@@ -472,7 +470,7 @@ footer {
     padding-right: 100px;
   }
 
-  .banner-offer img  {
+  .banner-offer img {
     width: 50%;
     height: 50%;
     padding-bottom: 60px;
@@ -512,9 +510,9 @@ footer {
     margin-left: 8px;
   }
 
-    .social-media-icons  {
-      padding: 0;
-    }
+  .social-media-icons {
+    padding: 0;
+  }
 
   .social-media-icons img {
     max-width: 25px;
@@ -547,10 +545,6 @@ footer {
     font-size: 12px;
   }
 
-  .btn-sb {
-    margin-left: 150px;
-  }
-
   .banner-offer {
     padding-left: 90px;
     margin: 30px 90px;
@@ -568,29 +562,25 @@ footer {
     height: 230px;
     margin: 32px
   }
-  .layout-products-images img  {
+  .layout-products-images img {
     margin: 25px;
+  }
+
+  @media (min-width: 1281px) {
+    /* hi-res laptops and desktops */
+    .index-main {
+      max-width: 1280px;
+      margin: auto;
+    }
+    .search-form {
+      min-width: 650px;
+      min-height: 30px;
     }
 
-    @media (min-width: 1281px) {
-      /* hi-res laptops and desktops */
-      .index-main {
-        max-width: 1280px;
-        margin: auto;
-      }
-      .search-form {
-        min-width: 650px;
-        min-height: 30px;
-      }
-
-    .btn-sb {
-      margin-left: 400px;
+    .banner-offer {
+      padding-left: 90px;
+      margin: 30px 110px;
     }
-
-      .banner-offer {
-        padding-left: 120px;
-        margin: 30px 110px;
-      }
 
     .banner-offer a {
       padding-left: 120px;
