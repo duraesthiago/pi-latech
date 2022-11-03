@@ -4,8 +4,8 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
     <link rel="stylesheet" href="../public/stylesheets/index.css" />
+    <link rel="stylesheet" href="../public/stylesheets/filter.css">
     <title>Latech</title>
   </head>
   <body>
@@ -93,51 +93,92 @@
       </div>
       <hr />
     </header>
-
-    <main class="index-main">
-      <div class="banner-offer">
-        <a href="#"> As melhores ofertas estão aqui. Até 30% de desconto </a>
-        <img src="../public/img/pexels-pixabay-40739.jpg" alt="" />
-      </div>
-      <div class="layout-products-images">
-        <ul>
-          <li>
-            <a href="#"><img src="../public/img/tablet.jpg" alt="" /></a>
-          </li>
-          <li>
-            <a href="#"><img src="../public/img/celular.png" alt="" /></a>
-          </li>
-          <li>
-            <a href="#"><img src="../public/img/monitor.png" alt="" /></a>
-          </li>
-          <li>
-            <a href="#"><img src="../public/img/watch.png" alt="" /></a>
-          </li>
-          <li>
-            <a href="#"><img src="../public/img/watch.png" alt="" /></a>
-          </li>
-          <li>
-            <a href="#"><img src="../public/img/watch.png" alt="" /></a>
-          </li>
-          <li>
-            <a href="#"><img src="../public/img/watch.png" alt="" /></a>
-          </li>
-          <li>
-            <a href="#"><img src="../public/img/watch.png" alt="" /></a>
-          </li>
-          <li>
-            <a href="#"><img src="../public/img/watch.png" alt="" /></a>
-          </li>
-          <li>
-            <a href="#"><img src="../public/img/watch.png" alt="" /></a>
-          </li>
-          <li>
-            <a href="#"><img src="../public/img/watch.png" alt="" /></a>
-          </li>
-          <li>
-            <a href="#"><img src="../public/img/watch.png" alt="" /></a>
-          </li>
-        </ul>
+    <main>
+      <div class="filter-container">
+        <section class="filters">
+          <div class="filter-head">
+            <img src="" alt="" />
+            <h3>filtrar por</h3>
+          </div>
+          <div class="gadget">
+            <h5>categoria</h5>
+            <input type="checkbox" id="" name="cell" />
+            <label for="">celular</label><br />
+            <input type="checkbox" />
+            <label for="">tablet</label><br />
+            <input type="checkbox" />
+            <label for="">desktop</label><br />
+            <input type="checkbox" />
+            <label for="">notebook</label><br />
+            <input type="checkbox" />
+            <label for="">monitor</label><br />
+            <input type="checkbox" />
+            <label for="">acessorios</label><br />
+          </div>
+          <div class="price">
+            <h5>preço</h5>
+            <input type="checkbox" />
+            <label for="até R$500,00">até R$ 500,00 </label><br />
+            <input type="checkbox" />
+            <label for="até R$500,00">de R$ 500,00 à R$ 1.500,00 </label><br />
+            <input type="checkbox" />
+            <label for="até R$500,00">de R$ 1.500,00 à R$ 3.000,00</label><br />
+            <input type="checkbox" />
+            <label for="até R$500,00">de R$3.000,00 até R$ 5.000,00</label
+            ><br />
+            <input type="checkbox" />
+            <label for="até R$500,00">acima de R$ 5.000,00 </label><br />
+          </div>
+          <div class="brand">
+            <h5>marca</h5>
+            <input type="checkbox" />
+            <label for="apple">apple</label><br />
+            <input type="checkbox" />
+            <label for="sansung">sansung</label><br />
+            <input type="checkbox" />
+            <label for="dell">dell</label><br />
+            <input type="checkbox" />
+            <label for="motorolla">motorolla</label><br />
+            <input type="checkbox" />
+            <label for="lg">LG</label><br />
+          </div>
+        </section>
+        <section class="filtered-products-images">
+          <ul class="filtered-images">
+            <li>
+              <a href="">
+                <img
+                  src="../public//img/dell-gen-snp-all-monitos-s2721h_cfp_00025lf095_gy-800x620-right-facing-us.webp"
+                  alt=""
+              /></a>
+              <article>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
+                <p>R$ 9999,99</p>   
+              </article>
+            </li>
+            <li>
+              <a href=""> <img src="../public/img/dell-powerstore-base-bezel-rf-1023x842.webp" alt="" /></a>
+              <article>
+              <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
+              <p>R$ 9999,99</p>   
+            </article>
+            </li>
+            <li>
+              <a href=""> <img src="../public/img/pexels-jess-bailey-designs-788946.jpg" alt="" /></a>
+              <article>
+              <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
+              <p>R$ 9999,99</p>   
+            </article>
+            </li>
+            <li>
+              <a href=""> <img src="../public/img/pexels-ann-poan-5797997.jpg" alt="" /></a>
+              <article>
+              <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
+              <p>R$ 9999,99</p>   
+            </article>
+            </li>
+          </ul>
+        </section>
       </div>
     </main>
     <footer class="index-footer">

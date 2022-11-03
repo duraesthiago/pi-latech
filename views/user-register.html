@@ -4,8 +4,8 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
     <link rel="stylesheet" href="../public/stylesheets/index.css" />
+    <link rel="stylesheet" href="../public/stylesheets/user-register.css " />
     <title>Latech</title>
   </head>
   <body>
@@ -93,51 +93,37 @@
       </div>
       <hr />
     </header>
-
-    <main class="index-main">
-      <div class="banner-offer">
-        <a href="#"> As melhores ofertas estão aqui. Até 30% de desconto </a>
-        <img src="../public/img/pexels-pixabay-40739.jpg" alt="" />
-      </div>
-      <div class="layout-products-images">
-        <ul>
-          <li>
-            <a href="#"><img src="../public/img/tablet.jpg" alt="" /></a>
-          </li>
-          <li>
-            <a href="#"><img src="../public/img/celular.png" alt="" /></a>
-          </li>
-          <li>
-            <a href="#"><img src="../public/img/monitor.png" alt="" /></a>
-          </li>
-          <li>
-            <a href="#"><img src="../public/img/watch.png" alt="" /></a>
-          </li>
-          <li>
-            <a href="#"><img src="../public/img/watch.png" alt="" /></a>
-          </li>
-          <li>
-            <a href="#"><img src="../public/img/watch.png" alt="" /></a>
-          </li>
-          <li>
-            <a href="#"><img src="../public/img/watch.png" alt="" /></a>
-          </li>
-          <li>
-            <a href="#"><img src="../public/img/watch.png" alt="" /></a>
-          </li>
-          <li>
-            <a href="#"><img src="../public/img/watch.png" alt="" /></a>
-          </li>
-          <li>
-            <a href="#"><img src="../public/img/watch.png" alt="" /></a>
-          </li>
-          <li>
-            <a href="#"><img src="../public/img/watch.png" alt="" /></a>
-          </li>
-          <li>
-            <a href="#"><img src="../public/img/watch.png" alt="" /></a>
-          </li>
-        </ul>
+    <main>
+      <div class="register-account">
+        <form class="">
+          <div class="input-container">
+            <label for="input-email">Email</label>
+            <input
+              class="email"
+              type="email"
+              name="email"
+              id="input-email"
+              placeholder="digite seu email"
+            />
+            <label for="input-password">Senha</label>
+            <input
+              class="password"
+              type="password"
+              name="password"
+              id="input-password"
+              placeholder="digite uma senha"
+            />
+            <label for="input-password">Confirme sua senha</label>
+            <input
+              class="password-confirmation"
+              type="password"
+              name="password-confirmation"
+              id="input-password-confirmation"
+              placeholder="confirme a senha"
+            />
+            <button class="btn-registration" type="submit">Cadastrar-se</button>
+          </div>
+        </form>
       </div>
     </main>
     <footer class="index-footer">
