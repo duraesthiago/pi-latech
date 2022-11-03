@@ -4,31 +4,37 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.css"
-    />
     <link rel="stylesheet" href="../public/stylesheets/index.css" />
-    <link rel="stylesheet" href="../public/stylesheets/cart.css">
+    <link rel="stylesheet" href="../public/stylesheets/cart.css" />
+
     <title>Latech</title>
   </head>
 
   <body>
-    <header>
+    <header class="index-header">
       <div class="container">
-        <img class="logo" src="../public/img/logo_latech_final.png" alt="logo-latech" />
+        <img
+          class="logo"
+          src="../public/img/logo_latech_final.png"
+          alt="logo-latech"
+        />
         <div class="search-form">
-            <!-- Alterada a posição da div para funcionamento das medias queries-->
-            <form action="#" method="get" class="search-bar">
-                <input class="search-bar" type="text" name="q" placeholder="O que você procura?" />
-                <button type="submit">
-                    <img class="search" src="../public/img/icons8-pesquisar.svg" />
-                </button>
-            </form>
+          <!-- Alterada a posição da div para funcionamento das medias queries-->
+          <form action="#" method="get" class="search-bar">
+            <input
+              class="search-bar"
+              type="text"
+              name="q"
+              placeholder="O que você procura?"
+            />
+            <button class="btn-sb" type="submit">
+              <img class="search" src="../public/img/icons8-pesquisar.svg" />
+            </button>
+          </form>
         </div>
         <div class="menu-hamburguer">
           <input class="checkbox-menu" type="checkbox" id="checkbox-menu" />
-          <label class="hamburguer"  for="checkbox-menu">
+          <label class="hamburguer" for="checkbox-menu">
             <span class="hamburguer-line"></span>
             <span></span>
             <span></span>
@@ -52,8 +58,6 @@
               </li>
             </ul>
           </nav>
-        </div>
-       
         </div>
       </div>
       <div class="container-banner">
@@ -90,64 +94,278 @@
       </div>
       <hr />
     </header>
+
     <main>
-<h2>
-  Carrinho de Compras
-</h2>
-<section>
-<div>
-  <p>Item</p>
-  <img src="">
-  <p>Preço $</p>
-<p></p>
-</div> 
-</div> 
-<div>
-  <p>Qtd</p>
-  <select name="Qtd" id="qtd"></select>
-</div>
-<div>Subtotal</div> 
-<button name="keepBuying" type="submit">Continue Comprando</button>
-<button name="cleanCart" type="reset">Limpar o carrinho</button>
-</section>
-</div>
-<section>
-  <h4>
-    Resumo
-  </h4>
-<button class="purchaseOrder">Finalizar compra</button>
-</section>
-    </main>
-    <footer>
-        <div class="about-us">
-          <ul class="about-us">
-            <li><a href="#">quem somos</a></li>
-            <li><a href="#">notícia</a></li>
-            <li><a href="#">politicas de privacidade</a></li>
+      <div class="ls-cart">
+        <header class="ls-cart-header">
+          <input type="checkbox" class="ls-checkbox-cart" />
+          <span class="ls-ico-cart ls-float-left"></span>
+          <small>MEU CARRINHO</small><br />
+          <strong>4 produto(s)</strong>
+        </header>
+        <div class="ls-cart-content">
+          <ul class="ls-no-list-style">
+            <li>
+              <a href="#">
+                <h4 class="ls-title-product"><strong>01</strong>celular</h4>
+                <img src="../public/img/celular.png" alt="" />
+                <p>(descrição)</p>
+              </a>
+              <p>Preço: R$</p>
+              <div class="cart-btn-label">
+                <label>quantidade:</label>
+                <div class="cart-btn">
+                  <button class="cart-btn-minus">
+                    <svg
+                      width="16"
+                      height="2"
+                      viewBox="0 0 16 2"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        clip-rule="evenodd"
+                        d="M0 1A.75.75 0 01.75.25h14.5a.75.75 0 010 1.5H.75A.75.75 0 010 1z"
+                        fill="#333"
+                      ></path>
+                    </svg></button
+                  ><input
+                    type="number"
+                    name="selector-quantity-input"
+                    autocomplete="off"
+                    class="cart-btn-input"
+                    value="1"
+                  />
+                  <div class="cart-btn-unidade">1</div>
+                  <button class="cart-btn-plus">
+                    <svg
+                      viewBox="0 0 16 16"
+                      aria-labelledby="plusSymbolRoundedIcon plusSymbolRoundedDesc"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        clip-rule="evenodd"
+                        d="M8 0a.75.75 0 00-.75.75v6.5H.75a.75.75 0 000 1.5h6.5v6.5a.75.75 0 001.5 0v-6.5h6.5a.75.75 0 000-1.5h-6.5V.75A.75.75 0 008 0z"
+                        fill="inherit"
+                      ></path>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </li>
+            <li>
+              <a href="#">
+                <h4 class="ls-title-product"><strong>01</strong>celular</h4>
+                <img src="../public/img/celular.png" alt="" />
+                <p>(descrição)</p>
+              </a>
+              <p>Preço: R$</p>
+              <div class="cart-btn-label">
+                <label>quantidade:</label>
+                <div class="cart-btn">
+                  <button class="cart-btn-minus">
+                    <svg
+                      width="16"
+                      height="2"
+                      viewBox="0 0 16 2"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        clip-rule="evenodd"
+                        d="M0 1A.75.75 0 01.75.25h14.5a.75.75 0 010 1.5H.75A.75.75 0 010 1z"
+                        fill="#333"
+                      ></path>
+                    </svg></button
+                  ><input
+                    type="number"
+                    name="selector-quantity-input"
+                    autocomplete="off"
+                    class="cart-btn-input"
+                    value="1"
+                  />
+                  <div class="cart-btn-unidade">1</div>
+                  <button class="cart-btn-plus">
+                    <svg
+                      viewBox="0 0 16 16"
+                      aria-labelledby="plusSymbolRoundedIcon plusSymbolRoundedDesc"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        clip-rule="evenodd"
+                        d="M8 0a.75.75 0 00-.75.75v6.5H.75a.75.75 0 000 1.5h6.5v6.5a.75.75 0 001.5 0v-6.5h6.5a.75.75 0 000-1.5h-6.5V.75A.75.75 0 008 0z"
+                        fill="inherit"
+                      ></path>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </li>
+            <li>
+              <a href="#">
+                <h4 class="ls-title-product"><strong>01</strong>celular</h4>
+                <img src="../public/img/celular.png" alt="" />
+                <p>(descrição)</p>
+              </a>
+              <p>Preço: R$</p>
+              <div class="cart-btn-label">
+                <label>quantidade:</label>
+                <div class="cart-btn">
+                  <button class="cart-btn-minus">
+                    <svg
+                      width="16"
+                      height="2"
+                      viewBox="0 0 16 2"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        clip-rule="evenodd"
+                        d="M0 1A.75.75 0 01.75.25h14.5a.75.75 0 010 1.5H.75A.75.75 0 010 1z"
+                        fill="#333"
+                      ></path>
+                    </svg></button
+                  ><input
+                    type="number"
+                    name="selector-quantity-input"
+                    autocomplete="off"
+                    class="cart-btn-input"
+                    value="1"
+                  />
+                  <div class="cart-btn-unidade">1</div>
+                  <button class="cart-btn-plus">
+                    <svg
+                      viewBox="0 0 16 16"
+                      aria-labelledby="plusSymbolRoundedIcon plusSymbolRoundedDesc"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        clip-rule="evenodd"
+                        d="M8 0a.75.75 0 00-.75.75v6.5H.75a.75.75 0 000 1.5h6.5v6.5a.75.75 0 001.5 0v-6.5h6.5a.75.75 0 000-1.5h-6.5V.75A.75.75 0 008 0z"
+                        fill="inherit"
+                      ></path>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </li>
+            <li>
+              <a href="#">
+                <h4 class="ls-title-product"><strong>01</strong>celular</h4>
+                <img src="../public/img/celular.png" alt="" />
+                <p>(descrição)</p>
+              </a>
+              <p>Preço: R$</p>
+              <div class="cart-btn-label">
+                <label>quantidade:</label>
+                <div class="cart-btn">
+                  <button class="cart-btn-minus">
+                    <svg
+                      width="16"
+                      height="2"
+                      viewBox="0 0 16 2"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        clip-rule="evenodd"
+                        d="M0 1A.75.75 0 01.75.25h14.5a.75.75 0 010 1.5H.75A.75.75 0 010 1z"
+                        fill="#333"
+                      ></path>
+                    </svg></button
+                  ><input
+                    type="number"
+                    name="selector-quantity-input"
+                    autocomplete="off"
+                    class="cart-btn-input"
+                    value="1"
+                  />
+                  <div class="cart-btn-unidade">1</div>
+                  <button class="cart-btn-plus">
+                    <svg
+                      viewBox="0 0 16 16"
+                      aria-labelledby="plusSymbolRoundedIcon plusSymbolRoundedDesc"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        clip-rule="evenodd"
+                        d="M8 0a.75.75 0 00-.75.75v6.5H.75a.75.75 0 000 1.5h6.5v6.5a.75.75 0 001.5 0v-6.5h6.5a.75.75 0 000-1.5h-6.5V.75A.75.75 0 008 0z"
+                        fill="inherit"
+                      ></path>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </li>
           </ul>
+          <div class="btn-delivey-shipp">
+            <input
+              class="btn-zip-code"
+              type="text"
+              placeholder="digite o CEP"
+            />
+            <input class="btn-zip-code-submit" type="submit" />
+          </div>
+          <div class="ls-about-your-order">
+            <h5>resumo do pedido</h5>
+            <a href="">
+              <img src="" alt="" />
+              <p>(nome do produto):</p>
+              <p>(qtidade):</p>
+              <p>R$(valor unitário):</p>
+              <p>R$(total):</p>
+            </a>
+            <p>R$(frete):</p>
+            <hr />
+            <p>R$(total a pagar): R$</p>
+          </div>
+          <section class="ls-cart-footer ls-txt-center">
+            <a href="#" class="ls-btn-primary">Finalizar Compra</a>
+          </section>
         </div>
-        <div class="account">
-          <ul class="account">
-            <li><a href="#">minha conta</a></li>
-            <li><a href="#">meus produtos</a></li>
-            <li><a href="#">status do pedido</a></li>
-          </ul>
-        </div>
-        <div class="images">
-  <div class="logo-footer">
-        <img
-          class="logo-footer"
-          src="../public/img/logo_latech_final.png"
-          alt="logo-latech"
-        />
       </div>
+    </main>
+
+    <footer class="index-footer">
+      <div class="about-us">
+        <ul class="about-us">
+          <li><a class="footer-about-us" href="#">quem somos</a></li>
+          <li><a class="footer-about-us" href="#">notícia</a></li>
+          <li>
+            <a class="footer-about-us" href="#">politicas de privacidade</a>
+          </li>
+        </ul>
+      </div>
+      <div class="account">
+        <ul class="account">
+          <li><a class="footer-account" href="#">minha conta</a></li>
+          <li><a class="footer-account" href="#">meus produtos</a></li>
+          <li><a class="footer-account" href="#">status do pedido</a></li>
+        </ul>
+      </div>
+      <div class="images">
+        <div class="logo-footer">
+          <img
+            class="logo-footer"
+            src="../public/img/logo_latech_final.png"
+            alt="logo-latech"
+          />
+        </div>
         <div class="social-media-icons">
           <ul class="icons">
             <li>
-              <a href="#"><img src="../public/img/icons8-facebook (1).svg" /></a>
+              <a href="#"
+                ><img src="../public/img/icons8-facebook.svg"
+              /></a>
             </li>
             <li>
-              <a href="#"><img src="../public/img/icons8-instagram (1).svg" /></a>
+              <a href="#"
+                ><img src="../public/img/icons8-instagram.svg"
+              /></a>
             </li>
             <li>
               <a href="#"><img src="../public/img/icons8-twitter.svg" /></a>
@@ -158,6 +376,6 @@
           </ul>
         </div>
       </div>
-      </footer>
-    </body>
-  </html>
+    </footer>
+  </body>
+</html>
