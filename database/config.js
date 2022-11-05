@@ -9,4 +9,4 @@ const config = {
   database: process.env.DBNAME
 }
 
-module.exports = config - teste;
+module.exports = config;
