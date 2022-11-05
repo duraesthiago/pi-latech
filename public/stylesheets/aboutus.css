@@ -1,0 +1,17 @@
+.aboutUs-tittle h1{
+    font-family: 'Oswald', sans-serif;
+    font-weight: bold ;
+    color: var(--dark-blue)
+      
+
+}
+.aboutUs-article{
+    font-size: 24px;
+    border: 2px;
+    border-radius: 16px;
+    border-color: var(--dark-blue);
+    text-align: center;
+    margin: auto;
+    padding:20px;
+    background-color: blueviolet;
+}
