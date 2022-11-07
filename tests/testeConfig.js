@@ -2,7 +2,7 @@ const sequelize = require('sequelize');
 // 2 - Criar um objeto contendo os dados da conexão
 const config = {
     username: "root",
-    password: "Balam22",
+    password: "",
     host: "localhost",
     port: 3306,
     dialect: "mysql",
