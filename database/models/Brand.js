@@ -1,30 +1,32 @@
-module.exports = function (sequelize, dataTypes) {
-    ;
-    let alias = "Brand";
+module.exports = (sequelize, DataTypes) => {
 
-    let cols = {
-        id: {
-            type: dataTypes.INTEGER,
-            primaryKey: true,
-            autoIncrement: true,
-            allowNull: false
+    let Brand = sequelize.define(
+        "Brand", 
+        {
+            id: {
+                type: DataTypes.INTEGER,
+                primaryKey: true,
+                autoIncrement: true,
+                allowNull: false
+                },
+                name: {
+                type: DataTypes.STRING,
+                allowNull: false
+                }
         },
-        name: {
-            type: dataTypes.STRING,
-            allowNull: false
+        {
+          tableName: "brands",
+          timestamps: false,
+          paranoid: false
+
         }
-    };
+        
+    )
 
-    let config = {
-        tableName: "brand",
-        timestamps: false
-    }
+    // Brand.associate = function(models){  
+    // Brand.hasMany(models.Product,{as:"fk_product_brand", foreignKey:"Marcas_id"});  
+    // Brand.hasMany(models.Image,{as:"image", foreignKey:"Marcas_idMarcas"})
+    // }
 
-    let Brand = sequelize.define(alias, cols, config);
-
-    //Brand.associate = function(models){  
-    // Brand.hasMany(models.Product,{as:"fk_product_brand", foreignKey:"brand_id"});  
-    // Brand.hasMany(models.Image,{as:"fk_image_brand", foreignKey:"brand_id"})
-    //}
     return Brand;
 }
