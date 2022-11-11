@@ -1,44 +1,45 @@
 module.exports = (sequelize, DataTypes) => {
 
-    let product = sequelize.define(
+    let Product = sequelize.define(
         "Product",
         {
-            id: {
+            idProdutos: {
                 type: DataTypes.INTEGER,
                 autoIncrement: true,
                 primaryKey: true,
-                allowNull: true
+                allowNull: false
             },
-            name: {
+            Nome_Produto: {
                 type: DataTypes.STRING,
-                allowNull: true
+                allowNull: false
             },
-            code: { type: DataTypes.STRING },
-            price: { type: DataTypes.DECIMAL },
-            category_id: { type: DataTypes.INTEGER },
-            brand_id: { type: DataTypes.INTEGER },
+            Codigo_Produto: { type: DataTypes.STRING },
+            Preco: { type: DataTypes.DECIMAL },
+            Categorias_id: { type: DataTypes.INTEGER },
+            Marcas_id: { type: DataTypes.INTEGER }
         },
         {
-            tableName: "product",
+            tableName: "products",
             timestamps: false,
             paranoid: false
         }
     )
-    // product.associate = (models)=>{
-    //     product.belongsTo(models.Brand, {foreignKey:'brand_id', as: 'fk_product_brand'});
-    //     product.belongsTo(models.Category, {foreignKey:'category_id', as: 'fk_product_category'})
-    //     product.belongsToMany(
-    //         models.Order,
+    // Product.associate = (models)=>{
+    //     Product.belongsTo(models.Brand, {foreignKey:'Marcas_id', as: 'brands'});
+    //     Product.belongsTo(models.Category, {foreignKey:'Categorias_id', as: 'categories'})
+    //     Product.hasMany(models.Image, {foreignKey:'Produtos_idProdutos', as: 'images'})
+    //     Product.belongsToMany(
+    //         models.Purchase,
     //         {
-    //             as: 'fk_product_has_order_product',
-    //             through: 'fk_product_has_order_order',
-    //             foreignKey: 'product_id',
-    //             otherKey: 'order_id',
+    //             as: 'purchases',
+    //             through: 'products_has_purchases',
+    //             foreignKey: 'Produtos_idProdutos',
+    //             otherKey: 'Pedidos_idPedidos',
     //             timestamps: false
     //         }
     //     );
     // }
 
-    return product;
+    return Product;
 
 }
