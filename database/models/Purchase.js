@@ -39,20 +39,20 @@ module.exports = (sequelize, DataTypes) => {
         }
         
     )
-    // Purchase.associate = (models)=>{
-    // Purchase.belongsTo(models.Client, {foreignKey:'Clientes_idClientes', as: 'clients'})
-    //    Purchase.belongsToMany(
-    //         models.Product,
-    //         {
-    //             as: 'Product',
-    //             through: 'products_has_purchases',
-    //             foreignKey: 'Pedidos_idPedidos',
-    //             otherKey: 'Produtos_idProdutos',
-    //             timestamps: false
-    //         }
-    //     );
+    Purchase.associate = (models)=>{
+    Purchase.belongsTo(models.Client, {foreignKey:'Clientes_idClientes', as: 'clients'})
+       Purchase.belongsToMany(
+            models.Product,
+            {
+                as: 'products',
+                through: 'products_has_purchases',
+                foreignKey: 'Pedidos_idPedidos',
+                otherKey: 'Produtos_idProdutos',
+                timestamps: false
+            }
+        );
         
-    // }
+    }
     return Purchase
 }
     
