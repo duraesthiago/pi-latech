@@ -3,13 +3,13 @@ module.exports = (sequelize, DataTypes) => {
     let Brand = sequelize.define(
         "Brand", 
         {
-            id: {
+            idMarcas: {
                 type: DataTypes.INTEGER,
                 primaryKey: true,
                 autoIncrement: true,
                 allowNull: false
                 },
-                name: {
+                Marca: {
                 type: DataTypes.STRING,
                 allowNull: false
                 }
@@ -23,10 +23,10 @@ module.exports = (sequelize, DataTypes) => {
         
     )
 
-    // Brand.associate = function(models){  
-    // Brand.hasMany(models.Product,{as:"fk_product_brand", foreignKey:"Marcas_id"});  
-    // Brand.hasMany(models.Image,{as:"image", foreignKey:"Marcas_idMarcas"})
-    // }
+    Brand.associate = function(models){  
+    Brand.hasMany(models.Product,{as:"products", foreignKey:"Marcas_id"});  
+    Brand.hasMany(models.Image,{as:"images", foreignKey:"Marcas_idMarcas"})
+    }
 
     return Brand;
 }
