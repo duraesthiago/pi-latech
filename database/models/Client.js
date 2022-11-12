@@ -17,29 +17,33 @@ module.exports = (sequelize, DataTypes) => {
                 type: DataTypes.STRING,
                 allowNull: false
             },
-            email: {
+            Email: {
                 type: DataTypes.STRING,
                 allowNull: false
             },
-            telefone: {
+            Telefone: {
                 type: DataTypes.STRING,
                 allowNull: false
             },
-            endereco: {
+            Endereco: {
                 type: DataTypes.STRING,
                 allowNull: false
             },
-            Ciudad: {
+            Cidade: {
                 type: DataTypes.STRING,
                 allowNull: false
             },
-            senha: {
+            Estado: {
+                type: DataTypes.STRING,
+                allowNull: false
+            },
+            Senha: {
                 type: DataTypes.STRING,
                 allowNull: false
             },
             avatar: {
                 type: DataTypes.STRING,
-                allowNull: false
+                allowNull: true
             }         
             
         },
@@ -51,9 +55,9 @@ module.exports = (sequelize, DataTypes) => {
         }
         
     )
-    // Client.associate = function(model){  
-    //     Client.hasMany(model.Purchase,{as:"purchases", foreignKey:"Clientes_idClientes"}); 
-    // }
+    Client.associate = function(model){  
+        Client.hasMany(model.Purchase,{as:"purchases", foreignKey:"Clientes_idClientes"}); 
+    }
     return Client
 
 };  
