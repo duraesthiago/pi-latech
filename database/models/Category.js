@@ -22,9 +22,9 @@ module.exports = (sequelize, DataTypes) => {
         }
         
     )
-    // Category.associate = function(model){  
-    //     Category.hasMany(model.Product,{as:"categories", foreignKey:"Categorias_id"}); 
-    // }
+    Category.associate = function(model){  
+        Category.hasMany(model.Product,{as:"categories", foreignKey:"Categorias_id"}); 
+    }
     return Category
 
 };  
