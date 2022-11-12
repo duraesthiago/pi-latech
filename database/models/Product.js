@@ -9,11 +9,11 @@ module.exports = (sequelize, DataTypes) => {
                 primaryKey: true,
                 allowNull: false
             },
-            Nome_Produto: {
+            Nome: {
                 type: DataTypes.STRING,
                 allowNull: false
             },
-            Codigo_Produto: { type: DataTypes.STRING },
+            Codigo: { type: DataTypes.STRING },
             Preco: { type: DataTypes.DECIMAL },
             Categorias_id: { type: DataTypes.INTEGER },
             Marcas_id: { type: DataTypes.INTEGER }
@@ -24,21 +24,21 @@ module.exports = (sequelize, DataTypes) => {
             paranoid: false
         }
     )
-    // Product.associate = (models)=>{
-    //     Product.belongsTo(models.Brand, {foreignKey:'Marcas_id', as: 'brands'});
-    //     Product.belongsTo(models.Category, {foreignKey:'Categorias_id', as: 'categories'})
-    //     Product.hasMany(models.Image, {foreignKey:'Produtos_idProdutos', as: 'images'})
-    //     Product.belongsToMany(
-    //         models.Purchase,
-    //         {
-    //             as: 'purchases',
-    //             through: 'products_has_purchases',
-    //             foreignKey: 'Produtos_idProdutos',
-    //             otherKey: 'Pedidos_idPedidos',
-    //             timestamps: false
-    //         }
-    //     );
-    // }
+    Product.associate = (models)=>{
+        Product.belongsTo(models.Brand, {foreignKey:'Marcas_id', as: 'brands'});
+        Product.belongsTo(models.Category, {foreignKey:'Categorias_id', as: 'categories'})
+        Product.hasMany(models.Image, {foreignKey:'Produtos_idProdutos', as: 'images'})
+        Product.belongsToMany(
+            models.Purchase,
+            {
+                as: 'purchases',
+                through: 'products_has_purchases',
+                foreignKey: 'Produtos_idProdutos',
+                otherKey: 'Pedidos_idPedidos',
+                timestamps: false
+            }
+        );
+    }
 
     return Product;
 
