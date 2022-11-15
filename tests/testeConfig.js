@@ -1,13 +1,6 @@
 const sequelize = require('sequelize');
 // 2 - Criar um objeto contendo os dados da conexão
-const config = {
-    username: "root",
-    password: "Romana11",
-    host: "localhost",
-    port: 3306,
-    dialect: "mysql",
-    database: "latech"
-}
+const config = require('./config')
 // 3 - Cria a conexão
 const conexao = new sequelize(config);
 // 4 - Realiza a consulta (assíncronas)!!!

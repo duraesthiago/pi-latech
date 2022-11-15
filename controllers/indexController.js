@@ -2,8 +2,8 @@ const IndexController = {
   index: (req, res) => {
     res.render("index", { title: "Latech" });
   },
-  aboutUs:(req, res) =>{
-    res.render('aboutUs')
+  aboutUs: (req, res) => {
+    res.render("aboutUs");
   },
   search: (req, res) => {},
   showProduct: (req, res) => {
@@ -31,9 +31,10 @@ const IndexController = {
     } else {
       req.session.products = [req.body.productChosen];
     }
-    res.redirect("/productss");
+    res.redirect("/products");
     console.log(req.session);
   },
+
 };
 
 module.exports = IndexController;

@@ -1,7 +1,11 @@
+<%- include('partials/head') %>
+<!-- Include Header -->
 <%- include('partials/header', {title: 'Início' }) %>
-<body>
+  <!-- Include Banner -->
+  <%- include('partials/banner') %>
   <main>
-    <link rel="stylesheet" href="/stylesheets/user.css">
+
+    <link rel="stylesheet" href="../stylesheets/user.css">
     <div class="container-user">
       <div class="user-menu">
         <button class="userMenuButton">
@@ -45,7 +49,7 @@
           </button>
         </div>
         <div class="user-info">
-          <form class="user-info-form" action="" method="POST">
+          <form class="user-info-form" action="/users" method="POST">
             <div class="user-form-class">
               <label class="form-label" for="nome">Nome do usuário:</label>
               <input class="input-label" type="text" id="nome" name="nome" placeholder="" value="">

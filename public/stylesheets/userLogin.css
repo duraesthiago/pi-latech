@@ -42,6 +42,13 @@
   border: 1px solid var(--medium-blue);
   border-radius: 8px;
 }
+.password-confirmation {
+  width: 100%;
+  margin: 10px 0px 10px 0px;
+  padding: 10px 5px;
+  border: 1px solid var(--medium-blue);
+  border-radius: 8px;
+}
 
 .btn-login {
   width: 100%;

@@ -27,6 +27,7 @@ footer, header, menu, nav, section {
 body {
 	line-height: 1;
   background-color: var(--dust-white);
+  font-family: 'Oswald', sans-serif;
 }
 ol, ul {
 	list-style: none;

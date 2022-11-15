@@ -1,7 +1,10 @@
+<%- include('partials/head') %>
 <!-- Include Header -->
 <%- include('partials/header', {title: 'Início' }) %>
-  <main>
-    <link rel="stylesheet" href="/stylesheets/user-login.css">
+  <!-- Include Banner -->
+  <%- include('partials/banner') %>
+ <main>
+    <link rel="stylesheet" href="/stylesheets/userRegistrationForm.css">
     <div class="container-login">
       <div class="login-page">
         <div class="tittle-login">Login</div>
@@ -9,7 +12,7 @@
           <div class="left-container">
             <div class="signupbox">
               <div class="loginboxtittle">Quero criar uma conta</div>
-              <form class="login-box-form" action="" method="POST">
+              <form class="login-box-form" action="/userLogin" method="POST">
                 <div class="form-group">
                   <label class="form-label" for="email">E-mail:</label>
                   <input class="imput-label" type="text" id="email" name="email" placeholder="Digite seu e-mail"
@@ -24,7 +27,7 @@
           <div class="right-container">
             <div class="signupbox">
               <div class="loginboxtittle">Já sou cliente</div>
-              <form class="login-box-form" action="" method="POST">
+              <form class="login-box-form" action="/" method="POST">
                 <div class="form-group">
                   <label class="form-label" for="email">E-mail:</label>
                   <input class="imput-label" type="text" id="email" name="email" placeholder="Digite seu e-mail"
