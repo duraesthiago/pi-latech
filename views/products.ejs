@@ -1,0 +1,39 @@
+<%- include('partials/head') %>
+    <!-- Include Header -->
+    <%- include('partials/header', {title: 'Início' }) %>
+        <!-- Include Banner -->
+        <%- include('partials/banner') %>
+            <main>
+                <section class="detail">
+                    <div class="product-details">
+                        <div class="main-pic">
+                            <img class="" src="../public/img/celular.png" alt="" />
+                        </div>
+                        <div class="small-pics">
+                            <img src="../public/img/celular.png" alt="" />
+                            <img src="../public/img/celular.png" alt="" />
+                            <img src="../public/img/celular.png" alt="" />
+                        </div>
+                    </div>
+                    <div class="description-for-order">
+                        <h4>nome, capacidade e tamnaho do produto</h4>
+                        <p>memória: </p>
+                        <p>cor: </p>
+                        <p>valor: R$</p>
+                        <button class="order" type="submit">comprar</button>
+                    </div>
+                    </div>
+                    <div class="product-description">
+                        <h4>Descrição do Produto</h4>
+                        <ul>
+                            <li>Marca:</li>
+                            <li>Modelo:</li>
+                            <li>Memória:</li>
+                            <li>Tamanho: tela</li>
+                            <li>Câmera:</li>
+                            <li>Duração da bateria:</li>
+                        </ul>
+                    </div>
+                </section>
+            </main>
+            <%- include('partials/footer') %>
