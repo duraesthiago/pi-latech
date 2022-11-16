@@ -1,7 +1,10 @@
-<link rel="stylesheet" href="../public/stylesheets/cart.css">
-<title>Latech</title>
-</head>
+<%- include('partials/head') %>
+<!-- Include Header -->
+<%- include('partials/header', {title: 'Início' }) %>
+  <!-- Include Banner -->
+  <%- include('partials/banner') %>
 
+<link rel="stylesheet" href="../public/stylesheets/cart.css">
 
  
 <main>
@@ -32,3 +35,4 @@ Resumo
 <button class="purchaseOrder">Finalizar compra</button>
 </section>
 </main>
+<%- include('partials/footer') %>

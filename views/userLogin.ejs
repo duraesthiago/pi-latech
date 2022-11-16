@@ -4,31 +4,59 @@
 <!-- Include Banner -->
 <%- include('partials/banner') %>
 <main>
-    <link rel="stylesheet" href="/stylesheets/userLogin.css" />
+  <link rel="stylesheet" href="/stylesheets/userLogin.css" />
 
-    <div class="login">
-      <div class="input-container">
-        <form action="/login" method="post">
-          <label for="input-email">Email</label>
-          <input
-            class="email"
-            type="email"
-            name="email"
-            id="input-email"
-            placeholder="digite seu email"
-          />
+  <div class="login">
+    <div class="input-container">
+      <form action="" method="post">
+        <label for="input-name">Nome</label>
+        <input
+          class="name"
+          type="name"
+          name="name"
+          id="input-name"
+          value="<%= locals.oldData ? oldData.name : null %>"
+          placeholder="digite seu nome"
+        />
+        <%  if(locals.errors && errors.name) {%>
+        <div class="danger"><%= errors.name.msg %>
+        </div>
+        <% } %>
+
+        <label for="input-email">Email</label>
+        <input
+          class="email"
+          type="text"
+          name="email"
+          id="input-email"
+          value="<%= locals.oldData ? oldData.email : null %>"
+          placeholder="digite seu email"
+        />
+
+        <%  if(locals.errors && errors.email) {%>
+          <div class="danger"><%= errors.email.msg %>
+          </div>
+          <% } %>
           <label for="input-password">Senha</label>
-          <input
-            class="password"
-            type="password"
-            name="password"
-            id="input-password"
-            placeholder="digite sua senha"
+
+        <input
+          class="password"
+          type="password"
+          name="password"
+          id="input-password"
+          value="<%= locals.oldData ? oldData.password : null %>"
+          placeholder="digite sua senha"
           />
-          <button class="btn-login" type="submit">Login</button>
-        </form>
-      </div>
-      <a href="" class="remember-password">esqueceu sua senha?</a>
+          <%  if(locals.errors && errors.password) {%>
+            <div class="danger"><%= errors.password.msg %>
+            </div>
+            <% } %>
+       
+
+        <button class="btn-login" type="submit">Login</button>
+      </form>
     </div>
-  </main>
-  <%- include('partials/footer') %>
+    <a href="" class="remember-password">esqueceu sua senha?</a>
+  </div>
+</main>
+<%- include('partials/footer') %>

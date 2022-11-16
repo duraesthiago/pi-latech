@@ -11,7 +11,7 @@ const IndexController = {
     // verificar nome da tabela produtos
     let product = products.find((p) => p.id === id);
     // verificar sequelize
-    res.render("produto.ejs", { produto });
+    res.render("produto.ejs", { product });
   },
   showCart: (req, res) => {
     let userLoggedIn = req.session.user !== undefined;
