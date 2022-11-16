@@ -11,8 +11,8 @@ const validations = [
 
 /* GET users listing. */
 router.get('/', UsersController.userLogin); 
-router.get('/users', UsersController.showUser)
-router.get('/userRegister', UsersController.userRegistration);
+router.get('/users/minhaconta', UsersController.showUserAccount);
+router.get('/users/cadastro', UsersController.signingUp);
 
 // router.post('/', validations, UsersController.processRegister)
   

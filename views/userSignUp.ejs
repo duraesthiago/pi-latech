@@ -1,0 +1,42 @@
+<%- include('partials/head') %>
+<!-- Include Header -->
+<%- include('partials/header', {title: 'Início' }) %>
+  <!-- Include Banner -->
+  <%- include('partials/banner') %>
+  <link rel="stylesheet" href="../stylesheets/userSignUp.css">
+
+  <main>
+    <div class="register-account">
+      <form class="">
+        <div class="input-container">
+          <label for="input-email">Email</label>
+          <input
+            class="email"
+            type="email"
+            name="email"
+            id="input-email"
+            placeholder="digite seu email"
+          />
+          <label for="input-password">Senha</label>
+          <input
+            class="password"
+            type="password"
+            name="password"
+            id="input-password"
+            placeholder="digite uma senha"
+          />
+          <label for="input-password">Confirme sua senha</label>
+          <input
+            class="password-confirmation"
+            type="password"
+            name="password-confirmation"
+            id="input-password-confirmation"
+            placeholder="confirme a senha"
+          />
+          <button class="btn-registration" type="submit">Cadastrar-se</button>
+        </div>
+      </form>
+    </div>
+  </main>
+  
+  <%- include('partials/footer') %>

@@ -14,7 +14,7 @@
   height: 100vh;
   border-radius: 8px;
   margin-top: 100px;
-}
+}  
 
 .input-container {
   display: flex;
@@ -22,10 +22,8 @@
   align-items: center;
   justify-content: center;
   color: var(--pink-degrade);
+  margin: 20px;
 }
-
-
-
 .email,
 .password,
 .password-confirmation {
@@ -37,6 +35,29 @@
 
 }
 
+.email {
+  width: 100%;
+  margin: 10px 0px 10px 0px;
+  padding: 10px 5px;
+  border: 1px solid var(--medium-blue);
+  border-radius: 8px;
+}
+
+.password {
+  width: 100%;
+  margin: 10px 0px 10px 0px;
+  padding: 10px 5px;
+  border: 1px solid var(--medium-blue);
+  border-radius: 8px;
+}
+.password-confirmation {
+  width: 100%;
+  margin: 10px 0px 10px 0px;
+  padding: 10px 5px;
+  border: 1px solid var(--medium-blue);
+  border-radius: 8px;
+}
+
 .btn-registration {
   width: 83%;
   padding: 14px 5px;
@@ -44,13 +65,12 @@
   border: 1px solid var(--medium-blue);
   border-radius: 8px;
   margin: 10px 0px;
-  color: var(--medium-blue);
+  color: var(--ligth-lilac);
 }
-
 .btn-registration:hover{
-cursor: pointer;
-background-color: var(--ligth-blue);
-}
+  cursor: pointer;
+  background-color: var(--ligth-blue);
+  }
 
 ::placeholder {
   color: var(--ligth-lilac);
@@ -103,3 +123,4 @@ background-color: var(--ligth-blue);
     margin-top: 200px;
   }
 }
+

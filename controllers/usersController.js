@@ -4,20 +4,22 @@ const {validationResult} = require('express-validator');
 const UserController = {
     // showUser: (req, res) => {res.send('hi, little Padawan')},
 
-    showUser: (req, res) => {res.render('usersDetail')},
+    showUserAccount: (req, res) => {res.render('usersAccount')},
 
 
     userLogin: (req, res) => {res.render('userLogin')},
     
-    userRegistration: (req, res) => {
-        const resultValidations = validationResult(req); 
-        if(resultValidations.errors.length >0){
-            return res.render('userLogin', {
-                errors: resultValidations.mapped()
-            })
-        }},
+    // userLoggingIn: (req, res) => {
+    //     const resultValidations = validationResult(req); 
+    //     if(resultValidations.errors.length >0){
+    //         return res.render('userLogin', {
+    //             errors: resultValidations.mapped()
+    //         });
+    //     }else{
+    //         res.send('Bem vindo de volta');
+    //     }},
 
-    processRegister: (req, res) => {res.send('iniciando registro Padawan está')}
+    signingUp: (req, res) => {res.render('userSignUp')}
 
 }
 
