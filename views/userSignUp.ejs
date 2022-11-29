@@ -8,16 +8,34 @@
   <link rel="stylesheet" href="../stylesheets/userSignUp.css"/>
 
     <div class="register-account">
-      <form class="">
+      <form class="register" method="post" action="/users">
         <div class="input-container">
+          <label for="name">Nome Completo</label>
+          <input
+          class="name" 
+          type="text"
+          name="name"
+          id="name-register"
+          value="<%= locals.oldData ? oldData.name : null %>"
+          placeholder="Digite seu Nome completo"
+          />
+          <%  if(locals.errors && errors.name) {%>
+            <div class="danger"><%= errors.name.msg %>
+            </div>
+            <% } %>
           <label for="input-email">Email</label>
           <input
             class="email"
             type="email"
             name="email"
             id="input-email"
+            value="<%= locals.oldData ? oldData.email : null %>"
             placeholder="digite seu email"
           />
+          <%  if(locals.errors && errors.email) {%>
+            <div class="danger"><%= errors.email.msg %>
+            </div>
+            <% } %>
           <label for="input-password">Senha</label>
           <input
             class="password"
@@ -26,14 +44,22 @@
             id="input-password"
             placeholder="digite uma senha"
           />
+          <%  if(locals.errors && errors.password) {%>
+            <div class="danger"><%= errors.password.msg %>
+            </div>
+            <% } %>
           <label for="input-password">Confirme sua senha</label>
           <input
             class="password-confirmation"
             type="password"
-            name="password-confirmation"
+            name="passwordConfim"
             id="input-password-confirmation"
+            value=""
             placeholder="confirme a senha"
           />
+          <%  if(locals.errors && errors.passwordConfirm) {%>
+            <div class="danger"><%= errors.passwordConfirm.msg %></div>
+            <% } %>
           <button class="btn-registration" type="submit">Cadastrar-se</button>
         </div>
       </form>
