@@ -27,19 +27,34 @@ const UserController = {
         oldData: req.body,
       });
     }
-  },
-  logout: (req,res) => {
+    // let userExists = User.findUserByField('email', req.body.email)....essa fução vem da model User e verifica se o email já está cadastrado
+    //   if(userExists){
+      // return res.render('userSingUp', {
+      //   errors: {
+      //     email: {
+      //       msg: 'Este email já está registrado
+      //     }
+      //   },
+      //   oldData: req.body
+      // });
+    //}
     
+    //let userToCreate = {
+    //     ...req.body,
+    //     password: bcrypt.hashSync(req.body.password, 10)
+    //   }
+  
+    //   let userCreated = User.create(userToCreate);
+    //   return res.redirect('/user/userLogin');
+    // },
+    // return res.send('usuario criado foi, véia padawan')
+    //returm res.redirect(/user/login); depois que salvou o usuário redireciona para o login
+  },
+
+  logout: (req,res) => {
+
   }
 
-  //   let userToCreate = {
-  //     ...req.body,
-  //     password: bcrypt.hashSync(req.body.psw, 10)
-  //   }
-
-  //   let userCreated = User.create(userToCreate);
-  //   return res.redirect('/user/userLogin');
-  // },
   
 };
 
