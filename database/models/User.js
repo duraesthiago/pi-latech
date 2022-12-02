@@ -1,9 +1,9 @@
 module.exports = (sequelize, DataTypes) => {
 
-    let Client = sequelize.define(
-        "Client", 
+    let User = sequelize.define(
+        "User", 
         {
-            idClientes: {
+            idUsers: {
                 type: DataTypes.INTEGER,
                 autoIncrement: true,
                 allowNull: false,
@@ -48,16 +48,16 @@ module.exports = (sequelize, DataTypes) => {
             
         },
         {
-          tableName: "clients",
+          tableName: "users",
           timestamps: false,
           paranoid: false
 
         }
         
     )
-    Client.associate = function(model){  
-        Client.hasMany(model.Purchase,{as:"purchases", foreignKey:"Clientes_idClientes"}); 
+    User.associate = function(model){  
+        User.hasMany(model.Purchase,{as:"purchases", foreignKey:"Users_idUsers"}); 
     }
-    return Client
+    return User
 
 };  
