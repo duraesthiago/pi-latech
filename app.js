@@ -10,6 +10,8 @@ const usersRouter = require('./routes/users');
 const ordersRouter = require('./routes/OrdersRouter')
 const productsRouter = require('./routes/products');
 
+const getViewsData = require('./middlewares/GetViewsData')
+
 const app = express();
 
 // view engine setup
@@ -33,6 +35,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(express.urlencoded({ extended: false }));
 
+app.use(getViewsData)
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/orders', ordersRouter)

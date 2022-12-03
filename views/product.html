@@ -95,7 +95,10 @@
         <p>memória: </p>
         <p>cor: </p>
         <p>valor: R$</p>
-        <button class="order" type="submit">comprar</button>
+        <form action="/addCart" method="post">
+          <input type="hidden" name="selectedProduct" value="<%= p.id %>">
+          <button class="order" type="submit">comprar</button>
+      </form>      
       </div>
       </div>
       <div class="product-description">

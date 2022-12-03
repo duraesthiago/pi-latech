@@ -1,6 +1,6 @@
 const controler = {
     showProducts: (req, res) => {
-        res.render('products');
+                res.render('products');
     }
 }
 

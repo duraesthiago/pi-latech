@@ -1,45 +1,66 @@
+const { localsName } = require('ejs')
 const db = require('../database/models')
 
 const ordersController = {
-    index: (req, res) => {
+    qtyToHeader: (req, res) => {
         let qty = 0
         if(req.session.products){
             qty = req.session.products.length
         }
-        res.render('header', {products, qty})
+        
+        
+        let products = db.Product.findAll()
+        .then(function(productsReturned){
+            
+            return res.render('index.ejs', {products: productsReturned, qty})
+        })
+        .catch((error)=> console.log(error))
+        
+        //res.render('index', {locals, products })
     },
-    
+
+    getProducts: (req, res) =>  {
+        req.session.products
+        db.Product.findAll()
+        .then(function(productsReturned){
+            return res.render('index.ejs', {products: productsReturned})
+        })
+        .catch((error)=> console.log(error))
+        console.log(products)
+        
+    },
+         
     addCart: (req, res) => {
-        if(req.session.products){
-            req.session.products.push(req.body.selectedProduct)
+        if(req.session.cart){
+            req.session.cart.push(req.body.selectedProduct)
         } else {
-            req.session.products = [req.session.selectedProduct]
+            req.session.cart = [req.body.selectedProduct]
         }
-        res.redirect('/index')
+        console.log(req.body)
+        
+        console.log(req.session.cart)
+        res.redirect('/orders')
         //console.log(req.session)
     },
 
-                    /*<form action="/addCart" method="post">
-                        <input type="hidden" name="selectedProduct" value="<%= p.id %>">
-                        <button type="submit">+ Comprar</button>
-                    </form>*/
-
-
-
+                    
     showCart: (req, res) => {
         let idsIntoCart = req.session.products
-        let getProductbyId = (id) => {
-            let productFound = Products.find(p => p.id == id)
+        let getProductById = (id) => {
+            let productFound = db.Product.findAll({
+                where: { idProductos : {
+                [Op.eq]: req.params.id
+                }
+               } 
+              })  // procurar funcao sequelize
             return productFound
         }
         let productsIntoCart = idsIntoCart.map(getProductById)
-        /* db.Product.findByPk(req.params.id)
-        .then(function(selectedProducts) {
-            return res.render('cart', {products: selectedProducts})
-        })
-        .catch((error) => console.log(error))*/
+                          
+        res.render('cart.ejs', {productsIntoCart})
     },
+
     deleteProduct: (req, res) => {}
 }
 
-module.exports = ordersController
+module.exports = ordersController 
