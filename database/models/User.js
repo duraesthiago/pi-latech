@@ -15,7 +15,7 @@ module.exports = (sequelize, DataTypes) => {
             },
             Sobrenome: {
                 type: DataTypes.STRING,
-                allowNull: false
+                allowNull: true
             },
             Email: {
                 type: DataTypes.STRING,
@@ -23,19 +23,19 @@ module.exports = (sequelize, DataTypes) => {
             },
             Telefone: {
                 type: DataTypes.STRING,
-                allowNull: false
+                allowNull: true
             },
             Endereco: {
                 type: DataTypes.STRING,
-                allowNull: false
+                allowNull: true
             },
             Cidade: {
                 type: DataTypes.STRING,
-                allowNull: false
+                allowNull: true
             },
             Estado: {
                 type: DataTypes.STRING,
-                allowNull: false
+                allowNull: true
             },
             Senha: {
                 type: DataTypes.STRING,
