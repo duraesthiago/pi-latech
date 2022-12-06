@@ -12,6 +12,13 @@ const validations = require('../middlewares/signUpMiddleware');
 router.get('/', UserController.signUp);
 router.get('/account', UserController.showUserAccount);
 router.get('/signup', UserController.signUp);
+router.get('/login', UserController.userLogin);
+router.get('/forgotPassword', UserController.forgotPassword);
+//router.get('/logout', UserController.logout);
+
+// router.post('/', UserController.loginValidation)
+
+router.post('/', validations, UserController.signUpValidation);
 
 //router.post('/login', UserController.doingLogin);
 //router.post('/login', UserController.doingLogin);
