@@ -171,9 +171,12 @@ CREATE TABLE `purchases` (
   `Data_pedido` varchar(45) NOT NULL,
   `Total` decimal(10,2) NOT NULL,
   `Users_IdClientes` int NOT NULL,
+  `Users_IdClientes` int NOT NULL,
   `Forma_de_Pagamento` varchar(45) NOT NULL,
   `Endereço_de_Entrega` varchar(100) NOT NULL,
   PRIMARY KEY (`idPedidos`),
+  KEY `fk_Purchases_Users1_idx` (`Users_IdClientes`) /*!80000 INVISIBLE */,
+  CONSTRAINT `fk_Purchases_Users1` FOREIGN KEY (`Users_IdClientes`) REFERENCES `users` (`idClientes`)
   KEY `fk_Purchases_Users1_idx` (`Users_IdClientes`) /*!80000 INVISIBLE */,
   CONSTRAINT `fk_Purchases_Users1` FOREIGN KEY (`Users_IdClientes`) REFERENCES `users` (`idClientes`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb3;
@@ -185,6 +188,7 @@ CREATE TABLE `purchases` (
 
 LOCK TABLES `purchases` WRITE;
 /*!40000 ALTER TABLE `purchases` DISABLE KEYS */;
+INSERT INTO `purchases` VALUES (1,'11/11/2020',999.00,1,'Pix','Rua Itapuã, n1, Bairro Itapuã, Salvador, Bahia');
 INSERT INTO `purchases` VALUES (1,'11/11/2020',999.00,1,'Pix','Rua Itapuã, n1, Bairro Itapuã, Salvador, Bahia');
 /*!40000 ALTER TABLE `purchases` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -198,6 +202,7 @@ DROP TABLE IF EXISTS `users`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `users` (
   `idClientes` int NOT NULL AUTO_INCREMENT,
+  `idClientes` int NOT NULL AUTO_INCREMENT,
   `Nome` varchar(45) NOT NULL,
   `Sobrenome` varchar(45) DEFAULT NULL,
   `Email` varchar(45) NOT NULL,
@@ -208,7 +213,7 @@ CREATE TABLE `users` (
   `Senha` varchar(12) NOT NULL,
   `Avatar` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`idClientes`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -230,4 +235,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-12-08 18:00:24
+-- Dump completed on 2022-12-06 10:16:46
