@@ -1,39 +1,38 @@
 <%- include('partials/head') %>
-  <!-- Include Header -->
-  <%- include('partials/header', {title: 'Início' }) %>
-    <!-- Include Banner -->
-    <%- include('partials/banner') %>
-    <main>
-        <link rel="stylesheet" href="/stylesheets/cart.css">
-        <h2>
-          Carrinho de Compras
-        </h2>
-        <section>
-          <div>
-            <% if(productsIntoCart.length > 0){ %>
-              <% for(p of productsIntoCart) { %>
-            <p><%= p.Nome %></p>
-            <img src="">
-            <p>Preço $</p>
-            <% } %>
-            <% } %>
-            <p></p>
-          </div>
-          </div>
-          <div>
-            <p>Qtd</p>
-            <select name="Qtd" id="qtd"></select>
-          </div>
-          <div>Subtotal</div>
-          <button name="keepBuying" type="submit">Continue Comprando</button>
-          <button name="cleanCart" type="reset">Limpar o carrinho</button>
-        </section>
-        </div>
-        <section>
-          <h4>
-            Resumo
-          </h4>
-          <button class="purchaseOrder">Finalizar compra</button>
-        </section>
-      </main>
-      <%- include('partials/footer') %>
+<!-- Include Header -->
+<%- include('partials/header', {title: 'Início' }) %>
+  <!-- Include Banner -->
+  <%- include('partials/banner') %>
+
+<link rel="stylesheet" href="../public/stylesheets/cart.css">
+
+ 
+<main>
+<h2>
+Carrinho de Compras
+</h2>
+<section>
+<div>
+<p>Item</p>
+<img src="">
+<p>Preço $</p>
+<p></p>
+</div> 
+</div> 
+<div>
+<p>Qtd</p>
+<select name="Qtd" id="qtd"></select>
+</div>
+<div>Subtotal</div> 
+<button name="keepBuying" type="submit">Continue Comprando</button>
+<button name="cleanCart" type="reset">Limpar o carrinho</button>
+</section>
+</div>
+<section>
+<h4>
+Resumo
+</h4>
+<button class="purchaseOrder">Finalizar compra</button>
+</section>
+</main>
+<%- include('partials/footer') %>

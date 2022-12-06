@@ -2,8 +2,8 @@ const IndexController = {
   index: (req, res) => {
     res.render("index.ejs", { title: "Latech" });
   },
-  aboutUs:(req, res) =>{
-    res.render('aboutUs')
+  aboutUs: (req, res) => {
+    res.render("aboutUs");
   },
   
   search: (req, res) => {},
@@ -12,7 +12,7 @@ const IndexController = {
     // verificar nome da tabela produtos
     let product = products.find((p) => p.id === id);
     // verificar sequelize
-    res.render("produto.ejs", { produto });
+    res.render("produto.ejs", { product });
   },
   showCart: (req, res) => {
     let userLoggedIn = req.session.user !== undefined;
@@ -32,9 +32,10 @@ const IndexController = {
     } else {
       req.session.products = [req.body.productChosen];
     }
-    res.redirect("/productss");
+    res.redirect("/products");
     console.log(req.session);
   },
+
 };
 
 module.exports = IndexController;

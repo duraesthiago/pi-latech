@@ -1,6 +1,7 @@
 :root {
   --pink-degrade: #c837c2;
   --ligth-lilac: #7f7ae9;
+  --ultra-light-lilac:#ede9fe;
   --ultra-ligth-blue: #cee3f0;
   --ligth-blue: #3786e1;
   --medium-blue: #2c3ac1;
@@ -8,6 +9,7 @@
   --dark-gray: #252525;
   --dust-white: #fbfbfb;
 }
+
 
 input[type="text" i] {
   padding: 0;

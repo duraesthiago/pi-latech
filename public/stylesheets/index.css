@@ -1,6 +1,7 @@
 :root {
   --pink-degrade: #c837c2;
   --ligth-lilac: #7f7ae9;
+  --ultra-light-lilac:#ede9fe;
   --ultra-ligth-blue: #cee3f0;
   --ligth-blue: #3786e1;
   --medium-blue: #2c3ac1;
@@ -27,6 +28,7 @@ footer, header, menu, nav, section {
 body {
 	line-height: 1;
   background-color: var(--dust-white);
+  font-family: 'Oswald', sans-serif;
 }
 ol, ul {
 	list-style: none;
@@ -213,22 +215,19 @@ span:nth-child(3) {
   background-size: cover;
 }
 
-/* .promo-banner {
-  width: 100%;
-  position: relative;
+.promo-banner {
+  height: 120px;
   display: flex;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
   gap: 20px;
-  background: url('/img/milky-way-2695569_960_720.jpg')
-    no-repeat;
-  background-size: cover;
-} */
+ 
+}
 
-.promo-banner img {
+.img-promo-banner  {
   max-width: 150px;
   border-radius: 10px;
-  margin: 20px 10px 0px 10px;
 }
 
 .info-banner {
@@ -236,7 +235,6 @@ span:nth-child(3) {
   color: var(--dust-white);
   text-align: justify;
   font-weight: bold;
-  margin-bottom: 20px ;
 }
 
 .info-banner p {
@@ -298,12 +296,12 @@ hr {
     var(--ligth-lilac) 52%,
     var(--dark-blue) 100%
   );
-  background-color: var(--ultra-ligth-blue);
   border: 1px solid var(--dark-blue);
-  /* padding-top: 30px; */
   border-radius: 20px;
   margin-top: 30px;
   margin-left: 15px;
+  text-align: center;
+
 }
 
 .banner-offer a {
@@ -499,15 +497,8 @@ footer {
     max-height: 20px;
   }
 
-  .promo-banner img {
-    max-width: 150px;
-    border-radius: 10px;
-    margin: 10px 20px;
-  }
-
-  .promo-banner {
-    display: block;
-    padding-left: 210px;
+  .img-promo-banner  {
+    margin: 10px 0;
   }
 
   .banner-navbar-links {
