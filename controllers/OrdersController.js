@@ -1,33 +1,24 @@
-const { localsName } = require('ejs')
 const db = require('../database/models')
 
+
 const ordersController = {
-    qtyToHeader: (req, res) => {
+    index: (req, res) => {
         let qty = 0
         if(req.session.products){
             qty = req.session.products.length
         }
+        //locals.products.length
+        console.log(qty)
         
-        
-        let products = db.Product.findAll()
+        db.Product.findAll()
         .then(function(productsReturned){
             
             return res.render('index.ejs', {products: productsReturned, qty})
+            
         })
         .catch((error)=> console.log(error))
         
         //res.render('index', {locals, products })
-    },
-
-    getProducts: (req, res) =>  {
-        req.session.products
-        db.Product.findAll()
-        .then(function(productsReturned){
-            return res.render('index.ejs', {products: productsReturned})
-        })
-        .catch((error)=> console.log(error))
-        console.log(products)
-        
     },
          
     addCart: (req, res) => {
@@ -45,22 +36,46 @@ const ordersController = {
 
                     
     showCart: (req, res) => {
-        let idsIntoCart = req.session.products
-        let getProductById = (id) => {
-            let productFound = db.Product.findAll({
-                where: { idProductos : {
-                [Op.eq]: req.params.id
+        let idsIntoCart = req.session.cart
+
+        let getProductById = async (id) => {
+            const {Op} = require("sequelize")
+            let productsFound = await db.Product.findAll({
+                where: { 
+                    idProdutos : {
+                [Op.eq]: id
                 }
                } 
-              })  // procurar funcao sequelize
-            return productFound
+              })  
+              return productsFound
+            console.log(productsFound)
         }
         let productsIntoCart = idsIntoCart.map(getProductById)
                           
         res.render('cart.ejs', {productsIntoCart})
+        
+    },
+   
+    
+    removeProduct: (req, res) => {
+        //req.session.cart
+        //let addProduct = document.getElementById("btn-add")
+
     },
 
-    deleteProduct: (req, res) => {}
+    releaseOrder: (req, res) =>{
+        /*let total = 0
+        for (let i = 0; i < productsReturned.length; i++) {
+            sum += productsReturned[i].preco
+            return total
+        }
+        db.Purchase.create({
+            Data_Pedido:,
+            Total:
+            Forma_de_Pagamento:
+            Endereço_de_Entrega:
+                    })*/
+    }
 }
 
 module.exports = ordersController 
