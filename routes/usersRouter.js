@@ -16,11 +16,11 @@ const validations = [
 ]
 
 /* GET users listing. */
-router.get('/', UserController.userLogin); 
-router.get('/account', UserController.showUserAccount);
-router.get('/signup', UserController.signUp);
+//router.get('/', UserController.userLogin); 
+//router.get('/account', UserController.showUserAccount);
+//router.get('/signup', UserController.signUp);
 
-router.post('/', validations, UserController.loginValidation)
+//router.post('/', validations, UserController.loginValidation)
   
 
 module.exports = router;

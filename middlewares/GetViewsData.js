@@ -1,4 +1,8 @@
 module.exports = (req, res, next) => {
-   //res.locals = req.session
+    let qty = 0
+    if(req.session.cart){
+        qty = req.session.cart.length
+    }
+    res.locals.qty = qty
     next()
 }

@@ -5,9 +5,9 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const session = require('express-session');
 
+const ordersRouter = require('./routes/OrdersRouter')
 const indexRouter = require('./routes/indexRouter');
 const productsRouter = require('./routes/productsRouter');
-const ordersRouter = require('./routes/OrdersRouter')
 const usersRouter = require('./routes/usersRouter');
 
 const getViewsData = require('./middlewares/GetViewsData')
@@ -37,6 +37,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(getViewsData)
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/orders', ordersRouter)
 app.use('/products', productsRouter);
 app.use('/users', usersRouter);
 

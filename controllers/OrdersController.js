@@ -3,22 +3,22 @@ const db = require('../database/models')
 
 const ordersController = {
     index: (req, res) => {
-        let qty = 0
-        if(req.session.products){
-            qty = req.session.products.length
-        }
-        //locals.products.length
-        console.log(qty)
+        // let qty = 0
+        // if(req.session.cart){
+        //     qty = req.session.cart.length
+        // }
+        // //locals.products.length
+        // console.log(qty)
         
         db.Product.findAll()
         .then(function(productsReturned){
             
-            return res.render('index.ejs', {products: productsReturned, qty})
+            return res.render('index.ejs', {products: productsReturned})
             
         })
         .catch((error)=> console.log(error))
         
-        //res.render('index', {locals, products })
+        
     },
          
     addCart: (req, res) => {
@@ -35,23 +35,18 @@ const ordersController = {
     },
 
                     
-    showCart: (req, res) => {
+    showCart: async (req, res) => {
         let idsIntoCart = req.session.cart
 
         let getProductById = async (id) => {
-            const {Op} = require("sequelize")
-            let productsFound = await db.Product.findAll({
-                where: { 
-                    idProdutos : {
-                [Op.eq]: id
-                }
-               } 
-              })  
-              return productsFound
-            console.log(productsFound)
+             let productFound = await db.Product.findByPk(id)
+                            
+              
+              return productFound
         }
-        let productsIntoCart = idsIntoCart.map(getProductById)
-                          
+        let productsIntoCart = await Promise.all(idsIntoCart.map(getProductById))
+
+                       
         res.render('cart.ejs', {productsIntoCart})
         
     },
