@@ -39,9 +39,13 @@ module.exports = (sequelize, DataTypes) => {
         }
 
     )
-    Purchase.associate = (models) => {
-        Purchase.belongsTo(models.User, { foreignKey: 'Users_idUsers', as: 'users' })
-        Purchase.belongsToMany(
+    Purchase.associate = (models)=>{
+<<<<<<< HEAD
+    Purchase.belongsTo(models.User, {foreignKey:'Users_idUsers', as: 'users'})
+=======
+    Purchase.belongsTo(models.User, {foreignKey:'Userss_idUserss', as: 'users'})
+>>>>>>> b950132 (adequação de Models e testsModels de client para user (#12))
+       Purchase.belongsToMany(
             models.Product,
             {
                 as: 'products',
