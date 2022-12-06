@@ -8,11 +8,11 @@
 
   <div class="login">
     <div class="input-container">
-      <form action="" method="post">
+      <form action="/users/login" method="post">
         <label for="input-name">Nome</label>
         <input
           class="name"
-          type="name"
+          type="text"
           name="name"
           id="input-name"
           value="<%= locals.oldData ? oldData.name : null %>"
@@ -44,19 +44,23 @@
           type="password"
           name="password"
           id="input-password"
-          value="<%= locals.oldData ? oldData.password : null %>"
           placeholder="digite sua senha"
           />
           <%  if(locals.errors && errors.password) {%>
             <div class="danger"><%= errors.password.msg %>
             </div>
             <% } %>
-       
 
-        <button class="btn-login" type="submit">Login</button>
+            <input 
+            type="checkbox"
+            name="remember-user"
+            />
+            <label for="remeber-user"><b>Lembrar meu usuário</b></label>
+        <button class="btn-login" type="submit" href="users/account">Login</button>
+
       </form>
     </div>
-    <a href="" class="remember-password">esqueceu sua senha?</a>
+    <a href="/users/forgotPassword" class="remember-password">esqueceu sua senha?</a>
   </div>
 </main>
 <%- include('partials/footer') %>

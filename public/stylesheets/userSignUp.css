@@ -22,23 +22,22 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  color: var(--pink-degrade);
+  color: var(--ligth-blue);
   margin: 20px;
+  row-gap: 10px;
 }
-.email,
-.password,
-.password-confirmation {
-  width: 80%;
-  padding: 10px 8px;
+
+.name {
+  width: 100%;
+  margin: auto;
+  padding: 10px 5px;
   border: 1px solid var(--medium-blue);
   border-radius: 8px;
-  margin: 10px 0px;;
-
 }
 
 .email {
   width: 100%;
-  margin: 10px 0px 10px 0px;
+  margin: auto;
   padding: 10px 5px;
   border: 1px solid var(--medium-blue);
   border-radius: 8px;
@@ -46,14 +45,7 @@
 
 .password {
   width: 100%;
-  margin: 10px 0px 10px 0px;
-  padding: 10px 5px;
-  border: 1px solid var(--medium-blue);
-  border-radius: 8px;
-}
-.password-confirmation {
-  width: 100%;
-  margin: 10px 0px 10px 0px;
+  margin: auto;
   padding: 10px 5px;
   border: 1px solid var(--medium-blue);
   border-radius: 8px;
@@ -78,6 +70,11 @@
   opacity: 0.3;
 }
 
+.danger{
+  font-size: .5 rem;
+  color: var(--pink-degrade);
+}
+
 @media (min-width: 801px){
   .input-container{
     max-width: 600px;
@@ -89,11 +86,7 @@
     margin-top: 80px;
   }
 
-.email, .password,
-.password-confirmation {
-  margin-top: 20px;
-  margin-bottom: 20px; 
-}
+
 .btn-registration{
   margin-top: 30px;
 }
@@ -104,8 +97,7 @@
   margin-left: 270px;
 }
 
-.email, .password,
-.password-confirmation {
+.name,.email, .password {
   max-width: 600px;
 }
 

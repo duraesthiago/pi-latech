@@ -7,6 +7,7 @@ const logger = require('morgan');
 const indexRouter = require('./routes/indexRouter');
 const productsRouter = require('./routes/productsRouter');
 const usersRouter = require('./routes/usersRouter');
+const ordersRouter = require('./routes/ordersRouter')
 
 const app = express();
 // view engine setup
@@ -22,6 +23,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/products', productsRouter);
 app.use('/users', usersRouter);
+app.use('/orders', ordersRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
