@@ -1,7 +1,7 @@
 module.exports = (sequelize, DataTypes) => {
 
     let User = sequelize.define(
-        "User", 
+        "User",
         {
             idUsers: {
                 type: DataTypes.INTEGER,
@@ -39,29 +39,25 @@ module.exports = (sequelize, DataTypes) => {
             },
             Senha: {
                 type: DataTypes.STRING,
-                allowNull: false
+                allowNull: true
             },
             avatar: {
                 type: DataTypes.STRING,
                 allowNull: true
-            }         
-            
+            }
+
         },
         {
-          tableName: "users",
-          timestamps: false,
-          paranoid: false
+            tableName: "users",
+            timestamps: false,
+            paranoid: false
 
         }
-        
+
     )
-    User.associate = function(model){  
-        User.hasMany(model.Purchase,{as:"purchases", foreignKey:"Users_idUsers"}); 
+    User.associate = function (model) {
+        User.hasMany(model.Purchase, { as: "purchases", foreignKey: "Users_idUsers" });
     }
-<<<<<<< HEAD
     return User;
-=======
-    return User
->>>>>>> b950132 (adequação de Models e testsModels de client para user (#12))
 
 };  
