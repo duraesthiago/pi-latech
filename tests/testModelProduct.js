@@ -30,13 +30,13 @@
 // }
 // teste()
 
-// //PARA TESTAR AS ASSOCIAÇÕES PUCHASES- Status ok
-const {Product} = require("../database/models");
-async function teste(){
-    let products = await Product.findByPk(1, {include:["purchases"]})
-    console.log(products.toJSON())
-}
-teste()
+// // //PARA TESTAR AS ASSOCIAÇÕES PUCHASES- Status ok
+// const { Product } = require("../database/models");
+// async function teste() {
+//     let products = await Product.findByPk(1, { include: ["purchases"] })
+//     console.log(products.toJSON())
+// }
+// teste()
 
 
 
