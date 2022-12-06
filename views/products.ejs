@@ -1,41 +1,35 @@
 <%- include('partials/head') %>
-    <!-- Include Header -->
-    <%- include('partials/header', {title: 'Início' }) %>
-        <!-- Include Banner -->
-        <%- include('partials/banner') %>
-            <main>
-                <link rel="stylesheet" href="/stylesheets/product.css">
-
-                <section class="detail">
-                    <div class="product-details">
-                        <div class="main-picture">
-                            <img class="main-pic" src="/img/celular.png" alt="" />
-                        </div>
-                        <div class="small-pictures">
-                            <img class="small-pics" src="/img/celular.png" alt="" />
-                            <img class="small-pics" src="/img/celular.png" alt="" />
-                            <img class="small-pics"src="/img/celular.png" alt="" />
-                        </div>
-                    </div>
-                    <div class="description-for-order">
-                        <h4>nome: capacidade e tamnaho do produto</h4>
-                        <p>memória: </p>
-                        <p>cor: </p>
-                        <p>valor: R$</p>
-                        <button class="order" type="submit">comprar</button>
-                    </div>
-                    </div>
-                    <div class="product-description">
-                        <h4>Descrição do Produto</h4>
-                        <ul>
-                            <li>Marca:</li>
-                            <li>Modelo:</li>
-                            <li>Memória:</li>
-                            <li>Tamanho: tela</li>
-                            <li>Câmera:</li>
-                            <li>Duração da bateria:</li>
-                        </ul>
-                    </div>
-                </section>
-            </main>
-            <%- include('partials/footer') %>
+<!-- Include Header -->
+<%- include('partials/header', {title: 'Início' }) %>
+<!-- Include Banner -->
+<%- include('partials/banner') %>
+<main>
+    <link rel="stylesheet" href="/stylesheets/products.css" />
+  <!-- todos los productos -->
+  <div class="products-container">
+    <div>
+      <div class="products-wrapper">
+        <% for (p of products) { %>
+        <div>
+          <section class="product-box">
+            <a href="/products/detail/<%= p.idPrdutos %>">
+              <figure class="product-box_image">
+                <img
+                  src="img/tablet.jpg<%= p.image %>"
+                  alt="imagem do produto"
+                />
+              </figure>
+              <article class="product-box_data">
+                <h2>R$ <%= p.Preco %></h2>
+                <p><%= p.Nome %></p>
+              </article>
+            </a>
+          </section>
+        </div>
+        <% } %>
+      </div>
+    </div>
+  </div>
+  <!-- /todos os produtos -->
+</main>
+<%- include('partials/footer') %>

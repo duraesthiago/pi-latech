@@ -15,9 +15,7 @@ const UserController = {
     res.render("forgotPassword");
   },
 
-  recoverPassword: (req, res) => {
 
-  },
 
   showUserAccount: (req, res) => {
     res.render("userAccount");
