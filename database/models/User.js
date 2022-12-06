@@ -1,7 +1,7 @@
 module.exports = (sequelize, DataTypes) => {
 
     let User = sequelize.define(
-        "User", 
+        "User",
         {
             idUsers: {
                 type: DataTypes.INTEGER,
@@ -15,7 +15,7 @@ module.exports = (sequelize, DataTypes) => {
             },
             Sobrenome: {
                 type: DataTypes.STRING,
-                allowNull: false
+                allowNull: true
             },
             Email: {
                 type: DataTypes.STRING,
@@ -23,40 +23,40 @@ module.exports = (sequelize, DataTypes) => {
             },
             Telefone: {
                 type: DataTypes.STRING,
-                allowNull: false
+                allowNull: true
             },
             Endereco: {
                 type: DataTypes.STRING,
-                allowNull: false
+                allowNull: true
             },
             Cidade: {
                 type: DataTypes.STRING,
-                allowNull: false
+                allowNull: true
             },
             Estado: {
                 type: DataTypes.STRING,
-                allowNull: false
+                allowNull: true
             },
             Senha: {
                 type: DataTypes.STRING,
-                allowNull: false
+                allowNull: true
             },
             avatar: {
                 type: DataTypes.STRING,
                 allowNull: true
-            }         
-            
+            }
+
         },
         {
-          tableName: "users",
-          timestamps: false,
-          paranoid: false
+            tableName: "users",
+            timestamps: false,
+            paranoid: false
 
         }
-        
+
     )
-    User.associate = function(model){  
-        User.hasMany(model.Purchase,{as:"purchases", foreignKey:"Users_idUsers"}); 
+    User.associate = function (model) {
+        User.hasMany(model.Purchase, { as: "purchases", foreignKey: "Users_idUsers" });
     }
     return User
 
