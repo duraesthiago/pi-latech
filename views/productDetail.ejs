@@ -8,19 +8,17 @@
                 <section class="detail">
                     <div class="product-details">
                         <div class="main-picture">
-                            <img class="main-pic" src="<%=product.imagem %>" alt="" />
+                            <img class="main-pic" src="<%=product['images.Imagem']%>" alt="" />
                         </div>
                         <div class="small-pictures">
-                            <img class="small-pics" src="<%=product.imagem %>" alt="" />
-                            <img class="small-pics" src="<%=product.imagem %>" alt="" />
-                            <img class="small-pics" src="<%=product.imagem %>" alt="" />
+                            <img class="small-pics" src="<%=product['images.Imagem']%>" alt="" />
+                            <img class="small-pics" src="<%=product['images.Imagem']%>" alt="" />
+                            <img class="small-pics" src="<%=product['images.Imagem']%>" alt="" />
                         </div>
                     </div>
                     <div class="description-for-order">
                         <h4>Nome: <%= product.Nome %>
                         </h4>
-                        <p>memória: </p>
-                        <p>cor: </p>
                         <p>valor: R$ <%= product.Preco %>
                         </p>
                         <button class="order" type="submit">comprar</button>
@@ -29,12 +27,10 @@
                     <div class="product-description">
                         <h4>Descrição do Produto</h4>
                         <ul>
-                            <li>Marca:</li>
-                            <li>Modelo:</li>
-                            <li>Memória:</li>
-                            <li>Tamanho: tela</li>
-                            <li>Câmera:</li>
-                            <li>Duração da bateria:</li>
+                            <li>Marca: <%=product['brands.Marca']%>
+                            </li>
+                            <li>Informações: <%=product.Informacao%>
+                            </li>
                         </ul>
                     </div>
                 </section>

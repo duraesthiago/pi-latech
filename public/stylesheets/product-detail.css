@@ -27,22 +27,22 @@
   margin: 10px;
 }
 
-.main-pic img {
-  width: 90%;
+.main-pic {
+  width: 40%;
   border: 0.5px solid var(--pink-degrade);
   border-radius: 8px;
   margin: 16px;
 }
 
-.small-pics {
+.small-pictures {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
 }
 
-.small-pics img {
-  width: 25%;
+.small-pics {
+  width: 20%;
   border: 0.5px solid var(--pink-degrade);
   border-radius: 8px;
   margin: 10px;

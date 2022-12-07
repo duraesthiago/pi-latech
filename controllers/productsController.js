@@ -1,25 +1,23 @@
 // ************ Rquerimentos ************
-const { Product, Category } = require("../database/models");
+const { Product, Category, Image, Brand } = require("../database/models");
 
 
 const controler = {
     index: async (req, res) => {
-        let products = await Product.findAll({ raw: true });
+        let products = await Product.findAll({
+            raw: true,
+            include: [{
+                model: Image, as: 'images',
+            }]
+        });
         return res.render('products', { products });
     },
     sale: async (req, res) => {
-        //TEMPORARIO - Necessita acrescentar campo oferta em produtos
-        let productsOffer = [
-            {
-                idProdutos: 29,
-                Nome: 'Fone de ouvido Headphone Philips Bluetooth 15h TAH1205BK/00',
-                Codigo: null,
-                Preco: '399.00',
-                Categorias_id: 4,
-                Marcas_id: 9
+        let productsOffer = await Product.findAll({
+            raw: true, where: { Oferta: true }, include: [{
+                model: Image, as: 'images',
             }]
-
-        //let products = await Product.findAll({ raw: true, where: { offer: true } });
+        });
         res.render('products', { products: productsOffer });
     },
     category: async (req, res) => {
@@ -30,15 +28,24 @@ const controler = {
                 model: Category, as: 'categories',
                 where: {
                     Categoria: reqCategory
-                }
-            }]
+                },
+            },
+            { model: Image, as: 'images' }]
         });
 
         res.render('products', { products: productsCategory });
     },
     detail: async (req, res) => {
         let id = req.params.id;
-        let product = await Product.findByPk(id)
+        let product = await Product.findByPk(id, {
+            raw: true,
+            include: [
+                { model: Image, as: 'images' },
+                { model: Brand, as: 'brands' },
+                { model: Category, as: 'categories' }
+            ]
+        })
+        console.log(product)
         res.render('productDetail', { product });
     }
 }

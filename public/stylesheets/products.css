@@ -33,7 +33,8 @@
 .product-box a {
   display: block;
 }
-.product-box_image {
+.product-box img {
+  width: 10%;
   border-bottom: 1px solid var(--dark-gray);
 }
 .product-box_data {
