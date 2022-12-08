@@ -47,6 +47,37 @@ const controler = {
         })
         console.log(product)
         res.render('productDetail', { product });
+    },
+    edit: async (req, res) => {
+        let id = req.params.id;
+        let product = await Product.findByPk(id, {
+            raw: true,
+            include: [
+                { model: Image, as: 'images' },
+                { model: Brand, as: 'brands' },
+                { model: Category, as: 'categories' }
+            ]
+        });
+        res.render('productEdit', { product });
+    },
+
+    update: async (req, res) => {
+        let id = req.params.id;
+        let product = await Product.findByPk(id, {
+            include: [
+                { model: Image, as: 'images' },
+                { model: Brand, as: 'brands' },
+                { model: Category, as: 'categories' }
+            ]
+        })
+        product.set({
+            Nome: req.body.Nome,
+            Preco: req.body.Preco,
+            Marca: req.body.Marca,
+            Informacoes: req.body.Informacoes
+        });
+        await product.save();
+        res.status(200).send(product);
     }
 }
 

@@ -1,0 +1,53 @@
+<%- include('partials/head') %>
+    <!-- Include Header -->
+    <%- include('partials/header', {title: 'Início' }) %>
+        <!-- Include Banner -->
+        <%- include('partials/banner') %>
+            <main>
+                <link rel="stylesheet" href="/stylesheets/product-detail.css">
+                <section class="detail">
+                    <div class="product-details">
+                        <div class="main-picture">
+                            <img class="main-pic" src="<%=product['images.Imagem']%>" alt="" />
+                        </div>
+                        <div class="small-pictures">
+                            <img class="small-pics" src="<%=product['images.Imagem']%>" alt="" />
+                            <img class="small-pics" src="<%=product['images.Imagem']%>" alt="" />
+                            <img class="small-pics" src="<%=product['images.Imagem']%>" alt="" />
+                        </div>
+                    </div>
+
+                    <form action="/products/<%=product.idProdutos %>/edit?_method=PUT" method="POST">
+                        <div class="description-for-order">
+                            <div>
+                                <label for="Nome" class="form-label">Nome do produto:</label>
+                                <input type="text" id="nome" name="Nome" placeholder="Ex: Iphone..." class="form-input"
+                                    value="<%= product.Nome %>">
+                            </div>
+
+                            <div>
+                                <label for="Valor" class="form-label">Valor:</label>
+                                <input type="text" id="valor" name="Preco" placeholder="R$ 99,99" class="form-input"
+                                    value="<%= product.Preco %>">
+                            </div>
+                        </div>
+
+                        <div class="product-description">
+                            <div>
+                                <label for="Marca" class="form-label">Marca:</label>
+                                <input type="text" id="marca" name="Marca" placeholder="Apple" class="form-input"
+                                    value="<%=product['brands.Marca']%>">
+                            </div>
+
+                            <div>
+                                <label for="Informacoes" class="form-label">Infromações:</label>
+                                <input type="text" id="informacoes" name="Informacoes" placeholder="..."
+                                    class="form-input" value="<%=product.Informacao%>">
+                            </div>
+                        </div>
+                        <div>
+                            <button type="submit" class="button">Salvar alterações</button>
+                        </div>
+                    </form>
+            </main>
+            <%- include('partials/footer') %>
