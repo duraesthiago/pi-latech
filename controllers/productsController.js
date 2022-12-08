@@ -10,6 +10,7 @@ const controler = {
                 model: Image, as: 'images',
             }]
         });
+        console.log(products)
         return res.render('products', { products });
     },
     sale: async (req, res) => {
@@ -63,21 +64,15 @@ const controler = {
 
     update: async (req, res) => {
         let id = req.params.id;
-        let product = await Product.findByPk(id, {
-            include: [
-                { model: Image, as: 'images' },
-                { model: Brand, as: 'brands' },
-                { model: Category, as: 'categories' }
-            ]
-        })
+        let product = await Product.findByPk(id)
         product.set({
             Nome: req.body.Nome,
             Preco: req.body.Preco,
-            Marca: req.body.Marca,
             Informacoes: req.body.Informacoes
         });
+
         await product.save();
-        res.status(200).send(product);
+        res.redirect('/products');
     }
 }
 
