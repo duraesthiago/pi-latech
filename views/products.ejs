@@ -29,7 +29,30 @@
                                 <% } %>
                         </div>
                     </div>
+                    <% for(p of products) { %>
+                        <div class="description-for-order">
+                            <h4>nome, capacidade e tamnaho do produto</h4>
+                            <p>memória: </p>
+                            <p>cor: </p>
+                            <p>valor: R$</p>
+                            <form action="/orders/addCart" method="POST">
+                                <input type="hidden" name="selectedProduct" value=<%=p.idProdutos %>">
+                                <button class="order" type="submit">comprar</button>
+                            </form>
+                        </div>
+                        <% } %>
                 </div>
-                <!-- /todos os produtos -->
+                <div class="product-description">
+                    <h4>Descrição do Produto</h4>
+                    <ul>
+                        <li>Marca:</li>
+                        <li>Modelo:</li>
+                        <li>Memória:</li>
+                        <li>Tamanho: tela</li>
+                        <li>Câmera:</li>
+                        <li>Duração da bateria:</li>
+                    </ul>
+                </div>
+                </section>
             </main>
             <%- include('partials/footer') %>

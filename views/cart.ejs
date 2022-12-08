@@ -1,159 +1,85 @@
 <%- include('partials/head') %>
-<!-- Include Header -->
-<%- include('partials/header', {title: 'Início' }) %>
-  <!-- Include Banner -->
-  <%- include('partials/banner') %>
+  <!-- Include Header -->
+  <%- include('partials/header', {title: 'Início' }) %>
+    <!-- Include Banner -->
+    <%- include('partials/banner') %>
 
-  
-  <main>
-    <link rel="stylesheet" href="/stylesheets/cart.css">
-    <div class="ls-cart">
-      <header class="ls-cart-header">
-        <span class="ls-ico-cart ls-float-left"></span>
-        <small>MEU CARRINHO</small>
-        <input type="checkbox" class="ls-checkbox-cart" />
-        <strong>4 produto(s)</strong>
-      </header>
-      <div class="ls-cart-content">
-        <ul class="ls-no-style-list">
-          
-          <li>
-            <a href="#">
-              <h4 class="ls-title-product"><strong>01</strong>celular</h4>
-              <img src="/img/celular.png" alt="" />
-              <p>(descrição)</p>
-            </a>
-            <p>Preço: R$</p>
-            <div class="cart-btn-label">
-              <label>quantidade:</label>
-              <div class="cart-btn">
-                <button class="cart-btn-minus">
-                  <img src="/img/minus.svg" alt="">
-                  </button
-                ><input
-                  type="number"
-                  name="selector-quantity-input"
-                  autocomplete="off"
-                  class="cart-btn-input"
-                  value="1"
-                />
-                <div class="cart-btn-unidade">1</div>
-                <button class="cart-btn-plus">
-                  <img src="/img/plus.svg" alt="">
-                </button>
-              </div>
-            </div>
-          </li>          <li>
-            <a href="#">
-              <h4 class="ls-title-product"><strong>01</strong>celular</h4>
-              <img src="/img/celular.png" alt="" />
-              <p>(descrição)</p>
-            </a>
-            <p>Preço: R$</p>
-            <div class="cart-btn-label">
-              <label>quantidade:</label>
-              <div class="cart-btn">
-                <button class="cart-btn-minus">
-                  <img src="/img/minus.svg" alt="">
-                  </button
-                ><input
-                  type="number"
-                  name="selector-quantity-input"
-                  autocomplete="off"
-                  class="cart-btn-input"
-                  value="1"
-                />
-                <div class="cart-btn-unidade">1</div>
-                <button class="cart-btn-plus">
-                  <img src="/img/plus.svg" alt="">
-                </button>
-              </div>
-            </div>
-          </li>          <li>
-            <a href="#">
-              <h4 class="ls-title-product"><strong>01</strong>celular</h4>
-              <img src="/img/celular.png" alt="" />
-              <p>(descrição)</p>
-            </a>
-            <p>Preço: R$</p>
-            <div class="cart-btn-label">
-              <label>quantidade:</label>
-              <div class="cart-btn">
-                <button class="cart-btn-minus">
-                  <img src="/img/minus.svg" alt="">
-                  </button
-                ><input
-                  type="number"
-                  name="selector-quantity-input"
-                  autocomplete="off"
-                  class="cart-btn-input"
-                  value="1"
-                />
-                <div class="cart-btn-unidade">1</div>
-                <button class="cart-btn-plus">
-                  <img src="/img/plus.svg" alt="">
-                </button>
-              </div>
-            </div>
-          </li>          <li>
-            <a href="#">
-              <h4 class="ls-title-product"><strong>01</strong>celular</h4>
-              <img src="/img/celular.png" alt="" />
-              <p>(descrição)</p>
-            </a>
-            <p>Preço: R$</p>
-            <div class="cart-btn-label">
-              <label>quantidade:</label>
-              <div class="cart-btn">
-                <button class="cart-btn-minus">
-                  <img src="/img/minus.svg" alt="">
-                  </button
-                ><input
-                  type="number"
-                  name="selector-quantity-input"
-                  autocomplete="off"
-                  class="cart-btn-input"
-                  value="1"
-                />
-                <div class="cart-btn-unidade">1</div>
-                <button class="cart-btn-plus">
-                  <img src="/img/plus.svg" alt="">
-                </button>
-              </div>
-            </div>
-          </li>
-        </ul>
-        <div class="btn-delivey-shipp">
-          <input
-            class="btn-zip-code"
-            type="text"
-            placeholder="digite o CEP"
-          />
-          <input class="btn-zip-code-submit" type="submit" />
-        </div>
-        <div class="ls-about-your-order">
-          <h5>resumo do pedido</h5>
-          <a href="">
-            <img src="" alt="" />
-            <p>(nome do produto):</p>
-            <p>R$(valor unitário):</p>
-            <p>(quantidade):</p>
-            <p>R$(total):</p>
-          </a>
-        </div>
-        <div class="delivery-tax">
-          <p>R$(frete): </p>
-        </div>
-        <div class="amount-order">
-        <p>R$(total a pagar): R$</p>
-      </div>
-        <section class="ls-cart-footer ls-txt-center">
-          <a href="#" class="ls-btn-primary">Finalizar Compra</a>
-        </section>
-      </div>
-    </div>
-  </main>
-  
+      <link rel="stylesheet" href="../public/stylesheets/cart.css">
 
 
-<%- include('partials/footer') %>
+      <main>
+        <link rel="stylesheet" href="/stylesheets/cart.css">
+        <div class="ls-cart">
+          <header class="ls-cart-header">
+            <span class="ls-ico-cart ls-float-left"></span>
+            <small>MEU CARRINHO</small>
+            <input type="checkbox" class="ls-checkbox-cart" />
+            <strong>
+              <%= qty %> Produtos
+            </strong>
+          </header>
+          <div class="ls-cart-content">
+            <% if(productsIntoCart.length> 0){ %>
+              <ul class="ls-no-style-list">
+                <% for(p of productsIntoCart) {%>
+                  <li>
+                    <a href="#">
+                      <h4 class="ls-title-product"><strong>01</strong>
+                        <%= p.categories %>
+                      </h4>
+                      <img src="<%= p['images.Imagem'] %>" alt="" />
+                      <p>
+                        <%= p.Nome %>
+                      </p>
+                    </a>
+                    <p>
+                      <%= p.Preco %>R$
+                    </p>
+
+                    <div class="cart-btn-label">
+                      <label>quantidade:</label>
+                      <div class="cart-btn">
+                        <button class="cart-btn-minus">
+                          <img src="/img/minus.svg" alt="">
+                        </button><input type="number" name="selector-quantity-input" autocomplete="off"
+                          class="cart-btn-input" value="1" />
+                        <div class="cart-btn-unidade">1</div>
+                        <button class="cart-btn-plus">
+                          <img src="/img/plus.svg" alt="">
+                        </button>
+                      </div>
+                    </div>
+                  </li>
+                  <% } %>
+
+              </ul>
+              <div class="btn-delivey-shipp">
+                <input class="btn-zip-code" type="text" placeholder="digite o CEP" />
+                <input class="btn-zip-code-submit" type="submit" />
+              </div>
+              <div class="ls-about-your-order">
+                <h5>resumo do pedido</h5>
+                <a href="">
+                  <img src="" alt="" />
+                  <p>(nome do produto):</p>
+                  <p>R$(valor unitário):</p>
+                  <p>(quantidade):</p>
+                  <p>R$(total):</p>
+                </a>
+              </div>
+              <div class="delivery-tax">
+                <p>R$(frete): </p>
+              </div>
+              <div class="amount-order">
+                <p>R$(total a pagar): R$</p>
+              </div>
+              <section class="ls-cart-footer ls-txt-center">
+                <a href="#" class="ls-btn-primary">Finalizar Compra</a>
+              </section>
+              <% } else { %>
+                No productsIntoCar
+                <% } %>
+          </div>
+        </div>
+      </main>
+      <%- include('partials/footer') %>

@@ -1,10 +1,11 @@
 const IndexController = {
   index: (req, res) => {
-    res.render("index", { title: "Latech" });
+    res.render("index.ejs", { title: "Latech" });
   },
   aboutUs: (req, res) => {
     res.render("aboutUs");
   },
+  
   search: (req, res) => {},
   showProduct: (req, res) => {
     let id = req.params.id;

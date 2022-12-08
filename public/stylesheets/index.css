@@ -45,6 +45,10 @@ ul {
 
 button {
   background-color: transparent;
+  }
+
+button:hover {
+  background-color: black;
 }
 
 a {
