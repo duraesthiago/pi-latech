@@ -1,7 +1,15 @@
-const express = require('express');
-const router = express.Router();
-const OrdersController = require('../controllers/OrdersController');
+const router = require('express').Router()
+const ordersController = require('../controllers/OrdersController')
 
-router.get('/cart', OrdersController.showCart);
+router.get('/', ordersController.index)
+router.post('/addCart', ordersController.addCart)
+router.get('/cart', ordersController.showCart)
 
-module.exports = router;
+
+//router.post('/remove/:id', ordersController.removeProduct) 
+//router.post('/release', ordersController.releaseOrder)
+//router.put('/cancel/:id', ordersController.cancelOrder)
+
+//router.get('/payment', ordersController.paymentProcess)
+
+module.exports = router
