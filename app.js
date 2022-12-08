@@ -10,7 +10,6 @@ const ordersRouter = require('./routes/ordersRouter')
 const indexRouter = require('./routes/indexRouter');
 const productsRouter = require('./routes/productsRouter');
 const usersRouter = require('./routes/usersRouter');
-const ordersRouter = require('./routes/ordersRouter')
 
 const getViewsData = require('./middlewares/GetViewsData')
 
