@@ -1,9 +1,9 @@
 module.exports = (sequelize, DataTypes) => {
 
-    let Client = sequelize.define(
-        "Client", 
+    let User = sequelize.define(
+        "User",
         {
-            idClientes: {
+            idUsers: {
                 type: DataTypes.INTEGER,
                 autoIncrement: true,
                 allowNull: false,
@@ -15,7 +15,7 @@ module.exports = (sequelize, DataTypes) => {
             },
             Sobrenome: {
                 type: DataTypes.STRING,
-                allowNull: false
+                allowNull: true
             },
             Email: {
                 type: DataTypes.STRING,
@@ -23,41 +23,41 @@ module.exports = (sequelize, DataTypes) => {
             },
             Telefone: {
                 type: DataTypes.STRING,
-                allowNull: false
+                allowNull: true
             },
             Endereco: {
                 type: DataTypes.STRING,
-                allowNull: false
+                allowNull: true
             },
             Cidade: {
                 type: DataTypes.STRING,
-                allowNull: false
+                allowNull: true
             },
             Estado: {
                 type: DataTypes.STRING,
-                allowNull: false
+                allowNull: true
             },
             Senha: {
                 type: DataTypes.STRING,
-                allowNull: false
+                allowNull: true
             },
             avatar: {
                 type: DataTypes.STRING,
                 allowNull: true
-            }         
-            
+            }
+
         },
         {
-          tableName: "clients",
-          timestamps: false,
-          paranoid: false
+            tableName: "users",
+            timestamps: false,
+            paranoid: false
 
         }
-        
+
     )
-    Client.associate = function(model){  
-        Client.hasMany(model.Purchase,{as:"purchases", foreignKey:"Clientes_idClientes"}); 
+    User.associate = function (model) {
+        User.hasMany(model.Purchase, { as: "purchases", foreignKey: "Users_idUsers" });
     }
-    return Client
+    return User
 
 };  
