@@ -13,7 +13,7 @@ const ordersController = {
         db.Product.findAll()
         .then(function(productsReturned){
             
-            return res.render('index.ejs', {products: productsReturned})
+            return res.render('product.ejs', {products: productsReturned})
             
         })
         .catch((error)=> console.log(error))
