@@ -37,18 +37,27 @@ const ordersController = {
                     
     showCart: async (req, res) => {
         let idsIntoCart = req.session.cart
-
+       
         let getProductById = async (id) => {
-             let productFound = await db.Product.findByPk(id)
-                            
+             let productFound = await db.Product.findByPk(
+                id, {
+                raw: true,  
+                include: [
+                    {association: 'images'},
+                   ]}
+            )                          
               
               return productFound
         }
+        //let productsIntoCart = await Promise.all(getProductById.map(idsIntoCart))
         let productsIntoCart = await Promise.all(idsIntoCart.map(getProductById))
-
-                       
+         console.log(productsIntoCart)             
         res.render('cart.ejs', {productsIntoCart})
         
+    },
+
+    showTotal: (req, res) =>{
+
     },
    
     
