@@ -10,7 +10,7 @@ console.log(resultado)
 async function levantarProdutos() {
 
     try {
-        let resultado = await conexao.query("SELECT * FROM produtos LIMIT 0,5");
+        let resultado = await conexao.query("SELECT * FROM produtos");
         console.log(resultado);
     } catch (error) {
         console.log("Deu muito ruim!");
