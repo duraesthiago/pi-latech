@@ -6,30 +6,25 @@
 <main>
     <link rel="stylesheet" href="/stylesheets/products.css" />
   <!-- todos los productos -->
-  <div class="products-container">
-    <div>
       <div class="products-wrapper">
         <% for (p of products) { %>
-        <div>
-          <section class="product-box">
+        <div class="product-box">
             <a href="/products/detail/<%= p.idPrdutos %>">
-              <figure class="product-box_image">
+              <figure class="product-box-image">
                 <img
                   src="img/tablet.jpg<%= p.image %>"
                   alt="imagem do produto"
                 />
               </figure>
-              <article class="product-box_data">
-                <h2>R$ <%= p.Preco %></h2>
+              <article class="product-box-data">
+                <h3>R$ <%= p.Preco %></h3>
                 <p><%= p.Nome %></p>
               </article>
             </a>
-          </section>
         </div>
         <% } %>
-      </div>
-    </div>
   </div>
+  
   <!-- /todos os produtos -->
 </main>
 <%- include('partials/footer') %>
