@@ -17,8 +17,8 @@ router.get('/forgotPassword', UserController.forgotPassword);
 //router.get('/logout', UserController.logout);
 
 // router.post('/', UserController.loginValidation)
-
-router.post('/', validations, UserController.signUpValidation);
+router.post('/',validations, UserController.signUpValidation)
+router.post('/create', UserController.createUser);
 
 //router.post('/login', UserController.doingLogin);
 //router.post('/login', UserController.doingLogin);
