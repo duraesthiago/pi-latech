@@ -21,12 +21,9 @@ const UserController = {
       req.body.password,
       userToLogin.Senha
     )) {
-      return res.render("index");
+      return res.redirect("/");
     } else {
-      return res.render("userLogin", {
-        errors: "Este email não está cadastrado",
-      }
-      );
+      return res.redirect("/users?erro=1");
     }
   },
 
@@ -39,7 +36,8 @@ const UserController = {
   },
 
   signUp: (req, res) => {
-    res.render("userSignUp");
+    let erro = req.query.erro ? 1 : 0
+    res.render("userSignUp", {erro});
   },
 
   signUpValidation: (req, res, next) => {

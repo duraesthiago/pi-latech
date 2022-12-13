@@ -7,8 +7,10 @@
 
 <main>
   <link rel="stylesheet" href="../stylesheets/userSignUp.css"/>
-
     <div class="register-account">
+      <% if(erro==1) {%>
+        <div class="error"> Email não cadastrado. Deseja fazer cadastro? </div>
+        <%}%>
       <form class="register" method="post" action="/users/create">
         <div class="input-container">
           <label for="name">Nome Completo</label>
@@ -49,7 +51,7 @@
             <div class="danger"><%= errors.password.msg %>
             </div>
             <% } %>
-         
+
           <button class="btn-registration" type="submit">Cadastrar-se</button>
           <a href="/users/login">Ou faça login</a>
         </div>
