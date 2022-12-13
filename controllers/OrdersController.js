@@ -5,14 +5,11 @@ const ordersController = {
     index: (req, res) => {
 
         db.Product.findAll()
-        .then(function(productsReturned){
-            
-            return res.render('products.ejs', {products: productsReturned})
-            
-        })
-        .catch((error)=> console.log(error))
-        
-        
+            .then(function (productsReturned) {
+                return res.render('index.ejs', { products: productsReturned })
+            })
+            .catch((error) => console.log(error))
+
     },
 
     addCart: (req, res) => {
@@ -22,7 +19,8 @@ const ordersController = {
 
             req.session.cart = [req.body.selectedProduct]
         }
-        
+        //console.log(req.body)
+       // console.log(req.session.cart)
 
         res.redirect('/orders')
             },
@@ -62,13 +60,13 @@ const ordersController = {
         let index = productsIntoCart.findIndex((p) => p.idProdutos == idProductToChange);
 
         productsIntoCart[index].quantidade = productQtyChanged;
-        productsIntoCart[index].totalProduto = productsIntoCart[index].Preco * productsIntoCart[index].quantidade;
-
-        req.session.cart = productsIntoCart;
+        productsIntoCart[index].totalProduto = p.Preco * p.quantidade;
 
         res.render('cart.ejs', {productsIntoCart});
 
-                
+        //req.session.cart
+        //let addProduct = document.getElementById("btn-add")
+
     },
 
     releaseOrder: (req, res) => {
