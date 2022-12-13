@@ -10,7 +10,6 @@ const controler = {
                 model: Image, as: 'images',
             }]
         });
-        console.log(products)
         return res.render('products', { products });
     },
     sale: async (req, res) => {
@@ -46,7 +45,6 @@ const controler = {
                 { model: Category, as: 'categories' }
             ]
         })
-        console.log(product)
         res.render('productDetail', { product });
     },
     edit: async (req, res) => {
