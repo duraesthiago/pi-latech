@@ -1,0 +1,66 @@
+<%- include('partials/head') %>
+<!-- Include Header -->
+<%- include('partials/header', {title: 'Início' }) %>
+<!-- Include Banner -->
+<%- include('partials/banner') %>
+<main>
+  <link rel="stylesheet" href="/stylesheets/userLogin.css" />
+
+  <div class="login">
+    <div class="input-container">
+      <form action="/users/login" method="post">
+        <label for="input-name">Nome</label>
+        <input
+          class="name"
+          type="text"
+          name="name"
+          id="input-name"
+          value="<%= locals.oldData ? oldData.name : null %>"
+          placeholder="digite seu nome"
+        />
+        <%  if(locals.errors && errors.name) {%>
+        <div class="danger"><%= errors.name.msg %>
+        </div>
+        <% } %>
+
+        <label for="input-email">Email</label>
+        <input
+          class="email"
+          type="text"
+          name="email"
+          id="input-email"
+          value="<%= locals.oldData ? oldData.email : null %>"
+          placeholder="digite seu email"
+        />
+
+        <%  if(locals.errors && errors.email) {%>
+          <div class="danger"><%= errors.email.msg %>
+          </div>
+          <% } %>
+          <label for="input-password">Senha</label>
+
+        <input
+          class="password"
+          type="password"
+          name="password"
+          id="input-password"
+          placeholder="digite sua senha"
+          />
+          <%  if(locals.errors && errors.password) {%>
+            <div class="danger"><%= errors.password.msg %>
+            </div>
+            <% } %>
+
+            <input 
+            type="checkbox"
+            name="remember-user"
+            />
+            <label for="remeber-user"><b>Lembrar meu usuário</b></label>
+        <button class="btn-login" type="submit" href="users/account">Login</button>
+
+      </form>
+    </div>
+    <a href="/users/forgotPassword" class="remember-password">esqueceu sua senha?</a>
+  </div>
+</main>
+<%- include('partials/footer') %>

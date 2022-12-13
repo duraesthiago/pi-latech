@@ -1,5 +1,5 @@
+<!-- Include Header -->
 <%- include('partials/header', {title: 'Início' }) %>
-<body>
   <main>
     <link rel="stylesheet" href="/stylesheets/user.css">
     <div class="container-user">
@@ -22,11 +22,19 @@
           <div class="listOfProducts">
             <div class="produto-pedido">
               <img src="/img/celular.png" alt="">
-              <div class="produto-pedido-left">
-                <p>Produto</p>
-                <p>Preço</p>
-                <p>Quantidade</p>
-                <p>Subtotal</p>
+              <div class="produto-pedido-box">
+                <div class="produto-pedido-top">
+                  <p>Produto</p>
+                  <p>Preço</p>
+                  <p>Quantidade</p>
+                  <p>Subtotal</p>
+                </div>
+                <div class="produto-pedido-bottom">
+                  <p>Ipad</p>
+                  <p>R$10,00</p>
+                  <p>1</p>
+                  <p>R$10,00</p>
+                </div>
               </div>
             </div>
           </div>
@@ -62,6 +70,7 @@
               <label class="form-label" for="telefone">Telefone:</label>
               <input class="input-label" type="text" id="telefone" name="telefone" placeholder="" value="">
             </div>
+            <br>
             <button class="userMenuButton">
               <span>Editar</span>
             </button>
@@ -72,4 +81,6 @@
   </main>
   <!-- Include Footer -->
   <%- include('partials/footer') %>
-    
+    </body>
+
+    </html>

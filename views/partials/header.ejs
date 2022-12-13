@@ -4,10 +4,11 @@
     <div class="search-form">
       <!-- Alterada a posição da div para funcionamento das medias queries-->
       <form action="#" method="get" class="search-bar">
-        <input class="search-bar" type="text" name="q" placeholder="O que você procura?" />
         <button class="btn_sb" type="submit">
-          <img class="btn_search" src="/img/icons8-pesquisar.svg" />
-        </button>
+          <input class="search-bar" type="text" name="q" placeholder="O que você procura?" />
+          <button class="btn_sb" type="submit">
+            <img class="btn_search" src="/img/icons8-pesquisar.svg" />
+          </button>
       </form>
     </div>
     <div class="menu-hamburguer">
@@ -20,18 +21,20 @@
       <nav class="nav">
         <ul class="menu">
           <li><a href="/products">Produtos</a></li>
-          <li><a href="#">Ofertas</a></li>
-          <li><a href="#">Sobre nós</a></li>
+          <li><a href="/products/sale">Ofertas</a></li>
+          <li><a href="/aboutUs">Sobre nós</a></li>
           <li>
-            <a href="#"><img src="/img/icons8-adicionar-usuario-masculino-50.svg" /></a>
+            <a href="/users"><img src="/img/icons8-adicionar-usuario-masculino-50.svg" /></a>
           </li>
           <li>
-            <a href="#"><img src="/img/icons8-carrinho-de-compras-carregado-50.svg" /></a>
-          </li>
+            <a href="/orders/cart"><img src="/img/icons8-carrinho-de-compras-carregado-50.svg" />
+              <%= qty %>
+            </a>
+
         </ul>
       </nav>
     </div>
   </div>
+  <hr>
 
-  <hr />
 </header>
