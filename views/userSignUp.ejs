@@ -1,63 +1,46 @@
-
 <%- include('partials/head') %>
-<!-- Include Header -->
-<%- include('partials/header', {title: 'Início' }) %>
-<!-- Include Banner -->
-<%- include('partials/banner') %>
+  <!-- Include Header -->
+  <%- include('partials/header', {title: 'Início' }) %>
+    <!-- Include Banner -->
+    <%- include('partials/banner') %>
 
-<main>
-  <link rel="stylesheet" href="../stylesheets/userSignUp.css"/>
-    <div class="register-account">
-      <% if(erro==1) {%>
-        <div class="error"> Email não cadastrado. Deseja fazer cadastro? </div>
-        <%}%>
-      <form class="register" method="post" action="/users/create">
-        <div class="input-container">
-          <label for="name">Nome Completo</label>
-          <input
-          class="name" 
-          type="text"
-          name="name"
-          id="name-register"
-          value="<%= locals.oldData ? oldData.name : null %>"
-          placeholder="Digite seu Nome completo"
-          />
-          <%  if(locals.errors && errors.name) {%>
-            <div class="danger"><%= errors.name.msg %>
-            </div>
-            <% } %>
-          <label for="input-email">Email</label>
-          <input
-            class="email"
-            type="email"
-            name="email"
-            id="input-email"
-            value="<%= locals.oldData ? oldData.email : null %>"
-            placeholder="digite seu email"
-          />
-          <%  if(locals.errors && errors.email) {%>
-            <div class="danger"><%= errors.email.msg %>
-            </div>
-            <% } %>
-          <label for="input-password">Senha</label>
-          <input
-            class="password"
-            type="password"
-            name="password"
-            id="input-password"
-            placeholder="digite uma senha"
-          />
-          <%  if(locals.errors && errors.password) {%>
-            <div class="danger"><%= errors.password.msg %>
-            </div>
-            <% } %>
+      <main>
+        <link rel="stylesheet" href="../stylesheets/userSignUp.css" />
 
-          <button class="btn-registration" type="submit">Cadastrar-se</button>
-          <a href="/users/login">Ou faça login</a>
+        <div class="register-account">
+          <form class="register" method="post" action="/users/create">
+            <div class="input-container">
+              <label for="name">Nome Completo</label>
+              <input class="name" type="text" name="name" id="name-register"
+                value="<%= locals.oldData ? oldData.name : null %>" placeholder="Digite seu Nome completo" />
+              <% if(locals.errors && errors.name) {%>
+                <div class="danger">
+                  <%= errors.name.msg %>
+                </div>
+                <% } %>
+                  <label for="input-email">Email</label>
+                  <input class="email" type="email" name="email" id="input-email"
+                    value="<%= locals.oldData ? oldData.email : null %>" placeholder="digite seu email" />
+                  <% if(locals.errors && errors.email) {%>
+                    <div class="danger">
+                      <%= errors.email.msg %>
+                    </div>
+                    <% } %>
+                      <label for="input-password">Senha</label>
+                      <input class="password" type="password" name="password" id="input-password"
+                        placeholder="digite uma senha" />
+                      <% if(locals.errors && errors.password) {%>
+                        <div class="danger">
+                          <%= errors.password.msg %>
+                        </div>
+                        <% } %>
+
+                          <button class="btn-registration" type="submit">Cadastrar-se</button>
+                          <a href="/users/login">Ou faça login</a>
+            </div>
+          </form>
         </div>
-      </form>
-    </div>
-    
-  </main>
-  
-  <%- include('partials/footer') %>
+
+      </main>
+
+      <%- include('partials/footer') %>

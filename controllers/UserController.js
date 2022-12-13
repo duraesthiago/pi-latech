@@ -38,7 +38,6 @@ const UserController = {
   showUserAccount: (req, res) => {
     res.render("userAccount");
   },
-
   signUp: (req, res) => {
     let erro = req.query.erro ? 1 : 0
     res.render("userSignUp", {erro});

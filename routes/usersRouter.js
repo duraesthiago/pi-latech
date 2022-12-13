@@ -1,6 +1,7 @@
 
 
 const express = require('express');
+const { signUpValidation } = require('../controllers/UserController');
 const router = express.Router();
 const UserController = require('../controllers/UserController');
 const validationsSignUp = require('../middlewares/validationsSignUpMiddleware');
@@ -20,21 +21,12 @@ router.get('/forgotPassword', UserController.forgotPassword);
 
 
 //router.get('/logout', UserController.logout);
-
 // router.post('/', UserController.loginValidation)
 
   
   
 
 module.exports = router;
-
-
-
-
-
-
-
-
 
 
 

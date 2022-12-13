@@ -13,17 +13,37 @@
   
 .products-wrapper {
   background-color: var(--ligth-gray);
-  width: 100%;
+}
+.products-wrapper {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+.products-title {
+  font-size: 2.4em;
+  font-weight: 400;
+  color: var(--gray);
+}
+.product-box {
+  background-color: var(--dust-white);
+  border-radius: 10px;
+  transition: 300ms;
+  padding: 20px;
+  margin: 20px;
+}
+
+.product-box figure {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-around;
+  justify-content: center;
+  padding: 20px;
 }
 
 .product-box-image {
   border-bottom: 1px solid var(--dark-gray);
-  border-radius: 16px;
-  box-shadow: 10px 5px 5px var(--medium-gray) ;
+  object-fit: contain;
 }
 
 .product-box-image img {
