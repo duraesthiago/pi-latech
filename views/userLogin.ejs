@@ -8,59 +8,44 @@
 
   <div class="login">
     <div class="input-container">
-      <form action="/users/login" method="post">
+      <form method="post" action= "/users/login">
         <label for="input-name">Nome</label>
         <input
           class="name"
           type="text"
           name="name"
           id="input-name"
-          value="<%= locals.oldData ? oldData.name : null %>"
+          value=""
           placeholder="digite seu nome"
         />
-        <%  if(locals.errors && errors.name) {%>
-        <div class="danger"><%= errors.name.msg %>
-        </div>
-        <% } %>
-
         <label for="input-email">Email</label>
         <input
           class="email"
           type="text"
           name="email"
           id="input-email"
-          value="<%= locals.oldData ? oldData.email : null %>"
+          value=""
           placeholder="digite seu email"
         />
-
-        <%  if(locals.errors && errors.email) {%>
-          <div class="danger"><%= errors.email.msg %>
-          </div>
-          <% } %>
-          <label for="input-password">Senha</label>
-
+        <label for="input-password">Senha</label>
         <input
           class="password"
           type="password"
           name="password"
           id="input-password"
           placeholder="digite sua senha"
-          />
-          <%  if(locals.errors && errors.password) {%>
-            <div class="danger"><%= errors.password.msg %>
-            </div>
-            <% } %>
-
-            <input 
-            type="checkbox"
-            name="remember-user"
-            />
-            <label for="remeber-user"><b>Lembrar meu usuário</b></label>
-        <button class="btn-login" type="submit" href="users/account">Login</button>
-
+      
+        />
+        <input type="checkbox" name="remember-user" />
+        <label for="remeber-user"><b>Lembrar meu usuário</b></label>
+        <button class="btn-login" type="submit" href="/index">
+          Login
+        </button>
       </form>
     </div>
-    <a href="/users/forgotPassword" class="remember-password">esqueceu sua senha?</a>
+    <a href="/users/forgotPassword" class="remember-password"
+      >esqueceu sua senha?</a
+    >
   </div>
 </main>
 <%- include('partials/footer') %>
