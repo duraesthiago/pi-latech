@@ -5,7 +5,7 @@ router.get('/', ordersController.index)
 router.post('/addCart', ordersController.addCart)
 router.get('/cart', ordersController.showCart)
 
-router.put('/updateCart', ordersController.updateCart) 
+router.put('/updateCart', ordersController.updateCart)
 
 //router.post('/remove/:id', ordersController.removeProduct) 
 //router.post('/release', ordersController.releaseOrder)
