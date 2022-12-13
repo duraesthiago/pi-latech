@@ -48,6 +48,7 @@ const ordersController = {
             p.totalProduto = p.Preco * p.quantidade;
         });
 
+            console.log(productsIntoCart)
         res.render('cart.ejs', { productsIntoCart })
     },
     
