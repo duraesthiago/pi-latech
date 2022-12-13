@@ -3,6 +3,9 @@ const { validationResult } = require("express-validator");
 const { User } = require("../database/models/");
 const bcrypt = require("bcrypt");
 const { JSON } = require("sequelize");
+const { User } = require("../database/models/");
+const bcrypt = require("bcrypt");
+const { JSON } = require("sequelize");
 
 const UserController = {
   userLogin: (req, res) => {
@@ -21,9 +24,12 @@ const UserController = {
       req.body.password,
       userToLogin.Senha
     )) {
-      return res.redirect("/");
+      return res.render("index");
     } else {
-      return res.redirect("/users?erro=1");
+      return res.render("userLogin", {
+        errors: "Este email não está cadastrado",
+      }
+      );
     }
   },
 
@@ -41,6 +47,7 @@ const UserController = {
   },
 
   signUpValidation: (req, res, next) => {
+  signUpValidation: (req, res, next) => {
     const resultValidations = validationResult(req);
     if (resultValidations.errors.length > 0) {
       return res.render("userSignUp", {
@@ -48,13 +55,17 @@ const UserController = {
         oldData: req.body,
       });
     }
+    }
   },
 
   createUser: async (req, res) => {
     await User.create({
+    await User.create({
       Nome: req.body.name,
       Email: req.body.email,
       Senha: bcrypt.hashSync(req.body.password, 10),
+    });
+    return res.redirect("/users/login");
     });
     return res.redirect("/users/login");
   },
@@ -72,11 +83,28 @@ const UserController = {
   //    }
   //   }})
   //  }
+// let userExists =  await User.findOne ({
+    //   raw: true,
+    //   where: {
+    //     Email: req.body.email,
+    //   },
+    // });
+  // if(userExists){
+  //   res.redirect('/users/login',
+  //   {errors:{
+  //    Email: {
+  //      msg:'Já existe uma conta cadastrada com esse email.'
+  //    }
+  //   }})
+  //  }
   // getUsers: (req, res) => {
+  //   const usersList = User.findAll().then(function (allUsersList) {
+  //     return cosole.log(allUserList);
   //   const usersList = User.findAll().then(function (allUsersList) {
   //     return cosole.log(allUserList);
   //   });
   // },
+};
 };
 
 module.exports = UserController;
