@@ -3,29 +3,12 @@ const db = require('../database/models')
 
 const ordersController = {
     index: (req, res) => {
-        // let qty = 0
-        // if(req.session.cart){
-        //     qty = req.session.cart.length
-        // }
-        // //locals.products.length
-        // console.log(qty)
 
         db.Product.findAll()
-        .then(function(productsReturned){
-            
-            return res.render('products.ejs', {products: productsReturned})
-            
-        })
-        .catch((error)=> console.log(error))
-        
-        
             .then(function (productsReturned) {
-
-                return res.render('products.ejs', { products: productsReturned })
-
+                return res.render('index.ejs', { products: productsReturned })
             })
             .catch((error) => console.log(error))
-
 
     },
 
@@ -33,14 +16,14 @@ const ordersController = {
         if (req.session.cart) {
             req.session.cart.push(req.body.selectedProduct)
         } else {
+
             req.session.cart = [req.body.selectedProduct]
         }
-        console.log(req.body)
+        //console.log(req.body)
+       // console.log(req.session.cart)
 
-        console.log(req.session.cart)
         res.redirect('/orders')
-        //console.log(req.session)
-    },
+            },
 
 
     showCart: async (req, res) => {
@@ -53,24 +36,34 @@ const ordersController = {
                 include: [
                     { association: 'images' },
                 ]
-            }
-            )
-
+            })
             return productFound
         }
-        //let productsIntoCart = await Promise.all(getProductById.map(idsIntoCart))
+
         let productsIntoCart = await Promise.all(idsIntoCart.map(getProductById))
-        console.log(productsIntoCart)
+        req.session.cart = productsIntoCart;
+
+        productsIntoCart.forEach((p)=>{
+            p.quantidade = 1;
+            p.totalProduto = p.Preco * p.quantidade;
+        });
+
         res.render('cart.ejs', { productsIntoCart })
-
     },
+    
+    updateCart: (req, res) => {
+        let idProductToChange = req.body.productId;
+        let productQtyChanged = req.body.productQty;
 
-    showTotal: (req, res) => {
+        productsIntoCart = req.session.cart;
 
-    },
+        let index = productsIntoCart.findIndex((p) => p.idProdutos == idProductToChange);
 
+        productsIntoCart[index].quantidade = productQtyChanged;
+        productsIntoCart[index].totalProduto = p.Preco * p.quantidade;
 
-    removeProduct: (req, res) => {
+        res.render('cart.ejs', {productsIntoCart});
+
         //req.session.cart
         //let addProduct = document.getElementById("btn-add")
 

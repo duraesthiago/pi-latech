@@ -6,7 +6,8 @@ router.post('/addCart', ordersController.addCart)
 router.get('/cart', ordersController.showCart)
 
 
-//router.post('/remove/:id', ordersController.removeProduct) 
+router.put('/updateCart', ordersController.updateCart) 
+
 //router.post('/release', ordersController.releaseOrder)
 //router.put('/cancel/:id', ordersController.cancelOrder)
 
