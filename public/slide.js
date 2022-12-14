@@ -8,10 +8,14 @@ const controlsWrapper = document.querySelector('[data-slide="controls-wrapper"]'
 const slideItems = document.querySelectorAll('[data-slide="item"]')
 const controlButtons = document.querySelectorAll('[data-slide="controlButton"]')
 let startingPoint = 0
+let savedPosition = 0
+let currentPoint = 0
+let movement = 0
 
 function onMouseDown(event){
     const slideItem = event.currentTarget
-    startingPoint = event.clientX     
+    startingPoint = event.clientX
+    currentPoint = startingPoint - savedPosition     
     slideItem.addEventListener('mousemove', onMouseMove)
     console.log("ponto de partida", startingPoint)
     //console.log('apertei o botão')
@@ -19,9 +23,11 @@ function onMouseDown(event){
 }
 
 function onMouseMove (event){
-    const movement = event.clientX - startingPoint
+    movement = event.clientX - startingPoint
+    const position = event.clientX - currentPoint
     console.log("quantidade de pixel que movimentei", movement)
-    slideList.style.transform = 'translateX('+movement+'px)'
+    slideList.style.transform = 'translateX('+position+'px)'
+    savedPosition = position
     //console.log('movimentei o botão')
 }
 
