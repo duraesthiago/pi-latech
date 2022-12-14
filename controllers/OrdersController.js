@@ -19,8 +19,7 @@ const ordersController = {
 
             req.session.cart = [req.body.selectedProduct]
         }
-        //console.log(req.body)
-       // console.log(req.session.cart)
+        
 
         res.redirect('/orders')
             },
@@ -48,7 +47,6 @@ const ordersController = {
             p.totalProduto = p.Preco * p.quantidade;
         });
 
-            console.log(productsIntoCart)
         res.render('cart.ejs', { productsIntoCart })
     },
     
@@ -61,13 +59,13 @@ const ordersController = {
         let index = productsIntoCart.findIndex((p) => p.idProdutos == idProductToChange);
 
         productsIntoCart[index].quantidade = productQtyChanged;
-        productsIntoCart[index].totalProduto = p.Preco * p.quantidade;
+        productsIntoCart[index].totalProduto = productsIntoCart[index].Preco * productsIntoCart[index].quantidade;
+
+        req.session.cart = productsIntoCart;
 
         res.render('cart.ejs', {productsIntoCart});
 
-        //req.session.cart
-        //let addProduct = document.getElementById("btn-add")
-
+                
     },
 
     releaseOrder: (req, res) => {
