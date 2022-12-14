@@ -15,6 +15,17 @@ const state = {
     currentSlideIndex: 0
 }
 
+function translateSlide ({ position }){
+    slideList.style.transform = `translateX(${position}px)`
+    state.savedPosition = position
+}
+function setVisibleSlide ({ index }){
+    const slideItem = slideItems[index]
+    const slideWidth = slideItem.clientWidth
+    const position = index * slideWidth
+    translateSlide({ position: -position })
+}
+
 function onMouseDown(event, index){
     const slideItem = event.currentTarget
     state.startingPoint = event.clientX
@@ -27,8 +38,7 @@ function onMouseDown(event, index){
 function onMouseMove (event){
     state.movement = event.clientX - state.startingPoint
     const position = event.clientX - state.currentPoint
-    slideList.style.transform = 'translateX('+position+'px)'
-    state.savedPosition = position
+    translateSlide({ position: position})
     }
 
 function onMouseUp(event){
@@ -36,17 +46,11 @@ function onMouseUp(event){
     const slideWidth = slideItem.clientWidth
     console.log(slideWidth)
     if(state.movement < -150){
-        const position = ((state.currentSlideIndex + 1) * slideWidth)
-        slideList.style.transform = 'translateX('+(-position)+'px)'
-        state.savedPosition = -position
+        setVisibleSlide({index: state.currentSlideIndex + 1})        
     } else if(state.movement > 150){
-        const position = ((state.currentSlideIndex - 1) * slideWidth)
-        slideList.style.transform = 'translateX('+(-position)+'px)'
-        state.savedPosition = -position
+        setVisibleSlide({index: state.currentSlideIndex - 1})        
     }else{
-        const position = ((state.currentSlideIndex) * slideWidth)
-        slideList.style.transform = 'translateX('+(-position)+'px)'
-        state.savedPosition = -position
+        setVisibleSlide({index: state.currentSlideIndex})        
     }     
     slideItem.removeEventListener('mousemove', onMouseMove)    
     }
