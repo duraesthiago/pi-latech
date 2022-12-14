@@ -1,9 +1,5 @@
 const { validationResult } = require("express-validator");
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 0166a46 (User controller atualizado)
 const { User } = require("../database/models/");
 const bcrypt = require("bcrypt");
 const { JSON } = require("sequelize");
@@ -43,18 +39,18 @@ const UserController = {
   },
   signUp: (req, res) => {
     let erro = req.query.erro ? 1 : 0
-    res.render("userSignUp", {erro});
+    res.render("userSignUp", { erro });
   },
 
   signUpValidation: (req, res, next) => {
-  signUpValidation: (req, res, next) => {
-    const resultValidations = validationResult(req);
-    if (resultValidations.errors.length > 0) {
-      return res.render("userSignUp", {
-        errors: resultValidations.mapped(),
-        oldData: req.body,
-      });
-    }
+    signUpValidation: (req, res, next) => {
+      const resultValidations = validationResult(req);
+      if (resultValidations.errors.length > 0) {
+        return res.render("userSignUp", {
+          errors: resultValidations.mapped(),
+          oldData: req.body,
+        });
+      }
     }
   },
 
@@ -66,12 +62,12 @@ const UserController = {
     });
     return res.redirect("/users/login");
   },
-// let userExists =  await User.findOne ({
-    //   raw: true,
-    //   where: {
-    //     Email: req.body.email,
-    //   },
-    // });
+  // let userExists =  await User.findOne ({
+  //   raw: true,
+  //   where: {
+  //     Email: req.body.email,
+  //   },
+  // });
   // if(userExists){
   //   res.redirect('/users/login',
   //   {errors:{
@@ -80,12 +76,12 @@ const UserController = {
   //    }
   //   }})
   //  }
-// let userExists =  await User.findOne ({
-    //   raw: true,
-    //   where: {
-    //     Email: req.body.email,
-    //   },
-    // });
+  // let userExists =  await User.findOne ({
+  //   raw: true,
+  //   where: {
+  //     Email: req.body.email,
+  //   },
+  // });
   // if(userExists){
   //   res.redirect('/users/login',
   //   {errors:{
