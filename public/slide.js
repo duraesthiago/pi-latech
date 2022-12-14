@@ -11,38 +11,40 @@ let startingPoint = 0
 let savedPosition = 0
 let currentPoint = 0
 let movement = 0
+let currentSlideIndex = 0
 
-function onMouseDown(event){
+function onMouseDown(event, index){
     const slideItem = event.currentTarget
     startingPoint = event.clientX
-    currentPoint = startingPoint - savedPosition     
+    currentPoint = startingPoint - savedPosition
+    currentSlideIndex = index
+    console.log(currentSlideIndex)     
     slideItem.addEventListener('mousemove', onMouseMove)
-    console.log("ponto de partida", startingPoint)
-    //console.log('apertei o botão')
+    //console.log("ponto de partida", startingPoint)
+   
     
 }
 
 function onMouseMove (event){
     movement = event.clientX - startingPoint
     const position = event.clientX - currentPoint
-    console.log("quantidade de pixel que movimentei", movement)
+    //console.log("quantidade de pixel que movimentei", movement)
     slideList.style.transform = 'translateX('+position+'px)'
     savedPosition = position
-    //console.log('movimentei o botão')
-}
+    }
 
 function onMouseUp(event){
     const slideItem = event.currentTarget   
-    slideItem.removeEventListener('mousemove', onMouseMove)
-    
-    //console.log('soltei o botão do mouse')
-}
+    slideItem.removeEventListener('mousemove', onMouseMove)    
+    }
 
 slideItems.forEach(function(slideItem, index){
     slideItem.addEventListener('dragstart', function(event){
         event.preventDefault()
     })
-    slideItem.addEventListener('mousedown', onMouseDown)
+    slideItem.addEventListener('mousedown', function(event){
+        onMouseDown(event, index)
+    })
     slideItem.addEventListener('mouseup', onMouseUp)
 })
 
