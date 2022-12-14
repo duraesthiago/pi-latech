@@ -37,16 +37,24 @@
                     </p>
 
                     <div class="cart-btn-label">
-                      <label>quantidade:</label>
-                      <div class="cart-btn">
-                        <button class="cart-btn-minus">
+
+                      <form action="/orders/updateCart?_method=PUT" method="POST">
+                        <label for="quantity">Quantidade:</label>
+                        <input type="hidden" id="id" name="productId" value="<%=p.idProdutos %>">
+                        <input type="number" id="quantidade" name="productQty" value="<%= p.quantidade %>" min="1" max="99">
+                        <input type="submit">
+                      </form>
+
+                      <!--<label>quantidade:</label>-->
+                      <!--<div class="cart-btn">
+                        -<button class="cart-btn-minus">
                           <img src="/img/minus.svg" alt="">
                         </button><input type="number" name="selector-quantity-input" autocomplete="off"
                           class="cart-btn-input" value="1" />
                         <div class="cart-btn-unidade">1</div>
                         <button class="cart-btn-plus">
                           <img src="/img/plus.svg" alt="">
-                        </button>
+                        </button>-->
                       </div>
                     </div>
                   </li>
@@ -74,7 +82,7 @@
                 <p>R$(total a pagar): R$</p>
               </div>
               <section class="ls-cart-footer ls-txt-center">
-                <a href="#" class="ls-btn-primary">Finalizar Compra</a>
+                <a href="/orders/release" class="ls-btn-primary">Finalizar Compra</a>
               </section>
               <% } else { %>
                 No productsIntoCar
