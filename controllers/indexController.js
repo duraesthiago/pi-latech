@@ -46,7 +46,7 @@ const IndexController = {
         }        
         return product
       })
-    res.render("indexx", { title: "Latech", products });
+    res.render("search", { title: "Latech", products });
   },
 
   showProduct: (req, res) => {
