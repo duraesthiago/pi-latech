@@ -19,12 +19,20 @@ function translateSlide ({ position }){
     slideList.style.transform = `translateX(${position}px)`
     state.savedPosition = position
 }
-function setVisibleSlide ({ index }){
+function getCenterPosition({ index }){
     const slideItem = slideItems[index]
     const slideWidth = slideItem.clientWidth
-    const position = index * slideWidth
+    const windowsWidth = document.body.clientWidth
+    const margin = (windowsWidth - slideWidth) / 2
+    const position = margin - (index * slideWidth)
+    return position
+
+}
+
+function setVisibleSlide ({ index }){   
+    const position = getCenterPosition({ index: index })
     state.currentSlideIndex = index
-    translateSlide({ position: -position })
+    translateSlide({ position: position })
 }
 
 function nextSlide(){
@@ -76,6 +84,8 @@ slideItems.forEach(function(slideItem, index){
 
 navNextBottun.addEventListener('click', nextSlide)
 navPreviousBottun.addEventListener('click', previousSlide)
+
+setVisibleSlide({ index: 1 })
 
 
 console.log("tudo maravilhoso")
