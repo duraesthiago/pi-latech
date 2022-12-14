@@ -23,7 +23,16 @@ function setVisibleSlide ({ index }){
     const slideItem = slideItems[index]
     const slideWidth = slideItem.clientWidth
     const position = index * slideWidth
+    state.currentSlideIndex = index
     translateSlide({ position: -position })
+}
+
+function nextSlide(){
+    setVisibleSlide({index: state.currentSlideIndex + 1})
+}
+
+function previousSlide (){
+    setVisibleSlide({index: state.currentSlideIndex - 1}) 
 }
 
 function onMouseDown(event, index){
@@ -46,9 +55,9 @@ function onMouseUp(event){
     const slideWidth = slideItem.clientWidth
     console.log(slideWidth)
     if(state.movement < -150){
-        setVisibleSlide({index: state.currentSlideIndex + 1})        
+        nextSlide()       
     } else if(state.movement > 150){
-        setVisibleSlide({index: state.currentSlideIndex - 1})        
+        previousSlide()       
     }else{
         setVisibleSlide({index: state.currentSlideIndex})        
     }     
@@ -64,5 +73,9 @@ slideItems.forEach(function(slideItem, index){
     })
     slideItem.addEventListener('mouseup', onMouseUp)
 })
+
+navNextBottun.addEventListener('click', nextSlide)
+navPreviousBottun.addEventListener('click', previousSlide)
+
 
 console.log("tudo maravilhoso")
