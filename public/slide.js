@@ -21,22 +21,33 @@ function onMouseDown(event, index){
     state.currentPoint = state.startingPoint - state.savedPosition
     state.currentSlideIndex = index
     console.log(state.currentSlideIndex)     
-    slideItem.addEventListener('mousemove', onMouseMove)
-    //console.log("ponto de partida", startingPoint)
-   
-    
+    slideItem.addEventListener('mousemove', onMouseMove)      
 }
 
 function onMouseMove (event){
     state.movement = event.clientX - state.startingPoint
     const position = event.clientX - state.currentPoint
-    //console.log("quantidade de pixel que movimentei", movement)
     slideList.style.transform = 'translateX('+position+'px)'
     state.savedPosition = position
     }
 
 function onMouseUp(event){
-    const slideItem = event.currentTarget   
+    const slideItem = event.currentTarget     
+    const slideWidth = slideItem.clientWidth
+    console.log(slideWidth)
+    if(state.movement < -150){
+        const position = ((state.currentSlideIndex + 1) * slideWidth)
+        slideList.style.transform = 'translateX('+(-position)+'px)'
+        state.savedPosition = -position
+    } else if(state.movement > 150){
+        const position = ((state.currentSlideIndex - 1) * slideWidth)
+        slideList.style.transform = 'translateX('+(-position)+'px)'
+        state.savedPosition = -position
+    }else{
+        const position = ((state.currentSlideIndex) * slideWidth)
+        slideList.style.transform = 'translateX('+(-position)+'px)'
+        state.savedPosition = -position
+    }     
     slideItem.removeEventListener('mousemove', onMouseMove)    
     }
 
