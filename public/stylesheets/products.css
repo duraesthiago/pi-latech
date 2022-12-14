@@ -12,7 +12,7 @@
 /*====== Products ======*/
 .products-container {
   display: inline-block;
-  background-color: var(--ligth-gray);
+  background-color: #070d40 /*var(--ligth-gray)*/;
 }
 .products-wrapper {
   margin-top: 30px;
