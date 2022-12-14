@@ -1,12 +1,54 @@
+const { Op } = require("sequelize");
+const { Product, Image } = require("../database/models");
+const idProdutosComDesconto = [1, 2, 4, 5, 8, 29]
 const IndexController = {
-  index: (req, res) => {
-    res.render("index.ejs", { title: "Latech" });
+  index: async (req, res) => {
+    let products = await Product.findAll({
+      raw: true,
+      include: [{
+          model: Image, as: 'images',
+      }],
+      where: {
+        idProdutos: idProdutosComDesconto
+      }
+  });    
+    products = products.map((product) => {
+      product.PrecoComDesconto = product.Preco * 0.7
+      return product
+    })
+    console.log(products[0])
+    res.render("index", { title: "Latech", products });
   },
+
   aboutUs: (req, res) => {
+
     res.render("aboutUs");
   },
-  
-  search: (req, res) => {},
+  search: async (req, res) => {
+    let q = req.query.q;
+    let products = await Product.findAll({
+      raw: true,
+      include: [{
+          model: Image, as: 'images',
+      }],
+      where: {
+        Nome: {
+          [Op.like]: `%${q}%`
+        }
+      }
+    })
+    products = products.map(
+      (product) => {
+        if (idProdutosComDesconto.includes(product.id)) {
+          product.PrecoComDesconto = product.Preco * 0.7
+        }else{
+          product.PrecoComDesconto = product.Preco * 1     
+        }        
+        return product
+      })
+    res.render("indexx", { title: "Latech", products });
+  },
+
   showProduct: (req, res) => {
     let id = req.params.id;
     // verificar nome da tabela produtos
