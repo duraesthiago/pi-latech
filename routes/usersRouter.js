@@ -4,7 +4,6 @@ const express = require('express');
 const router = express.Router();
 const UserController = require('../controllers/UserController');
 const validationsSignUp = require('../middlewares/validationsSignUpMiddleware');
-const validationsLog = require('../middlewares/validationsLogMiddleware')
 
 
 /* GET users listing. */
