@@ -1,60 +1,59 @@
 <%- include('partials/head') %>
-<!-- Include Header -->
-<%- include('partials/header', {title: 'Início' }) %>
-  <!-- Include Banner -->
-  <%- include('partials/banner') %>
- 
-  <link rel="stylesheet" href="../stylesheets/aboutUs.css">
-  <h1 class="aboutUs-tittle">Latech</h1>
-  <section class="introducao_interna interna_sobre">
-    <div class="container">
-        <h1 data-anime="400" class="FadeInDown">Sobre</h1>
-        <P data-anime="800" class="FadeInDown">Conheca mais sobre a Bikcraft.</P>
-    </div>
-</section>
-<section class="missao_sobre container FadeInDown" data-anime="1200">
-    <div class="grid-10">
-        <h2 class="subtitulo-interno">História, Missão e Visão</h2>
-        <p>No mundo atual, a contínua expansão de nossa atividade cumpre um papel essencial na formulação da gestão inovadora da qual fazemos parte da qual fazemos parte.</p>
-        <p>No mundo atual, a contínua expansão de nossa atividade cumpre um papel essencial na formulação da gestão inovadora da qual fazemos parte da qual fazemos parte.</p>
-    </div>
-    <div class="grid-6">
-        <h2 class="subtitulo-interno">Valores</h2>
-        <ul>
-            <li>- Qualidade no processo com</li>
-            <li>- Foco no cliente sem perder a</li>
-            <li>- Diversão, preservando a</li>
-            <li>- Natureza com sustentabilidade</li>
-        </ul>
-    </div>
-    <div class="grid-16 foto_equipe">
-        <img src="img/equipe-bikcraft.jpg" alt="equipe_bikcraft">
-    </div>
-</section>
-<section class="qualidade container">
-    <h2 class="subtitulo">qualidade</h2>
-    <img src="img/bikcraft-qualidade.svg" alt="Bikcraft">
-    <ul class="qualidade_lista">
-        <li class="grid-1-3">
-            <h3>Durabilidade</h3>
-            <p>Sólida como pedra, leve como o vento e resistente como o diamante, são nosso diferencias.</p>
-        </li>
-        <li class="grid-1-3">
-            <h3>Designer</h3>
-            <p>Feita sob medida para melhor conforto e eficiência, adaptamos a Bikcraft para seu corpo.</p>
-        </li>
-        <li class="grid-1-3">
-            <h3>Sustentabilidade</h3>
-            <p>Ajude a cuidar do meio ambiente, tire os carros da rua. todo a produção é sustentável</p>
-        </li>
-    </ul>
+    <!-- Include Header -->
+    <%- include('partials/header', {title: 'Início' }) %>
+        <!-- Include Banner -->
+        <%- include('partials/banner') %>
 
-</section>
-<div class="quebra">
-    <blockquote class="quote-externo">
-        <p>"O verdadeiro segredo da felicidade está no interresse por todos os detalhes da vida cotidiana."
-        </p>
-            <cite>WILLIAM MORRIS</cite>
-    </blockquote>
-</div>
-  <%- include('partials/footer') %>
+            <link rel="stylesheet" href="../stylesheets/grid.css">
+            <link rel="stylesheet" href="../stylesheets/aboutUs.css">
+            <h1 class="aboutUs-tittle"><img src="../img/logo_latech_final.png" alt=""></h1>
+            <section class="grid-16 aboutUs-into"">
+                <h2>Sobre</h2>
+                <P>Conheca mais sobre a Latina América Tech.</P>
+                </section>
+
+                <div class="grid-16 aboutUs-into">
+                <h2>História, Missão e Visão</h2>
+                <p>No mundo atual, a contínua expansão de nossa atividade cumpre um papel essencial na formulação da
+                    gestão inovadora da qual fazemos parte da qual fazemos parte.</p>
+                <p>No mundo atual, a contínua expansão de nossa atividade cumpre um papel essencial na formulação da
+                    gestão inovadora da qual fazemos parte da qual fazemos parte.</p>
+                </div>
+                <div class="grid-16 aboutUs-into">
+                    <h2>Qualidade</h2>
+                    <p>Tecnologia é um produto da ciência e da engenharia que envolve um conjunto de instrumentos, métodos e técnicas que visam a resolução de problemas. É uma aplicação prática do conhecimento científico em diversas áreas de pesquisa.</p>
+                    <h2>Valores</h2>
+                    <ul>
+                        <li>- Qualidade no processo com</li>
+                        <li>- Foco no cliente sem perder a</li>
+                        <li>- Diversão, presando a</li>
+                        <li>- inovação</li>
+                    </ul>
+
+                    <ul>
+                        <li >
+                            <h2>Inovação</h2>
+                            <p>Sólida como pedra, leve como o vento e resistente como o diamante, são nosso diferencias.</p>
+                        </li>
+                        <li>
+                            <h2>Tecnologia</h2>
+                            <p>Feita sob medida para melhor conforto e eficiência, adaptamos a Bikcraft para seu corpo.</p>
+                        </li>
+                        <li>
+                            <h2>Qualidade</h2>
+                            <p>Ajude a cuidar do meio ambiente, tire os carros da rua. todo a produção é sustentável</p>
+                        </li>
+                    </ul>
+                </div>
+                
+            </section>
+
+            <div class="container quebra">
+                <blockquote>
+                    <p>
+                        "O verdadeiro segredo da felicidade está no interresse por todos os detalhes da vida cotidiana."
+                    </p>
+                    <cite>WILLIAM MORRIS</cite>
+                </blockquote>
+            </div>
+            <%- include('partials/footer') %>

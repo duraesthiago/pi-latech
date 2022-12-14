@@ -3,7 +3,7 @@ const path = require('path');
 const { check } = require('express-validator');
 
 
-const validations = [
+const validationsSignUp = [
     check('name')
         .notEmpty().withMessage('É necessário digitar seu nome completo').bail()
         .trim(),
@@ -16,4 +16,4 @@ const validations = [
         .trim(),
    
 ]
-module.exports = validations;
+module.exports = validationsSignUp;

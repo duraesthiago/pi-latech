@@ -93,7 +93,7 @@ CREATE TABLE `images` (
 
 LOCK TABLES `images` WRITE;
 /*!40000 ALTER TABLE `images` DISABLE KEYS */;
-INSERT INTO `images` VALUES (1,'notebook ideapad 3i intel','11/11/2022','/img/pexels-pixabay-159643.jpg',1,8),(2,'notebook dell inspiron','06/12/2022','/img/dell-anniversary-cons-dell-inspiron-3515nt-uhp-2303-02-br-homepage-2up-module-rf-800x400.webp',7,7),(3,'Smartphone Samsung','06/12/2022','/img/tablet.jpg',13,1),(4,'Smarphone Twist','06/12/2022','/img/smartphone.svg',17,21),(5,'Fone de Ouvido Head','06/12/2022','/img/pexels-vlad-bagacian-1337753.jpg',29,9),(6,'Smartphone LG','07/12/2022','/img/pexels-torsten-dettlaff-193004.jpg',23,6),(7,'Fone Panasonic','07/12/2022','img/pexels-ready-made-3921887.jpg',26,22),(8,'iPhone','07/12/2022','img/pexels-raka-miftah-4279153.jpg',21,2),(13,'Notebook lenovo','07/12/2022','img/pexels-nao-triponez-129208.jpg',2,10),(14,'Phone Twist','07/12/2022','img/pexels-lisa-fotios-1092644.jpg',18,21),(15,'Notebook think','07/12/2022','img/pexels-karsten-madsen-18105.jpg',11,10),(16,'Phone Redmi','07/12/2022','img/pexels-josh-sorenson-1334597.jpg',20,5),(17,'iPhone','07/12/2022','img/pexels-jess-bailey-designs-788946.jpg',22,2),(18,'notebook Intel','07/12/2022','img/pexels-ann-poan-5797997.jpg',4,11),(19,'notebook dell','07/12/2022','img/dell-gen-snp-all-monitos-s2721h_cfp_00025lf095_gy-800x620-right-facing-us.webp',8,7),(20,'notebook dell','07/12/2022','img/dell-anniversary-cons-dell-inspiron-3515nt-uhp-2303-02-br-homepage-2up-module-rf-800x400.webp ',6,8),(21,'Smartphone samsung','07/12/2022','img/celular.png',12,1),(22,'Bateria','07/12/2022','img/tablet.jpg',28,5),(23,'Galaxy','07/12/2022','img/Galaxy1.jpg',14,1),(24,'Galaxy','07/12/2022','img/Galaxy2.jpg',14,1),(25,'Galaxy','07/12/2022','img/Galaxy3.jpg',14,1),(26,'Galaxy','07/12/2022','img/Galaxy4.jpg',14,1),(27,'Galaxy','07/12/2022','img/Galaxy5.jpg',14,1);
+INSERT INTO `images` VALUES (1,'notebook ideapad 3i intel','11/11/2022','/img/pexels-pixabay-159643.jpg',1,8),(2,'notebook dell inspiron','06/12/2022','/img/dell-anniversary-cons-dell-inspiron-3515nt-uhp-2303-02-br-homepage-2up-module-rf-800x400.webp',7,7),(3,'Smartphone Samsung','06/12/2022','/img/tablet.jpg',13,1),(4,'Smarphone Twist','06/12/2022','/img/smartphone.svg',17,21),(5,'Fone de Ouvido Head','06/12/2022','/img/pexels-vlad-bagacian-1337753.jpg',29,9),(6,'Smartphone LG','07/12/2022','/img/pexels-torsten-dettlaff-193004.jpg',23,6),(7,'Fone Panasonic','07/12/2022','/img/pexels-ready-made-3921887.jpg',26,22),(8,'iPhone','07/12/2022','/img/pexels-raka-miftah-4279153.jpg',21,2),(13,'Notebook lenovo','07/12/2022','/img/pexels-nao-triponez-129208.jpg',2,10),(14,'Phone Twist','07/12/2022','/img/pexels-lisa-fotios-1092644.jpg',18,21),(15,'Notebook think','07/12/2022','/img/pexels-karsten-madsen-18105.jpg',11,10),(16,'Phone Redmi','07/12/2022','/img/pexels-josh-sorenson-1334597.jpg',20,5),(17,'iPhone','07/12/2022','/img/pexels-jess-bailey-designs-788946.jpg',22,2),(18,'notebook Intel','07/12/2022','/img/pexels-ann-poan-5797997.jpg',4,11),(19,'notebook dell','07/12/2022','/img/dell-gen-snp-all-monitos-s2721h_cfp_00025lf095_gy-800x620-right-facing-us.webp',8,7),(20,'notebook dell','07/12/2022','/img/dell-anniversary-cons-dell-inspiron-3515nt-uhp-2303-02-br-homepage-2up-module-rf-800x400.webp ',6,8),(21,'Smartphone samsung','07/12/2022','/img/celular.png',12,1),(22,'Bateria','07/12/2022','/img/tablet.jpg',28,5),(23,'Galaxy','07/12/2022','/img/Galaxy1.jpg',14,1),(24,'Galaxy','07/12/2022','/img/Galaxy2.jpg',14,1),(25,'Galaxy','07/12/2022','/img/Galaxy3.jpg',14,1),(26,'Galaxy','07/12/2022','/img/Galaxy4.jpg',14,1),(27,'Galaxy','07/12/2022','/img/Galaxy5.jpg',14,1);
 /*!40000 ALTER TABLE `images` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -208,7 +208,7 @@ CREATE TABLE `users` (
   `Senha` varchar(12) NOT NULL,
   `Avatar` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`idClientes`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -230,4 +230,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-12-07 13:02:59
+-- Dump completed on 2022-12-08 18:00:24
