@@ -4,8 +4,10 @@
   --ultra-ligth-blue: #cee3f0;
   --ligth-blue: #3786e1;
   --medium-blue: #2c3ac1;
+  --medium-gray: #565656;
   --dark-blue: #070d40;
   --dark-gray: #252525;
+  --ligth-gray:#f1f1f1;
   --dust-white: #fbfbfb;
 }
 .ls-cart-header {
@@ -259,6 +261,7 @@ a:hover {
   .ls-cart {
     margin-left: 100px;
   }
+ 
   @media (min-width: 1281px) {
     /* hi-res laptops and desktops */
     .ls-cart {

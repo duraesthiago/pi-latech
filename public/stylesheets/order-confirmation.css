@@ -1,13 +1,15 @@
-root {
-    --pink-degrade: #c837c2;
-    --ligth-lilac: #7f7ae9;
-    --ultra-ligth-blue: #cee3f0;
-    --ligth-blue: #3786e1;
-    --medium-blue: #2c3ac1;
-    --dark-blue: #070d40;
-    --dark-gray: #252525;
-    --dust-white: #fbfbfb;
-  }
+:root {
+  --pink-degrade: #c837c2;
+  --ligth-lilac: #7f7ae9;
+  --ultra-ligth-blue: #cee3f0;
+  --ligth-blue: #3786e1;
+  --medium-blue: #2c3ac1;
+  --medium-gray: #565656;
+  --dark-blue: #070d40;
+  --dark-gray: #252525;
+  --ligth-gray:#f1f1f1;
+  --dust-white: #fbfbfb;
+}
 
   .acknowledgment-order{
     margin-left: 10px;
