@@ -1,27 +1,26 @@
 <%- include('partials/head') %>
-  <!-- Include Header -->
-  <%- include('partials/header', {title: 'Início' }) %>
-    <!-- Include Banner -->
-    <%- include('partials/banner') %>
-
-      <body>
-        <main>
-          <div class="banner-offer">
-            <a href="#"> As melhores ofertas estão aqui. Até 30% de desconto. </a>
-            <!-- <img src="/img/pexels-pixabay-40739.jpg" alt="" /> -->
+<!-- Include Header -->
+<%- include('partials/header', {title: 'Início' }) %>
+  <!-- Include Banner -->
+  <%- include('partials/banner') %>
+<%- include('partials/slide') %>     
+  <main>
+      <div class="products-list">
+          <h2 class="index-title">OFERTAS DA SEMANA</h2>
+          <div class="products-content">
+              <% for(let product of products){ %>
+                  <article class="products-itens">
+                  <img class="products-image" src="<%= product['images.Imagem'] %>" alt="<%= product.Nome%>"/>
+                  <div class="products-description"><%= product.Nome %></div>
+                  <div class="products-old-price">R$ <%= product.Preco %></div>
+                  <div class="products-price">R$ <%= product.PrecoComDesconto.toFixed(2) %></div>
+                  <Button class="detail-products-button"><a href="/products/<%= product.idProdutos %>" class="link-button">Ver mais</a></Button>
+                  </article>
+              <% } %>               
+              </div>
           </div>
-          <div class="layout-products-images">
-            <ul>
-              <li>
-                <a href="#">
-                  <img src="/img/tablet.jpg" alt="" />
-                </a>
-              </li>
-              <li><a href="#"><img src="/img/celular.png" alt="" /></a></li>
-              <li><a href="#"><img src="/img/watch.png" alt="" /></a></li>
-              <li><a href="#"><img src="/img/monitor.png" alt="" /></a></li>
-            </ul>
-          </div>
-        </main>
-        <!-- Include Footer -->
-        <%- include('partials/footer') %>
+      </div>           
+  </main>
+    <!-- Include Footer -->
+    <%- include('partials/footer') %>
+     
