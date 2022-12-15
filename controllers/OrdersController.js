@@ -21,7 +21,7 @@ const ordersController = {
         }
 
 
-        res.redirect('/orders')
+        res.redirect('/products')
     },
 
 
