@@ -9,9 +9,7 @@
             <div class="products-content">
                 <% for(let product of products){ %>
                     <article class="products-itens">
-                    <div class="image-contaner">
-                        <img class="products-image" src="<%= product['images.Imagem'] %>" alt="<%= product.Nome %>"/>
-                    </div>
+                    <img class="products-image" src="<%= product['images.Imagem'] %>" alt="<%= product.Nome %>"/>                    
                     <div class="products-description"><%= product.Nome %></div>                    
                     <div class="products-price">R$ <%= product.PrecoComDesconto.toFixed(2) %></div>
                     <Button class="detail-products-button">
