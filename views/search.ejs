@@ -1,0 +1,27 @@
+<%- include('partials/head') %>
+<!-- Include Header -->
+<%- include('partials/header', {title: 'Início' }) %>
+  <!-- Include Banner -->
+  <%- include('partials/banner') %>  
+    <main>
+        <div class="products-list">
+            <h2 class="index-title">PRODUTOS ENCONTRADOS</h2>
+            <div class="products-content">
+                <% for(let product of products){ %>
+                    <article class="products-itens">
+                    <div class="image-contaner">
+                        <img class="products-image" src="<%= product['images.Imagem'] %>" alt="<%= product.Nome%>"/>
+                    </div>
+                    <div class="products-description"><%= product.Nome %></div>                    
+                    <div class="products-price">R$ <%= product.PrecoComDesconto.toFixed(2) %></div>
+                    <Button class="detail-products-button">
+                    <a href="/products/<%= product.idProdutos %>">Ver mais</a>
+                    </Button>
+                    </article>
+                <% } %>               
+                </div>
+            </div>
+        </div>           
+    </main>
+    <!-- Include Footer -->
+    <%- include('partials/footer') %>
