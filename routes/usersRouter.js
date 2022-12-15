@@ -4,6 +4,7 @@ const router = express.Router();
 const UserController = require('../controllers/UserController');
 const validationsSignUp = require('../middlewares/validationsSignUpMiddleware');
 
+
 /* GET users listing. */
 router.get('/', UserController.signUp);
 router.get('/', UserController.signUp);

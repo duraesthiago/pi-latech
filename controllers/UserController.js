@@ -1,5 +1,6 @@
 const { validationResult } = require("express-validator");
 
+
 const { User } = require("../database/models/");
 const bcrypt = require("bcrypt");
 const { JSON } = require("sequelize");
@@ -58,7 +59,7 @@ const UserController = {
     await User.create({
       Nome: req.body.name,
       Email: req.body.email,
-      Senha: bcrypt.hashSync(req.body.password, 10)
+      Senha: bcrypt.hashSync(req.body.password, 10),
     });
     return res.redirect("/users/login");
   },
@@ -98,5 +99,6 @@ const UserController = {
   //   });
   // },
 };
+
 
 module.exports = UserController;
