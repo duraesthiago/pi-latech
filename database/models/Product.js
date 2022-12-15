@@ -13,8 +13,10 @@ module.exports = (sequelize, DataTypes) => {
                 type: DataTypes.STRING,
                 allowNull: false
             },
+            Informacao: { type: DataTypes.STRING },
             Codigo: { type: DataTypes.STRING },
             Preco: { type: DataTypes.DECIMAL },
+            Oferta: { type: DataTypes.BOOLEAN },
             Categorias_id: { type: DataTypes.INTEGER },
             Marcas_id: { type: DataTypes.INTEGER }
         },
@@ -24,10 +26,10 @@ module.exports = (sequelize, DataTypes) => {
             paranoid: false
         }
     )
-    Product.associate = (models)=>{
-        Product.belongsTo(models.Brand, {foreignKey:'Marcas_id', as: 'brands'});
-        Product.belongsTo(models.Category, {foreignKey:'Categorias_id', as: 'categories'})
-        Product.hasMany(models.Image, {foreignKey:'Produtos_idProdutos', as: 'images'})
+    Product.associate = (models) => {
+        Product.belongsTo(models.Brand, { foreignKey: 'Marcas_id', as: 'brands' });
+        Product.belongsTo(models.Category, { foreignKey: 'Categorias_id', as: 'categories' })
+        Product.hasMany(models.Image, { foreignKey: 'Produtos_idProdutos', as: 'images' })
         Product.belongsToMany(
             models.Purchase,
             {

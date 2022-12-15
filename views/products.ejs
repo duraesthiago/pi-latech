@@ -4,36 +4,35 @@
         <!-- Include Banner -->
         <%- include('partials/banner') %>
             <main>
-                <section class="detail">
-                    <div class="product-details">
-                        <div class="main-pic">
-                            <img class="" src="../public/img/celular.png" alt="" />
+                <link rel="stylesheet" href="/stylesheets/products.css" />
+                <!-- todos los productos -->
+                <div class="products-container">
+                    <div>
+                        <div class="products-wrapper">
+                            <% for (p of products) { %>
+                                <div>
+                                    <section class="product-box">
+                                        <a href="/products/detail/<%= p.idProdutos %>">
+                                            <figure class="product-box">
+                                                <img src="<%= p['images.Imagem']%>" alt="imagem do produto" />
+                                            </figure>
+                                            <article class="product-box_data">
+                                                <h2>R$ <%= p.Preco %>
+                                                </h2>
+                                                <p>
+                                                    <%= p.Nome %>
+                                                </p>
+                                            </article>
+                                        </a>
+                                        <form class="btn-product" action="/orders/addCart" method="POST">
+                                            <input type="hidden" name="selectedProduct" value=<%=p.idProdutos %>">
+                                            <button class="order" type="submit">ADICIONAR</button>
+                                        </form>
+                                    </section>
+                                </div>
+                                <% } %>
                         </div>
-                        <div class="small-pics">
-                            <img src="../public/img/celular.png" alt="" />
-                            <img src="../public/img/celular.png" alt="" />
-                            <img src="../public/img/celular.png" alt="" />
-                        </div>
                     </div>
-                    <div class="description-for-order">
-                        <h4>nome, capacidade e tamnaho do produto</h4>
-                        <p>memória: </p>
-                        <p>cor: </p>
-                        <p>valor: R$</p>
-                        <button class="order" type="submit">comprar</button>
-                    </div>
-                    </div>
-                    <div class="product-description">
-                        <h4>Descrição do Produto</h4>
-                        <ul>
-                            <li>Marca:</li>
-                            <li>Modelo:</li>
-                            <li>Memória:</li>
-                            <li>Tamanho: tela</li>
-                            <li>Câmera:</li>
-                            <li>Duração da bateria:</li>
-                        </ul>
-                    </div>
-                </section>
+                </div>
             </main>
             <%- include('partials/footer') %>
