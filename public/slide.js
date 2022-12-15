@@ -43,6 +43,17 @@ function previousSlide (){
     setVisibleSlide({index: state.currentSlideIndex - 1}) 
 }
 
+function createControlButtons(){
+    slideItems.forEach(function(){
+        const controlButton = document.createElement('button')
+        controlButton.classList.add('slide-control-button')
+        controlButton.classList.add('fa-solid')
+        controlButton.classList.add ('fa-circle')       
+        controlButton.dataset.slide = 'control-button'      
+        controlsWrapper.append(controlButton)
+    })    
+}
+
 function onMouseDown(event, index){
     const slideItem = event.currentTarget
     state.startingPoint = event.clientX
@@ -85,7 +96,7 @@ slideItems.forEach(function(slideItem, index){
 navNextBottun.addEventListener('click', nextSlide)
 navPreviousBottun.addEventListener('click', previousSlide)
 
+createControlButtons()
 setVisibleSlide({ index: 1 })
 
 
-console.log("tudo maravilhoso")
