@@ -259,6 +259,7 @@ opacity: 1;
   .ls-cart {
     margin-left: 100px;
   }
+ 
   @media (min-width: 1281px) {
     /* hi-res laptops and desktops */
   .ls-cart{

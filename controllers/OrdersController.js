@@ -19,16 +19,16 @@ const ordersController = {
 
             req.session.cart = [req.body.selectedProduct]
         }
-        
 
         res.redirect('/orders')
-            },
+    },
 
 
     showCart: async (req, res) => {
         let idsIntoCart = req.session.cart
 
         let getProductById = async (id) => {
+            
             let productFound = await db.Product.findByPk(
                 id, {
                 raw: true,
@@ -36,25 +36,26 @@ const ordersController = {
                     { association: 'images' },
                 ]
             })
+            
             return productFound
         }
 
         let productsIntoCart = await Promise.all(idsIntoCart.map(getProductById))
-        req.session.cart = productsIntoCart;
 
-        productsIntoCart.forEach((p)=>{
+        productsIntoCart.forEach((p) => {
             p.quantidade = 1;
             p.totalProduto = p.Preco * p.quantidade;
         });
 
+        req.session.order = productsIntoCart;
         res.render('cart.ejs', { productsIntoCart })
     },
-    
+
     updateCart: (req, res) => {
         let idProductToChange = req.body.productId;
         let productQtyChanged = req.body.productQty;
 
-        productsIntoCart = req.session.cart;
+        productsIntoCart = req.session.order;
 
         let index = productsIntoCart.findIndex((p) => p.idProdutos == idProductToChange);
 
@@ -66,15 +67,15 @@ const ordersController = {
         total += productsIntoCart[i].totalProduto
         console.log(total)
 
-        req.session.cart = productsIntoCart;
+        req.session.order = productsIntoCart;
 
-        res.render('cart.ejs', {productsIntoCart, total});
+        res.render('cart.ejs', { productsIntoCart, total });
 
                 
     },
 
     releaseOrder: (req, res) => {
-        let pedidos = req.session.cart
+        let pedidos = req.session.order
         res.send(pedidos);
         /*let total = 0
         for (let i = 0; i < productsReturned.length; i++) {
