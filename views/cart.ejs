@@ -22,7 +22,7 @@
             <% if(productsIntoCart.length> 0){ %>
               <ul class="ls-no-style-list">
                 <% for(p of productsIntoCart) {%>
-                  <li>
+                <li>
                     <a href="#">
                       <h4 class="ls-title-product"><strong>01</strong>
                         <%= p.categories %>
@@ -42,19 +42,9 @@
                         <label for="quantity">Quantidade:</label>
                         <input type="hidden" id="id" name="productId" value="<%=p.idProdutos %>">
                         <input type="number" id="quantidade" name="productQty" value="<%= p.quantidade %>" min="1" max="99">
-                        <input type="submit">
+                        <input type="submit" value="Adicionar">
                       </form>
 
-                      <!--<label>quantidade:</label>-->
-                      <!--<div class="cart-btn">
-                        -<button class="cart-btn-minus">
-                          <img src="/img/minus.svg" alt="">
-                        </button><input type="number" name="selector-quantity-input" autocomplete="off"
-                          class="cart-btn-input" value="1" />
-                        <div class="cart-btn-unidade">1</div>
-                        <button class="cart-btn-plus">
-                          <img src="/img/plus.svg" alt="">
-                        </button>-->
                       </div>
                     </div>
                   </li>
@@ -69,15 +59,15 @@
                 <h5>resumo do pedido</h5>
                 <a href="">
                   <img src="" alt="" />
-                  <p>(nome do produto):</p>
-                  <p>R$(valor unitário):</p>
-                  <p>(quantidade):</p>
-                  <p>R$(total):</p>
+                  <p>Subtotal: R$ </p>
+                  <p> R$ Frete</p>
+                  
+                  <p>R$ Total:</p>
                 </a>
               </div>
-              <div class="delivery-tax">
+              <!--<div class="delivery-tax">
                 <p>R$(frete): </p>
-              </div>
+              </div>-->
               <div class="amount-order">
                 <p>R$(total a pagar): R$</p>
               </div>

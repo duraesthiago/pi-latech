@@ -60,10 +60,15 @@ const ordersController = {
 
         productsIntoCart[index].quantidade = productQtyChanged;
         productsIntoCart[index].totalProduto = productsIntoCart[index].Preco * productsIntoCart[index].quantidade;
+        
+        let total = 0
+        for(let i=0; i< productsIntoCart.length; i++)
+        total += productsIntoCart[i].totalProduto
+        console.log(total)
 
         req.session.cart = productsIntoCart;
 
-        res.render('cart.ejs', {productsIntoCart});
+        res.render('cart.ejs', {productsIntoCart, total});
 
                 
     },
