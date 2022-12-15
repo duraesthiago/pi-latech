@@ -415,19 +415,18 @@ hr {
 .slide-nav-button{
   position: absolute;
   background: transparent;
-  color:#fbfbfb;
+  color: gray;
   cursor: pointer;
-  font-size: 36px;
+  font-size: 42px;
   z-index: 1;
 
 }
 .slide-nav-previous{
-  left: 20px;
-
+  left: 14px;
  }
 
 .slide-nav-next{
-  right: 20px;
+  right: 14px;
  }
 
 .slide-controls{
@@ -435,7 +434,7 @@ hr {
  }
 
 .slide-control-button{
-  color: #fbfbfb;
+  color: gray;
   cursor: pointer;
   background: transparent;
   font-size: 10px;
@@ -445,6 +444,89 @@ hr {
   color:#c837c2
 
 }
+
+
+.index-title{
+ margin: 1% 4%;
+ background: linear-gradient(
+    120deg,
+    var(--pink-degrade) 0%,
+    var(--ligth-lilac) 52%,
+    var(--dark-blue) 100%
+  );
+ padding: 2%;
+ color: #fbfbfb;
+ border-radius: 20px;
+ box-shadow: 4px 4px 4px var(--dark-gray);
+}
+ 
+
+.products-content{
+  display:flex; 
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content: center;
+  height: auto;  
+  align-items: center;
+}
+
+.products-itens{
+  position: relative;
+  width: 26%;  
+  border:#7f7ae9 solid 1px;
+  border-radius: 20px;
+  margin: 1%;
+  justify-content: center;
+  padding: 10px;
+     
+}
+
+.products-image{
+  width: 25%;
+  display: inline;
+  text-align: center;
+  
+}
+
+.products-description{
+  text-align: center;
+  font-size: 12px;
+  text-transform: uppercase;
+}
+
+.products-old-price{
+  text-decoration:line-through;
+  font-size: 10px;
+  text-align: center;
+  margin: 5px;
+}
+
+.products-price{
+  color:#c837c2;
+  font-size: 16px;
+  text-align: center;
+  margin: 5px;
+
+}
+
+.detail-products-button{
+  font-size: 12px;
+  align-items: center;
+  width: 80px;
+  padding: 5px;  
+  background-color: #7f7ae9;
+  border-radius: 10px;
+  color: #fbfbfb;
+  display: inline-block;
+  box-shadow: 2px 2px 2px var(--dark-gray); 
+  justify-items: center;
+  }
+
+  .link-button{
+    color: #fbfbfb;
+    
+  }
+
 
 
 footer {
