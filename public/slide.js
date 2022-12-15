@@ -115,7 +115,7 @@ function setListeners(){
 function initSlider(){
     createControlButtons()
     setListeners()
-    setVisibleSlide({ index: 0 })
+    setVisibleSlide({ index: 1 })
 }
 
 initSlider()
