@@ -6,7 +6,7 @@ const navNextBottun = document.querySelector('[data-slide="nav-next-button"]')
 const navPreviousBottun = document.querySelector('[data-slide="nav-previous-button"]')
 const controlsWrapper = document.querySelector('[data-slide="controls-wrapper"]')
 const slideItems = document.querySelectorAll('[data-slide="item"]')
-const controlButtons = document.querySelectorAll('[data-slide="controlButton"]')
+
 const state = { 
     startingPoint: 0,
     savedPosition: 0,
@@ -82,21 +82,40 @@ function onMouseUp(event){
     }     
     slideItem.removeEventListener('mousemove', onMouseMove)    
     }
+function onControlButtonClick(event, index){
+    const controlButton = event.currentTarget
+    controlButton.classList.add('active')
+    setVisibleSlide({ index })
+}
 
-slideItems.forEach(function(slideItem, index){
-    slideItem.addEventListener('dragstart', function(event){
-        event.preventDefault()
+function setListeners(){
+    const controlButtons = document.querySelectorAll('[data-slide="controlButton"]')
+
+    controlButtons.forEach(function(controlButton, index){
+        controlButton.addEventListener('click', function(event){
+            onControlButtonClick(event, index)
+        })
     })
-    slideItem.addEventListener('mousedown', function(event){
-        onMouseDown(event, index)
+
+    slideItems.forEach(function(slideItem, index){
+        slideItem.addEventListener('dragstart', function(event){
+            event.preventDefault()
+        })
+        slideItem.addEventListener('mousedown', function(event){
+            onMouseDown(event, index)
+        })
+        slideItem.addEventListener('mouseup', onMouseUp)
     })
-    slideItem.addEventListener('mouseup', onMouseUp)
-})
+    
+    navNextBottun.addEventListener('click', nextSlide)
+    navPreviousBottun.addEventListener('click', previousSlide)
 
-navNextBottun.addEventListener('click', nextSlide)
-navPreviousBottun.addEventListener('click', previousSlide)
+}
 
-createControlButtons()
-setVisibleSlide({ index: 1 })
+function initSlider(){
+    createControlButtons()
+    setListeners()
+    setVisibleSlide({ index: 0 })
+}
 
-
+initSlider()
