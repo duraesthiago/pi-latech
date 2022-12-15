@@ -45,11 +45,14 @@ ul {
 }
 
 button {
-  background-color: transparent;
+  background-color: var(--ligth-lilac);
+  color: var(--dust-white);
+  transition: 0.3s;
   }
 
 button:hover {
-  background-color: black;
+  background-color: var(--ligth-lilac);
+  color: var(--pink-degrade)
 }
 
 a {
