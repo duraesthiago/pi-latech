@@ -1,0 +1,57 @@
+<%- include('partials/head') %>
+  <!-- Include Header -->
+  <%- include('partials/header', {title: 'Início' }) %>
+    <!-- Include Banner -->
+    <%- include('partials/banner') %>
+      <%- include('partials/slide') %>
+        <main>
+          <div class="products-list">
+            <h2 class="index-title">OFERTAS DA SEMANA</h2>
+            <div class="products-content">
+              <% for(let product of products){ %>
+                <article class="products-itens">
+                  <img class="products-image" src="<%= product['images.Imagem'] %>" alt="<%= product.Nome%>" />
+                  <div class="products-description">
+                    <%= product.Nome %>
+                  </div>
+                  <div class="products-old-price">R$ <%= product.Preco %>
+                  </div>
+                  <div class="products-price">R$ <%= product.PrecoComDesconto.toFixed(2) %>
+                  </div>
+                  <Button class="detail-products-button"><a href="/products/detail/<%= product.idProdutos %>"
+                      class="link-button">Ver mais</a></Button>
+                </article>
+                <% } %>
+            </div>
+          </div>
+          </div>
+        </main>
+
+        <script>
+          
+    startList = function()
+    {
+        if (document.getElementById)
+        {
+            navRoot = document.getElementById("nav");
+            for (i = 0; i<navRoot.childNodes.length; i++)
+            {
+                node = navRoot.childNodes[i];
+                    if (node.nodeName=="LI")
+                    {
+                        node.onmouseover=function()
+                        {
+                            this.className+=" over";
+                        }
+                        node.onmouseout=function()
+                        {
+                            this.className=this.className.replace(" over", "");
+                        }  
+                    }
+            }
+        }
+    }
+    window.onload=startList;
+        </script>
+        <!-- Include Footer -->
+        <%- include('partials/footer') %>

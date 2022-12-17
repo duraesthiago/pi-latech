@@ -1,0 +1,49 @@
+
+
+.aboutUs-tittle {
+    font-family: 'Oswald', sans-serif;
+    font-size: 2em;
+    font-weight: bold ;
+    color: var(--medium-blue);
+    text-align: center;
+    margin: 20px;
+      
+
+}
+.aboutUs-article{
+    font-family: 'Oswald', sans-serif;
+    font-size: 16px;
+    color: var(--dark-gray);
+    border: 2px solid var(--pink-degrade);
+    border-radius: 16px;
+    text-align: justify;
+    margin: 20px;
+    padding:20px;
+}
+
+.aboutUs-into{
+    font-family: 'Oswald', sans-serif;
+    font-size: 16px;
+    color: var(--dark-gray);
+    border: 2px solid var(--pink-degrade);
+    border-radius: 16px;
+    text-align: center;
+    margin: 20px;
+    padding:20px;
+}
+.aboutUs-into h2{
+    font-size: 1.4em;
+    font-weight: bold;
+    padding: 20px;
+}
+.aboutUs-into p{
+    font-size: 16px;
+}
+.quebra{
+    background: var(--dark-blue);
+    height: 100px;
+    text-align: center;
+    color: antiquewhite;
+    padding: 20px;
+    
+}

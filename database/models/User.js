@@ -1,7 +1,11 @@
 module.exports = (sequelize, DataTypes) => {
 
     let User = sequelize.define(
+<<<<<<< HEAD
         "User", 
+=======
+        "User",
+>>>>>>> master
         {
             idClientes: {
                 type: DataTypes.INTEGER,
@@ -15,7 +19,7 @@ module.exports = (sequelize, DataTypes) => {
             },
             Sobrenome: {
                 type: DataTypes.STRING,
-                allowNull: false
+                allowNull: true
             },
             Email: {
                 type: DataTypes.STRING,
@@ -23,41 +27,48 @@ module.exports = (sequelize, DataTypes) => {
             },
             Telefone: {
                 type: DataTypes.STRING,
-                allowNull: false
+                allowNull: true
             },
             Endereco: {
                 type: DataTypes.STRING,
-                allowNull: false
+                allowNull: true
             },
             Cidade: {
                 type: DataTypes.STRING,
-                allowNull: false
+                allowNull: true
             },
             Estado: {
                 type: DataTypes.STRING,
-                allowNull: false
+                allowNull: true
             },
             Senha: {
                 type: DataTypes.STRING,
-                allowNull: false
+                allowNull: false // pq pode ser null?
             },
             avatar: {
                 type: DataTypes.STRING,
                 allowNull: true
-            }         
-            
+            }
+
         },
         {
-          tableName: "clients",
-          timestamps: false,
-          paranoid: false
+            tableName: "users",
+            timestamps: false,
+            paranoid: false
 
         }
-        
+
     )
+<<<<<<< HEAD
     User.associate = function(model){  
         User.hasMany(model.Purchase,{as:"purchases", foreignKey:"Clientes_idClientes"}); 
     }
     return User
+=======
+    User.associate = function (model) {
+        User.hasMany(model.Purchase, { as: "purchases", foreignKey: "Users_idUsers" });
+    }
+    return User;
+>>>>>>> master
 
 };  

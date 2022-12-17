@@ -1,7 +1,7 @@
 module.exports = (sequelize, DataTypes) => {
 
     let Purchase = sequelize.define(
-        "Purchase", 
+        "Purchase",
         {
             idPedidos: {
                 type: DataTypes.INTEGER,
@@ -12,7 +12,7 @@ module.exports = (sequelize, DataTypes) => {
             Data_Pedido: {
                 type: DataTypes.STRING,
                 allowNull: false
-            },             
+            },
             Total: {
                 type: DataTypes.DECIMAL,
                 allowNull: false
@@ -25,23 +25,29 @@ module.exports = (sequelize, DataTypes) => {
                 type: DataTypes.STRING,
                 allowNull: false
             },
-            Clientes_idClientes: {
+            Users_idUsers: {
                 type: DataTypes.INTEGER,
                 allowNull: false
             }
 
         },
         {
-          tableName: "purchases",
-          timestamps: false,
-          paranoid: false
+            tableName: "purchases",
+            timestamps: false,
+            paranoid: false
 
         }
-        
+
     )
+<<<<<<< HEAD
     Purchase.associate = (models)=>{
     Purchase.belongsTo(models.User, {foreignKey:'Clientes_idClientes', as: 'clients'})
        Purchase.belongsToMany(
+=======
+    Purchase.associate = (models) => {
+        Purchase.belongsTo(models.User, { foreignKey: 'Users_idUsers', as: 'users' })
+        Purchase.belongsToMany(
+>>>>>>> master
             models.Product,
             {
                 as: 'products',
@@ -51,11 +57,10 @@ module.exports = (sequelize, DataTypes) => {
                 timestamps: false
             }
         );
-        
+
     }
     return Purchase
 }
-    
-       
 
-  
+
+

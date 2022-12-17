@@ -1,0 +1,38 @@
+<%- include('partials/head') %>
+    <!-- Include Header -->
+    <%- include('partials/header', {title: 'Início' }) %>
+        <!-- Include Banner -->
+        <%- include('partials/banner') %>
+            <main>
+                <link rel="stylesheet" href="/stylesheets/products.css" />
+                <!-- todos los productos -->
+                <div class="products-container">
+                    <div>
+                        <div class="products-wrapper">
+                            <% for (p of products) { %>
+                                <div>
+                                    <section class="product-box">
+                                        <a href="/products/detail/<%= p.idProdutos %>">
+                                            <figure class="product-box">
+                                                <img src="<%= p['images.Imagem']%>" alt="imagem do produto" />
+                                            </figure>
+                                            <article class="product-box_data">
+                                                <h2>R$ <%= p.Preco %>
+                                                </h2>
+                                                <p>
+                                                    <%= p.Nome %>
+                                                </p>
+                                            </article>
+                                        </a>
+                                        <form class="btn-product" action="/orders/addCart" method="POST">
+                                            <input type="hidden" name="selectedProduct" value=<%=p.idProdutos %>">
+                                            <button class="order" type="submit">ADICIONAR</button>
+                                        </form>
+                                    </section>
+                                </div>
+                                <% } %>
+                        </div>
+                    </div>
+                </div>
+            </main>
+            <%- include('partials/footer') %>
