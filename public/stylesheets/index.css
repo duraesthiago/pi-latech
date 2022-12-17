@@ -92,6 +92,11 @@ a {
 
 .menu {
   padding: 0;
+  list-style: none;
+}
+
+.menu li {
+  position: relative;
 }
 
 .menu img {
@@ -99,15 +104,40 @@ a {
   max-height: 20px;
 }
 
-.menu a {
+.menu li a {
   display: block;
-  padding: 32px;
+  padding:  5px 10px;
   color: var(--dark-gray);
   text-transform: uppercase;
 }
+.menu li a:hover{
+  text-decoration: underline;
+  color: var(--pink-degrade);
+  text-shadow: 0px 0px 5px var(--medium-gray);
+}
 
-.menu a:hover {
-  background-color: var(--ultra-ligth-blue);
+.menu li a:hover {
+  color: var(--pink-degrade);
+  text-shadow: 0px 0px 5px var(--ligth-gray);
+}
+
+.menu li ul{
+  position: absolute;
+  top: 0px;
+  left:0;
+  background: transparent;
+  /* display:none; */
+}
+
+.menu li:hover ul, 
+.menu li.over ul {
+  display: block;
+}
+
+.menu li ul li {
+  background-color: var(--ligth-gray);
+  display: block;
+  width: 80px;
 }
 
 .menu-hamburguer {

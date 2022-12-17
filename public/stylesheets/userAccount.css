@@ -30,29 +30,29 @@ input[type="text" i] {
 }
 
 .btn-user-purchase-order {
-  border: var(--medium-blue) 1px solid;
-  border-radius: 8px;
-  background-color: var(--ultra-ligth-blue);
-  display: inline-block;
-  width: 100px;
-  height: 20px;
-  cursor: pointer;
-  color: var(--dark-blue);
   font-size: 12px;
-  text-align: center;
+    align-items: center;
+    width: 80px;
+    padding: 5px;
+    background-color: #7f7ae9;
+    border-radius: 10px;
+    color: #fbfbfb;
+    display: inline-block;
+    box-shadow: 2px 2px 2px var(--dark-gray);
+    justify-items: center;
 }
 
 .btn-user-data {
-  border: var(--medium-blue) 1px solid;
-  border-radius: 8px;
-  background-color: var(--ultra-ligth-blue);
-  display: inline-block;
-  width: 100px;
-  height: 20px;
-  cursor: pointer;
-  color: var(--dark-blue);
   font-size: 12px;
-  text-align: center;
+    align-items: center;
+    width: 80px;
+    padding: 5px;
+    background-color: #7f7ae9;
+    border-radius: 10px;
+    color: #fbfbfb;
+    display: inline-block;
+    box-shadow: 2px 2px 2px var(--dark-gray);
+    justify-items: center;
 }
 
 .order-container {
@@ -152,17 +152,16 @@ input[type="text" i] {
   border-radius: 10px;
 }
 .btn-update {
-  border: var(--medium-blue) 1px solid;
-  border-radius: 8px;
-  background-color: var(--ultra-ligth-blue);
-  display: inline-block;
-  width: 100px;
-  height: 20px;
-  cursor: pointer;
-  color: var(--dark-blue);
   font-size: 12px;
-  text-align: center;
-  margin-top: 8px;
+  align-items: center;
+  width: 80px;
+  padding: 5px;
+  background-color: #7f7ae9;
+  border-radius: 10px;
+  color: #fbfbfb;
+  display: inline-block;
+  box-shadow: 2px 2px 2px var(--dark-gray);
+  justify-items: center;
 }
 
 input[type="file"] {
@@ -179,16 +178,16 @@ input[type="file"] {
 }
 
 .btn-update-avatar {
-  border: var(--medium-blue) 1px solid;
-  border-radius: 8px;
-  background-color: var(--ultra-ligth-blue);
-  width: 100px;
-  height: 20px;
-  cursor: pointer;
-  color: var(--dark-blue);
   font-size: 12px;
-  text-align: center;
-  margin: 8px 0px 8px 200px;
+  align-items: center;
+  width: 80px;
+  padding: 5px;
+  background-color: #7f7ae9;
+  border-radius: 10px;
+  color: #fbfbfb;
+  display: inline-block;
+  box-shadow: 2px 2px 2px var(--dark-gray);
+  justify-items: center;
 }
 
 @media (min-width: 801px) {

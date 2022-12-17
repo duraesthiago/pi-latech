@@ -39,7 +39,7 @@ module.exports = (sequelize, DataTypes) => {
             },
             Senha: {
                 type: DataTypes.STRING,
-                allowNull: true
+                allowNull: false // pq pode ser null?
             },
             avatar: {
                 type: DataTypes.STRING,
