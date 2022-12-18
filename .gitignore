@@ -1,7 +1,3 @@
-node_modules
-.DS_Store
-button.html
-button.css
-esqueleto header e footer html
+node_modules,
 .env
-.DS_Store
+.DS_store
