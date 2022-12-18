@@ -10,7 +10,7 @@ module.exports = (sequelize, DataTypes) => {
                 primaryKey: true
             },
             Data_Pedido: {
-                type: DataTypes.STRING,
+                type: DataTypes.DATE,
                 allowNull: false
             },
             Total: {

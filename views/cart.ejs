@@ -22,7 +22,7 @@
             <% if(productsIntoCart.length> 0){ %>
               <ul class="ls-no-style-list">
                 <% for(p of productsIntoCart) {%>
-                <li>
+                  <li>
                     <a href="#">
                       <h4 class="ls-title-product"><strong>01</strong>
                         <%= p.categories %>
@@ -33,7 +33,7 @@
                       </p>
                     </a>
                     <p>
-                      <%= p.Preco %>R$
+                      R$ <%= p.Preco %>
                     </p>
 
                     <div class="cart-btn-label">
@@ -41,42 +41,70 @@
                       <form action="/orders/updateCart?_method=PUT" method="POST">
                         <label for="quantity">Quantidade:</label>
                         <input type="hidden" id="id" name="productId" value="<%=p.idProdutos %>">
-                        <input type="number" id="quantidade" name="productQty" value="<%= p.quantidade %>" min="1" max="99">
+                        <input type="number" id="quantidade" name="productQty" value="<%= p.quantidade %>" min="1"
+                          max="99">
                         <input type="submit" value="Adicionar">
                       </form>
 
-                      </div>
                     </div>
                   </li>
                   <% } %>
-
               </ul>
-              <div class="btn-delivey-shipp">
-                <input class="btn-zip-code" type="text" placeholder="digite o CEP" />
-                <input class="btn-zip-code-submit" type="submit" />
-              </div>
-              <div class="ls-about-your-order">
-                <h5>resumo do pedido</h5>
-                <a href="">
-                  <img src="" alt="" />
-                  <p>Subtotal: R$ </p>
-                  <p> R$ Frete</p>
+          </div>
+          <div class="btn-delivey-shipp">
+            <input class="btn-zip-code" type="text" placeholder="digite o CEP" />
+            <input class="btn-zip-code-submit" type="submit" />
+          </div>
+
+          <div class="ls-about-your-order">
+            <h5>resumo do pedido</h5>
+            
+              <img src="" alt="" />
+              <p>Subtotal: R$ <%= total%>
+              </p>
+              <p>Frete: Grátis! </p>
+
+              <form action="/orders/release" method="POST">
+                <label>Forma de Pagamento:
                   
-                  <p>R$ Total:</p>
-                </a>
-              </div>
-              <!--<div class="delivery-tax">
+                  <select name="payment-option" id="payment-option">
+                    <option selected disabled>Selecione a forma de pagamento</option>
+                    <option value="Pix">PIX</option>
+                    <option value="cartao">Cartão de Crédito</option>
+                    <option value="boleto">Boleto Bancario</option>
+                  </select><br>
+                  <a href="/user/paymentOption/add">Adicionar forma de pagamento</a>
+                </label><br>
+
+                
+
+                <a href="/products">Continuar comprando...</a>
+
+                <p>Total a pagar: R$ <%= total%></p>
+                
+                  <button class="ls-btn-primary" type="submit">Finalizar Compra</button>
+                
+              </form>
+            
+            </div>
+
+          <!--<div class="delivery-tax">
                 <p>R$(frete): </p>
-              </div>-->
-              <div class="amount-order">
-                <p>R$(total a pagar): R$</p>
               </div>
-              <section class="ls-cart-footer ls-txt-center">
-                <a href="/orders/release" class="ls-btn-primary">Finalizar Compra</a>
-              </section>
-              <% } else { %>
-                No productsIntoCar
-                <% } %>
+          <div class="amount-order">
+          </div>
+
+          <section class="ls-cart-footer ls-txt-center">
+            <form action="/orders/release" method="POST">
+              <input type="hidden" name="confirmedPurchase" value="">
+              <button class="ls-btn-primary" type="submit">Finalizar Compra</button>
+            </form>
+          </section>-->
+
+
+            <% } else { %>
+              No productsIntoCar
+              <% } %>
           </div>
         </div>
       </main>

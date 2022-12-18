@@ -22,7 +22,7 @@
                         <p>valor: R$ <%= product.Preco %>
                         </p>
                         <form action="/orders/addCart" method="POST">
-                            <input type="hidden" name="selectedProduct" value=<%=product.idProdutos %>">
+                            <input type="hidden" name="selectedProduct" value="<%=product.idProdutos %>">
                             <button class="order" type="submit">comprar</button>
                         </form>
                     </div>
