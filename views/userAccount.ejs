@@ -37,16 +37,16 @@
     </div>
   </div>
   <div class="user-info-container">
-    <h3>Olá,</h3>
-    <div class="user-avatar">
-      <div class="avatar-img">
-        <label for="avatar" class="avatar-label"></label>
-        <input type="file" name="avatar" id="avatar" class="avatar" />
-      </div>
-      <button class="btn-update-avatar">Editar</button>
-    </div>
+    <h3>Olá, <%= userLogged.name %></h3>
     <div class="user-form">
-      <form class="user-info-form" action="/account" method="POST">
+      <form class="user-info-form" method="POST" action="/account" enctype="multipart/form-data" >
+        <div class="user-avatar">
+          <div class="avatar-img">
+            <label for="avatar" class="avatar-label"></label>
+            <input type="file" name="avatar" id="avatar" class="avatar" />
+          </div>
+          <button class="btn-update-avatar">Editar</button>
+        </div>
         <div class="user-form-class">
           <label class="form-label" for="nome">Nome do usuário:</label>
           <input

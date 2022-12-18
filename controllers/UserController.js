@@ -1,10 +1,43 @@
 const { validationResult } = require("express-validator");
-
 const { User } = require("../database/models/");
 const bcrypt = require("bcrypt");
 const { JSON } = require("sequelize");
 
 const UserController = {
+
+  signUp: (req, res) => {
+    let error = req.query.error ? 1 : 0;
+    res.render("userSignUp", { error });
+  },
+
+  signUpValidation: (req, res, next) => {
+    const resultValidations = validationResult(req);
+    if (resultValidations.errors.length > 0) {
+      return res.render("userSignUp", {
+        errors: resultValidations.mapped(),
+        oldData: req.body,
+      });
+    }
+  },
+
+  createUser: async (req, res) => {
+    let userExists = await User.findOne({
+      raw: true,
+      where: {
+        Email: req.body.email,
+      },
+    });
+    if (userExists) {
+      res.redirect("/users/login?error=2");
+    } else {
+      await User.create({
+        Nome: req.body.name,
+        Email: req.body.email,
+        Senha: bcrypt.hashSync(req.body.password, 10),
+      });
+      return res.redirect("/users/login");
+    }
+  },
 
   userLogin: (req, res) => {
     console.log(req.query.error);
@@ -57,39 +90,17 @@ const UserController = {
   showUserAccount: (req, res) => {
     res.render("userAccount");
   },
-  signUp: (req, res) => {
-    let error = req.query.error ? 1 : 0;
-    res.render("userSignUp", { error });
+
+  editProfileAvatar:(req, res) => {
+
   },
 
-  signUpValidation: (req, res, next) => {
-    const resultValidations = validationResult(req);
-    if (resultValidations.errors.length > 0) {
-      return res.render("userSignUp", {
-        errors: resultValidations.mapped(),
-        oldData: req.body,
-      });
-    }
+  logout: (req, res) => {
+    req.session.destroy();
+
+    return res.redirect('/');
   },
 
-  createUser: async (req, res) => {
-    let userExists = await User.findOne({
-      raw: true,
-      where: {
-        Email: req.body.email,
-      },
-    });
-    if (userExists) {
-      res.redirect("/users/login?error=2");
-    } else {
-      await User.create({
-        Nome: req.body.name,
-        Email: req.body.email,
-        Senha: bcrypt.hashSync(req.body.password, 10),
-      });
-      return res.redirect("/users/login");
-    }
-  },
 };
 
 module.exports = UserController;
