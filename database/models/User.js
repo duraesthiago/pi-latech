@@ -1,11 +1,7 @@
 module.exports = (sequelize, DataTypes) => {
 
     let User = sequelize.define(
-<<<<<<< HEAD
         "User", 
-=======
-        "User",
->>>>>>> master
         {
             idClientes: {
                 type: DataTypes.INTEGER,
@@ -59,16 +55,9 @@ module.exports = (sequelize, DataTypes) => {
         }
 
     )
-<<<<<<< HEAD
     User.associate = function(model){  
         User.hasMany(model.Purchase,{as:"purchases", foreignKey:"Clientes_idClientes"}); 
     }
     return User
-=======
-    User.associate = function (model) {
-        User.hasMany(model.Purchase, { as: "purchases", foreignKey: "Users_idUsers" });
-    }
-    return User;
->>>>>>> master
 
 };  

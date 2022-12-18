@@ -14,11 +14,11 @@ router.get('/login', userLoggedMiddleware, UserController.userLogin);
 router.post('/login', UserController.loginProcess);
 
 router.get('/account', userNotLoggedMiddleware, UserController.showUserAccount);
-router.post('/account', uploadFile, UserController.editProfileAvatar);
+// router.post('/account', uploadFile, UserController.editProfileAvatar);
 router.get('/recoverPassword', UserController.recoverPassword);
 
 
-router.get('/logout', userNotLoggedMiddleware, UserController.logout);
+// router.get('/logout', userNotLoggedMiddleware, UserController.logout);
 
 
 module.exports = router;

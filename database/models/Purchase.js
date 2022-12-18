@@ -39,15 +39,9 @@ module.exports = (sequelize, DataTypes) => {
         }
 
     )
-<<<<<<< HEAD
     Purchase.associate = (models)=>{
     Purchase.belongsTo(models.User, {foreignKey:'Clientes_idClientes', as: 'clients'})
        Purchase.belongsToMany(
-=======
-    Purchase.associate = (models) => {
-        Purchase.belongsTo(models.User, { foreignKey: 'Users_idUsers', as: 'users' })
-        Purchase.belongsToMany(
->>>>>>> master
             models.Product,
             {
                 as: 'products',
