@@ -6,9 +6,10 @@ const { JSON } = require("sequelize");
 const UserController = {
 
   signUp: (req, res) => {
+    res.cookie('test', 'Hello World', { maxAge: 10000 });
     let error = req.query.error ? 1 : 0;
     res.render("userSignUp", { error });
-  },
+  }, 
 
   signUpValidation: (req, res, next) => {
     const resultValidations = validationResult(req);
@@ -40,6 +41,7 @@ const UserController = {
   },
 
   userLogin: (req, res) => {
+    console.log(req.cookies.test);
     console.log(req.query.error);
     let error = "";
     if (req.query.error ==1){
@@ -73,7 +75,10 @@ const UserController = {
           if (userToLogin && isPasswordVerified) {
             delete userToLogin.Senha;
             req.session.userLogged = userToLogin;
-            console.log(req.session);
+            console.log(userToLogin)
+            if(req.body.remember_user) {
+              res.cookie('userEmail', req.body.email, { maxAge: (1000 *60 * 40) })
+            }
             return res.redirect("/");
           }
         }
@@ -88,6 +93,7 @@ const UserController = {
   },
 
   showUserAccount: (req, res) => {
+    console.log(req.cookie.userEmail);
     res.render("userAccount");
   },
 
@@ -95,11 +101,10 @@ const UserController = {
 
   },
 
-  // logout: (req, res) => {
-  //   req.session.destroy();
-
-  //   return res.redirect('/');
-  // },
+  logout: (req, res) => {
+    req.session.destroy();
+    return res.redirect("/");
+  },
 
 };
 

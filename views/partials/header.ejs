@@ -24,11 +24,19 @@
           <li><a href="/aboutUs">Sobre nós</a></li>
           <li>
             <a href="/users"><img src="/img/icons8-adicionar-usuario-masculino-50.svg" /></a>
-            <ul>
-              <li><a href="/signUp">Cadastrar</a></li>
-              <li><a href="/login">Entrar</a></li>
-              <li><a href="/account">Ver Conta</a></li>
-              <li><a href="/logout">Sair</a></li>
+            <ul class="over">
+            
+              <% if (locals.isLogged) {%>
+
+                <li><a href="/users/logout">Sair</a></li>
+                  <li><a href="/users/account">Ver Conta</a></li>
+
+                <% } else { %>
+                  
+                  <li><a href="/users/login">Entrar</a></li>
+                  <li><a href="/users/">Cadastrar</a></li>
+
+              <% } %>
             </ul>
           </li>
           <li>
@@ -41,5 +49,5 @@
     </div>
   </div>
   <hr>
-
+  <script src="/dropDownUserMenu.js"></script>
 </header>

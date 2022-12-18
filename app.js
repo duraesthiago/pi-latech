@@ -11,7 +11,8 @@ const indexRouter = require('./routes/indexRouter');
 const productsRouter = require('./routes/productsRouter');
 const usersRouter = require('./routes/usersRouter');
 
-const getViewsData = require('./middlewares/GetViewsData')
+const getViewsData = require('./middlewares/GetViewsData');
+const loggedUserDataMiddleware = require('./middlewares/loggedUserDataMiddleware');
 
 const app = express();
 // view engine setup
@@ -23,9 +24,11 @@ app.use(
     secret: 'CHAVE-SECRETA',
     resave: false,
     saveUninitialized: true,
-    //cookie: { secure: true} 
+    cookie: { secure: true} 
   })
-)
+);
+app.use(loggedUserDataMiddleware);
+
 
 app.use(logger('dev'));
 app.use(express.json());
