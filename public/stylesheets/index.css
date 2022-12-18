@@ -71,6 +71,7 @@ a {
     var(--ligth-lilac) 52%,
     var(--dark-blue) 100%
   );
+  height: 180px;
 }
 
 .logo {
@@ -82,7 +83,7 @@ a {
 
 .nav {
   width: 100%;
-  height: 100%;
+  height: 80px;
   position: fixed;
   background: transparent;
   overflow: hidden;
@@ -110,9 +111,10 @@ a {
 .menu li a {
   display: block;
   padding:  5px 10px;
-  color: var(--dark-gray);
+  color: var(--dust-white);
   text-transform: uppercase;
 }
+
 .menu li a:hover{
   text-decoration: underline;
   color: var(--pink-degrade);
@@ -128,9 +130,11 @@ a {
   position: absolute;
   top: 30px;
   left:0;
-  background: transparent;
   display: none;
-  /* display:none; */
+}
+
+.over ul li a{
+  color: var(--ligth-lilac)
 }
 
 .menu li:hover ul, 
@@ -140,7 +144,9 @@ a {
 
 .menu li ul li {
   background-color: var(--ligth-gray);
-  display: block;
+  display: block;font-weight: lighter;
+  font-size: 10px;
+
   width: 80px;
 }
 
