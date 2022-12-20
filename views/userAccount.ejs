@@ -2,6 +2,7 @@
 <!-- Include Header -->
 <%- include('partials/header', {title: 'Início' }) %>
 <!-- Include Banner -->
+<%- include('partials/banner') %>
 
 <main class="user-container">
   <link rel="stylesheet" href="../stylesheets/userAccount.css" />
@@ -36,16 +37,16 @@
     </div>
   </div>
   <div class="user-info-container">
-    <h3>Olá, <%= userLogged.name %></h3>
+    <h3>Olá, <%= userLogged.Nome %></h3>
+    <div class="user-avatar">
+      <div class="avatar-img">
+        <label for="avatar" class="avatar-label"></label>
+        <input type="file" name="avatar" id="avatar" class="avatar" />
+      </div>
+      <button class="btn-update-avatar">Editar</button>
+    </div>
     <div class="user-form">
-      <form class="user-info-form" method="POST" action="/account" enctype="multipart/form-data" >
-        <div class="user-avatar">
-          <div class="avatar-img">
-            <label for="avatar" class="avatar-label"></label>
-            <input type="file" name="avatar" id="avatar" class="avatar" />
-          </div>
-          <button class="btn-update-avatar">Editar</button>
-        </div>
+      <form class="user-info-form" action="/account" method="POST">
         <div class="user-form-class">
           <label class="form-label" for="nome">Nome do usuário:</label>
           <input
@@ -54,18 +55,18 @@
             id="nome"
             name="nome"
             placeholder=""
-            value=""
+            value="<%= userLogged.Nome %>"
           />
         </div>
         <div class="user-form-class">
-          <label class="form-label" for="email">E-mail:</label>
+          <label class="form-label" for="email">E-mail: </label>
           <input
             class="input-label"
             type="email"
             id="email"
             name="email"
             placeholder=""
-            value=""
+            value="<%= userLogged.Email %>"
           />
         </div>
         <div class="user-form-class">

@@ -25,18 +25,7 @@ module.exports = (sequelize, DataTypes) => {
                 type: DataTypes.STRING,
                 allowNull: true
             },
-            Endereco: {
-                type: DataTypes.STRING,
-                allowNull: true
-            },
-            Cidade: {
-                type: DataTypes.STRING,
-                allowNull: true
-            },
-            Estado: {
-                type: DataTypes.STRING,
-                allowNull: true
-            },
+            
             Senha: {
                 type: DataTypes.STRING,
                 allowNull: false // pq pode ser null?

@@ -23,11 +23,10 @@ app.use(
   session({
     secret: 'CHAVE-SECRETA',
     resave: false,
-    saveUninitialized: true,
-    cookie: { secure: true} 
+    saveUninitialized: false,
+    //cookie: { secure: true} 
   })
 );
-app.use(loggedUserDataMiddleware);
 
 
 app.use(logger('dev'));
@@ -39,7 +38,8 @@ app.use(methodOverride('_method'));
 
 app.use(express.urlencoded({ extended: false }));
 
-app.use(getViewsData)
+app.use(getViewsData);
+app.use(loggedUserDataMiddleware);
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/orders', ordersRouter);

@@ -4,12 +4,11 @@ const bcrypt = require("bcrypt");
 const { JSON } = require("sequelize");
 
 const UserController = {
-
   signUp: (req, res) => {
-    res.cookie('test', 'Hello World', { maxAge: 10000 });
+    res.cookie("test", "Hello World form cookie test", { maxAge: 10000 });
     let error = req.query.error ? 1 : 0;
     res.render("userSignUp", { error });
-  }, 
+  },
 
   signUpValidation: (req, res, next) => {
     const resultValidations = validationResult(req);
@@ -31,25 +30,24 @@ const UserController = {
     if (userExists) {
       res.redirect("/users/login?error=2");
     } else {
-      await User.create({
+      const userCreated = await User.create({
         Nome: req.body.name,
         Email: req.body.email,
         Senha: bcrypt.hashSync(req.body.password, 10),
       });
-      return res.redirect("/users/login");
+      return console.log(userCreated, "acabei de ser criado");
+      //return res.redirect("/users/login");
     }
   },
 
   userLogin: (req, res) => {
-    console.log(req.cookies.test);
-    console.log(req.query.error);
     let error = "";
-    if (req.query.error ==1){
-      error = "Senha ou email não conferem."
-    } else if(req.query.error==2) {
-      error = "Já existe um cadastro para esse email. Deseja fazer login?"
+    if (req.query.error == 1) {
+      error = "Senha ou email não conferem.";
+    } else if (req.query.error == 2) {
+      error = "Já existe um cadastro para esse email. Deseja fazer login?";
     }
-    res.render("userLogin", { error })
+    res.render("userLogin", { error });
   },
 
   loginProcess: async (req, res) => {
@@ -61,7 +59,7 @@ const UserController = {
         },
       });
 
-      let isPasswordVerified = await bcrypt.compareSync(
+      let isPasswordVerified = bcrypt.compareSync(
         req.body.password,
         userToLogin.Senha
       );
@@ -75,10 +73,7 @@ const UserController = {
           if (userToLogin && isPasswordVerified) {
             delete userToLogin.Senha;
             req.session.userLogged = userToLogin;
-            console.log(userToLogin)
-            if(req.body.remember_user) {
-              res.cookie('userEmail', req.body.email, { maxAge: (1000 *60 * 40) })
-            }
+            console.log(req.session);
             return res.redirect("/");
           }
         }
@@ -88,24 +83,27 @@ const UserController = {
     }
   },
 
-  recoverPassword: (req, res) => {
+   recoverPassword: (req, res) => {
     res.render("recoverPassword");
   },
 
   showUserAccount: (req, res) => {
-    console.log(req.cookie.userEmail);
-    res.render("userAccount");
+    res.render("userAccount", {
+      userLogged: req.session.userLogged
+    });
   },
 
-  editProfileAvatar:(req, res) => {
-
+  editUserAvatar: (req, res) => {
+    const newAvatarFile = validationResult(req);
+    if(newAvatarFile) {
+      return res.render("userAccount");
+    }
   },
 
   logout: (req, res) => {
     req.session.destroy();
     return res.redirect("/");
   },
-
 };
 
 module.exports = UserController;

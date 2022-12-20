@@ -1,3 +1,4 @@
+
 const loggedUserDataMiddleware =  (req, res, next) => {
     res.locals.isLogged = false;
 

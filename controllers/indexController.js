@@ -17,6 +17,7 @@ const IndexController = {
       return product
     })
     //console.log(products[0])
+    //console.log(req.cookies.userEmail)
     res.render("index", { title: "Latech", products });
   },
 

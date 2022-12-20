@@ -1,6 +1,7 @@
+
 const loggedUserMiddleware = (req, res, next) => {
 if(req.session.userLogged){
-    res.redirect('/index')
+    return res.redirect('/index')
 }
     next()
 }
