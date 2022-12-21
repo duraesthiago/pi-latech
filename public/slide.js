@@ -15,10 +15,11 @@ const state = {
     currentSlideIndex: 0
 }
 
-function translateSlide ({ position }){
-    slideList.style.transform = `translateX(${position}px)`
+function translateSlide({ position }){
     state.savedPosition = position
+    slideList.style.transform = `translateX(${position}px)`    
 }
+
 function getCenterPosition({ index }){
     const slideItem = slideItems[index]
     const slideWidth = slideItem.clientWidth
@@ -30,9 +31,9 @@ function getCenterPosition({ index }){
 }
 
 function setVisibleSlide ({ index }){   
-    const position = getCenterPosition({ index: index })
+    const position = getCenterPosition({ index })
     state.currentSlideIndex = index
-    translateSlide({ position: position })
+    translateSlide({ position })
 }
 
 function nextSlide(){
@@ -67,7 +68,7 @@ function onMouseMove (event){
     state.movement = event.clientX - state.startingPoint
     const position = event.clientX - state.currentPoint
     translateSlide({ position: position})
-    }
+}
 
 function onMouseUp(event){
     const slideItem = event.currentTarget     
@@ -81,19 +82,23 @@ function onMouseUp(event){
         setVisibleSlide({index: state.currentSlideIndex})        
     }     
     slideItem.removeEventListener('mousemove', onMouseMove)    
-    }
-function onControlButtonClick(event, index){
+}
+
+function onControlButtonClick(event, index, controlButtons){
     const controlButton = event.currentTarget
+    controlButtons.forEach(function(controlButtonItem){
+        controlButtonItem.classList.remove('active')
+    })
     controlButton.classList.add('active')
     setVisibleSlide({ index })
 }
 
 function setListeners(){
-    const controlButtons = document.querySelectorAll('[data-slide="controlButton"]')
+    const controlButtons = document.querySelectorAll("[data-slide='controlButton']")
 
     controlButtons.forEach(function(controlButton, index){
         controlButton.addEventListener('click', function(event){
-            onControlButtonClick(event, index)
+            onControlButtonClick(event, index, controlButtons)
         })
     })
 
