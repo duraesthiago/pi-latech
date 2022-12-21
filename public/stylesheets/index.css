@@ -513,7 +513,8 @@ hr {
   font-size: 12px;
   align-items: center;
   width: 80px;
-  padding: 5px;  
+  padding: 5px; 
+  margin: 20px; 
   background-color: #7f7ae9;
   border-radius: 10px;
   color: #fbfbfb;
