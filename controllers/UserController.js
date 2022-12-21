@@ -5,7 +5,6 @@ const { JSON } = require("sequelize");
 
 const UserController = {
   signUp: (req, res) => {
-    res.cookie("test", "Hello World form cookie test", { maxAge: 10000 });
     let error = req.query.error ? 1 : 0;
     res.render("userSignUp", { error });
   },
@@ -35,8 +34,7 @@ const UserController = {
         Email: req.body.email,
         Senha: bcrypt.hashSync(req.body.password, 10),
       });
-      return console.log(userCreated, "acabei de ser criado");
-      //return res.redirect("/users/login");
+      return res.redirect("/users/login");
     }
   },
 
@@ -71,36 +69,47 @@ const UserController = {
           return res.redirect("/users/login?error=1");
         } else {
           if (userToLogin && isPasswordVerified) {
+            
             delete userToLogin.Senha;
             req.session.userLogged = userToLogin;
-            console.log(req.session);
+            
+            if (req.body.remember_user) {
+              res.cookie("userEmail", req.body.email, {
+                maxAge: (1000 * 1) * 30
+              });
+            }
+
             return res.redirect("/");
           }
         }
       }
     } catch (error) {
-      return res.render("userSignUp", {error :"Não existe cadastro para esse email, deseja realizar um cadastro?."});
+      return res.render("userSignUp", {
+        error:
+          "Não existe cadastro para esse email, deseja realizar um cadastro?.",
+      });
     }
   },
 
-   recoverPassword: (req, res) => {
+  recoverPassword: (req, res) => {
     res.render("recoverPassword");
   },
 
   showUserAccount: (req, res) => {
     res.render("userAccount", {
-      userLogged: req.session.userLogged
+      userLogged: req.session.userLogged,
     });
   },
 
   editUserAvatar: (req, res) => {
     const newAvatarFile = validationResult(req);
-    if(newAvatarFile) {
+    if (newAvatarFile) {
       return res.render("userAccount");
     }
   },
 
   logout: (req, res) => {
+    res.clearCookie('userEmail');
     req.session.destroy();
     return res.redirect("/");
   },

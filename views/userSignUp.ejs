@@ -11,7 +11,7 @@
             <%}%>
               <form class="register" method="post" action="/users/create">
                 <div class="input-container">
-                  <label for="name">Nome Completo</label>
+                  <label for="name">Nome</label>
                   <input class="name" type="text" name="name" id="name-register"
                     value="<%= locals.oldData ? oldData.name : null %>" placeholder="Digite seu Nome completo" />
                   <% if(locals.errors && errors.name) {%>
