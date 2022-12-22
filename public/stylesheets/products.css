@@ -12,14 +12,13 @@
 }
   
 .products-wrapper {
-<<<<<<< HEAD
   margin-top: 30px;
   margin-bottom: 30px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 .products-title {
-  font-size: 2.4em;
+  font-size: 1.8em;
   font-weight: 400;
   color: var(--gray);
 }
@@ -41,7 +40,6 @@
   max-width: 70%;
   border-bottom: 1px solid var(--dark-gray);
   object-fit: contain;
-=======
   background-color: var(--ligth-gray);
   width: 100%;
   display: flex;
@@ -54,7 +52,6 @@
   border-bottom: 1px solid var(--dark-gray);
   border-radius: 16px;
   box-shadow: 10px 5px 5px var(--medium-gray) ;
->>>>>>> PaulaFlavia-master
 }
 
 .product-box-image img {
@@ -80,6 +77,21 @@
   box-shadow: 10px 5px 5px var(--medium-gray) ;
 
 }
+.btn-product {
+    text-align: center;
+    margin: 10px auto;
+    padding: 10px;
+    border: 1px solid var(--dark-blue);
+    border-radius: 8px;
+    color: var(--ligth-gray);
+    background-color: var(--ligth-blue);
+    width: 80px;
+    transition: 0.3s;
+}
+/*.btn-product:hover {
+    cursor: pointer;
+    color: var(--ligth-lilac);
+}*/
 
 @media (min-width: 801px) {
   /* tablet, landscape iPad, lo-res laptops ands desktops */ 
