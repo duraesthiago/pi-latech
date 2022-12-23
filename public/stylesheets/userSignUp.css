@@ -11,7 +11,16 @@
   --dust-white: #fbfbfb;
 }
 
-.register-account {
+.index_title{
+  margin: 1% 4%;
+  background: linear-gradient( 120deg, var(--pink-degrade) 0%, var(--ligth-lilac) 52%, var(--dark-blue) 100% );
+  padding: 2%;
+  color: #fbfbfb;
+  border-radius: 20px;
+  box-shadow: 4px 4px 4px var(--dark-gray);
+}
+
+.register_account {
   width: 100vw;
   height: 100vh;
   border-radius: 8px;
@@ -24,7 +33,7 @@
   margin: 0 auto;
 }
 
-.input-container {
+.input_container {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -43,42 +52,19 @@
   border-radius: 8px;
 }
 
-.email {
-  width: 100%;
-  margin: auto;
-  padding: 10px 5px;
-  border: 1px solid var(--medium-blue);
-  border-radius: 8px;
-}
-
-.password {
-  width: 100%;
-  margin: auto;
-  padding: 10px 5px;
-  border: 1px solid var(--medium-blue);
-  border-radius: 8px;
-}
-
-.btn-registration {
-  /* width: 83%;
-  padding: 14px 5px;
-  background-color: var(--ultra-ligth-blue);
-  border: 1px solid var(--medium-blue);
-  border-radius: 8px;
-  margin: 10px 0px;
-  color: var(--ligth-lilac); */
-  font-size: 12px;
+.btn_registration {
+    font-size: 12px;
     align-items: center;
     width: 80px;
     padding: 5px;
-    background-color: #7f7ae9;
+    background-color: var(--ligth-lilac);
     border-radius: 10px;
-    color: #fbfbfb;
+    color: var(--dust-white);
     display: inline-block;
     box-shadow: 2px 2px 2px var(--dark-gray);
     justify-items: center;
 }
-.btn-registration:hover{
+.btn_registration:hover{
   cursor: pointer;
   background-color: var(--ligth-blue);
   }
@@ -94,43 +80,43 @@
 }
 
 @media (min-width: 801px){
-  .input-container{
+  .input_container{
     max-width: 600px;
     margin: 100px;
   }
   
-  .register-account{
+  .register_account{
     max-height: 500px;
     margin-top: 80px;
   }
 
 
-.btn-registration{
+.btn_registration{
   margin-top: 30px;
 }
 }
 @media (min-width: 1025px){
 
-.input-container{
+.input_container{
   margin-left: 270px;
 }
 
-.name,.email, .password {
+.name {
   max-width: 600px;
 }
 
-.btn-registration {
+.btn_registration {
   max-width: 500px;
 }
 }
 
 @media (min-width: 1245px){
 
-  .input-container{
+  .input_container{
     margin-left: 370px;
   }
 
-  .register-account{
+  .register_account{
     margin-top: 200px;
   }
 }

@@ -5,38 +5,83 @@
 
       <main>
         <link rel="stylesheet" href="../stylesheets/userSignUp.css" />
+        <br>
+          <h2 class="index_title">Cadastrar</h2>
+      
         <div class="register-account">
+
           <% if(error) {%>
             <div class="error"><%= error %></div>
             <%}%>
               <form class="register" method="post" action="/users/create">
-                <div class="input-container">
+                <div class="input_container">
+
+                  <label for="avatar">Avatar</label>
+                  <input class="name" type="file" name="avatar" id="avatar"
+                    value="<%= locals.oldData ? oldData.avatar : null %>" placeholder="" />
+                  <% if(locals.errors && errors.avatar) {%>
+                    <div class="danger">
+                      <%= errors.avatar.msg %>
+                    </div>
+                    <% } %>   
+
                   <label for="name">Nome</label>
-                  <input class="name" type="text" name="name" id="name-register"
-                    value="<%= locals.oldData ? oldData.name : null %>" placeholder="Digite seu Nome completo" />
+                  <input class="name" type="text" name="name" id="name_register"
+                    value="<%= locals.oldData ? oldData.name : null %>" placeholder="Digite seu nome" />
                   <% if(locals.errors && errors.name) {%>
                     <div class="danger">
                       <%= errors.name.msg %>
                     </div>
                     <% } %>
-                      <label for="input-email">Email</label>
-                      <input class="email" type="email" name="email" id="input-email"
+
+                    <label for="last_name">Sobrenome</label>
+                    <input class="name" type="text" name="last_name" id="last_name_register"
+                      value="<%= locals.oldData ? oldData.last_name : null %>" placeholder="Digite seu Sobrenome" />
+                    <% if(locals.errors && errors.las_tname) {%>
+                      <div class="danger">
+                        <%= errors.last_name.msg %>
+                      </div>
+                      <% } %>
+
+                      <label for="input_email">Email</label>
+                      <input class="name" type="email" name="email" id="input_email"
                         value="<%= locals.oldData ? oldData.email : null %>" placeholder="digite seu email" />
                       <% if(locals.errors && errors.email) {%>
                         <div class="danger">
                           <%= errors.email.msg %>
                         </div>
                         <% } %>
-                          <label for="input-password">Senha</label>
-                          <input class="password" type="password" name="password" id="input-password"
+
+                        <label for="phone_number">Telefone</label>
+                        <input class="name" type="text" name="phone_number" id="phone_number"
+                          value="<%= locals.oldData ? oldData.phone_number : null %>" placeholder="Digite seu telefone ou celular com ddd" />
+                        <% if(locals.errors && errors.phone_number) {%>
+                          <div class="danger">
+                            <%= errors.phone_number.msg %>
+                          </div>
+                          <% } %>
+
+
+                          <label for="personal_id">Documento de identidade</label>
+                          <input class="name" type="text" name="personal_id" id="personal_id"
+                            value="<%= locals.oldData ? oldData.personal_id : null %>" placeholder="Digite seu documento de identidade (RG)" />
+                          <% if(locals.errors && errors.personal_id) {%>
+                            <div class="danger">
+                              <%= errors.personal_id.msg %>
+                            </div>
+                            <% } %>
+
+                          <label for="input_password">Senha</label>
+                          <input class="name" type="password" name="password" id="input_password"
                             placeholder="digite uma senha" />
                           <% if(locals.errors && errors.password) {%>
                             <div class="danger">
                               <%= errors.password.msg %>
                             </div>
                             <% } %>
-
-                              <button class="btn-registration" type="submit">Cadastrar-se</button>
+<br>
+                              <button class="btn_registration" type="submit">Cadastrar-se</button>
+                              <br>
                               <a href="/users/login">Ou faça login</a>
                 </div>
                 </form>

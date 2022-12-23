@@ -1,5 +1,5 @@
 <header>
-  <div class="container">
+  <div class="container-header">
     <a href="/">
       <img class="logo" src="/img/logo_latech_final.png" alt="logo-latech" />
     </a>
@@ -36,8 +36,8 @@
             <ul class="over">
               <% if (locals.isLogged) {%>
 
-              <li><a href="/users/logout">Sair</a></li>
-              <li><a href="/users/account">Ver Conta</a></li>
+              <li class="over"><a href="/users/logout">Sair</a></li>
+              <li class="over"><a href="/users/account">Ver Conta</a></li>
 
               <% } else { %>
 
@@ -57,6 +57,6 @@
       </nav>
     </div>
   </div>
-  <hr />
+
   <script src="/dropDownUserMenu.js"></script>
 </header>
