@@ -3,7 +3,7 @@ module.exports = (sequelize, DataTypes) => {
     let User = sequelize.define(
         "User",
         {
-            idClientes: {
+            idUser: {
                 type: DataTypes.INTEGER,
                 autoIncrement: true,
                 allowNull: false,
@@ -56,7 +56,7 @@ module.exports = (sequelize, DataTypes) => {
 
     )
     User.associate = function (model) {
-        User.hasMany(model.Purchase, { as: "purchases", foreignKey: "Users_idUsers" });
+        User.hasMany(model.Purchase, { as: "purchases", foreignKey: "Users_idUser" });
     }
     return User;
 
