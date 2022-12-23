@@ -2,9 +2,10 @@
   <!-- Include Header -->
   <%- include('partials/header', {title: 'Início' }) %>
     <!-- Include Banner -->
-    <%- include('partials/banner') %>
+   
+    
       <%- include('partials/slide') %>
-        <main>
+        <main class="index-main">
           <div class="products-list">
             <h2 class="index-title">OFERTAS DA SEMANA</h2>
             <div class="products-content">
@@ -26,32 +27,5 @@
           </div>
           </div>
         </main>
-
-        <script>
-          
-    startList = function()
-    {
-        if (document.getElementById)
-        {
-            navRoot = document.getElementById("nav");
-            for (i = 0; i<navRoot.childNodes.length; i++)
-            {
-                node = navRoot.childNodes[i];
-                    if (node.nodeName=="LI")
-                    {
-                        node.onmouseover=function()
-                        {
-                            this.className+=" over";
-                        }
-                        node.onmouseout=function()
-                        {
-                            this.className=this.className.replace(" over", "");
-                        }  
-                    }
-            }
-        }
-    }
-    window.onload=startList;
-        </script>
         <!-- Include Footer -->
         <%- include('partials/footer') %>

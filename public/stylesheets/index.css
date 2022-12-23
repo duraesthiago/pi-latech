@@ -64,13 +64,15 @@ a {
   flex-direction: column;
 }
 
-.container {
+.container-header {
   background: linear-gradient(
     180deg,
     var(--pink-degrade) 0%,
     var(--ligth-lilac) 52%,
     var(--dark-blue) 100%
   );
+  border-radius: 4px;
+  box-shadow: 5px 5px 5px var(--medium-gray) ;
 }
 
 .logo {
@@ -107,7 +109,7 @@ a {
 .menu li a {
   display: block;
   padding:  5px 10px;
-  color: var(--dark-gray);
+  color: var(--dust-white);
   text-transform: uppercase;
 }
 .menu li a:hover{
@@ -123,19 +125,18 @@ a {
 
 .menu li ul{
   position: absolute;
-  top: 0px;
+  top: 30px;
   left:0;
-  background: transparent;
-  /* display:none; */
+  display:none;
 }
 
 .menu li:hover ul, 
 .menu li.over ul {
-  display: block;
+  display:block ;
 }
 
 .menu li ul li {
-  background-color: var(--ligth-gray);
+  background-color: var(--ligth-lilac);
   display: block;
   width: 80px;
 }
@@ -209,6 +210,14 @@ span:nth-child(3) {
   margin-bottom: 4px;
   margin-left: 32px;
   background-color: var(--dust-white);
+}
+
+.search-form form{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding-right: 8px;
 }
 
 .search-bar input {
@@ -562,7 +571,7 @@ footer {
   height: 100px;
   background: linear-gradient(
     225deg,
-    var(--dust-white) 65%,
+    var(--dust-white) 45%,
     var(--pink-degrade) 75%,
     var(--ligth-lilac) 85%,
     var(--dark-blue) 100%
@@ -631,22 +640,25 @@ footer {
 
 @media (min-width: 801px) {
   /* tablet, landscape iPad, lo-res laptops ands desktops */
-  .container {
+  .container-header {
     background: linear-gradient(
       135deg,
-      var(--dust-white) 65%,
+      var(--dust-white) 45%,
       var(--pink-degrade) 75%,
       var(--ligth-lilac) 85%,
       var(--dark-blue) 100%
     );
-    height: 60px;
+    height: 100px;
     display: flex;
     justify-content: space-between;
     align-items: center;
   }
+  .container-header a{
+    max-width: 200px;
+  }
 
   .logo {
-    max-width: 40%;
+    max-width: 80%;
     max-height: 40%;
     margin-bottom: 5px;
     margin-left: 20px;
@@ -684,10 +696,9 @@ footer {
   }
 
   .search-form {
-    min-width: 300px;
-    min-height: 25px;
+    width: 380px;
     font-size: 12px;
-    margin: auto;
+    margin: 0;
   }
 
   .btn-sb {
@@ -742,6 +753,42 @@ footer {
     display: inline-block;
   }
 
+    .slide-description h3 {
+      font-size: 9px;
+      top: 0;
+    }
+    
+    .slide-description p {
+      display: none;
+    }
+    
+    .slide-description {
+      padding: 10px;  
+    }
+    .slide-controls{
+      margin: 8px auto 0; 
+    }
+  
+    .slide-nav-button{
+      margin-top: -30px;
+      font-size: 25px;   
+    }
+    
+    .slide-control-button{
+      font-size: 8px;   
+    }
+  
+    .slide-nav-previous{
+      left: 10px; 
+     }
+    
+    .slide-nav-next{
+      right: 10px;
+     }
+  
+  
+    
+
   footer{
     display: flex;
     align-items: center;
@@ -781,7 +828,7 @@ footer {
     margin-left: 30px;
   }
 
-  .container {
+  .container-header {
     background: linear-gradient(
       135deg,
       var(--dust-white) 65%,
@@ -789,6 +836,10 @@ footer {
       var(--ligth-lilac) 85%,
       var(--dark-blue) 100%
     );
+  }
+
+  .container-header a{
+    max-width: 300px;
   }
 
   .search-form {
@@ -832,9 +883,9 @@ footer {
 
     @media (min-width: 1281px) {
       /* hi-res laptops and desktops */
-      .index-main {
+      /* .index-main {
         max-width: 1280px;
-      }
+      } */
 
       .search-form {
         min-width: 650px;
@@ -877,39 +928,7 @@ footer {
 
 }
 
-@media screen and (max-width:800px){
-  .slide-description h3 {
-    font-size: 9px;
-    top: 0;
-  }
+@media (min-width: 1800px){
   
-  .slide-description p {
-    display: none;
-  }
-  
-  .slide-description {
-    padding: 10px;  
-  }
-  .slide-controls{
-    margin: 8px auto 0; 
-  }
-
-  .slide-nav-button{
-    margin-top: -30px;
-    font-size: 25px;   
-  }
-  
-  .slide-control-button{
-    font-size: 8px;   
-  }
-
-  .slide-nav-previous{
-    left: 10px; 
-   }
-  
-  .slide-nav-next{
-    right: 10px;
-   }
-
-
 }
+

@@ -8,8 +8,8 @@
   <link rel="stylesheet" href="../stylesheets/userAccount.css" />
 
   <div class="user-menu">
-    <button class="btn-user-purchase-order">Meus pedidos</button>
-    <button class="btn-user-data">Meus dados</button>
+    <button class="btn-user-purchase-order" id="btn-user-purchaise">Meus pedidos</button>
+    <button class="btn-user-data" id="btn-user-data">Meus dados</button>
   </div>
   <div class="order-container">
     <h3>Meus Pedidos</h3>
@@ -37,7 +37,7 @@
     </div>
   </div>
   <div class="user-info-container">
-    <h3>Olá,</h3>
+    <h3>Olá, <%= userLogged.Nome %></h3>
     <div class="user-avatar">
       <div class="avatar-img">
         <label for="avatar" class="avatar-label"></label>
@@ -55,18 +55,18 @@
             id="nome"
             name="nome"
             placeholder=""
-            value=""
+            value="<%= userLogged.Nome %>"
           />
         </div>
         <div class="user-form-class">
-          <label class="form-label" for="email">E-mail:</label>
+          <label class="form-label" for="email">E-mail: </label>
           <input
             class="input-label"
             type="email"
             id="email"
             name="email"
             placeholder=""
-            value=""
+            value="<%= userLogged.Email %>"
           />
         </div>
         <div class="user-form-class">

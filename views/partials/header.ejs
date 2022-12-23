@@ -1,13 +1,20 @@
 <header>
-  <div class="container">
-    <img class="logo" src="/img/logo_latech_final.png" alt="logo-latech" />
+  <div class="container-header">
+    <a href="/">
+      <img class="logo" src="/img/logo_latech_final.png" alt="logo-latech" />
+    </a>
     <div class="search-form">
       <!-- Alterada a posição da div para funcionamento das medias queries-->
       <form action="/search" method="get" class="search-bar">
-        <input class="search-bar" type="text" name="q" placeholder="O que você procura...?" />
-        <button class="btn_sb" type="submit">          
-            <img class="btn_search" src="/img/icons8-pesquisar.svg" />
-          </button>
+        <input
+          class="search-bar"
+          type="text"
+          name="q"
+          placeholder="O que você procura...?"
+        />
+        <button class="btn_sb" type="submit">
+          <img class="btn_search" src="/img/icons8-pesquisar.svg" />
+        </button>
       </form>
     </div>
     <div class="menu-hamburguer">
@@ -23,23 +30,33 @@
           <li><a href="/products/sale">Ofertas</a></li>
           <li><a href="/aboutUs">Sobre nós</a></li>
           <li>
-            <a href="/users"><img src="/img/icons8-adicionar-usuario-masculino-50.svg" /></a>
-            <ul>
-              <li><a href="#">Cadastrar</a></li>
-              <li><a href="#">Entrar</a></li>
-              <li><a href="#">Minha Conta</a></li>
-              <li><a href="#">Sair</a></li>
+            <a href="/users"
+              ><img src="/img/icons8-adicionar-usuario-masculino-50.svg"
+            /></a>
+            <ul class="over">
+              <% if (locals.isLogged) {%>
+
+              <li class="over"><a href="/users/logout">Sair</a></li>
+              <li class="over"><a href="/users/account">Ver Conta</a></li>
+
+              <% } else { %>
+
+              <li><a href="/users/login">Entrar</a></li>
+              <li><a href="/users/">Cadastrar</a></li>
+
+              <% } %>
             </ul>
           </li>
           <li>
-            <a href="/orders/cart"><img src="/img/icons8-carrinho-de-compras-carregado-50.svg" />
+            <a href="/orders/cart"
+              ><img src="/img/icons8-carrinho-de-compras-carregado-50.svg" />
               <%= qty %>
             </a>
-
+          </li>
         </ul>
       </nav>
     </div>
   </div>
-  <hr>
 
+  <script src="/dropDownUserMenu.js"></script>
 </header>
