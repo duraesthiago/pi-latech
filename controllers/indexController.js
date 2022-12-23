@@ -1,9 +1,6 @@
 const { Op } = require("sequelize");
 const { Product, Image } = require("../database/models");
-const idProdutosComDesconto = [1, 2, 4, 5, 8, 29]
-const { Op } = require("sequelize");
-const { Product, Image } = require("../database/models");
-const idProdutosComDesconto = [1, 2, 4, 5, 8, 29]
+const idProdutosComDesconto = [1, 2, 4, 5, 8, 29];
 const IndexController = {
   index: async (req, res) => {
     let products = await Product.findAll({
@@ -52,7 +49,7 @@ const IndexController = {
         return product
       })
     res.render("search", { title: "Latech", products });
-  }
+  },
   search: async (req, res) => {
     let q = req.query.q;
     let products = await Product.findAll({
