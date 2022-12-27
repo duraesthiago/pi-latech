@@ -16,6 +16,7 @@
 }
 
 .product-details {
+    background: #070d40;
     width: 90%;
     border: 0.5px solid var(--medium-blue);
     border-radius: 8px;
