@@ -42,7 +42,7 @@
 }
   
   input[type="file"] {
-    display: inline-block;
+    display: none;
   }
   
   
@@ -118,13 +118,6 @@
   
   @media (min-width: 801px) {
   
-  
-    .img-avatar  {
-      width: 25%;
-      border-radius: 50%;
-      margin-left: 20px;
-  
-    }
   
     .input-label {
       width: 97%;

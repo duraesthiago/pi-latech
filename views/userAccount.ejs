@@ -30,7 +30,7 @@
     <div class="ordered-products-container">
       <div class="list-of-products">
         <div class="ordered-product">
-          <img src="../public/img/celular.png" alt="" />
+          <img src="/img/celular.png" alt="" />
           <div class="order-info">
             <p>Produto:</p>
             <br>
@@ -53,84 +53,32 @@
   </div>
   <div class="user-info-container">
     
-    <h3>Olá, <%= userLogged.Nome %></h3>
-    <form class="user-info-form" action="/account" method="post" enctype="multipart/form-data">
-      <div class="user-avatar">
-        <img class="img-avatar" src="<%= userLogged.Avatar %> ">
-      </div>
-  
-    <div class="user-form">
-        <div class="user-form-class">
-          <label class="form-label" for="nome">Nome do usuário:</label>
-          <input
-            class="input-label"
-            type="text"
-            id="nome"
-            name="name"
-            placeholder=""
-            value="<%= userLogged.Nome %>"
-          />
-        </div>
-        <div class="user-form-class">
-          <label class="form-label" for="nome">Sobreome do usuário:</label>
-          <input
-            class="input-label"
-            type="text"
-            id="sobrenome"
-            name="lastName"
-            placeholder=""
-            value="<%= userLogged.Sobrenome %>"
-          />
-        </div>
-        <div class="user-form-class">
-          <label class="form-label" for="email">E-mail: </label>
-          <input
-            class="input-label"
-            type="text"
-            id="email"
-            name="email"
-            placeholder=""
-            value="<%= userLogged.Email %>"
-          />
-        </div>
-        <div class="user-form-class">
-          <label class="form-label" for="cpf">Cpf: </label>
-          <input
-            class="input-label"
-            type="text"
-            id="cpf"
-            name="personal_id"
-            placeholder=""
-            value="<%= userLogged.Cpf %>"
-          />
-        </div>
-        </div>
-        <div class="user-form-class">
-          <label class="form-label" for="telefone">Telefone:</label>
-          <input
-            class="input-label"
-            type="text"
-            id="telefone"
-            name="phone_number"
-            placeholder=""
-            value="<%= userLogged.Telefone %>"
-          />
-        </div>
+    <h3 class="greeting">Olá, <%= userLogged.Nome %></h3>
 
-        <form action="/accountUpdate/<%= userLogged.idUser %></form>
-        <button class="btn-update" type="submit">     <a href=/users/accountUpdate/<%= userLogged.idUser %>>Editar</a>
-        </button>
+    <ul class="avatar">
+      <li><img class="img-avatar" src="<%= userLogged.Avatar %> "></li>
+      </ul>
+
+      <ul class="user-info">
+      <li>Nome do usuário: <%= userLogged.Nome %> </li> <br>
+      <li>Sobrenome do usuário: <%= userLogged.Sobrenome %></li> <br>
+      <li>E-mail: <%= userLogged.Email %></li> <br>
+      <li>Cpf: <%= userLogged.Cpf %></li> <br>
+      <li>Telefone: <%= userLogged.Telefone%></li> <br>
+    </ul>
+      
+        
+        <form action="/users/accountUpdate/<%= userLogged.idUser %>">
+        <button class="btn-update" type="submit">Editar</button>
       </form>
 
-      <form action="/delete/<%= userLogged.idUser %> " method="post"></form>
-      <button class="btn-delete" type="submit">     <a href=/users/accountUpdate/<%= userLogged.idUser %>>Excluir</a>
-      </button>
-    </form>
-
-    </div>
+      <form method="post" action="/users/delete/<%= userLogged.idUser %>">
+        <button class="btn-update" type="submit">Excluir</button>
       </form>
+
+    
+
   </div>
-</div>
 </main>
 
 <!-- Include Footer -->

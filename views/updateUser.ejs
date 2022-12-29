@@ -3,93 +3,65 @@
 <!-- Include Header -->
 <%- include('partials/header', {title: 'Início' }) %>
 
-
-
 <main class="edit-container">
+  <link rel="stylesheet" href="/stylesheets/updateUser.css" />
+  <br />
+  <h2 class="edit_title">Editar Conta</h2>
+  <br />
+  <div class="account-container">
+    <div class="user-info-container">
+      <h3>Olá, <%= userLogged.Nome %></h3>
 
-    <link rel="stylesheet" href="/stylesheets/updateUser.css">
-  <br>
-<h2 class="edit_title">Editar Conta</h2>
-<br>
-<div class="account-container">
-
-  <div class="user-info-container">
-    
-    <h3>Olá, <%= userLogged.Nome %></h3>
-
-    <form class="user-info-form" action="/updateUserData/<%= userLogged.idUser %>" method="post" enctype="multipart/form-data">
-
-      <div class="user-avatar">
-        <img class="img-avatar" src="<%= userLogged.Avatar %> ">
-      </div>
-  
-    <div class="user-form">
-        <div class="user-form-class">
-          <label class="form-label" for="nome">Nome do usuário:</label>
-          <input
-            class="input-label"
-            type="text"
-            id="nome"
-            name="name"
-            placeholder=""
-            value="<%= userLogged.Nome %>"
-          />
+      <form
+        class="user-info-form"
+        method="post"
+        action="/users/updateUserData/<%= userLogged.idUser %>"
+      >
+        <div class="user-avatar">
+          <img class="img-avatar" src="<%= userLogged.Avatar %> " />
         </div>
+
         <div class="user-form">
           <div class="user-form-class">
-            <label class="form-label" for="sobrenome">Sobrenome do usuário:</label>
+            <label class="form-label" for="nome">Nome do usuário: </label>
             <input
               class="input-label"
               type="text"
-              id="lastName"
-              name="lastName"
-              placeholder=""
-              value="<%= userLogged.Sobrenome %>"
+              id="nome"
+              name="name"
+              value="<%= userLogged.Nome %>"
             />
           </div>
-        <div class="user-form-class">
-          <label class="form-label" for="email">E-mail: </label>
-          <input
-            class="input-label"
-            type="text"
-            id="email"
-            name="email"
-            placeholder=""
-            value="<%= userLogged.Email %>"
-          />
+          <div class="user-form">
+            <div class="user-form-class">
+              <label class="form-label" for="sobrenome"
+                >Sobrenome do usuário:
+              </label>
+              <input
+                class="input-label"
+                type="text"
+                id="lastName"
+                name="lastName"
+                value="<%= userLogged.Sobrenome %>"
+              />
+            </div>
+           
+          </div>
+          <div class="user-form-class">
+            <label class="form-label" for="telefone">Telefone:</label>
+            <input
+              class="input-label"
+              type="text"
+              id="telefone"
+              name="phone"
+              value="<%= userLogged.Telefone %>"
+            />
+          </div>
+          <button class="btn-save" type="submit">Salvar</button>
         </div>
-        <div class="user-form-class">
-          <label class="form-label" for="cpf">Cpf: </label>
-          <input
-            class="input-label"
-            type="text"
-            id="personal-id"
-            name="email"
-            placeholder=""
-            value="<%= userLogged.Cpf %>"
-          />
-        </div>
-        </div>
-        <div class="user-form-class">
-          <label class="form-label" for="telefone">Telefone:</label>
-          <input
-            class="input-label"
-            type="text"
-            id="telefone"
-            name="phone_number"
-            placeholder=""
-            value="<%= userLogged.Telefone %>"
-          />
-        </div>
-        <form action="/account/ " method="get"></form>
-        
-        <button class="btn-save" type="submit"><a href="/users/account">Salvar</a></button>
       </form>
     </div>
-      </form>
   </div>
-</div>
 </main>
-
 <!-- Include Footer -->
 <%- include('partials/footer') %>

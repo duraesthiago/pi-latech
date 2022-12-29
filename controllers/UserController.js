@@ -1,7 +1,6 @@
 const { validationResult } = require("express-validator");
 const { User } = require("../database/models/");
 const bcrypt = require("bcrypt");
-const { JSON, TableHints } = require("sequelize");
 
 const UserController = {
   signUp: (req, res) => {
@@ -11,7 +10,6 @@ const UserController = {
 
 
   createUser: async (req, res) => {
-
     const resultValidations = validationResult(req);
     if (resultValidations.errors.length > 0) {
       return res.render("userSignUp", {
@@ -76,20 +74,21 @@ const UserController = {
         } else {
           if (userToLogin && isPasswordVerified) {
             
+            
             delete userToLogin.Senha;
             req.session.userLogged = userToLogin;
-            console.log(req.session.userLogged);
+            //console.log(req.session.userLogged);
+            }  
             
             if (req.body.remember_user) {
               res.cookie("userEmail", req.body.email, {
-                maxAge: (1000 * 1) * 30
+                maxAge: (1000 * 60) * 5
               });
             }
 
-            return res.redirect("/");
+               res.redirect("/");
+            }
           }
-        }
-      }
     } catch (error) {
       return res.render("userSignUp", {
         error:
@@ -102,11 +101,13 @@ const UserController = {
     res.render("recoverPassword");
   },
 
-  showUserAccount: (req, res) => {
+  showUserAccount: async (req, res) => {
     res.render("userAccount", {
       userLogged: req.session.userLogged,
     });
   },
+
+  
 
   updateUser:  async (req,res) => {
     let userId = req.params.id;
@@ -115,31 +116,32 @@ const UserController = {
     if(userLogged)
     res.render("updateUser", { userLogged
     });
-    console.log(userLogged)
+    //console.log(userLogged)
+
  },
 
- updateUserData:  (req, res) => {
-   User.update(
+ updateUserData:   async (req, res) => {
+   let userLogged =  await User.update(
     {
       Nome: req.body.name,
-      Sobrenome: req.body.last_name,
-      Email: req.body.email,
-      Telefone: req.body.phone_number,
-      //Avatar: `/img/avatars/${avatarFileName}`,
+      Sobrenome: req.body.lastName,
+      Telefone: req.body.phone,
+      Avatar: req.body.avatar,
     },
     {
       where:{
         idUser: req.params.id
       } 
     }
-    );
-    console.log(req.body);
-    console.log(req.params.id);
-    then(() => res.redirect('/account/' + req.params.id));
+    )
+  //   console.log(userLogged)
+  //  console.log(req.body);
+  //  console.log(req.params.id);
+    return  res.redirect('/')
  },
 
   logout: (req, res) => {
-    res.clearCookie('userEmail');
+    res.clearCookie("userEmail");
     req.session.destroy();
     return res.redirect("/");
   },
@@ -151,7 +153,8 @@ const UserController = {
           idUser: req.params.id
         }
       }
-    );
+      )
+      req.session.destroy();
     return res.redirect('/')
   }
 };

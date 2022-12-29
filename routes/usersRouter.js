@@ -16,9 +16,10 @@ router.get('/login', loggedUserMiddleware, UserController.userLogin);
 router.post('/login', UserController.loginProcess);
 router.get('/recoverPassword', UserController.recoverPassword);
 
-router.get('/account', notLoggedUserMiddleware, UserController.showUserAccount);
+router.get('/account/', notLoggedUserMiddleware, UserController.showUserAccount);
 
-router.get('/accountUpdate/:id', UserController.updateUser);
+
+router.get('/accountUpdate/:id',  UserController.updateUser);
 router.post('/updateUserData/:id',  UserController.updateUserData);
 
 
