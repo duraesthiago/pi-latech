@@ -1,10 +1,10 @@
-const db = require('../database/models')
+const { Product, Address, Purchase } = require('../database/models')
 
 
 const ordersController = {
     index: (req, res) => {
 
-        db.Product.findAll()
+        Product.findAll()
             .then(function (productsReturned) {
             })
             return res.render('products.ejs', { products: productsReturned })
@@ -28,7 +28,7 @@ const ordersController = {
         let idsIntoCart = req.session.cart
 
         let getProductById = async (id) => {
-            let productFound = await db.Product.findByPk(
+            let productFound = await Product.findByPk(
                 id, {
                 raw: true,
                 include: [
@@ -46,7 +46,11 @@ const ordersController = {
         });
 
         req.session.order = productsIntoCart;
-        res.render('cart.ejs', { productsIntoCart, total: req.session.total })
+
+        let addresses = await Address.findAll()           
+               
+        
+        res.render('cart.ejs', { productsIntoCart, total: req.session.total, addresses:addresses })
     },
 
     updateCart: (req, res) => {
@@ -68,12 +72,14 @@ const ordersController = {
         req.session.order = productsIntoCart;
         req.session.total = total
 
+        
+        
         res.render('cart.ejs', { productsIntoCart, total });
 
                 
     },
 
-    releaseOrder: (req, res) => {
+     releaseOrder: (req, res) => {
         let pedidos = req.session.order
         //let total = req.session.total
                 
