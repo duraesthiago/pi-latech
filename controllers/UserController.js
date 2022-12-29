@@ -1,7 +1,7 @@
 const { validationResult } = require("express-validator");
 const { User } = require("../database/models/");
 const bcrypt = require("bcrypt");
-const { JSON } = require("sequelize");
+const { JSON, TableHints } = require("sequelize");
 
 const UserController = {
   signUp: (req, res) => {
@@ -9,17 +9,18 @@ const UserController = {
     res.render("userSignUp", { error });
   },
 
-  signUpValidation: (req, res, next) => {
+
+  createUser: async (req, res) => {
+
     const resultValidations = validationResult(req);
     if (resultValidations.errors.length > 0) {
       return res.render("userSignUp", {
         errors: resultValidations.mapped(),
         oldData: req.body,
       });
-    }
-  },
-
-  createUser: async (req, res) => {
+    
+  }
+  
     let userExists = await User.findOne({
       raw: true,
       where: {
@@ -29,9 +30,14 @@ const UserController = {
     if (userExists) {
       res.redirect("/users/login?error=2");
     } else {
+      let avatarFileName =req.file.filename;
       const userCreated = await User.create({
         Nome: req.body.name,
+        Sobrenome: req.body.last_name,
         Email: req.body.email,
+        Telefone: req.body.phone_number,
+        Avatar: `/img/avatars/${avatarFileName}`,
+        Cpf: req.body.personal_id,
         Senha: bcrypt.hashSync(req.body.password, 10),
       });
       return res.redirect("/users/login");
@@ -72,6 +78,7 @@ const UserController = {
             
             delete userToLogin.Senha;
             req.session.userLogged = userToLogin;
+            console.log(req.session.userLogged);
             
             if (req.body.remember_user) {
               res.cookie("userEmail", req.body.email, {
@@ -101,18 +108,52 @@ const UserController = {
     });
   },
 
-  editUserAvatar: (req, res) => {
-    const newAvatarFile = validationResult(req);
-    if (newAvatarFile) {
-      return res.render("userAccount");
+  updateUser:  async (req,res) => {
+    let userId = req.params.id;
+    let userLogged = await User.findByPk(userId);
+
+    if(userLogged)
+    res.render("updateUser", { userLogged
+    });
+    console.log(userLogged)
+ },
+
+ updateUserData:  (req, res) => {
+   User.update(
+    {
+      Nome: req.body.name,
+      Sobrenome: req.body.last_name,
+      Email: req.body.email,
+      Telefone: req.body.phone_number,
+      //Avatar: `/img/avatars/${avatarFileName}`,
+    },
+    {
+      where:{
+        idUser: req.params.id
+      } 
     }
-  },
+    );
+    console.log(req.body);
+    console.log(req.params.id);
+    then(() => res.redirect('/account/' + req.params.id));
+ },
 
   logout: (req, res) => {
     res.clearCookie('userEmail');
     req.session.destroy();
     return res.redirect("/");
   },
+
+  deleteUser: async (req,res) => {
+    await User.destroy (
+      {
+        where:{
+          idUser: req.params.id
+        }
+      }
+    );
+    return res.redirect('/')
+  }
 };
 
 module.exports = UserController;

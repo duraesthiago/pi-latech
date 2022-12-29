@@ -1,68 +1,92 @@
 <%- include('partials/head') %>
 <!-- Include Header -->
 <%- include('partials/header', {title: 'Início' }) %>
-<!-- Include Banner -->
-<%- include('partials/banner') %>
+
+
 
 <main class="user-container">
-  <link rel="stylesheet" href="../stylesheets/userAccount.css" />
 
+  <link rel="stylesheet" href="../stylesheets/userAccount.css" />
+  <br>
+<h2 class="index_title">Minha Conta</h2>
+<br>
+<div class="account-container">
   <div class="user-menu">
     <button class="btn-user-purchase-order" id="btn-user-purchaise">Meus pedidos</button>
     <button class="btn-user-data" id="btn-user-data">Meus dados</button>
   </div>
   <div class="order-container">
+    <br>
     <h3>Meus Pedidos</h3>
+    <br>
     <div class="order-list">
       <p>Pedido:</p>
+      <br>
       <p>Status:</p>
     </div>
+    <br>
     <h3>Minhas Compras</h3>
+    <br>
     <div class="ordered-products-container">
       <div class="list-of-products">
         <div class="ordered-product">
           <img src="../public/img/celular.png" alt="" />
           <div class="order-info">
-            <p>Produto</p>
-            <p>Preço</p>
-            <p>Quantidade</p>
-            <p>Subtotal</p>
+            <p>Produto:</p>
+            <br>
+            <p>Preço:</p>
+            <br>
+            <p>Quantidade:</p>
+            <br> 
+            <p>Subtotal:</p>
+            <br>
           </div>
         </div>
       </div>
       <div class="total-of-products">
         <p>Valor do Frete:</p>
+        <br>
         <p>Total do Pedido:</p>
+        <br>
       </div>
     </div>
   </div>
   <div class="user-info-container">
+    
     <h3>Olá, <%= userLogged.Nome %></h3>
-    <div class="user-avatar">
-      <div class="avatar-img">
-        <label for="avatar" class="avatar-label"></label>
-        <input type="file" name="avatar" id="avatar" class="avatar" />
+    <form class="user-info-form" action="/account" method="post" enctype="multipart/form-data">
+      <div class="user-avatar">
+        <img class="img-avatar" src="<%= userLogged.Avatar %> ">
       </div>
-      <button class="btn-update-avatar">Editar</button>
-    </div>
+  
     <div class="user-form">
-      <form class="user-info-form" action="/account" method="POST">
         <div class="user-form-class">
           <label class="form-label" for="nome">Nome do usuário:</label>
           <input
             class="input-label"
             type="text"
             id="nome"
-            name="nome"
+            name="name"
             placeholder=""
             value="<%= userLogged.Nome %>"
+          />
+        </div>
+        <div class="user-form-class">
+          <label class="form-label" for="nome">Sobreome do usuário:</label>
+          <input
+            class="input-label"
+            type="text"
+            id="sobrenome"
+            name="lastName"
+            placeholder=""
+            value="<%= userLogged.Sobrenome %>"
           />
         </div>
         <div class="user-form-class">
           <label class="form-label" for="email">E-mail: </label>
           <input
             class="input-label"
-            type="email"
+            type="text"
             id="email"
             name="email"
             placeholder=""
@@ -70,15 +94,16 @@
           />
         </div>
         <div class="user-form-class">
-          <label class="form-label" for="endereco">Endereço:</label>
+          <label class="form-label" for="cpf">Cpf: </label>
           <input
             class="input-label"
             type="text"
-            id="endereco"
-            name="endereco"
+            id="cpf"
+            name="personal_id"
             placeholder=""
-            value=""
+            value="<%= userLogged.Cpf %>"
           />
+        </div>
         </div>
         <div class="user-form-class">
           <label class="form-label" for="telefone">Telefone:</label>
@@ -86,15 +111,26 @@
             class="input-label"
             type="text"
             id="telefone"
-            name="telefone"
+            name="phone_number"
             placeholder=""
-            value=""
+            value="<%= userLogged.Telefone %>"
           />
         </div>
-        <button class="btn-update">Editar</button>
+
+        <form action="/accountUpdate/<%= userLogged.idUser %></form>
+        <button class="btn-update" type="submit">     <a href=/users/accountUpdate/<%= userLogged.idUser %>>Editar</a>
+        </button>
       </form>
+
+      <form action="/delete/<%= userLogged.idUser %> " method="post"></form>
+      <button class="btn-delete" type="submit">     <a href=/users/accountUpdate/<%= userLogged.idUser %>>Excluir</a>
+      </button>
+    </form>
+
     </div>
+      </form>
   </div>
+</div>
 </main>
 
 <!-- Include Footer -->
