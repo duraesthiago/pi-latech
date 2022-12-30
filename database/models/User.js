@@ -3,7 +3,7 @@ module.exports = (sequelize, DataTypes) => {
     let User = sequelize.define(
         "User",
         {
-            idClientes: {
+            idUser: {
                 type: DataTypes.INTEGER,
                 autoIncrement: true,
                 allowNull: false,
@@ -21,22 +21,14 @@ module.exports = (sequelize, DataTypes) => {
                 type: DataTypes.STRING,
                 allowNull: false
             },
+            Cpf: {
+                type: DataTypes.STRING,
+                allowNull: true
+            },
             Telefone: {
                 type: DataTypes.STRING,
                 allowNull: true
-            },
-            Endereco: {
-                type: DataTypes.STRING,
-                allowNull: true
-            },
-            Cidade: {
-                type: DataTypes.STRING,
-                allowNull: true
-            },
-            Estado: {
-                type: DataTypes.STRING,
-                allowNull: true
-            },
+            },            
             Senha: {
                 type: DataTypes.STRING,
                 allowNull: true
@@ -55,8 +47,9 @@ module.exports = (sequelize, DataTypes) => {
         }
 
     )
-    User.associate = function (model) {
-        User.hasMany(model.Purchase, { as: "purchases", foreignKey: "Users_idUsers" });
+    User.associate = function (models) {
+        User.hasMany(models.Purchase, { as: "purchases", foreignKey: "Users_idUser" })
+        User.hasMany(models.Address, { as: "addresses", foreignKey: "Users_idUser", })
     }
     return User;
 
