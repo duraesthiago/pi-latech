@@ -19,8 +19,8 @@ router.get('/recoverPassword', UserController.recoverPassword);
 router.get('/account/', notLoggedUserMiddleware, UserController.showUserAccount);
 
 
-router.get('/accountUpdate/:id',  UserController.updateUser);
-router.post('/updateUserData/:id',  UserController.updateUserData);
+router.get('/accountUpdate/:id', UserController.updateUser);
+router.post('/updateUserData/:id', UserController.updateUserData);
 
 
 router.get('/logout', notLoggedUserMiddleware, UserController.logout);

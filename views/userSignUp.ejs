@@ -9,7 +9,9 @@
       <h2 class="index_title">Cadastrar</h2>
 
       <div class="register-account">
-
+        <% if(error) {%>
+          <div class="error"> <%= error %> </div>
+          <%}%>
 
         <form class="register" method="post" action="/users/create" enctype="multipart/form-data">
           <div class="input_container">

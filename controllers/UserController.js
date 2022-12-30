@@ -16,7 +16,6 @@ const UserController = {
         errors: resultValidations.mapped(),
         oldData: req.body,
       });
-    
   }
   
     let userExists = await User.findOne({
@@ -74,7 +73,6 @@ const UserController = {
         } else {
           if (userToLogin && isPasswordVerified) {
             
-            
             delete userToLogin.Senha;
             req.session.userLogged = userToLogin;
             //console.log(req.session.userLogged);
@@ -82,8 +80,14 @@ const UserController = {
             
             if (req.body.remember_user) {
               res.cookie("userEmail", req.body.email, {
-                maxAge: (1000 * 60) * 5
+                maxAge: (1000 * 60) * 30
               });
+            }
+            if(!req.body.remember_user){
+              res.cookie("userEmail", req.body.email, {
+                maxAge: (1000 * 60) * 5
+
+            });
             }
 
                res.redirect("/");
@@ -141,8 +145,8 @@ const UserController = {
  },
 
   logout: (req, res) => {
-    res.clearCookie("userEmail");
     req.session.destroy();
+    res.clearCookie("userEmail");
     return res.redirect("/");
   },
 

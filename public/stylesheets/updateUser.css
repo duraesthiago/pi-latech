@@ -101,7 +101,7 @@
     border-radius: 10px;
   }
 
-  .btn-save a {
+  .btn-save  {
   font-size: 12px;
   align-items: center;
   width: 80px;
@@ -116,7 +116,7 @@
   }
   
   
-  @media (min-width: 801px) {
+  @media (min-width: 600px) {
   
   
     .input-label {
@@ -125,18 +125,18 @@
     .btn-update-avatar{
       margin-left: 20px;
     }
-    .btn-save a{
+    .btn-save {
       margin-left: 20px;
   
     }
   }
   
-  @media (min-width: 1025px) {
+  @media (min-width: 900px) {
   
   
   }
   
-  @media (min-width: 1281px) {
+  @media (min-width: 1200px) {
    
   }
   

@@ -19,11 +19,11 @@
     <br>
     <h3>Meus Pedidos</h3>
     <br>
-    <div class="order-list">
-      <p>Pedido:</p>
+    <ul class="order-list">
+      <li>Pedido:</li>
       <br>
-      <p>Status:</p>
-    </div>
+      <li>Status:</li>
+    </ul>
     <br>
     <h3>Minhas Compras</h3>
     <br>
@@ -31,24 +31,24 @@
       <div class="list-of-products">
         <div class="ordered-product">
           <img src="/img/celular.png" alt="" />
-          <div class="order-info">
-            <p>Produto:</p>
+          <ul class="order-info">
+            <li>Produto:</li>
             <br>
-            <p>Preço:</p>
+            <li>Preço:</li>
             <br>
-            <p>Quantidade:</p>
+            <li>Quantidade:</li>
             <br> 
-            <p>Subtotal:</p>
+            <li>Subtotal:</li>
             <br>
-          </div>
+          </ul>
         </div>
       </div>
-      <div class="total-of-products">
-        <p>Valor do Frete:</p>
+      <ul class="total-of-products">
+        <li>Valor do Frete:</li>
         <br>
-        <p>Total do Pedido:</p>
+        <li>Total do Pedido:</li>
         <br>
-      </div>
+      </ul>
     </div>
   </div>
   <div class="user-info-container">
@@ -73,7 +73,7 @@
       </form>
 
       <form method="post" action="/users/delete/<%= userLogged.idUser %>">
-        <button class="btn-update" type="submit">Excluir</button>
+        <button class="btn-delete" type="submit">Excluir Conta</button>
       </form>
 
     
