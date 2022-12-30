@@ -2,6 +2,7 @@ module.exports = (sequelize, DataTypes) => {
 
     let Purchase = sequelize.define(
         "Purchase",
+        "Purchase",
         {
             idPedidos: {
                 type: DataTypes.INTEGER,
@@ -13,6 +14,7 @@ module.exports = (sequelize, DataTypes) => {
                 type: DataTypes.DATE,
                 allowNull: true
             },
+            
             Total: {
                 type: DataTypes.DECIMAL,
                 allowNull: false
@@ -39,8 +41,10 @@ module.exports = (sequelize, DataTypes) => {
             tableName: "purchases",
             timestamps: false,
             paranoid: false
+        
 
         }
+
 
     )
     Purchase.associate = (models) => {
@@ -60,9 +64,13 @@ module.exports = (sequelize, DataTypes) => {
         })
 
 
+
     }
     return Purchase
 }
+
+
+
 
 
 

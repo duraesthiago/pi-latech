@@ -1,17 +1,14 @@
-:root {
-  --pink-degrade: #c837c2;
-  --ligth-lilac: #7f7ae9;
-  --ultra-ligth-blue: #cee3f0;
-  --ligth-blue: #3786e1;
-  --medium-blue: #2c3ac1;
-  --medium-gray: #565656;
-  --dark-blue: #070d40;
-  --dark-gray: #252525;
-  --ligth-gray:#f1f1f1;
-  --dust-white: #fbfbfb;
+
+.index_title{
+  margin: 1% 4%;
+  background: linear-gradient( 120deg, var(--pink-degrade) 0%, var(--ligth-lilac) 52%, var(--dark-blue) 100% );
+  padding: 2%;
+  color: #fbfbfb;
+  border-radius: 20px;
+  box-shadow: 4px 4px 4px var(--dark-gray);
 }
 
-.register-account {
+.register_account {
   width: 100vw;
   height: 100vh;
   border-radius: 8px;
@@ -24,14 +21,15 @@
   margin: 0 auto;
 }
 
-.input-container {
+.input_container {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   color: var(--ligth-blue);
-  margin: 20px;
+  margin: 20px ;
   row-gap: 10px;
+  padding: 5px;
 }
 
 .name {
@@ -42,32 +40,19 @@
   border-radius: 8px;
 }
 
-.email {
-  width: 100%;
-  margin: auto;
-  padding: 10px 5px;
-  border: 1px solid var(--medium-blue);
-  border-radius: 8px;
+.btn_registration {
+    font-size: 12px;
+    align-items: center;
+    width: 80px;
+    padding: 5px;
+    background-color: var(--ligth-lilac);
+    border-radius: 10px;
+    color: var(--dust-white);
+    display: inline-block;
+    box-shadow: 2px 2px 2px var(--dark-gray);
+    justify-items: center;
 }
-
-.password {
-  width: 100%;
-  margin: auto;
-  padding: 10px 5px;
-  border: 1px solid var(--medium-blue);
-  border-radius: 8px;
-}
-
-.btn-registration {
-  width: 83%;
-  padding: 14px 5px;
-  background-color: var(--ultra-ligth-blue);
-  border: 1px solid var(--medium-blue);
-  border-radius: 8px;
-  margin: 10px 0px;
-  color: var(--ligth-lilac);
-}
-.btn-registration:hover{
+.btn_registration:hover{
   cursor: pointer;
   background-color: var(--ligth-blue);
   }
@@ -82,45 +67,56 @@
   color: var(--pink-degrade);
 }
 
-@media (min-width: 801px){
-  .input-container{
+
+@media (min-width: 600px){
+  .input_container{
     max-width: 600px;
     margin: 100px;
   }
   
-  .register-account{
+  .register_account{
     max-height: 500px;
     margin-top: 80px;
   }
 
 
-.btn-registration{
+.btn_registration{
   margin-top: 30px;
 }
 }
-@media (min-width: 1025px){
 
-.input-container{
-  margin-left: 270px;
-}
+@media (min-width: 900px){
 
-.name,.email, .password {
+.input_container{
+  margin: 100px 185px;}
+
+.name {
   max-width: 600px;
 }
 
-.btn-registration {
+.btn_registration {
   max-width: 500px;
 }
 }
 
-@media (min-width: 1245px){
+@media (min-width: 1200px){
 
-  .input-container{
-    margin-left: 370px;
+  .input_container{
+    margin: 100px 300px;
   }
 
-  .register-account{
+  .register_account{
     margin-top: 200px;
   }
 }
 
+@media (min-width: 1800px){
+
+  .input_container{
+    margin: 100px 600px;
+  }
+
+  .register_account{
+    margin-top: 200px;
+  }
+}
