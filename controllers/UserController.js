@@ -1,7 +1,6 @@
 const { validationResult } = require("express-validator");
 const { User } = require("../database/models/");
 const bcrypt = require("bcrypt");
-const { JSON } = require("sequelize");
 
 const UserController = {
   signUp: (req, res) => {
@@ -9,17 +8,16 @@ const UserController = {
     res.render("userSignUp", { error });
   },
 
-  signUpValidation: (req, res, next) => {
+
+  createUser: async (req, res) => {
     const resultValidations = validationResult(req);
     if (resultValidations.errors.length > 0) {
       return res.render("userSignUp", {
         errors: resultValidations.mapped(),
         oldData: req.body,
       });
-    }
-  },
-
-  createUser: async (req, res) => {
+  }
+  
     let userExists = await User.findOne({
       raw: true,
       where: {
@@ -29,9 +27,14 @@ const UserController = {
     if (userExists) {
       res.redirect("/users/login?error=2");
     } else {
+      let avatarFileName =req.file.filename;
       const userCreated = await User.create({
         Nome: req.body.name,
+        Sobrenome: req.body.last_name,
         Email: req.body.email,
+        Telefone: req.body.phone_number,
+        Avatar: `/img/avatars/${avatarFileName}`,
+        Cpf: req.body.personal_id,
         Senha: bcrypt.hashSync(req.body.password, 10),
       });
       return res.redirect("/users/login");
@@ -72,17 +75,24 @@ const UserController = {
             
             delete userToLogin.Senha;
             req.session.userLogged = userToLogin;
+            //console.log(req.session.userLogged);
+            }  
             
             if (req.body.remember_user) {
               res.cookie("userEmail", req.body.email, {
-                maxAge: (1000 * 1) * 30
+                maxAge: (1000 * 60) * 30
               });
             }
+            if(!req.body.remember_user){
+              res.cookie("userEmail", req.body.email, {
+                maxAge: (1000 * 60) * 5
 
-            return res.redirect("/");
+            });
+            }
+
+               res.redirect("/");
+            }
           }
-        }
-      }
     } catch (error) {
       return res.render("userSignUp", {
         error:
@@ -95,24 +105,62 @@ const UserController = {
     res.render("recoverPassword");
   },
 
-  showUserAccount: (req, res) => {
+  showUserAccount: async (req, res) => {
     res.render("userAccount", {
       userLogged: req.session.userLogged,
     });
   },
 
-  editUserAvatar: (req, res) => {
-    const newAvatarFile = validationResult(req);
-    if (newAvatarFile) {
-      return res.render("userAccount");
+  
+
+  updateUser:  async (req,res) => {
+    let userId = req.params.id;
+    let userLogged = await User.findByPk(userId);
+
+    if(userLogged)
+    res.render("updateUser", { userLogged
+    });
+    //console.log(userLogged)
+
+ },
+
+ updateUserData:   async (req, res) => {
+   let userLogged =  await User.update(
+    {
+      Nome: req.body.name,
+      Sobrenome: req.body.lastName,
+      Telefone: req.body.phone,
+      Avatar: req.body.avatar,
+    },
+    {
+      where:{
+        idUser: req.params.id
+      } 
     }
-  },
+    )
+  //   console.log(userLogged)
+  //  console.log(req.body);
+  //  console.log(req.params.id);
+    return  res.redirect('/')
+ },
 
   logout: (req, res) => {
-    res.clearCookie('userEmail');
     req.session.destroy();
+    res.clearCookie("userEmail");
     return res.redirect("/");
   },
+
+  deleteUser: async (req,res) => {
+    await User.destroy (
+      {
+        where:{
+          idUser: req.params.id
+        }
+      }
+      )
+      req.session.destroy();
+    return res.redirect('/')
+  }
 };
 
 module.exports = UserController;

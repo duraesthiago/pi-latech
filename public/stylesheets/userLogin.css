@@ -1,20 +1,4 @@
 
-:root {
-  --pink-degrade: #c837c2;
-  --ligth-lilac: #7f7ae9;
-  --ultra-ligth-blue: #cee3f0;
-  --ligth-blue: #3786e1;
-  --medium-blue: #2c3ac1;
-  --medium-gray: #565656;
-  --dark-blue: #070d40;
-  --dark-gray: #252525;
-  --ligth-gray:#f1f1f1;
-  --dust-white: #fbfbfb;
-}
-.login{
-  width: 100%;
-}
-
 .index_title{
   margin: 1% 4%;
   background: linear-gradient( 120deg, var(--pink-degrade) 0%, var(--ligth-lilac) 52%, var(--dark-blue) 100% );
@@ -24,17 +8,18 @@
   box-shadow: 4px 4px 4px var(--dark-gray);
 }
 
-.login{
+/* .login{
   width: 100%;
-}
+} */
 
 .input_container {
   padding: 5px; 
-   margin: 24px 5px; 
+  margin: 50px 10px;
   border: 1px solid var(--medium-blue);
   border-radius: 8px;
   color: var(--pink-degrade);
-}
+} 
+
 .form_wrapper{
   display: flex;
   flex-direction: column;
@@ -72,16 +57,13 @@
 
 .btn_login {
   font-size: 12px;
-  align-items: center;
   width: 80px;
   padding: 5px;
   background-color: var(--ligth-lilac);
   border-radius: 10px;
   color: var(--dust-white);
-  display: inline-block;
   box-shadow: 2px 2px 2px var(--dark-gray);
-  justify-items: center;
-  margin: 16px 140px;
+  margin: 20px 120px;
 }
 
 .btn_login:hover {
@@ -100,7 +82,7 @@ background-color: var(--ligth-blue);
 }
 
 .remember_password{
-  margin-left: 110px; 
+  margin: 10px 95px; 
   color: var(--medium-blue);
   opacity: 0.5;
 }
@@ -124,23 +106,23 @@ background-color: var(--ligth-blue);
   opacity: 1;
 }
 
-@media(min-width: 801px){
+@media(min-width: 600px){
 .input_container{
   width: 90%;
   margin: 30px;
 }
 
 .btn_login{
-  margin-left: 350px;
+  margin: 20px 315px;
 }
 
 .remember_password{
-  margin-left: 330px;
+  margin: 20px 290px;
 }
 }
 
 
-@media(min-width: 1025px){
+@media(min-width: 900px){
   .input_container{
     margin-left: 50px;
     margin-bottom: 40px;
@@ -164,20 +146,20 @@ background-color: var(--ligth-blue);
     margin-left: 50px;
   }
   .btn_login{
-    margin-left: 520px;
+    margin-left: 500px;
   }
 
   .remember_password{
-    margin-left: 490px;
+    margin-left: 480px;
   }
 }
 
 @media(min-width: 1800px){
   .btn_login{
-    margin-left: 720px;
+    margin: 30px 765px;
   }
 
   .remember_password{
-    margin-left: 690px;
+    margin: 30px 738px;
   }
 }

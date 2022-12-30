@@ -1,15 +1,4 @@
-:root {
-  --pink-degrade: #c837c2;
-  --ligth-lilac: #7f7ae9;
-  --ultra-ligth-blue: #cee3f0;
-  --ligth-blue: #3786e1;
-  --medium-blue: #2c3ac1;
-  --medium-gray: #565656;
-  --dark-blue: #070d40;
-  --dark-gray: #252525;
-  --ligth-gray:#f1f1f1;
-  --dust-white: #fbfbfb;
-}
+
 .ls-cart-header {
   width: 100vh;
   max-width: 150px;
@@ -209,7 +198,7 @@ a:hover {
   cursor: pointer;
   opacity: 1;
 }
-@media (min-width: 801px) {
+@media (min-width: 600px) {
   /* tablet, landscape iPad, lo-res laptops ands desktops */
   .ls-cart-header {
     font-size: 16px;
@@ -256,13 +245,13 @@ a:hover {
     margin-left: 340px;
   }
 }
-@media (min-width: 1025px) {
+@media (min-width: 900px) {
   /* big landscape tablets, laptops, and desktops */
   .ls-cart {
     margin-left: 100px;
   }
  
-  @media (min-width: 1281px) {
+  @media (min-width: 1200px) {
     /* hi-res laptops and desktops */
     .ls-cart {
       margin-left: 230px;

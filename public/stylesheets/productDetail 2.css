@@ -1,15 +1,4 @@
-:root {
-    --pink-degrade: #c837c2;
-    --ligth-lilac: #7f7ae9;
-    --ultra-ligth-blue: #cee3f0;
-    --ligth-blue: #3786e1;
-    --medium-blue: #2c3ac1;
-    --medium-gray: #565656;
-    --dark-blue: #070d40;
-    --dark-gray: #252525;
-    --ligth-gray:#f1f1f1;
-    --dust-white: #fbfbfb;
-  }
+
 
 .detail {
   width: 100%;
@@ -106,7 +95,7 @@
     margin-left: 10px;
 }
 
-@media(min-width:801px){
+@media(min-width:600px){
 
 .product-details{
     margin: 20px 40px;
@@ -136,7 +125,7 @@
     }
 }
 
-@media(min-width:1025px){
+@media(min-width:900px){
 
     .detail {
         max-width: 80%;
@@ -159,7 +148,7 @@
     }
 }
 
-@media(min-width:1245px){
+@media(min-width:1200px){
     .detail {
         max-width: 70%;
         margin: 30px auto;

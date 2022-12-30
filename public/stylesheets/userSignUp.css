@@ -1,15 +1,3 @@
-:root {
-  --pink-degrade: #c837c2;
-  --ligth-lilac: #7f7ae9;
-  --ultra-ligth-blue: #cee3f0;
-  --ligth-blue: #3786e1;
-  --medium-blue: #2c3ac1;
-  --medium-gray: #565656;
-  --dark-blue: #070d40;
-  --dark-gray: #252525;
-  --ligth-gray:#f1f1f1;
-  --dust-white: #fbfbfb;
-}
 
 .index_title{
   margin: 1% 4%;
@@ -39,7 +27,7 @@
   align-items: center;
   justify-content: center;
   color: var(--ligth-blue);
-  margin: 20px;
+  margin: 20px ;
   row-gap: 10px;
   padding: 5px;
 }
@@ -79,7 +67,8 @@
   color: var(--pink-degrade);
 }
 
-@media (min-width: 801px){
+
+@media (min-width: 600px){
   .input_container{
     max-width: 600px;
     margin: 100px;
@@ -95,11 +84,11 @@
   margin-top: 30px;
 }
 }
-@media (min-width: 1025px){
+
+@media (min-width: 900px){
 
 .input_container{
-  margin-left: 270px;
-}
+  margin: 100px 185px;}
 
 .name {
   max-width: 600px;
@@ -110,10 +99,10 @@
 }
 }
 
-@media (min-width: 1245px){
+@media (min-width: 1200px){
 
   .input_container{
-    margin-left: 370px;
+    margin: 100px 300px;
   }
 
   .register_account{
@@ -121,3 +110,13 @@
   }
 }
 
+@media (min-width: 1800px){
+
+  .input_container{
+    margin: 100px 600px;
+  }
+
+  .register_account{
+    margin-top: 200px;
+  }
+}
