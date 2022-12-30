@@ -6,6 +6,7 @@ const logger = require('morgan');
 const methodOverride = require('method-override');
 const session = require('express-session');
 
+const adminRouter = require('./routes/adminRouter');
 const ordersRouter = require('./routes/ordersRouter')
 const indexRouter = require('./routes/indexRouter');
 const productsRouter = require('./routes/productsRouter');
@@ -41,7 +42,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(getViewsData);
 app.use(loggedUserDataMiddleware);
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
+app.use('/admin', adminRouter);
 app.use('/orders', ordersRouter);
 app.use('/products', productsRouter);
 app.use('/users', usersRouter);

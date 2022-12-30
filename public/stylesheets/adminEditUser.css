@@ -1,0 +1,39 @@
+
+
+.edit_title{
+    margin: 5% 4%;
+    background: linear-gradient( 120deg, var(--pink-degrade) 0%, var(--ligth-lilac) 52%, var(--dark-blue) 100% );
+    padding: 2%;
+    color: #fbfbfb;
+    border-radius: 20px;
+    box-shadow: 4px 4px 4px var(--dark-gray);
+  }
+  
+  .btn-admin-update-user {
+    font-size: 12px;
+    align-items: center;
+    width: 200px;
+    padding: 5px;
+    background-color: var(--ligth-lilac);
+    border-radius: 10px;
+    color: var(--dust-white);
+    display: inline-block;
+    box-shadow: 2px 2px 2px var(--dark-gray);
+    justify-items: center;
+    margin: 10px;
+    
+}
+
+.btn-admin-delete-user{
+    font-size: 12px;
+    align-items: center;
+    width: 200px;
+    padding: 5px;
+    background-color: var(--ligth-lilac);
+    border-radius: 10px;
+    color: var(--dust-white);
+    display: inline-block;
+    box-shadow: 2px 2px 2px var(--dark-gray);
+    justify-items: center;
+    margin: 10px;     
+}
