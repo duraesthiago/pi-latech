@@ -231,9 +231,10 @@ DROP TABLE IF EXISTS `users`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `users` (
   `idUser` int NOT NULL AUTO_INCREMENT,
-  `Nome` varchar(45) NOT NULL,
+  `Nome` varchar(45) DEFAULT NULL,
   `Sobrenome` varchar(45) DEFAULT NULL,
   `Email` varchar(45) NOT NULL,
+  `Cpf` varchar(14) DEFAULT NULL,
   `Telefone` varchar(45) DEFAULT NULL,
   `Senha` varchar(100) NOT NULL,
   `Avatar` varchar(45) DEFAULT NULL,
@@ -247,7 +248,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'Ana','Santos Silva','ana@email.com','7198888888','123456',NULL),(2,'Lucas','Lima Paz','lucas@email.com','71991919191','654321',NULL);
+INSERT INTO `users` VALUES (1,'Ana','Santos Silva','ana@email.com',NULL,'7198888888','123456',NULL),(2,'Lucas','Lima Paz','lucas@email.com',NULL,'71991919191','654321',NULL);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -260,4 +261,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-12-22  9:40:49
+-- Dump completed on 2022-12-23 16:40:43
