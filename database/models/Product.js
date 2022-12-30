@@ -17,6 +17,7 @@ module.exports = (sequelize, DataTypes) => {
             Codigo: { type: DataTypes.STRING },
             Preco: { type: DataTypes.DECIMAL },
             Oferta: { type: DataTypes.BOOLEAN },
+            PrecoComDesconto: { type: DataTypes.DECIMAL },
             Categorias_id: { type: DataTypes.INTEGER },
             Marcas_id: { type: DataTypes.INTEGER }
         },
