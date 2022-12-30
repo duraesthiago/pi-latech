@@ -14,7 +14,7 @@ module.exports = (sequelize, DataTypes) => {
                 type: DataTypes.STRING,
                 allowNull: false
             },
-            },
+            
             Total: {
                 type: DataTypes.DECIMAL,
                 allowNull: false
@@ -37,9 +37,7 @@ module.exports = (sequelize, DataTypes) => {
             tableName: "purchases",
             timestamps: false,
             paranoid: false
-            tableName: "purchases",
-            timestamps: false,
-            paranoid: false
+        
 
         }
 
