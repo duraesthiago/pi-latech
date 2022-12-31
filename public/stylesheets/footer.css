@@ -1,0 +1,120 @@
+
+
+footer {
+    position: relative;
+    width: 100%;
+    height: 100px;
+    background: linear-gradient(
+      225deg,
+      var(--dust-white) 45%,
+      var(--pink-degrade) 75%,
+      var(--ligth-lilac) 85%,
+      var(--dark-blue) 100%
+    );
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+  }
+  
+  .about-us,
+  .account {
+    margin-left: 8px;
+    text-align: left;
+    font-size: 12px;
+    color: var(--dark-gray);
+    text-transform: uppercase;
+    transition: 0.3s ease-out;
+  }
+  
+  .logo-footer {
+    max-width: 80px;
+    max-height: 50px;
+    left: 230px;
+  }
+  
+  .logo-footer img {
+    padding-left: 20px;
+  }
+  
+  .social-media-icons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-left: 15px;
+  }
+  
+  .social-media-icons ul {
+    width: 130px;
+    padding-inline-start: 0;
+  }
+  
+  .social-media-icons li {
+    display: inline;
+  }
+  
+  .social-media-icons a {
+    width: 0;
+  }
+  
+  .social-media-icons img {
+    max-width: 17px;
+    font-size: 10px;
+  }
+  
+  .footer-account,
+  .footer-about-us a:hover {
+    cursor: pointer;
+    font-size: 8px;
+  }
+  
+  .images {
+    width: 130px;
+    padding-top: 8px;
+  }
+
+  @media (min-width: 600px) {
+    
+    footer{
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+      }
+    
+      .footer-about-us,
+      .footer-account {
+        font-size: 14px;
+      }
+    
+      .images {
+        width: 210px;
+        padding-top: 12px;
+        padding-left: 30px;
+      }
+    
+      .logo-footer {
+        max-width: 130px;
+        margin-left: 8px;
+      }
+    
+        .social-media-icons  {
+          padding: 0;
+        }
+    
+      .social-media-icons img {
+        max-width: 25px;
+      }    
+  }
+  @media (min-width: 900px) {
+  }
+
+  @media(min-width: 1200px){
+    footer {
+        justify-content: center;
+        column-gap: 230px;
+    }
+}
+
+@media (min-width: 1800px){
+
+}
