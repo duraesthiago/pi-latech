@@ -1,0 +1,25 @@
+<%- include('partials/head') %>
+
+<!-- Include Header -->
+<%- include('partials/header', {title: 'Início' }) %>
+
+<main>
+    <link rel="stylesheet" href="/stylesheets/adminPanel.css" />
+
+    <h3 class="edit_title">Painel de Administrador</h3>
+    
+    <div class="edit-container">
+
+    <p class="welcome-admin">Bem vindo,</p>
+
+    <form action="#">
+      <button class="btn-admin-edit-product">Editar Produtos</button>
+    </form>
+
+    <form action="/users/create">
+      <button class="btn-admin-edit-user" type="submit">Criar Usuários</button>
+    </form>
+  </div>
+</main>
+<!-- Include Footer -->
+<%- include('partials/footer') %>

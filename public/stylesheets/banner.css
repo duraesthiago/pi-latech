@@ -1,0 +1,179 @@
+
+.container-banner {
+    display: inline-block;
+    width: 100%;
+    max-height: 20%;
+    background: url("/img/milky-way-2695569_960_720.jpg") no-repeat;
+    background-size: cover;
+  }
+
+  .promo-banner {
+    height: 120px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+   
+  }
+  
+  .img-promo-banner  {
+    max-width: 150px;
+    border-radius: 10px;
+  }
+
+.info-banner {
+    display: inline-block;
+    color: var(--dust-white);
+    text-align: justify;
+    font-weight: bold;
+  }
+  
+  .info-banner p {
+    font-size: 24px;
+    line-height: 1;
+    text-transform: uppercase;
+    margin-bottom: 0;
+    margin-top: 0;
+    text-align: left;
+  }
+  
+  .info-banner p:nth-child(2) {
+    background-color: var(--pink-degrade);
+    border-radius: 4px;
+  }
+  /* .banner-offer {
+    max-width: 90%;
+    position: relative;
+    background: linear-gradient(
+      120deg,
+      var(--pink-degrade) 0%,
+      var(--ligth-lilac) 52%,
+      var(--dark-blue) 100%
+    );
+    border: 1px solid var(--dark-blue);
+    border-radius: 20px;
+    margin-top: 30px;
+    margin-left: 15px;
+    text-align: center;
+  
+  }
+  
+  .banner-offer a {
+    display: inline-block;
+    text-decoration: none;
+    text-align: center;
+    margin: 10px;
+    font-size: 20px;
+    text-transform: uppercase;
+    color: var(--dark-blue);
+  }
+  
+  
+  .banner-offer img {
+    max-width: 25%;
+    max-height: 25%;
+    margin-left: 80px;
+    border-radius: 12px;
+  }
+  
+  .layout-products-images {
+    max-width: 100%;
+    position: relative;
+    padding-top: 30px;
+  }
+  
+  .layout-products-images ul {
+    padding: 0;
+  }
+  
+  .layout-products-images li {
+    width: 300px;
+    height: 300px;
+    margin: 30px;
+    border: 1px solid var(--medium-blue);
+    border-radius: 20px;
+  }
+  
+  .layout-products-images img {
+    width: 80%;
+    height: 80%;
+    margin: 30px 0 0 30px;
+    padding: auto;
+  } */
+
+  @media(min-width: 600px){
+    .img-promo-banner  {
+      margin: 10px 0;
+    }
+  
+    .banner-navbar-links {
+      gap: 40px;
+    }
+  
+    .banner-offer {
+      width: 75%;
+      padding-left: 80px;
+      margin: 30px 60px;
+    }
+  
+    .banner-offer a {
+      margin: 20px 30px;
+      padding-right: 100px;
+    }
+  
+    .banner-offer img  {
+      width: 50%;
+      height: 50%;
+      padding-bottom: 60px;
+    }
+    
+    /* .layout-products-images {
+      margin-left: 40px;
+    }
+  
+    .layout-products-images li {
+      width: 330px;
+      height: 330px;
+      margin: 10px 10px;
+      display: inline-block;
+    } */
+  }
+
+  @media(min-width: 900px) {
+    .banner-offer {
+      padding-left: 90px;
+      margin: 30px 90px;
+    }
+  
+    .banner-offer a {
+      padding-right: 150px;
+    }
+  
+    .layout-products-images {
+      margin-left: 80px;
+    }
+    .layout-products-images li {
+      width: 230px;
+      height: 230px;
+      margin: 32px
+    }
+    .layout-products-images img  {
+      margin: 25px;
+      }
+  }
+  @media (min-width: 1200px) {
+    /* hi-res laptops and desktops */
+    /* .index-main {
+      max-width: 1280px;
+    } */
+
+    .search-form {
+      min-width: 650px;
+      min-height: 30px;
+    }
+
+  .btn-sb {
+    margin-left: 400px;
+  }
+}

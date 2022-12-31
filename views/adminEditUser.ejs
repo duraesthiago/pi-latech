@@ -1,0 +1,27 @@
+
+<%- include('partials/head') %>
+
+<!-- Include Header -->
+<%- include('partials/header', {title: 'Início' }) %>
+
+
+
+<main class="edit-container">
+
+    <h3 class="edit_title">Editar Usuário</h3>
+
+    <h4>Bem vindo, </h4>
+
+    <form action="/users//updateUserData/:id">
+        <button class="btn-admin-update-user" type="submit">Editar Usuário</button>
+    </form>
+
+
+<form action="/users/delete/:id">
+    <button class="btn-admin-delete-user" type="submit">Excluir Usuário</button>
+</form>
+
+</main>
+<!-- Include Footer -->
+<%- include('partials/footer') %>
+
