@@ -1,7 +1,7 @@
 module.exports = (sequelize, DataTypes) => {
 
     let User = sequelize.define(
-        "User", 
+        "User",
         {
             idUser: {
                 type: DataTypes.INTEGER,
@@ -34,11 +34,11 @@ module.exports = (sequelize, DataTypes) => {
                 allowNull: false // pq pode ser null?
             },
 
-            Cpf:{
+            Cpf: {
                 type: DataTypes.STRING,
                 allowNull: false
             },
-            
+
             Avatar: {
                 type: DataTypes.STRING,
                 allowNull: false
@@ -53,8 +53,9 @@ module.exports = (sequelize, DataTypes) => {
         }
 
     )
-    User.associate = function(model){  
-        User.hasMany(model.Purchase,{as:"purchases", foreignKey:"User_idUser"}); 
+    User.associate = function (models) {
+        User.hasMany(models.Purchase, { as: "purchases", foreignKey: "Users_idUser" })
+        User.hasMany(models.Address, { as: "addresses", foreignKey: "Users_idUser", })
     }
     return User
 

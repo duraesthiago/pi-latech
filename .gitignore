@@ -7,5 +7,5 @@ button.html
 button.css
 esqueleto header e footer html
 .env
-.DS_Store
 routes/OrdersRouter.js
+public/.DS_Store

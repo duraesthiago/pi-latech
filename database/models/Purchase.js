@@ -11,8 +11,8 @@ module.exports = (sequelize, DataTypes) => {
                 primaryKey: true
             },
             Data_Pedido: {
-                type: DataTypes.STRING,
-                allowNull: false
+                type: DataTypes.DATE,
+                allowNull: true
             },
             
             Total: {
@@ -21,13 +21,17 @@ module.exports = (sequelize, DataTypes) => {
             },
             Forma_de_Pagamento: {
                 type: DataTypes.STRING,
-                allowNull: false
+                allowNull: true
             },
             Endereço_de_Entrega: {
                 type: DataTypes.STRING,
-                allowNull: false
+                allowNull: true
             },
             Users_idUser: {
+                type: DataTypes.INTEGER,
+                allowNull: false
+            },
+            addresses_idAddresses: {
                 type: DataTypes.INTEGER,
                 allowNull: false
             }
@@ -54,7 +58,11 @@ module.exports = (sequelize, DataTypes) => {
                 otherKey: 'Produtos_idProdutos',
                 timestamps: false
             }
-        );
+        )
+        Purchase.belongsTo(models.Address, {
+            as: 'addresses', foreignKey: "addresses_idAddresses"
+        })
+
 
 
     }
