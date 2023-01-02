@@ -1,25 +1,24 @@
 <%- include('partials/head') %>
 
 <!-- Include Header -->
-<%- include('partials/header', {title: 'Início' }) %>
+<%- include('partials/headerAdmin') %>
 
 
 <main class="edit-container">
-  <link rel="stylesheet" href="/stylesheets/updateUser.css" />
+  <link rel="stylesheet" href="/stylesheets/adminEditUser.css" />
   <br />
-  <h2 class="edit_title">Editar Conta</h2>
+  <h2 class="edit_title">Editar Conta de Usuário</h2>
   <br />
-  <div class="account-container">
+  <div class="admin-edit-container">
     <div class="user-info-container">
-      <h3>Olá, <%= userLogged.Nome %></h3>
 
       <form
         class="user-info-form"
         method="post"
-        action="/users/updateUserData/<%= userLogged.idUser %>"
+        action="/admin/updateUserData/"
       >
         <div class="user-avatar">
-          <img class="img-avatar" src="<%= userLogged.Avatar %> " />
+          <img class="img-avatar" src=" " />
         </div>
 
         <div class="user-form">
@@ -30,9 +29,10 @@
               type="text"
               id="nome"
               name="name"
-              value="<%= userLogged.Nome %>"
+              value=""
             />
           </div>
+
           <div class="user-form">
             <div class="user-form-class">
               <label class="form-label" for="sobrenome"
@@ -43,11 +43,36 @@
                 type="text"
                 id="lastName"
                 name="lastName"
-                value="<%= userLogged.Sobrenome %>"
+                value=""
               />
             </div>
-           
+            </div>
+
+            <div class="user-form">
+                <div class="user-form-class">
+                  <label class="form-label" for="nome">Email do usuário: </label>
+                  <input
+                    class="input-label"
+                    type="text"
+                    id="email"
+                    name="email"
+                    value=""
+                  />
+                </div>
           </div>
+
+          <div class="user-form">
+            <div class="user-form-class">
+              <label class="form-label" for="nome">Cpf do usuário: </label>
+              <input
+                class="input-label"
+                type="text"
+                id="cpf"
+                name="personal_id"
+                value=""
+              />
+            </div>
+            </div>
           <div class="user-form-class">
             <label class="form-label" for="telefone">Telefone:</label>
             <input
@@ -55,7 +80,7 @@
               type="text"
               id="telefone"
               name="phone"
-              value="<%= userLogged.Telefone %>"
+              value=""
             />
           </div>
           <button class="btn-save" type="submit">Salvar</button>
