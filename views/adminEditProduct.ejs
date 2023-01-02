@@ -31,10 +31,20 @@
                             class="form-input" value="<%= product.Preco %>">
 
                         <label for="Marca" class="form-label">Marca:</label>
-                        <input class="edit-product-input" type="text" id="marca" name="Marca" placeholder="Apple"
-                            class="form-input" value="<%=product['brands.Marca']%>">
 
-                        <label for="Informacoes" class="form-label">Infromações:</label>
+                        <select class="edit-product-input" name="idMarcas" id="idMarcas">
+                            <option selected value="<%=product['brands.idMarcas']%>">
+                                <%=product['brands.Marca']%>
+                            </option>
+                            <% for (b of brands) { %>
+                                <option value="<%=b.idMarcas %>">
+                                    <%= b.Marca %>
+                                </option>
+                                <% } %>
+
+                        </select>
+
+                        <label for="Informacoes" class="form-label">Informações:</label>
                         <input class="edit-product-input" type="text" id="informacoes" name="Informacoes"
                             placeholder="..." class="form-input" value="<%=product.Informacao%>">
                     </div>

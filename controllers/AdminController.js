@@ -187,19 +187,25 @@ const AdminController = {
         { model: Category, as: 'categories' }
       ]
     });
-    res.render('adminEditProduct', { product });
+
+    let brands = await Brand.findAll({ raw: true });
+
+    res.render('adminEditProduct', { product, brands });
   },
 
   adminEditProduct: async (req, res) => {
     let id = req.params.id;
     let product = await Product.findByPk(id)
+    console.log("🚀 ~ file: AdminController.js:199 ~ adminEditProduct: ~ product", product)
     product.set({
       Nome: req.body.Nome,
       Preco: req.body.Preco,
+      Marcas_id: req.body.idMarcas,
       Informacoes: req.body.Informacoes
     });
 
     await product.save();
+    console.log("🚀 ~ file: AdminController.js:199 ~ adminEditProduct: ~ product FINAL", product)
     res.redirect('/admin/adminProduct');
   },
 
