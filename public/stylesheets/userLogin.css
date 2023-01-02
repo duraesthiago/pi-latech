@@ -1,245 +1,70 @@
-:root {
-  --pink-degrade: #c837c2;
-  --ligth-lilac: #7f7ae9;
-  --ultra-ligth-blue: #cee3f0;
-  --ligth-blue: #3786e1;
-  --medium-blue: #2c3ac1;
-  --medium-gray: #565656;
-  --dark-blue: #070d40;
-  --dark-gray: #252525;
-  --ligth-gray:#f1f1f1;
-  --dust-white: #fbfbfb;
+
+.index_title{
+  margin: 1% 4%;
+  background: linear-gradient( 120deg, var(--pink-degrade) 0%, var(--ligth-lilac) 52%, var(--dark-blue) 100% );
+  padding: 2%;
+  color: #fbfbfb;
+  border-radius: 20px;
+  box-shadow: 4px 4px 4px var(--dark-gray);
 }
 
-.login {
-  width: 16rem;
-  height: 100%;
-  padding: 20px;
-  margin: 24px;
+
+
+.input_container {
+  padding: 5px; 
+  margin: 50px 10px;
   border: 1px solid var(--medium-blue);
   border-radius: 8px;
-}
+  color: var(--pink-degrade);
+} 
 
-
-.input-container {
+.form_wrapper{
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  color: var(--pink-degrade);
+  align-items: flex-start;
+  justify-content: space-evenly;
+  flex-wrap: nowrap;
 }
 
+.label{
+  margin: 8px;
+}
 
-.name,
-.email,
-.password
+.error{
+  text-align: center;
+  color: var(--medium-blue);
+}
+
+.email, .password 
  {
-  width: 100%;
-  padding: 16px 0;
+  width: 90%;
+  margin-left: 9px;
+  margin-top: 16px;
+  margin-bottom: 8px;
+  padding: 16px 8px;
   border: 1px solid var(--medium-blue);
   border-radius: 8px;
-  margin-bottom: 10px;
+ }
 
-<<<<<<< HEAD
-@media (min-width: 801px) {
-  /* tablet, landscape iPad, lo-res laptops ands desktops */
-  .container {
-    background: linear-gradient(
-      135deg,
-      #fbfbfb 50%,
-      #c837c2 75%,
-      #7c837d 85%,
-      #2c3ac1 100%
-    );
-    height: 60px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
+ .checkbox {
+  margin-left: 9px;
+  margin-top: 16px;
+  margin-bottom: 8px;
+ }
 
-  .logo {
-    max-width: 40%;
-    max-height: 40%;
-    margin-bottom: 5px;
-    margin-left: 20px;
-  }
 
-  .menu-hamburguer {
-    justify-content: space-between;
-  }
-
-  .hamburguer {
-    display: none;
-  }
-
-  .nav {
-    max-height: none;
-    top: 15px;
-    position: relative;
-    float: right;
-    width: fit-content;
-    overflow: auto;
-    background: transparent;
-    margin-right: 10px;
-  }
-
-  .menu a {
-    padding: 0;
-    color: #fbfbfb;
-    font-size: 12px;
-  }
-
-  .menu li {
-    font-size: 10px;
-    float: left;
-  }
-
-  .search-form {
-    min-width: 300px;
-    min-height: 25px;
-    font-size: 12px;
-    margin: auto;
-  }
-
-  button {
-    display: inline;
-    border: none;
-    background: transparent;
-  }
-
-  input::placeholder {
-    font-size: 15px;
-  }
-
-  .search {
-    max-width: 20px;
-    max-height: 20px;
-  }
-
-  .promo-banner img {
-    max-width: 150px;
-    border-radius: 10px;
-    margin: auto;
-    margin-right: 20px;
-  }
-
-  div .promo-banner {
-    display: block;
-    padding-left: 210px;
-  }
-
-  .banner-offer {
-    padding-left: 80px;
-    margin-left: 10px;
-    margin-right: 12px;
-  }
-
-  .banner-offer a {
-    padding-left: 15px;
-  }
-
-  .layout-products-images {
-    margin-left: 40px;
-  }
-
-  footer a {
-    font-size: 10px;
-  }
-
-  .images {
-    padding-top: 12px;
-    padding-left: 80px;
-  }
-
-  .logo-footer {
-    max-width: 125px;
-  }
-
-  .social-media-icons img {
-    max-width: 25px;
-  }
+.btn_login {
+  font-size: 12px;
+  width: 80px;
+  padding: 5px;
+  background-color: var(--ligth-lilac);
+  border-radius: 10px;
+  color: var(--dust-white);
+  box-shadow: 2px 2px 2px var(--dark-gray);
+  margin: 20px 120px;
 }
 
-@media (min-width: 1025px) {
-  /* big landscape tablets, laptops, and desktops */
-  .logo {
-    max-width: 50%;
-    max-height: 50%;
-    margin-left: 30px;
-  }
-
-  .container {
-    background: linear-gradient(
-      135deg,
-      #fbfbfb 65%,
-      #c837c2 75%,
-      #7c837d 85%,
-      #2c3ac1 100%
-    );
-  }
-
-  .search-form {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    min-width: 400px;
-    font-size: 12px;
-  }
-
-  .banner-offer {
-    padding-left: 90px;
-  }
-
-  .banner-offer a {
-    padding-left: 100px;
-  }
-
-  .layout-products-images {
-    margin-left: 70px;
-  }
-}
-
-@media (min-width: 1281px) {
-  /* hi-res laptops and desktops */
-  .search-form {
-    min-width: 650px;
-    min-height: 30px;
-  }
-
-  main {
-    max-width: 1200px;
-    margin: auto;
-  }
-
-  .banner-offer a {
-    padding-left: 150px;
-  }
-
-  footer {
-    justify-content: center;
-    column-gap: 230px;
-  }
-}
-=======
-.password {
-  width: 100%;
-  margin: 10px 0px 10px 0px;
-  padding: 10px 5px;
-  border: 1px solid var(--medium-blue);
-  border-radius: 8px;
-}
-
-.btn-login {
-  width: 100%;
-  margin: 20px 0px;
-  padding: 16px 0Px;
-  background-color: var(--ultra-light-lilac);
-  border: 1px solid var(--dark-blue);
-  border-radius: 8px;
-  color: var(--pink-degrade);
-}
-
-.btn-login:hover {
+.btn_login:hover {
 cursor: pointer;
 background-color: var(--ligth-blue);
 }
@@ -254,47 +79,85 @@ background-color: var(--ligth-blue);
   color: var(--dark-blue);
 }
 
-.remember-password{
-  margin-left: 60px; 
+.remember_password{
+  margin: 10px 95px; 
   color: var(--medium-blue);
   opacity: 0.5;
 }
 
-.remember-password:hover{
+.remember_password:hover{
   cursor: pointer;
   text-decoration: underline;
   opacity: 1;
 }
 
-.sign-up{
+.sign_up{
   color: var(--medium-blue);
   margin-left: 60px;
   font-size: 8px;
   opacity: .3;
 }
 
-.sign-up:hover{
+.sign_up:hover{
   text-decoration: underline;
   cursor: pointer;
   opacity: 1;
 }
 
-@media(min-width: 801px){
-.login{
-  margin-top: 20px;
-  margin-left: 250px;
+@media(min-width: 600px){
+.input_container{
+  width: 90%;
+  margin: 30px;
+}
+
+.btn_login{
+  margin: 20px 315px;
+}
+
+.remember_password{
+  margin: 20px 290px;
 }
 }
 
-@media(min-width: 1025px){
-  .login{
-    margin-left: 360px;
+
+@media(min-width: 900px){
+  .input_container{
+    margin-left: 50px;
+    margin-bottom: 40px;
+  }
+
+  .email, .password {
+    margin-left: 40px;
+}
+
+  .btn_login{
+    margin-left: 420px;
+  }
+
+  .remember_password{
+    margin-left: 390px;
   }
 }
 
-@media(min-width: 1245px){
-  .login{
+@media(min-width: 1200px){
+  .input_container{
+    margin-left: 50px;
+  }
+  .btn_login{
+    margin-left: 500px;
+  }
+
+  .remember_password{
     margin-left: 480px;
   }
 }
->>>>>>> 24dfbe5c6016e8c5c3d5fa5f3f213c1361356d38
+
+@media(min-width: 1800px){
+  .btn_login{
+    margin: 30px 765px;
+  }
+
+  .remember_password{
+    margin: 30px 738px;
+  }
+}

@@ -3,7 +3,7 @@ module.exports = (sequelize, DataTypes) => {
     let User = sequelize.define(
         "User",
         {
-            idClientes: {
+            idUser: {
                 type: DataTypes.INTEGER,
                 autoIncrement: true,
                 allowNull: false,
@@ -15,35 +15,33 @@ module.exports = (sequelize, DataTypes) => {
             },
             Sobrenome: {
                 type: DataTypes.STRING,
-                allowNull: true
+                allowNull: false
             },
             Email: {
                 type: DataTypes.STRING,
                 allowNull: false
             },
+            Cpf: {
+                type: DataTypes.STRING,
+                allowNull: false
+            },
             Telefone: {
                 type: DataTypes.STRING,
-                allowNull: true
-            },
-            Endereco: {
-                type: DataTypes.STRING,
-                allowNull: true
-            },
-            Cidade: {
-                type: DataTypes.STRING,
-                allowNull: true
-            },
-            Estado: {
-                type: DataTypes.STRING,
-                allowNull: true
+                allowNull: false
             },
             Senha: {
                 type: DataTypes.STRING,
-                allowNull: true
+                allowNull: false // pq pode ser null?
             },
-            avatar: {
+
+            Cpf: {
                 type: DataTypes.STRING,
-                allowNull: true
+                allowNull: false
+            },
+
+            Avatar: {
+                type: DataTypes.STRING,
+                allowNull: false
             }
 
         },
@@ -55,9 +53,12 @@ module.exports = (sequelize, DataTypes) => {
         }
 
     )
-    User.associate = function (model) {
-        User.hasMany(model.Purchase, { as: "purchases", foreignKey: "Users_idUsers" });
+    User.associate = function (models) {
+        User.hasMany(models.Purchase, { as: "purchases", foreignKey: "Users_idUser" })
+        User.hasMany(models.Address, { as: "addresses", foreignKey: "Users_idUser", })
+        User.belongsTo(models.Admin, { as: "admin", foreignKey: "admin_idAdmin", })
+
     }
-    return User;
+    return User
 
 };  

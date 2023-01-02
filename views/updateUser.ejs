@@ -1,0 +1,68 @@
+<%- include('partials/head') %>
+
+<!-- Include Header -->
+<%- include('partials/header', {title: 'Início' }) %>
+
+
+<main class="edit-container">
+  <link rel="stylesheet" href="/stylesheets/updateUser.css" />
+  <br />
+  <h2 class="edit_title">Editar Conta</h2>
+  <br />
+  <div class="account-container">
+    <div class="user-info-container">
+      <h3>Olá, <%= userLogged.Nome %></h3>
+
+      <form
+        class="user-info-form"
+        method="post"
+        action="/users/updateUserData/<%= userLogged.idUser %>"
+      >
+        <div class="user-avatar">
+          <img class="img-avatar" src="<%= userLogged.Avatar %> " />
+        </div>
+
+        <div class="user-form">
+          <div class="user-form-class">
+            <label class="form-label" for="nome">Nome do usuário: </label>
+            <input
+              class="input-label"
+              type="text"
+              id="nome"
+              name="name"
+              value="<%= userLogged.Nome %>"
+            />
+          </div>
+          <div class="user-form">
+            <div class="user-form-class">
+              <label class="form-label" for="sobrenome"
+                >Sobrenome do usuário:
+              </label>
+              <input
+                class="input-label"
+                type="text"
+                id="lastName"
+                name="lastName"
+                value="<%= userLogged.Sobrenome %>"
+              />
+            </div>
+           
+          </div>
+          <div class="user-form-class">
+            <label class="form-label" for="telefone">Telefone:</label>
+            <input
+              class="input-label"
+              type="text"
+              id="telefone"
+              name="phone"
+              value="<%= userLogged.Telefone %>"
+            />
+          </div>
+          <button class="btn-save" type="submit">Salvar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</main>
+<!-- Include Footer -->
+<%- include('partials/footer') %>
