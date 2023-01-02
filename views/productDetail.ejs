@@ -2,7 +2,7 @@
     <!-- Include Header -->
     <%- include('partials/header', {title: 'Início' }) %>
         <!-- Include Banner -->
-        <%- include('partials/banner') %>
+        <%- include('partials/slide') %>
             <main>
                 <link rel="stylesheet" href="/stylesheets/product-detail.css">
                 <section class="detail">
@@ -24,7 +24,7 @@
                         <p>valor: R$ <%= product.Preco %>
                         </p>
                         <form action="/orders/addCart" method="POST">
-                            <input type="hidden" name="selectedProduct" value=<%=product.idProdutos %>">
+                            <input type="hidden" name="selectedProduct" value="<%=product.idProdutos %>">
                             <button class="order" type="submit">comprar</button>
                         </form>
                     </div>

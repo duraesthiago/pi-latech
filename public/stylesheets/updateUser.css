@@ -1,0 +1,142 @@
+:root {
+    --pink-degrade: #c837c2;
+    --ligth-lilac: #7f7ae9;
+    --ultra-ligth-blue: #cee3f0;
+    --ligth-blue: #3786e1;
+    --medium-blue: #2c3ac1;
+    --medium-gray: #565656;
+    --dark-blue: #070d40;
+    --dark-gray: #252525;
+    --ligth-gray:#f1f1f1;
+    --dust-white: #fbfbfb;
+  }
+  
+  .edit-container {
+    width: 100%;
+  }
+
+  .edit_title{
+    margin: 1% 4%;
+    background: linear-gradient( 120deg, var(--pink-degrade) 0%, var(--ligth-lilac) 52%, var(--dark-blue) 100% );
+    padding: 2%;
+    color: #fbfbfb;
+    border-radius: 20px;
+    box-shadow: 4px 4px 4px var(--dark-gray);
+  }
+  
+  .account-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    column-gap: 20px;
+  }
+   
+  .user-info-container{
+  margin: 10px;
+  border: 1px solid var(--medium-blue);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: center;
+}
+  
+  input[type="file"] {
+    display: none;
+  }
+  
+  
+  .user-avatar {
+    border: 0.5px solid var(--medium-blue);
+      border-radius: 50%;
+      margin: 8px;
+      width: 80px;
+      height: 80px;
+      cursor: pointer;
+  }
+  
+    .img-avatar  {
+      border: 0.5px solid var(--medium-blue);
+      border-radius: 50%;
+      margin-bottom: 50px;
+      width: 80px;
+      height: 80px;
+      cursor: pointer;
+  
+    }
+  
+  .btn-update-avatar {
+    font-size: 12px;
+    align-items: center;
+    width: 80px;
+    padding: 5px;
+    background-color: #7f7ae9;
+    border-radius: 10px;
+    color: #fbfbfb;
+    display: inline-block;
+    box-shadow: 2px 2px 2px var(--dark-gray);
+    justify-items: center;
+    margin: 10px;
+  }
+  
+  .form-label {
+    width: 100%;
+    position: relative;
+    top: 8px;
+    color: var(--pink-degrade);
+    font-size: 12px;
+    background-color: var(--dust-white);
+    padding: 5px;
+  }
+  
+  
+  .input-label {
+    width: 94%;
+    height: 35px;
+    padding: 5px;
+    margin: 5px;
+    color: var(--medium-gray);
+    font-size: 12px;
+    border: .5px solid var(--medium-blue);
+    border-radius: 10px;
+  }
+
+  .btn-save  {
+  font-size: 12px;
+  align-items: center;
+  width: 80px;
+  padding: 5px;
+  background-color: var(--ligth-lilac);
+  border-radius: 10px;
+  color: var(--dust-white);
+  display: inline-block;
+  box-shadow: 2px 2px 2px var(--dark-gray);
+  justify-items: center;
+  margin: 10px;
+  }
+  
+  
+  @media (min-width: 600px) {
+  
+  
+    .input-label {
+      width: 97%;
+    }
+    .btn-update-avatar{
+      margin-left: 20px;
+    }
+    .btn-save {
+      margin-left: 20px;
+  
+    }
+  }
+  
+  @media (min-width: 900px) {
+  
+  
+  }
+  
+  @media (min-width: 1200px) {
+   
+  }
+  

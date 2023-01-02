@@ -1,6 +1,8 @@
 <header>
-  <div class="container">
-    <img class="logo" src="/img/logo_latech_final.png" alt="logo-latech" />
+  <div class="container-header">
+    <a href="/">
+      <img class="logo" src="/img/logo_latech_final.png" alt="logo-latech" />
+    </a>
     <div class="search-form">
       <!-- Alterada a posição da div para funcionamento das medias queries-->
       <form action="/search" method="get" class="search-bar">
@@ -18,22 +20,38 @@
         <span></span>
       </label>
       <nav class="nav">
-        <ul class="menu">
+        <ul class="menu" id="nav">
           <li><a href="/products">Produtos</a></li>
           <li><a href="/products/sale">Ofertas</a></li>
           <li><a href="/aboutUs">Sobre nós</a></li>
           <li>
-            <a href="/users"><img src="/img/icons8-adicionar-usuario-masculino-50.svg" /></a>
+            <a href="/users"
+              ><img src="/img/icons8-adicionar-usuario-masculino-50.svg"
+            /></a>
+            <ul class="over">
+              <% if (locals.isLogged) {%>
+
+              <li class="over"><a href="/users/logout">Sair</a></li>
+              <li class="over"><a href="/users/account">Ver Conta</a></li>
+
+              <% } else { %>
+
+              <li><a href="/users/login">Entrar</a></li>
+              <li><a href="/users/">Cadastrar</a></li>
+
+              <% } %>
+            </ul>
           </li>
           <li>
-            <a href="/orders/cart"><img src="/img/icons8-carrinho-de-compras-carregado-50.svg" />
+            <a href="/orders/cart"
+              ><img src="/img/icons8-carrinho-de-compras-carregado-50.svg" />
               <%= qty %>
             </a>
-
+          </li>
         </ul>
       </nav>
     </div>
   </div>
-  <hr>
 
+  <script src="/dropDownUserMenu.js"></script>
 </header>

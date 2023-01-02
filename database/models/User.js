@@ -29,23 +29,17 @@ module.exports = (sequelize, DataTypes) => {
                 type: DataTypes.STRING,
                 allowNull: false
             },
-            Endereco: {
-                type: DataTypes.STRING,
-                allowNull: false
-            },
-            Cidade: {
-                type: DataTypes.STRING,
-                allowNull: false
-            },
-            Estado: {
-                type: DataTypes.STRING,
-                allowNull: false
-            },
             Senha: {
                 type: DataTypes.STRING,
+                allowNull: false // pq pode ser null?
+            },
+
+            Cpf: {
+                type: DataTypes.STRING,
                 allowNull: false
             },
-            avatar: {
+
+            Avatar: {
                 type: DataTypes.STRING,
                 allowNull: false
             }
@@ -59,9 +53,10 @@ module.exports = (sequelize, DataTypes) => {
         }
 
     )
-    User.associate = function (model) {
-        User.hasMany(model.Purchase, { as: "purchases", foreignKey: "Users_idUser" });
+    User.associate = function (models) {
+        User.hasMany(models.Purchase, { as: "purchases", foreignKey: "Users_idUser" })
+        User.hasMany(models.Address, { as: "addresses", foreignKey: "Users_idUser", })
     }
-    return User;
+    return User
 
 };  
