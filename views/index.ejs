@@ -1,15 +1,13 @@
 <%- include('partials/head') %>
-  <!-- Include Header -->
-  <%- include('partials/header', {title: 'Início' }) %>
-    <!-- Include navbarCategories -->
-    <%- include('partials/navbarCategories') %>
-      <!-- Include Slide-->
-      <%- include('partials/slide') %>
-
-        <main class="index-main">
-          <div class="products-list">
-            <h2 class="index-title">OFERTAS DA SEMANA</h2>
-            <div class="products-content">
+<!-- Include Header -->
+<%- include('partials/header', {title: 'Início' }) %>
+  <!-- Include Banner -->
+  <%- include('partials/banner') %>
+<%- include('partials/slide') %>     
+  <main>
+      <div class="products-content">
+          <h2 class="index-title">OFERTAS DA SEMANA</h2>
+          <div class="products-wrapper">
               <% for(let product of products){ %>
                 <article class="products-itens">
                   <img class="products-image" src="<%= product['images.Imagem'] %>" alt="<%= product.Nome%>" />
