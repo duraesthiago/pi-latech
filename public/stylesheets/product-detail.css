@@ -1,4 +1,16 @@
-
+.edit_title {
+  margin: 5% 4%;
+  background: linear-gradient(
+    120deg,
+    var(--pink-degrade) 0%,
+    var(--ligth-lilac) 52%,
+    var(--dark-blue) 100%
+  );
+  padding: 2%;
+  color: #fbfbfb;
+  border-radius: 20px;
+  box-shadow: 4px 4px 4px var(--dark-gray);
+}
 
 .detail {
   display: flex;
