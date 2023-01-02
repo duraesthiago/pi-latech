@@ -1,0 +1,109 @@
+<%- include('partials/head') %>
+  <!-- Include Header -->
+  <%- include('partials/header', {title: 'Início' }) %>
+    <!-- Include Banner -->
+    <%- include('partials/banner') %>
+
+      <link rel="stylesheet" href="../public/stylesheets/cartPayments.css">
+
+
+      <main>
+        <link rel="stylesheet" href="../public/stylesheets/cartPayments.css">
+       
+         
+         <div class="ls-cart-content">
+            <% if(productsIntoCart.length> 0){ %>
+              <table>
+                <% for(p of productsIntoCart) {%>                 
+                  <tr>              
+                      <td><img src="<%= p['images.Imagem'] %>" alt=""></td>
+                      <td><%= p.Nome %></td>
+                    
+                    <td>R$ <%= p.Preco %></td>
+
+                    <td class="cart-btn-label">
+
+                      <form action="/orders/updateCart?_method=PUT" method="POST">
+                        <label for="quantity">Quantidade:</label>
+                        <input type="hidden" id="id" name="productId" value="<%=p.idProdutos %>">
+                        <input type="number" id="quantidade" name="productQty" value="<%= p.quantidade %>" min="1"
+                          max="99">
+                        <input type="submit" value="Adicionar">
+                      </form>
+
+                    </td>
+                  </tr>
+                  <% } %>
+                </table>
+          </div>
+
+          <div class="btn-delivey-shipp">
+            <input class="btn-zip-code" type="text" placeholder="digite o CEP" />
+            <input class="btn-zip-code-submit" type="submit" />
+          </div>
+
+          <div class="ls-about-your-order">
+            <h5>resumo do pedido</h5>
+            
+              <img src="" alt="" />
+              <p>Subtotal: R$ <%= total%>
+              </p>
+              <p>Frete: Grátis! </p>
+
+              
+
+
+              <form action="/orders/release" method="POST">
+                <label>Forma de Pagamento:
+                  
+                  <select name="payment-option" id="payment-option">
+                    <option selected disabled>Selecione a forma de pagamento</option>
+                    <option value="Pix">PIX</option>
+                    <option value="cartao">Cartão de Crédito</option>
+                    <option value="boleto">Boleto Bancario</option>
+                  </select><br>
+                  <a href="/user/paymentOption/add">Adicionar forma de pagamento</a>
+                </label><br>
+
+                <label for="address_id">Selecione o endereço de entrega</label>
+                <select name="address_id" id="">
+                  <% for (let i=0; i < addresses.length; i++) { %>
+                    <option value="<%= addresses[i].idAddresses%>">
+                      <%= addresses[i].Endereco %>
+                      </option>
+                      <% } %>
+                </select> <br>
+
+                <a href="/products">Continuar comprando...</a>
+
+                <p>Total a pagar: R$ <%= total%></p>
+                
+                  <button class="ls-btn-primary" type="submit">Finalizar Compra</button>
+                
+              </form>
+              
+              
+            
+            </div>
+
+          <!--<div class="delivery-tax">
+                <p>R$(frete): </p>
+              </div>
+          <div class="amount-order">
+          </div>
+
+          <section class="ls-cart-footer ls-txt-center">
+            <form action="/orders/release" method="POST">
+              <input type="hidden" name="confirmedPurchase" value="">
+              <button class="ls-btn-primary" type="submit">Finalizar Compra</button>
+            </form>
+          </section>-->
+
+
+            <% } else { %>
+              No productsIntoCar
+              <% } %>
+          
+        </div>
+      </main>
+      <%- include('partials/footer') %>

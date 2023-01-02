@@ -8,6 +8,7 @@ router.get('/cart', ordersController.showCart)
 router.put('/updateCart', ordersController.updateCart)
 router.get('/release', ordersController.releaseOrder)
 
+router.get('/payment', ordersController.payment)
 
 //router.post('/release', ordersController.releaseOrder)
 

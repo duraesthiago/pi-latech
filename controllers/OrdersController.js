@@ -46,11 +46,13 @@ const ordersController = {
         });
 
         req.session.order = productsIntoCart;
-
-        let addresses = await Address.findAll()           
-               
+        let total = 0
+        for(let i=0; i< productsIntoCart.length; i++)
+        total += productsIntoCart[i].totalProduto
+        console.log(total)
         
-        res.render('cart.ejs', { productsIntoCart, total: req.session.total, addresses:addresses })
+
+        res.render('cart.ejs', { productsIntoCart, total})
     },
 
     updateCart: (req, res) => {
@@ -71,15 +73,20 @@ const ordersController = {
 
         req.session.order = productsIntoCart;
         req.session.total = total
-
-        
-        
+            
         res.render('cart.ejs', { productsIntoCart, total });
 
-                
     },
 
-     releaseOrder: (req, res) => {
+    payment: async (req, res) => {
+        let addresses = await Address.findAll()  
+        productsIntoCart = req.session.order
+        total = req.session.total
+
+        res.render('cartPayment.ejs', { productsIntoCart, total, addresses: addresses })
+    },
+
+    releaseOrder: (req, res) => {
         let pedidos = req.session.order
         //let total = req.session.total
                 
