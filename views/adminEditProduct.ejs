@@ -24,14 +24,32 @@
 
                         <label for="Nome" class="form-label">Nome do produto:</label>
                         <input class="edit-product-input" type="text" id="nome" name="Nome" placeholder="Ex: Iphone..."
-                            class="form-input" value="<%= product.Nome %>">
+                            value="<%= product.Nome %>">
 
                         <label for="Valor" class="form-label">Valor:</label>
                         <input class="edit-product-input" type="text" id="valor" name="Preco" placeholder="R$ 99,99"
-                            class="form-input" value="<%= product.Preco %>">
+                            value="<%= product.Preco %>">
+
+                        <div class="offer-input">
+                            <h4>Em oferta:</h4>
+                            <% if (product.Oferta==1) { %>
+                                <label for="Valor" class="form-label">Sim</label>
+                                <input type="radio" id="checked" name="Oferta" value="1" checked>
+                                <label for="Valor" class="form-label">Não</label>
+                                <input type="radio" id="checked" name="Oferta" value="0">
+                                <% } else { %>
+                                    <label for="Valor" class="form-label">Sim</label>
+                                    <input type="radio" id="checked" name="Oferta" value="1">
+                                    <label for="Valor" class="form-label">Não</label>
+                                    <input type="radio" id="checked" name="Oferta" value="0" checked>
+                                    <% } %>
+                        </div>
+
+                        <label for="Valor" class="form-label">Valor com Desconto:</label>
+                        <input class="edit-product-input" type="text" id="desconto" name="PrecoComDesconto"
+                            placeholder="R$ - " value="<%= product.PrecoComDesconto %>">
 
                         <label for="Marca" class="form-label">Marca:</label>
-
                         <select class="edit-product-input" name="idMarcas" id="idMarcas">
                             <option selected value="<%=product['brands.idMarcas']%>">
                                 <%=product['brands.Marca']%>
@@ -46,7 +64,7 @@
 
                         <label for="Informacoes" class="form-label">Informações:</label>
                         <input class="edit-product-input" type="text" id="informacoes" name="Informacoes"
-                            placeholder="..." class="form-input" value="<%=product.Informacao%>">
+                            placeholder="..." value="<%=product.Informacao%>">
                     </div>
                     <div class="btn-edit-product-form">
                         <button type="submit" class="button">Salvar alterações</button>

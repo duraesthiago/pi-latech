@@ -195,17 +195,18 @@ const AdminController = {
 
   adminEditProduct: async (req, res) => {
     let id = req.params.id;
+
     let product = await Product.findByPk(id)
-    console.log("🚀 ~ file: AdminController.js:199 ~ adminEditProduct: ~ product", product)
     product.set({
       Nome: req.body.Nome,
       Preco: req.body.Preco,
       Marcas_id: req.body.idMarcas,
+      Oferta: req.body.Oferta,
       Informacoes: req.body.Informacoes
     });
 
     await product.save();
-    console.log("🚀 ~ file: AdminController.js:199 ~ adminEditProduct: ~ product FINAL", product)
+
     res.redirect('/admin/adminProduct');
   },
 
