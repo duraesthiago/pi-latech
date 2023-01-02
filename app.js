@@ -6,12 +6,14 @@ const logger = require('morgan');
 const methodOverride = require('method-override');
 const session = require('express-session');
 
+const adminRouter = require('./routes/adminRouter');
 const ordersRouter = require('./routes/ordersRouter')
 const indexRouter = require('./routes/indexRouter');
 const productsRouter = require('./routes/productsRouter');
 const usersRouter = require('./routes/usersRouter');
 
-const getViewsData = require('./middlewares/GetViewsData')
+const getViewsData = require('./middlewares/GetViewsData');
+const loggedUserDataMiddleware = require('./middlewares/loggedUserDataMiddleware');
 
 const app = express();
 // view engine setup
@@ -22,10 +24,11 @@ app.use(
   session({
     secret: 'CHAVE-SECRETA',
     resave: false,
-    saveUninitialized: true,
+    saveUninitialized: false,
     //cookie: { secure: true} 
   })
-)
+);
+
 
 app.use(logger('dev'));
 app.use(express.json());
@@ -36,9 +39,10 @@ app.use(methodOverride('_method'));
 
 app.use(express.urlencoded({ extended: false }));
 
-app.use(getViewsData)
+app.use(getViewsData);
+app.use(loggedUserDataMiddleware);
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
+app.use('/admin', adminRouter);
 app.use('/orders', ordersRouter);
 app.use('/products', productsRouter);
 app.use('/users', usersRouter);
@@ -61,6 +65,5 @@ app.use(function (err, req, res, next) {
 });
 
 module.exports = app;
-
 
 

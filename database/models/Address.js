@@ -25,7 +25,7 @@ module.exports = (sequelize, DataTypes) => {
                 type: DataTypes.INTEGER,
                 allowNull: false
             }
-                        
+
         },
         {
             tableName: "addresses",
@@ -33,12 +33,12 @@ module.exports = (sequelize, DataTypes) => {
             paranoid: false
         }
     )
-    Address.associate = (models)=>{
-        Address.belongsTo(models.User, {foreignKey:'users_idUser', as: 'users'});
+    Address.associate = (models) => {
+        Address.belongsTo(models.User, { foreignKey: 'users_idUser', as: 'users' });
         Address.hasMany(models.Purchase, { foreignKey: 'addresses_idAddresses', as: 'purchases' })
-                
+
     }
-    
+
 
     return Address;
 

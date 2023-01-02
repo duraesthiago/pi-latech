@@ -2,6 +2,7 @@ module.exports = (sequelize, DataTypes) => {
 
     let Purchase = sequelize.define(
         "Purchase",
+        "Purchase",
         {
             idPedidos: {
                 type: DataTypes.INTEGER,
@@ -13,6 +14,7 @@ module.exports = (sequelize, DataTypes) => {
                 type: DataTypes.DATE,
                 allowNull: true
             },
+            
             Total: {
                 type: DataTypes.DECIMAL,
                 allowNull: false
@@ -39,12 +41,17 @@ module.exports = (sequelize, DataTypes) => {
             tableName: "purchases",
             timestamps: false,
             paranoid: false
+        
 
         }
 
+
     )
     Purchase.associate = (models) => {
-        Purchase.belongsTo(models.User, { foreignKey: 'Users_idUsers', as: 'users' })
+
+        Purchase.belongsTo(models.User, { foreignKey: 'Users_idUser', as: 'users' })
+        Purchase.belongsTo(models.Admin, { foreignKey: 'admin_idAdmin', as: 'admin' })
+
         Purchase.belongsToMany(
             models.Product,
             {
@@ -55,13 +62,18 @@ module.exports = (sequelize, DataTypes) => {
                 timestamps: false
             }
         )
-        Purchase.belongsTo(models.Address, {as: 'addresses', foreignKey:"addresses_idAddresses"
-            })
+        Purchase.belongsTo(models.Address, {
+            as: 'addresses', foreignKey: "addresses_idAddresses"
+        })
+
 
 
     }
     return Purchase
 }
+
+
+
 
 
 

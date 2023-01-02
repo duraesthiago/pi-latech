@@ -1,15 +1,4 @@
-:root {
-  --pink-degrade: #c837c2;
-  --ligth-lilac: #7f7ae9;
-  --ultra-ligth-blue: #cee3f0;
-  --ligth-blue: #3786e1;
-  --medium-blue: #2c3ac1;
-  --medium-gray: #565656;
-  --dark-blue: #070d40;
-  --dark-gray: #252525;
-  --ligth-gray:#f1f1f1;
-  --dust-white: #fbfbfb;
-}
+
 
   .filters{
     border: 1px solid var(--pink-degrade);
@@ -62,7 +51,7 @@
     font-weight: bold;
     
   }
-  @media(min-width:801px){
+  @media(min-width: 600px){
     .filter-container{
       display: flex;
       flex-direction: row;
@@ -90,11 +79,11 @@
     }  
   }
 
-  @media(min-width:1025px){
+  @media(min-width:900px){
 
 }
 
-  @media(min-width:1245px){
+  @media(min-width:1200px){
     .filter-container{
       margin: 40px 200px;
       justify-content: space-between;

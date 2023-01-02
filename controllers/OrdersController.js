@@ -7,9 +7,9 @@ const ordersController = {
         Product.findAll()
             .then(function (productsReturned) {
             })
-            return res.render('products.ejs', { products: productsReturned })
+        return res.render('products.ejs', { products: productsReturned })
             .catch((error) => console.log(error))
-            
+
     },
 
     addCart: (req, res) => {
@@ -65,10 +65,10 @@ const ordersController = {
 
         productsIntoCart[index].quantidade = productQtyChanged;
         productsIntoCart[index].totalProduto = productsIntoCart[index].Preco * productsIntoCart[index].quantidade;
-        
+
         let total = 0
-        for(let i=0; i< productsIntoCart.length; i++)
-        total += productsIntoCart[i].totalProduto
+        for (let i = 0; i < productsIntoCart.length; i++)
+            total += productsIntoCart[i].totalProduto
         console.log(total)
 
         req.session.order = productsIntoCart;
@@ -89,7 +89,7 @@ const ordersController = {
     releaseOrder: (req, res) => {
         let pedidos = req.session.order
         //let total = req.session.total
-                
+
         /*db.Purchase.create({
             Data_Pedido: new Date().toISOString(),
             Total: req.session.total,
