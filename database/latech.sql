@@ -58,9 +58,9 @@ CREATE TABLE `admin` (
   `WorkerId` varchar(45) NOT NULL,
   `Name` varchar(100) NOT NULL,
   `Email` varchar(45) NOT NULL,
-  `Password` varchar(45) NOT NULL,
+  `Password` varchar(200) NOT NULL,
   PRIMARY KEY (`idAdmin`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -69,7 +69,7 @@ CREATE TABLE `admin` (
 
 LOCK TABLES `admin` WRITE;
 /*!40000 ALTER TABLE `admin` DISABLE KEYS */;
-INSERT INTO `admin` VALUES (1,'1234','Sergio','sergio@latech.com','123456');
+INSERT INTO `admin` VALUES (1,'1234','Sergio','sergio@latech.com','123456'),(2,'123456','Paula','paula@latech.com','$2b$10$zL2QFIA40akst6VaZ5y1..df4eMbeI0nffAst5VQH/ucbEVTfBGOu'),(3,'234567','thiago','thiago@latech.com','$2b$10$DEOx7cPJkQO5uUhd0Y/iEeH8nO5xyGAe8adGmMTxbU8RI4Aq.aC7G'),(4,'123456','Q','q@latech.com','$2b$10$hxFaLw0YFegIR7W7PLWm7uDyrcgOUALBjrr0wyM7WI5AWOWldW2Z6');
 /*!40000 ALTER TABLE `admin` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -235,11 +235,11 @@ CREATE TABLE `purchases` (
   `Endereço_de_Entrega` varchar(100) DEFAULT NULL,
   `addresses_idAddresses` int NOT NULL,
   `admin_idAdmin` int NOT NULL,
-  PRIMARY KEY (`idPedidos`),
-  KEY `fk_Purchases_Users1_idx` (`Users_idUser`) /*!80000 INVISIBLE */,
   KEY `fk_purchases_addresses1_idx` (`addresses_idAddresses`,`admin_idAdmin`),
-  KEY `fk_purchases_admin1_idx` (`admin_idAdmin`,`idPedidos`),
-  CONSTRAINT `fk_Purchases_Users1` FOREIGN KEY (`Users_idUser`) REFERENCES `users` (`idUser`)
+  KEY `fk_purchases_admin1_idx` (`idPedidos`),
+  KEY `fk_Purchases_Users1` (`admin_idAdmin`),
+  CONSTRAINT `fk_purchases_admin1` FOREIGN KEY (`admin_idAdmin`) REFERENCES `admin` (`idAdmin`),
+  CONSTRAINT `fk_Purchases_Users1` FOREIGN KEY (`admin_idAdmin`) REFERENCES `users` (`idUser`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -249,7 +249,7 @@ CREATE TABLE `purchases` (
 
 LOCK TABLES `purchases` WRITE;
 /*!40000 ALTER TABLE `purchases` DISABLE KEYS */;
-INSERT INTO `purchases` VALUES (1,NULL,999.00,1,'Pix','Rua Itapuã, n1, Bairro Itapuã, Salvador, Bahia',1,0);
+INSERT INTO `purchases` VALUES (1,NULL,999.00,1,'Pix','Rua Itapuã, n1, Bairro Itapuã, Salvador, Bahia',1,1);
 /*!40000 ALTER TABLE `purchases` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -272,6 +272,7 @@ CREATE TABLE `users` (
   `admin_idAdmin` int NOT NULL,
   PRIMARY KEY (`idUser`),
   KEY `fk_purchases_users1_idx` (`admin_idAdmin`),
+  KEY `fk_users_admin1_idx` (`admin_idAdmin`),
   CONSTRAINT `fk_users_admin1` FOREIGN KEY (`admin_idAdmin`) REFERENCES `admin` (`idAdmin`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -282,7 +283,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'Ana','Santos Silva','ana@email.com','12312312312312','7198888888','123456','efsd',0),(2,'Lucas','Lima Paz','lucas@email.com','12312312312312','71991919191','654321','sdvsdv',0);
+INSERT INTO `users` VALUES (1,'Ana','Santos Silva','ana@email.com','12312312312312','7198888888','123456','efsd',1),(2,'Lucas','Lima Paz','lucas@email.com','12312312312312','71991919191','654321','sdvsdv',1);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -295,4 +296,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-12-31 16:23:44
+-- Dump completed on 2023-01-02  8:52:19

@@ -1,0 +1,43 @@
+
+<%- include('partials/head') %>
+<!-- Include Header -->
+<%- include('partials/header', {title: 'Início' }) %>
+<!-- Include Banner -->
+<main>
+  <link rel="stylesheet" href="/stylesheets/adminLogin.css" />
+<br>
+<h2 class="index_title">Entrar</h2>
+<br>
+  <div class="admin_login">
+   
+    <div class="input_admin_container">
+      <form method="post" action="/admin/login">
+        <div class="form_admin_wrapper">
+        <label class="label" for="emailAdmin">Email</label>
+        <input
+          class="admin_email"
+          type="text"
+          name="emailAdmin"
+          id="input_admin_email"
+          value=""
+          placeholder="digite seu email funcional"
+        />
+        <label class="label" for="passwordAdmin">Senha</label>
+        <input
+          class="admin_password"
+          type="password"
+          name="passwordAdmin"
+          id="input_admin_password"
+          placeholder="digite sua senha"
+        />
+      </div>
+      <input class="checkbox"  type="checkbox" name="remember_admin" />
+        <label class="label" for="remeber_admin">Lembrar meu usuário</label>
+        <br>
+        <button class="btn_login" type="submit" href="/admin/panel">Login</button>
+        <br>
+            </form>
+    </div>
+  </div>
+</main>
+<%- include('partials/footer') %>

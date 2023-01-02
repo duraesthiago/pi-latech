@@ -30,7 +30,9 @@ module.exports = (sequelize, DataTypes) => {
     Product.associate = (models) => {
         Product.belongsTo(models.Brand, { foreignKey: 'Marcas_id', as: 'brands' });
         Product.belongsTo(models.Category, { foreignKey: 'Categorias_id', as: 'categories' })
+        Product.belongsTo(models.Admin, { foreignKey: 'admin_idAdmin', as: 'admin' })
         Product.hasMany(models.Image, { foreignKey: 'Produtos_idProdutos', as: 'images' })
+
         Product.belongsToMany(
             models.Purchase,
             {

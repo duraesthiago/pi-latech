@@ -3,11 +3,11 @@ const { User } = require("../database/models/");
 const bcrypt = require("bcrypt");
 
 const UserController = {
+
   signUp: (req, res) => {
     let error = req.query.error ? 1 : 0;
     res.render("userSignUp", { error });
   },
-
 
   createUser: async (req, res) => {
     const resultValidations = validationResult(req);
@@ -75,7 +75,7 @@ const UserController = {
             
             delete userToLogin.Senha;
             req.session.userLogged = userToLogin;
-            //console.log(req.session.userLogged);
+            console.log(req.session.userLogged);
             }  
             
             if (req.body.remember_user) {

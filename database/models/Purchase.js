@@ -48,7 +48,10 @@ module.exports = (sequelize, DataTypes) => {
 
     )
     Purchase.associate = (models) => {
+
         Purchase.belongsTo(models.User, { foreignKey: 'Users_idUser', as: 'users' })
+        Purchase.belongsTo(models.Admin, { foreignKey: 'admin_idAdmin', as: 'admin' })
+
         Purchase.belongsToMany(
             models.Product,
             {
