@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 .edit_title {
   margin: 5% 4%;
   background: linear-gradient(
@@ -19,6 +23,10 @@
   justify-content: center;
 }
 
+.detail form {
+  width: 100%;
+}
+
 .product-details {
   width: 100%;
   border: 0.5px solid var(--medium-blue);
@@ -27,6 +35,11 @@
   flex-direction: column;
   align-items: center;
   margin: 10px;
+}
+
+.main-picture {
+  display: flex;
+  justify-content: center;
 }
 
 .main-pic {
@@ -50,62 +63,40 @@
   margin: 10px;
 }
 
-.description-for-order {
+.description-product {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   margin: 10px;
-  width: 100%;
-  border: 0.5px solid var(--pink-degrade);
-  border-radius: 8px;
+  color: var(--ligth-blue);
+  gap: 10px;
 }
 
-.description-for-order h4 {
-  margin-left: 16px;
-  color: var(--medium-blue);
-  text-transform: capitalize;
+.btn-edit-product-form {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
 }
 
-.description-for-order p {
-  margin-left: 16px;
-  color: var(--medium-blue);
-  opacity: 0.8;
-  text-transform: capitalize;
-}
-
-.description-for-order button {
-  width: 100px;
-  height: 28px;
-  margin-left: 115px;
-  margin-bottom: 16px;
-  text-transform: capitalize;
-  background-color: var(--ultra-ligth-blue);
-  border: 1px solid var(--medium-blue);
-  border-radius: 30px;
-}
-
-.product-description {
-  width: 100%;
-  border: 0.5px solid var(--medium-blue);
-  border-radius: 8px;
-  background-color: var(--ultra-ligth-blue);
-  margin: 10px;
-  padding: 10px;
-}
-
-.product-description h4 {
-  text-align: left;
-  color: var(--medium-blue);
-  margin-left: 10px;
-}
-
-.product-description li {
-  color: var(--medium-blue);
-  opacity: 0.8;
+.admin-product-form button {
+  text-align: center;
   font-size: 12px;
-  font-weight: 200;
-  padding: 2px 0;
-  margin-left: 10px;
+  width: 150px;
+  height: 30px;
+  padding: 5px;
+  background-color: var(--ligth-lilac);
+  border-radius: 8px;
+  color: var(--dust-white);
+  box-shadow: 2px 2px 2px var(--dark-gray);
+  margin: 3px;
+}
+
+.edit-product-input {
+  text-overflow: ellipsis;
+  width: 100%;
+  padding: 10px 5px;
+  border: 1px solid var(--medium-blue);
+  border-radius: 8px;
 }
 
 @media (min-width: 600px) {
@@ -122,17 +113,13 @@
     width: 20%;
   }
 
-  .description-for-order {
+  .description-product {
     margin: 20px 40px;
   }
 
-  .description-for-order button {
+  .description-product button {
     margin-left: 340px;
     margin-top: 20px;
-  }
-
-  .product-description {
-    margin: 20px 40px;
   }
 }
 

@@ -20,7 +20,7 @@ router.post('/adminEditUser/:id', AdminController.updateUserData);
 router.get('/adminProduct', AdminController.adminShowProduct);
 
 router.get('/adminEditProduct/:id', AdminController.adminShowOneProduct);
-router.post('/adminEditProduct/:id/update', AdminController.adminEditProduct);
+router.put('/adminEditProduct/:id/update', AdminController.adminEditProduct);
 
 router.get('/adminSearchProduct', AdminController.adminSearchProduct);
 

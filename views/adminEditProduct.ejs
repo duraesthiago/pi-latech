@@ -3,7 +3,7 @@
     <%- include('partials/header', {title: 'Início' }) %>
 
         <main>
-            <link rel="stylesheet" href="/stylesheets/product-detail.css">
+            <link rel="stylesheet" href="/stylesheets/adminEditProduct.css">
 
             <h3 class="edit_title">Painel de Administrador >> EDITAR PRODUTO</h3>
 
@@ -18,35 +18,27 @@
                         <img class="small-pics" src="<%=product['images.Imagem']%>" alt="" />
                     </div>
                 </div>
-                <form action="/admin/adminEditProduct/<%=product.idProdutos %>/update?_method=PUT" method="POST">
-                    <div class="description-for-order">
-                        <div>
-                            <label for="Nome" class="form-label">Nome do produto:</label>
-                            <input type="text" id="nome" name="Nome" placeholder="Ex: Iphone..." class="form-input"
-                                value="<%= product.Nome %>">
-                        </div>
+                <form class="admin-product-form"
+                    action="/admin/adminEditProduct/<%=product.idProdutos %>/update?_method=PUT" method="POST">
+                    <div class="description-product">
 
-                        <div>
-                            <label for="Valor" class="form-label">Valor:</label>
-                            <input type="text" id="valor" name="Preco" placeholder="R$ 99,99" class="form-input"
-                                value="<%= product.Preco %>">
-                        </div>
+                        <label for="Nome" class="form-label">Nome do produto:</label>
+                        <input class="edit-product-input" type="text" id="nome" name="Nome" placeholder="Ex: Iphone..."
+                            class="form-input" value="<%= product.Nome %>">
+
+                        <label for="Valor" class="form-label">Valor:</label>
+                        <input class="edit-product-input" type="text" id="valor" name="Preco" placeholder="R$ 99,99"
+                            class="form-input" value="<%= product.Preco %>">
+
+                        <label for="Marca" class="form-label">Marca:</label>
+                        <input class="edit-product-input" type="text" id="marca" name="Marca" placeholder="Apple"
+                            class="form-input" value="<%=product['brands.Marca']%>">
+
+                        <label for="Informacoes" class="form-label">Infromações:</label>
+                        <input class="edit-product-input" type="text" id="informacoes" name="Informacoes"
+                            placeholder="..." class="form-input" value="<%=product.Informacao%>">
                     </div>
-
-                    <div class="product-description">
-                        <div>
-                            <label for="Marca" class="form-label">Marca:</label>
-                            <input type="text" id="marca" name="Marca" placeholder="Apple" class="form-input"
-                                value="<%=product['brands.Marca']%>">
-                        </div>
-
-                        <div>
-                            <label for="Informacoes" class="form-label">Infromações:</label>
-                            <input type="text" id="informacoes" name="Informacoes" placeholder="..." class="form-input"
-                                value="<%=product.Informacao%>">
-                        </div>
-                    </div>
-                    <div>
+                    <div class="btn-edit-product-form">
                         <button type="submit" class="button">Salvar alterações</button>
                     </div>
                 </form>
