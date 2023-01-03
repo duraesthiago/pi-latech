@@ -21,6 +21,10 @@ router.get('/adminUsersList', AdminController.getUsers);
 
 router.get('/adminProduct', AdminController.adminShowProduct);
 
+router.get('/adminProductCreate', AdminController.adminShowCreateProduct);
+router.post('/adminProductCreate/create', AdminController.adminCreateProduct);
+
+
 router.get('/adminEditProduct/:id', AdminController.adminShowOneProduct);
 router.put('/adminEditProduct/:id/update', AdminController.adminEditProduct);
 

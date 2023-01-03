@@ -2,6 +2,7 @@ const { Op } = require("sequelize");
 const { validationResult } = require("express-validator");
 const { Admin, User, Product, Image, Brand, Category } = require("../database/models");
 const bcrypt = require("bcrypt");
+const { raw } = require("express");
 
 const AdminController = {
 
@@ -9,8 +10,6 @@ const AdminController = {
 
     res.render("mainAdmin");
   },
-
-
 
   signUp: (req, res) => {
     //let error = req.query.error ? 1 : 0;
@@ -205,13 +204,16 @@ const AdminController = {
   adminEditProduct: async (req, res) => {
     let id = req.params.id;
 
-    let product = await Product.findByPk(id)
+    console.log(req.body);
+
+    let product = await Product.findByPk(id);
     product.set({
       Nome: req.body.Nome,
       Preco: req.body.Preco,
       PrecoComDesconto: req.body.PrecoComDesconto,
       Marcas_id: req.body.idMarcas,
       Oferta: req.body.Oferta,
+      Status: req.body.Status,
       Informacoes: req.body.Informacoes
     });
 
@@ -220,15 +222,53 @@ const AdminController = {
     res.redirect('/admin/adminProduct');
   },
 
-  adminDeleteProduct: async (req, res) => {
-    await Product.destroy(
-      {
-        where: {
-          idProdutos: req.params.id
-        }
-      }
-    )
+  adminShowCreateProduct: async (req, res) => {
+    let brands = await Brand.findAll({ raw: true });
+    let category = await Category.findAll({ raw: true });
+    res.render('adminCreateProduct', { brands, category });
+  },
+
+  adminCreateProduct: async (req, res) => {
+    const newProduct = await Product.create({
+      Nome: req.body.Nome,
+      Codigo: req.body.Codigo,
+      Preco: req.body.Preco,
+      PrecoComDesconto: req.body.PrecoComDesconto,
+      Oferta: req.body.Oferta,
+      Status: req.body.Status,
+      Marcas_id: req.body.idMarcas,
+      Categorias_id: req.body.Categoria,
+      Informacao: req.body.Informacoes
+    })
+
+    const newImage = await Image.create({
+      Nome: "Default Image",
+      Data_Upload: "07/12/2022",
+      Imagem: "/img/default-img.jpg",
+      Produtos_idProdutos: newProduct.idProdutos,
+      Marcas_idMarcas: newProduct.Marcas_id
+    });
+
     return res.redirect('/admin/adminProduct');
+
+  },
+
+  adminDeleteProduct: async (req, res) => {
+    let id = req.params.id;
+
+    let product = await Product.findByPk(id);
+    if (product.Status == 1) {
+      product.set({
+        Status: 0,
+      });
+    } else {
+      product.set({
+        Status: 1,
+      });
+    };
+    await product.save();
+
+    res.redirect('/admin/adminProduct');
   },
 
   logoutAdmin: (req, res) => {

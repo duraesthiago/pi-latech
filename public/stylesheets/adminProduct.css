@@ -1,3 +1,9 @@
+h3 {
+  font-size: 15px;
+  color: var(--ligth-blue);
+  margin: 5%;
+}
+
 .edit_title {
   margin: 5% 4%;
   background: linear-gradient(

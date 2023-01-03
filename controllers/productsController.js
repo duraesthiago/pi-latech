@@ -6,15 +6,16 @@ const controler = {
     index: async (req, res) => {
         let products = await Product.findAll({
             raw: true,
+            where: { Status: 1 },
             include: [{
-                model: Image, as: 'images',
+                model: Image, as: 'images'
             }]
         });
         return res.render('products', { products });
     },
     sale: async (req, res) => {
         let productsOffer = await Product.findAll({
-            raw: true, where: { Oferta: true }, include: [{
+            raw: true, where: { Oferta: true, Status: 1 }, include: [{
                 model: Image, as: 'images',
             }]
         });
@@ -27,7 +28,8 @@ const controler = {
             include: [{
                 model: Category, as: 'categories',
                 where: {
-                    Categoria: reqCategory
+                    Categoria: reqCategory,
+                    Status: 1
                 },
             },
             { model: Image, as: 'images' }]
