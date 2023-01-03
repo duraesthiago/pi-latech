@@ -10,8 +10,6 @@ const AdminController = {
     res.render("mainAdmin");
   },
 
-
-
   signUp: (req, res) => {
     //let error = req.query.error ? 1 : 0;
     res.render("adminSignUp");
@@ -204,13 +202,14 @@ const AdminController = {
   adminEditProduct: async (req, res) => {
     let id = req.params.id;
 
-    let product = await Product.findByPk(id)
+    let product = await Product.findByPk(id);
     product.set({
       Nome: req.body.Nome,
       Preco: req.body.Preco,
       PrecoComDesconto: req.body.PrecoComDesconto,
       Marcas_id: req.body.idMarcas,
       Oferta: req.body.Oferta,
+      Status: req.body.Status,
       Informacoes: req.body.Informacoes
     });
 
@@ -220,14 +219,21 @@ const AdminController = {
   },
 
   adminDeleteProduct: async (req, res) => {
-    await Product.destroy(
-      {
-        where: {
-          idProdutos: req.params.id
-        }
-      }
-    )
-    return res.redirect('/admin/adminProduct');
+    let id = req.params.id;
+
+    let product = await Product.findByPk(id);
+    if (product.Status == 1) {
+      product.set({
+        Status: 0,
+      });
+    } else {
+      product.set({
+        Status: 1,
+      });
+    };
+    await product.save();
+
+    res.redirect('/admin/adminProduct');
   },
 
   logoutAdmin: (req, res) => {

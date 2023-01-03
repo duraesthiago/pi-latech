@@ -16,26 +16,54 @@
                 </form>
             </div>
 
-            <!-- Lista de Produtos -->
+            <!-- Lista de Produtos Ativos -->
+
+            <h3>PRODUTOS ATIVOS</h3>
+
 
             <div class="product_list">
                 <ul>
                     <% for (p of products) { %>
-                        <li>
-                            <p>
-                                <%= p.Nome %>
-                            </p>
-                            <div class="btn-container">
-                                <a href="/admin/adminEditProduct/<%= p.idProdutos %>"
-                                    class="btn-admin-products">Editar</a>
-                                <form action="/admin/adminDeleteProduct/<%= p.idProdutos %>" method="POST">
-                                    <button type="submit" class="btn-admin-products">Excluir</button>
-                                </form>
-                            </div>
-                        </li>
-                        <% } %>
+                        <% if(p.Status==1) { %>
+                            <li>
+                                <p>
+                                    <%= p.Nome %>
+                                </p>
+                                <div class="btn-container">
+                                    <a href="/admin/adminEditProduct/<%= p.idProdutos %>"
+                                        class="btn-admin-products">Editar</a>
+                                    <form action="/admin/adminDeleteProduct/<%= p.idProdutos %>" method="POST">
+                                        <button type="submit" class="btn-admin-products">Excluir</button>
+                                    </form>
+                                </div>
+                            </li>
+                            <% } %>
+                                <% } %>
                 </ul>
-
             </div>
+
+            <!-- Lista de Produtos Inativos -->
+
+
+            <h3>PRODUTOS INATIVOS</h3>
+
+            <div class="product_list">
+                <ul>
+                    <% for (p of products) { %>
+                        <% if(p.Status==0) { %>
+                            <li>
+                                <p>
+                                    <%= p.Nome %>
+                                </p>
+                                <div class="btn-container">
+                                    <a href="/admin/adminEditProduct/<%= p.idProdutos %>"
+                                        class="btn-admin-products">Editar</a>
+                                </div>
+                            </li>
+                            <% } %>
+                                <% } %>
+                </ul>
+            </div>
+
         </main>
         <%- include('partials/footer') %>

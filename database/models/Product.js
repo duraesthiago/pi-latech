@@ -19,7 +19,8 @@ module.exports = (sequelize, DataTypes) => {
             Oferta: { type: DataTypes.BOOLEAN },
             PrecoComDesconto: { type: DataTypes.DECIMAL },
             Categorias_id: { type: DataTypes.INTEGER },
-            Marcas_id: { type: DataTypes.INTEGER }
+            Marcas_id: { type: DataTypes.INTEGER },
+            Status: { type: DataTypes.BOOLEAN }
         },
         {
             tableName: "products",
