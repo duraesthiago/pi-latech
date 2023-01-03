@@ -200,6 +200,7 @@ const AdminController = {
     product.set({
       Nome: req.body.Nome,
       Preco: req.body.Preco,
+      PrecoComDesconto: req.body.PrecoComDesconto,
       Marcas_id: req.body.idMarcas,
       Oferta: req.body.Oferta,
       Informacoes: req.body.Informacoes
