@@ -112,6 +112,14 @@ const AdminController = {
   adminEditUser: (req, res) => {
     res.render("adminEditUser")
   },
+  getUsers: async (req, res) => {
+    const usersList = await User.findAll()
+    return res.render('userList')
+  },
+
+  adminEditUser: (req, res) => {
+    res.render("adminEditUser")
+  },
 
   updateUser: async (req, res) => {
     let userId = req.params.id;
