@@ -267,6 +267,30 @@ a {
   flex-direction: column;
 }
 
+.products-itens-img{
+  width: 26%;  
+  border:#ef95cc solid 1px;
+  border-radius: 20px;
+  background-color: #ef95cc;
+  margin: 1%;
+  align-items: center;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;  
+}
+
+.products-itens-img1{
+  width: 26%;  
+  border:#ef95cc solid 1px;
+  border-radius: 20px;
+  background-color: #ef95cc;
+  margin: 1%;
+  align-items: center;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;  
+}
+
 .products-image{
   width: 65%;
   display: inline;
