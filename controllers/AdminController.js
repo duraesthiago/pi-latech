@@ -6,14 +6,14 @@ const { raw } = require("express");
 
 const AdminController = {
 
-  main: async (req, res) => {
-
+  
+  main: (req, res) => {
+    //let error = req.query.error ? 1 : 0;
     res.render("mainAdmin");
   },
 
-  signUp: (req, res) => {
-    //let error = req.query.error ? 1 : 0;
-    res.render("adminSignUp");
+  adminSignUp: (req, res) => {
+    res.render("adminSignUp")
   },
 
 
@@ -72,10 +72,10 @@ const AdminController = {
       );
 
       if (!adminToLogin) {
-        return res.redirect("/admin");
+        return res.redirect("/admin/create");
       } else {
         if (!isPasswordVerified) {
-          return res.redirect("/admin");
+          return res.redirect("/admin/login");
         } else {
           if (adminToLogin && isPasswordVerified) {
 
