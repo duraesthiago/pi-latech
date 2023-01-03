@@ -36,6 +36,7 @@ const UserController = {
         Avatar: `/img/avatars/${avatarFileName}`,
         Cpf: req.body.personal_id,
         Senha: bcrypt.hashSync(req.body.password, 10),
+        admin_idAdmin: 1 //Verificar como tratar isso
       });
       return res.redirect("/users/login");
     }

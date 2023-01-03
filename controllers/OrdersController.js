@@ -1,4 +1,4 @@
-const { Product, Address, Purchase } = require('../database/models')
+const { Product, Address, User, Purchase } = require('../database/models')
 
 
 const ordersController = {
@@ -78,17 +78,40 @@ const ordersController = {
 
     },
 
-    payment: async (req, res) => {
-        let addresses = await Address.findAll()  
+    payment: async (req, res) => {                    
+        let id = req.session.userLogged.idUser
+                
+        let user = await User.findByPk(id, {
+            raw: true,
+            include: [
+                { model: Address, as: 'addresses' }
+            ]
+        });
+
+        let addressesUser = await Address.findAll({raw: true, where:{users_idUser: id}});
+
         productsIntoCart = req.session.order
         total = req.session.total
 
-        res.render('cartPayment.ejs', { productsIntoCart, total, addresses: addresses })
+        let loggedUser = (req.session.userLogged !== undefined)
+        
+        res.render('cartPayment.ejs', { productsIntoCart, total, user, loggedUser, addressesUser })
+        
     },
-
-    releaseOrder: (req, res) => {
+    
+    releaseOrder: async (req, res) => {
         let pedidos = req.session.order
-        //let total = req.session.total
+        let total = req.session.total
+
+        let newAdress = await Address.create({
+            Endereco: req.body.endereco,
+            Cidade: req.body.cidade,
+            Estado: req.body.estado,
+            users_idUser: req.session.userLogged.idUser
+        })
+
+       
+        res.send("pedidoFinalizado");
 
         /*db.Purchase.create({
             Data_Pedido: new Date().toISOString(),

@@ -44,7 +44,7 @@ strong {
   margin-right: auto;
 }
 table {
-  width: 100%;
+  width: 50%;
   border-collapse: collapse;
 }
 table td {
@@ -144,7 +144,7 @@ table img {
 .ls-about-your-order {
   border: 1px solid var(--ligth-blue);
   border-radius: 8px;
-  width: 340px;
+  width: 380px;
   height: 300px;
   margin: 10px;
   /* margin-left: 20px; */
