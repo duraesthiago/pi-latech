@@ -16,8 +16,8 @@ router.get('/panel', AdminController.showAdminPanel);
 
 router.get('userList', AdminController.getUsers);
 
-//router.get('/adminEditUser/', AdminController.adminEditUser);
-//router.post('/adminEditUser/', AdminController.updateUserData);
+//router.get('/adminEditUser/:id', AdminController.adminEditUser);
+//router.put('/adminEditUser/:id/update', AdminController.updateUserData);
 
 router.get('/adminProduct', AdminController.adminShowProduct);
 

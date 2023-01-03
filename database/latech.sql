@@ -60,7 +60,7 @@ CREATE TABLE `admin` (
   `Email` varchar(45) NOT NULL,
   `Password` varchar(200) NOT NULL,
   PRIMARY KEY (`idAdmin`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -69,7 +69,7 @@ CREATE TABLE `admin` (
 
 LOCK TABLES `admin` WRITE;
 /*!40000 ALTER TABLE `admin` DISABLE KEYS */;
-INSERT INTO `admin` VALUES (1,'1234','Sergio','sergio@latech.com','123456'),(2,'123456','Paula','paula@latech.com','$2b$10$zL2QFIA40akst6VaZ5y1..df4eMbeI0nffAst5VQH/ucbEVTfBGOu'),(3,'234567','thiago','thiago@latech.com','$2b$10$DEOx7cPJkQO5uUhd0Y/iEeH8nO5xyGAe8adGmMTxbU8RI4Aq.aC7G'),(4,'123456','Q','q@latech.com','$2b$10$hxFaLw0YFegIR7W7PLWm7uDyrcgOUALBjrr0wyM7WI5AWOWldW2Z6');
+INSERT INTO `admin` VALUES (1,'1234','Sergio','sergio@latech.com','123456'),(2,'123456','Paula','paula@latech.com','$2b$10$zL2QFIA40akst6VaZ5y1..df4eMbeI0nffAst5VQH/ucbEVTfBGOu'),(3,'234567','thiago','thiago@latech.com','$2b$10$DEOx7cPJkQO5uUhd0Y/iEeH8nO5xyGAe8adGmMTxbU8RI4Aq.aC7G'),(4,'123456','Q','q@latech.com','$2b$10$hxFaLw0YFegIR7W7PLWm7uDyrcgOUALBjrr0wyM7WI5AWOWldW2Z6'),(5,'123456','Leandro','leandro@latech.com','$2b$10$9oH2e8ANJTjZH/hRu7j74ufUshsj6bRlQg/kCqaPTzLCJ/ux80M8q'),(6,'123456','Crica','Skull@latech.com','$2b$10$3lZNV/FoSXA4UkZm7j/jUO3LanBhWGnXunIpRm0u3ekEzH1qNmZBO');
 /*!40000 ALTER TABLE `admin` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -170,7 +170,7 @@ CREATE TABLE `products` (
   `PrecoComDesconto` decimal(10,2) DEFAULT NULL,
   `Categorias_id` int NOT NULL,
   `Marcas_id` int NOT NULL,
-  `admin_idAdmin` int NOT NULL,
+  `admin_idAdmin` int DEFAULT NULL,
   PRIMARY KEY (`idProdutos`),
   KEY `fk_Produtos_Categorias1_idx` (`Categorias_id`),
   KEY `fk_Produtos_Marcas1_idx` (`Marcas_id`),
@@ -234,7 +234,7 @@ CREATE TABLE `purchases` (
   `Forma_de_Pagamento` varchar(45) DEFAULT NULL,
   `Endereço_de_Entrega` varchar(100) DEFAULT NULL,
   `addresses_idAddresses` int NOT NULL,
-  `admin_idAdmin` int NOT NULL,
+  `admin_idAdmin` int DEFAULT NULL,
   KEY `fk_purchases_addresses1_idx` (`addresses_idAddresses`,`admin_idAdmin`),
   KEY `fk_purchases_admin1_idx` (`idPedidos`),
   KEY `fk_Purchases_Users1` (`admin_idAdmin`),
@@ -269,12 +269,12 @@ CREATE TABLE `users` (
   `Telefone` varchar(45) NOT NULL,
   `Senha` varchar(100) NOT NULL,
   `Avatar` varchar(45) NOT NULL,
-  `admin_idAdmin` int NOT NULL,
+  `admin_idAdmin` int DEFAULT NULL,
   PRIMARY KEY (`idUser`),
   KEY `fk_purchases_users1_idx` (`admin_idAdmin`),
   KEY `fk_users_admin1_idx` (`admin_idAdmin`),
   CONSTRAINT `fk_users_admin1` FOREIGN KEY (`admin_idAdmin`) REFERENCES `admin` (`idAdmin`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -283,7 +283,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'Ana','Santos Silva','ana@email.com','12312312312312','7198888888','123456','efsd',1),(2,'Lucas','Lima Paz','lucas@email.com','12312312312312','71991919191','654321','sdvsdv',1);
+INSERT INTO `users` VALUES (1,'Ana','Santos Silva','ana@email.com','12312312312312','7198888888','123456','efsd',NULL),(2,'Lucas','Lima Paz','lucas@email.com','12312312312312','71991919191','654321','sdvsdv',NULL),(3,'Paula','Simon','paula@email.com','12345567898','99899 5544','$2b$10$c5/LTTGil85FRq7ksxnfR.4kRLHe036GRzw7eWUfkZB/Z2TITg4c2','/img/avatars/1672661555793_img.png',NULL),(4,'Sergio','Aguilar','sergio@email.com','16162273784','121234567890','$2b$10$Bc6jWmG946SSIBpS4mAMwe9y1jLLBv2hrbhhXTzaqeVerqMr4fRoi','/img/avatars/1672744673013_img.png',NULL),(5,'Arianne','Barbosa','ari@email.com','12345678901','51 18998 1111','$2b$10$iA5G/JBFRpjkUSpBJQQ90eK7Gw1X2i7SEARA/7z.ZQ5HjkpKwmVC2','/img/avatars/1672744798543_img.png',NULL);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -296,4 +296,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-01-02  8:52:19
+-- Dump completed on 2023-01-03  9:01:08

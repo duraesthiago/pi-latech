@@ -233,7 +233,7 @@ const AdminController = {
   logoutAdmin: (req, res) => {
     req.session.destroy();
     res.clearCookie("AdminEmail");
-    return res.redirect("/admin/index");
+    return res.redirect("/");
   },
 }
 module.exports = AdminController;
