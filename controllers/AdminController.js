@@ -1,5 +1,5 @@
 const { validationResult } = require("express-validator");
-const { Admin, User } = require("../database/models");
+const { Admin, User, Product, Purchaise } = require("../database/models");
 const bcrypt = require("bcrypt");
 
 const AdminController = {
@@ -106,6 +106,11 @@ const AdminController = {
             "Não existe cadastro para esse email, deseja realizar um cadastro?.",
         });
       }
+    },
+
+    getUsers: async(req, res) => {
+      const usersList = await User.findAll()
+      return res.render('userList')
     },
 
     adminEditUser: (req,res) =>{
