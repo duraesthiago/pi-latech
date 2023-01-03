@@ -203,6 +203,8 @@ const AdminController = {
   adminEditProduct: async (req, res) => {
     let id = req.params.id;
 
+    console.log(req.body);
+
     let product = await Product.findByPk(id);
     product.set({
       Nome: req.body.Nome,

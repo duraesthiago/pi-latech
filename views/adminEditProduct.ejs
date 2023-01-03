@@ -27,7 +27,7 @@
                             value="<%= product.Nome %>">
 
                         <label for="Valor" class="form-label">Valor:</label>
-                        <input class="edit-product-input" type="text" id="valor" name="Preco" placeholder="R$ 99,99"
+                        <input class="edit-product-input" type="text" id="valor" name="Preco" placeholder="R$ 99.99"
                             value="<%= product.Preco %>">
 
                         <div class="offer-input">
@@ -62,7 +62,7 @@
 
                         <label for="Valor" class="form-label">Valor com Desconto:</label>
                         <input class="edit-product-input" type="text" id="desconto" name="PrecoComDesconto"
-                            placeholder="R$ - " value="<%= product.PrecoComDesconto %>">
+                            placeholder="Ex: R$ 99.99 " value="<%= product.PrecoComDesconto %>">
 
                         <label for="Marca" class="form-label">Marca:</label>
                         <select class="edit-product-input" name="idMarcas" id="idMarcas">
@@ -79,7 +79,7 @@
 
                         <label for="Informacoes" class="form-label">Informações:</label>
                         <input class="edit-product-input" type="text" id="informacoes" name="Informacoes"
-                            placeholder="..." value="<%=product.Informacao%>">
+                            placeholder="Digite as informações do produto" value="<%=product.Informacao%>">
                     </div>
                     <div class="btn-edit-product-form">
                         <button type="submit" class="button">Salvar alterações</button>
