@@ -246,6 +246,14 @@ a {
  box-shadow: 4px 4px 4px var(--dark-gray);
 }
  
+.products-content{
+  display:flex; 
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content: center;
+  height: auto;  
+  align-items: stretch;
+}
 
 .products-wrapper{
   display:flex; 

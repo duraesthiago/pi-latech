@@ -1,12 +1,15 @@
+<!-- Include Head -->
 <%- include('partials/head') %>
-<!-- Include Header -->
-<%- include('partials/header', {title: 'Início' }) %>
-<!-- Include Slide -->
-<%- include('partials/slide') %>     
-  <main>
-      <div class="products-content">
-          <h2 class="index-title">OFERTAS DA SEMANA</h2>
-          <div class="products-wrapper">
+  <!-- Include Header -->
+  <%- include('partials/header', {title: 'Início' }) %>
+    <!-- Include navbarCategories -->
+    <%- include('partials/navbarCategories') %>
+      <!-- Include Slide-->
+      <%- include('partials/slide') %>
+        <main class="index-main">
+          <div class="products-list">
+            <h2 class="index-title">OFERTAS DA SEMANA</h2>
+            <div class="products-content">
               <% for(let product of products){ %>
                 <article class="products-itens">
                   <img class="products-image" src="<%= product['images.Imagem'] %>" alt="<%= product.Nome%>" />
@@ -15,56 +18,15 @@
                   </div>
                   <div class="products-old-price">R$ <%= product.Preco %>
                   </div>
-                  <div class="products-price">R$ <%= (product.Preco*product.PrecoComDesconto).toFixed(2) %>
+                  <div class="products-price">R$ <%= product.PrecoComDesconto %>
                   </div>
-                  <Button class="detail-products-button"><a href="/products/<%= product.idProdutos %>"
-                      class="link-button">Ver mais</a></Button>
-                </article>
+                  <Button class="detail-products-button">
+                    <a href="/products/detail/<%= product.idProdutos %>" class="link-button">Ver mais</a>
+                  </Button>
+                </article> 
               <% } %>
-          </div>
-      </div>
-      </div>
-        <div class="products-content">
-            <h2 class="index-title">CELULAR</h2>
-            <div class="products-wrapper">
-                <img class="products-itens-img" src="/img/marcadorCelular.png" alt="marcador notbook">             
-                <% for(let product of products){ %>                  
-                  <article class="products-itens">
-                    <img class="products-image" src="<%= product['images.Imagem'] %>" alt="<%= product.Nome%>" />
-                    <div class="products-description">
-                      <%= product.Nome %>
-                    </div>
-                    <div class="products-price">
-                      R$ <%= (product.Preco*product.PrecoComDesconto).toFixed(2) %>
-                    </div>
-                    <Button class="detail-products-button"><a href="/products/detail/<%= product.idProdutos %>"
-                        class="link-button">Ver mais</a></Button>
-                  </article>
-                <% } %>
-            </div>    
-        </div>
-      </div>
-       </div>
-        <div class="products-content">
-            <h2 class="index-title">NOTEBOOKS</h2>
-            <div class="products-wrapper">
-                <img class="products-itens-img" src="/img/marcadorNotebook.png" alt="marcador notbook">             
-                <% for(let product of products){ %>                  
-                  <article class="products-itens">
-                    <img class="products-image" src="<%= product['images.Imagem'] %>" alt="<%= product.Nome%>" />
-                    <div class="products-description">
-                      <%= product.Nome %>
-                    </div>
-                    <div class="products-price">
-                      R$ <%= (product.Preco*product.PrecoComDesconto).toFixed(2) %>
-                    </div>
-                    <Button class="detail-products-button"><a href="/products/detail/<%= product.idProdutos %>"
-                        class="link-button">Ver mais</a></Button>
-                  </article>
-                <% } %>
-            </div>    
-        </div>
-      </div>                
-  </main>
-        <!-- Include Footer -->
-        <%- include('partials/footer') %>
+            </div>
+          </div>          
+        </main>
+        <!-- Include Footer -->  
+        <%- include('partials/footer') %> 
