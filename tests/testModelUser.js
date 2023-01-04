@@ -22,9 +22,12 @@
 // teste()
 
 //PARA TESTAR AS ASSOCIAÇÕES PURCHASES- Status ok
-const { User } = require("../database/models");
-async function teste() {
-    let users = await User.findByPk(1, { include: ["addresses"] })
-    console.log(users.toJSON())
+const {User} = require("../database/models");
+async function teste(){
+    let users = await User.findByPk(3, {include:["addresses"]})
+        console.log(users.toJSON())
 }
+
+
+
 teste()
