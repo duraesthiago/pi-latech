@@ -29,7 +29,7 @@ module.exports = (sequelize, DataTypes) => {
                 type: DataTypes.INTEGER,
                 allowNull: false
             }
-                        
+
         },
         {
             tableName: "images",
@@ -37,11 +37,11 @@ module.exports = (sequelize, DataTypes) => {
             paranoid: false
         }
     )
-    Image.associate = (models)=>{
-        Image.belongsTo(models.Brand, {foreignKey:'Marcas_idMarcas', as: 'brands'});
-        Image.belongsTo(models.Product, {foreignKey:'Produtos_idProdutos', as: 'products'})        
+    Image.associate = (models) => {
+        Image.belongsTo(models.Brand, { foreignKey: 'Marcas_idMarcas', as: 'brands' });
+        Image.belongsTo(models.Product, { foreignKey: 'Produtos_idProdutos', as: 'products' })
     }
-    
+
 
     return Image;
 

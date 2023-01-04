@@ -1,0 +1,75 @@
+<%- include('partials/head') %>
+    <!-- Include Header -->
+    <%- include('partials/header', {title: 'Início' }) %>
+
+        <main>
+            <link rel="stylesheet" href="/stylesheets/adminEditProduct.css">
+
+            <h3 class="edit_title">Painel de Administrador >> CRIAR PRODUTO</h3>
+
+            <section class="detail">
+
+                <form class="admin-product-form" action="/admin/adminProductCreate/create" method="POST">
+                    <div class="description-product">
+
+                        <label for="Nome" class="form-label">Nome do produto:</label>
+                        <input class="edit-product-input" type="text" id="nome" name="Nome" placeholder="Ex: Iphone...">
+
+                        <label for="Codigo" class="form-label">Codigo:</label>
+                        <input class="edit-product-input" type="text" id="codigo" name="Codigo"
+                            placeholder=" Ex: AXHG7654">
+
+
+                        <label for="Valor" class="form-label">Valor:</label>
+                        <input class="edit-product-input" type="text" id="valor" name="Preco"
+                            placeholder="Ex: R$ 99.99">
+
+                        <div class="offer-input">
+                            <h4>Em oferta:</h4>
+                            <label for="Valor" class="form-label">Sim</label>
+                            <input type="radio" id="checked" name="Oferta" value="1">
+                            <label for="Valor" class="form-label">Não</label>
+                            <input type="radio" id="checked" name="Oferta" value="0" checked>
+                        </div>
+
+                        <div class="offer-input">
+                            <h4>Em venda:</h4>
+                            <label for="Valor" class="form-label">Sim</label>
+                            <input type="radio" id="checked" name="Status" value="1" checked>
+                            <label for="Valor" class="form-label">Não</label>
+                            <input type="radio" id="checked" name="Status" value="0">
+                        </div>
+
+                        <label for="Valor" class="form-label">Valor com Desconto:</label>
+                        <input class="edit-product-input" type="text" id="desconto" name="PrecoComDesconto"
+                            placeholder="Ex: R$ 99.99">
+
+                        <label for="Marca" class="form-label">Marca:</label>
+                        <select class="edit-product-input" name="idMarcas" id="idMarcas">
+                            <% for (b of brands) { %>
+                                <option value="<%=b.idMarcas %>">
+                                    <%= b.Marca %>
+                                </option>
+                                <% } %>
+                        </select>
+
+                        <label for="Categoria" class="form-label">Categoria:</label>
+                        <select class="edit-product-input" name="Categoria" id="idCategorias">
+                            <% for (c of category) { %>
+                                <option value="<%=c.idCategorias %>">
+                                    <%= c.Categoria %>
+                                </option>
+                                <% } %>
+                        </select>
+
+                        <label for="Informacoes" class="form-label">Informações:</label>
+                        <input class="edit-product-input" type="text" id="informacoes" name="Informacoes"
+                            placeholder="Digite as Informações do produto">
+                    </div>
+                    <div class="btn-edit-product-form">
+                        <button type="submit" class="button">Salvar alterações</button>
+                    </div>
+                </form>
+            </section>
+        </main>
+        <%- include('partials/footer') %>

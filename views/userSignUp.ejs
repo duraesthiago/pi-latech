@@ -11,7 +11,9 @@
       <div class="register-account">
         <div>
           <% if(error) {%>
-            <div class="error"> <%= error %> </div>
+            <div class="error">
+              <%= error %>
+            </div>
             <%}%>
         </div>
 
@@ -76,9 +78,7 @@
                                   <% } %>
 
                                     <label for="avatar">Avatar</label>
-                                    <input class="name" 
-                                    type="file" name="avatar" id="avatar" 
-                                    />
+                                    <input class="name" type="file" name="avatar" id="avatar" />
 
                                     <% if(locals.errors && errors.avatar) {%>
                                       <div class="danger">
@@ -86,10 +86,10 @@
                                       </div>
                                       <% } %>
 
-                                      <br>
-                                      <button class="btn_registration" type="submit">Cadastrar-se</button>
-                                      <br>
-                                      <a href="/users/login">Ou faça login</a>
+                                        <br>
+                                        <button class="btn_registration" type="submit">Cadastrar-se</button>
+                                        <br>
+                                        <a href="/users/login">Ou faça login</a>
           </div>
         </form>
     </main>
