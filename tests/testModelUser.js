@@ -25,8 +25,7 @@
 const {User} = require("../database/models");
 async function teste(){
     let users = await User.findByPk(3, {include:["addresses"]})
-        console.log(users.toJSON()) 
- 
+        console.log(users.toJSON())
 }
 
 
