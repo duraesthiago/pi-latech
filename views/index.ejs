@@ -1,3 +1,4 @@
+<!-- Include Head -->
 <%- include('partials/head') %>
   <!-- Include Header -->
   <%- include('partials/header', {title: 'Início' }) %>
@@ -5,7 +6,6 @@
     <%- include('partials/navbarCategories') %>
       <!-- Include Slide-->
       <%- include('partials/slide') %>
-
         <main class="index-main">
           <div class="products-list">
             <h2 class="index-title">OFERTAS DA SEMANA</h2>
@@ -18,15 +18,15 @@
                   </div>
                   <div class="products-old-price">R$ <%= product.Preco %>
                   </div>
-                  <div class="products-price">R$ <%= product.PrecoComDesconto.toFixed(2) %>
+                  <div class="products-price">R$ <%= product.PrecoComDesconto %>
                   </div>
-                  <Button class="detail-products-button"><a href="/products/detail/<%= product.idProdutos %>"
-                      class="link-button">Ver mais</a></Button>
-                </article>
-                <% } %>
+                  <Button class="detail-products-button">
+                    <a href="/products/detail/<%= product.idProdutos %>" class="link-button">Ver mais</a>
+                  </Button>
+                </article> 
+              <% } %>
             </div>
-          </div>
-          </div>
+          </div>          
         </main>
-        <!-- Include Footer -->
-        <%- include('partials/footer') %>
+        <!-- Include Footer -->  
+        <%- include('partials/footer') %> 

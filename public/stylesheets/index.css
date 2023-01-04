@@ -229,6 +229,14 @@ a {
  box-shadow: 4px 4px 4px var(--dark-gray);
 }
  
+.products-content{
+  display:flex; 
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content: center;
+  height: auto;  
+  align-items: stretch;
+}
 
 .products-wrapper{
   display:flex; 
@@ -315,10 +323,9 @@ a {
   justify-items: center;
   }
 
-  .link-button{
-    color: #fbfbfb;
-    
-  }
+.link-button{
+    color: #fbfbfb;    
+}
 
   /* tablet, landscape iPad, lo-res laptops ands desktops */ 
  @media (min-width: 600px) {

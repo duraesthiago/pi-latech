@@ -1,6 +1,5 @@
 const { Op } = require("sequelize");
 const { Product, Image } = require("../database/models");
-const idProdutosComDesconto = [1, 2, 4, 5, 8, 29];
 const IndexController = {
   index: async (req, res) => {
     let products = await Product.findAll({
@@ -9,8 +8,10 @@ const IndexController = {
           model: Image, as: 'images',
       }],
       where: {
-        Oferta:{[Op.ne]: 0,}
-      }
+        Oferta:{[Op.ne]: 0, 
+        }        
+      },
+      
   });    
     // products = products.map((product) => {
     //   product.PrecoComDesconto = product.Preco * product.Oferta
