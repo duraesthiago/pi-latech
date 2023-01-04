@@ -1,32 +1,33 @@
+<!-- Include Head -->
 <%- include('partials/head') %>
-<!-- Include Header -->
-<%- include('partials/header', {title: 'Início' }) %>
-<!-- Include Slide -->
-<%- include('partials/slide') %>     
-  <main>
-      <div class="products-content">
-          <h2 class="index-title">PRODUTOS ENCONTRADOS</h2>
-          <div class="products-wrapper">
-            <% for(let product of products){ %>
+  <!-- Include Header -->
+  <%- include('partials/header', {title: 'Início' }) %>
+    <!-- Include navbarCategories -->
+    <%- include('partials/navbarCategories') %>
+      <!-- Include Slide-->
+      <%- include('partials/slide') %>
+        <main class="index-main">
+          <div class="products-list">
+            <h2 class="index-title">PRODUTOS ENCONTRADOS</h2>
+            <div class="products-content">
+              <% for(let product of products){ %>
                 <article class="products-itens">
-                <img class="products-image" src="<%= product['images.Imagem'] %>" alt="<%= product.Nome %>"/>                    
-                <div class="products-description">
+                  <img class="products-image" src="<%= product['images.Imagem'] %>" alt="<%= product.Nome%>" />
+                  <div class="products-description">
                     <%= product.Nome %>
-                </div>                    
-                <div class="products-price">
-                    R$ <%= (product.Preco*product.PrecoComDesconto).toFixed(2) %>
-                </div>
-                <Button class="detail-products-button">
-                <a href="/products/detail/<%= product.idProdutos %>">Ver mais</a>
-                </Button>
-                </article>
-            <% } %>               
+                  </div>                  
+                  <div class="products-price">R$ <%= product.PrecoComDesconto %>
+                  </div>
+                  <Button class="detail-products-button">
+                    <a href="/products/detail/<%= product.idProdutos %>" class="link-button">Ver mais</a>
+                  </Button>
+                </article> 
+              <% } %>
             </div>
-        </div>
-    </div>           
-</main>
-<!-- Include Footer -->
-<%- include('partials/footer') %>
+          </div>          
+        </main>
+        <!-- Include Footer -->  
+        <%- include('partials/footer') %> 
 
 
 
