@@ -7,8 +7,9 @@
     color: var(--medium-blue);
     text-align: center;
     margin: 20px;
-      
-
+}
+.aboutUs-tittle img{
+    width: 40%;
 }
 .aboutUs-article{
     font-family: 'Oswald', sans-serif;

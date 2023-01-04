@@ -10,9 +10,11 @@
   --ligth-gray: #f1f1f1;
   --dust-white: #fbfbfb;
 }
+
 *{
   box-sizing: border-box;
 }
+
 .products-wrapper {
   padding: 40px;
   align-items: center;
@@ -41,8 +43,6 @@
   margin: 10px;
   
 }
-
-
 
 .product-box img {
   max-width: 10rem;
