@@ -25,11 +25,13 @@ const controler = {
         let reqCategory = req.query.category;
         let productsCategory = await Product.findAll({
             raw: true,
+            where: {
+                Status: 1
+            },
             include: [{
                 model: Category, as: 'categories',
                 where: {
-                    Categoria: reqCategory,
-                    Status: 1
+                    Categoria: reqCategory
                 },
             },
             { model: Image, as: 'images' }]
