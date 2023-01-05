@@ -1,4 +1,4 @@
-.edit-container{
+.panel-container{
     border: 1px solid var(--dark-blue);
     border-radius: 20px;
     display: flex;
@@ -11,7 +11,7 @@
 
 }
 
-.edit_title{
+.panel_title{
     margin: 5% 4%;
     background: linear-gradient( 120deg, var(--pink-degrade) 0%, var(--ligth-lilac) 52%, var(--dark-blue) 100% );
     padding: 2%;

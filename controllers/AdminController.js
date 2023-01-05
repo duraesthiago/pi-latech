@@ -81,17 +81,18 @@ const AdminController = {
 
             delete adminToLogin.Password;
             req.session.adminLogged = adminToLogin;
-            //console.log(req.session.adminLogged);
-            //console.log(adminToLogin);
+          
           }
 
           if (req.body.remember_admin) {
             res.cookie("adminEmail", req.body.emailAdmin, {
-              maxAge: (1000 * 60) * 30
+              maxAge: (1000 * 60) * 1000
             });
+            console.log(req.session.adminLogged);
+
           }
           if (!req.body.remember_admin) {
-            res.cookie("adminEmail", req.body.email, {
+            res.cookie("adminEmail", req.body.emailAdmin, {
               maxAge: (1000 * 60) * 5
 
             });
@@ -114,26 +115,36 @@ const AdminController = {
 
   getUsers: async (req, res) => {
     const usersList = await User.findAll({raw: true})
-    return res.render('usersList', { usersList })
+    return res.render('adminUsersList', { usersList })
   },
 
   adminEditUser: (req, res) => {
     res.render("adminEditUser")
   },
 
-  updateUser: async (req, res) => {
+  adminUserToEdit: async (req, res) => {
     let userId = req.params.id;
+      console.log(req.body)
+
     let user = await User.findByPk(userId);
+    user.set({
+        Nome: req.body.name,
+        Sobrenome: req.body.lastName,
+        Email: req.body.email,
+        Cpf: req.body.personal_id,
+        Telefone: req.body.phone,
+        Avatar: req.body.avatar,
+    });
 
     if (user)
-      res.render("updateUser", { user });
+      res.render("adminUpdateUser", { user });
     //console.log(user)
 
   },
 
   updateUserData: async (req, res) => {
     let user = await User.update(
-      {
+      { 
         Nome: req.body.name,
         Sobrenome: req.body.lastName,
         Email: req.body.email,

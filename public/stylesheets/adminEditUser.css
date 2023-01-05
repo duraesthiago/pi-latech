@@ -1,15 +1,3 @@
-:root {
-  --pink-degrade: #c837c2;
-  --ligth-lilac: #7f7ae9;
-  --ultra-ligth-blue: #cee3f0;
-  --ligth-blue: #3786e1;
-  --medium-blue: #2c3ac1;
-  --medium-gray: #565656;
-  --dark-blue: #070d40;
-  --dark-gray: #252525;
-  --ligth-gray:#f1f1f1;
-  --dust-white: #fbfbfb;
-}
 
 .edit-container {
   width: 100%;
@@ -17,7 +5,10 @@
 
 .edit_title{
   margin: 1% 4%;
-  background: linear-gradient( 120deg, var(--pink-degrade) 0%, var(--ligth-lilac) 52%, var(--dark-blue) 100% );
+  background: linear-gradient( 120deg, 
+  var(--pink-degrade) 0%, 
+  var(--ligth-lilac) 52%, 
+  var(--dark-blue) 100% );
   padding: 2%;
   color: #fbfbfb;
   border-radius: 20px;

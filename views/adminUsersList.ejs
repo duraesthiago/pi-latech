@@ -1,0 +1,44 @@
+<%- include('partials/head') %>
+
+  <!-- Include Header -->
+  <%- include('partials/headerAdmin') %>
+
+    <main>
+      <link rel="stylesheet" href="/stylesheets/adminUsersList.css" />
+
+      <h3 class="edit_title">Painel de Administrador - Lista de Usuários</h3>
+
+      <div class="edit-container">
+        <h2>Lista de usuários</h2>
+        <div class="edit-user-container">
+       
+            <ul>
+                <% for (user of usersList) {%>
+                <li class="user-data" >
+                  <%= user.idUser %>
+                  <%= user.Nome %>,  
+                  <%= user.Sobrenome %>, <br>
+                  <%= user.Email %>, <br>
+                  <%= user.Cpf %>, <br>
+                  <%= user.Telefone %>, 
+                  <%= user.Avatar%>, 
+                  <%= user.Senha%> <br>
+               <div class="btn-container" >
+                 <button class="btn-admin-edit-user ">
+                    <a 
+                    href="/admin/adminEditUser/<%= user.idUser %>"
+                    >Editar</a>
+                   </button> 
+ 
+                    <form method="post" action="/admin/adminDeleteUser/<%= user.idUser %>"">
+                      <button class="btn-admin-delete-user" type="submit">Excluir</button>
+                    </form>
+               </div>
+                </li>
+            <% } %>
+            </ul>
+        </div>
+      </div>
+    </main>
+    <!-- Include Footer -->
+    <%- include('partials/footer') %>
