@@ -1,7 +1,22 @@
+:root {
+  --pink-degrade: #c837c2;
+  --ligth-lilac: #7f7ae9;
+  --ultra-ligth-blue: #cee3f0;
+  --ligth-blue: #3786e1;
+  --medium-blue: #2c3ac1;
+  --medium-gray: #565656;
+  --dark-blue: #070d40;
+  --dark-gray: #252525;
+  --ligth-gray: #f1f1f1;
+  --dust-white: #fbfbfb;
+}
+
+* {
+  box-sizing: border-box;
+}
+
 .products-wrapper {
-  display: flex;
-  flex-direction: column;
-  padding: 20px;
+  padding: 40px;
   align-items: center;
   border-radius: 8px;
   margin-top: 30px;
@@ -17,27 +32,23 @@
 .product-box {
   font-size: 0.8rem;
   text-align: center;
-  width: 300px;
-  height: 300px;
+  height: 360px;
+  max-width: 300px;
   text-transform: uppercase;
-  box-shadow: var(--medium-gray) 0px 1px 8px;
+  border: 1px solid var(--medium-blue);
   background-color: var(--dust-white);
   border-radius: 10px;
   transition: 300ms;
-  padding: 10px;
-  margin: 5px;
-  
+  padding: 40px;
+  margin: 10px;
 }
 
 .product-box img {
   max-width: 10rem;
   max-height: 10rem;
+  padding: 30px;
   border-radius: 10px;
-}
-
-.product-box a, h2, p{
-  line-height: 20px;
-  color: var(--dark-gray);
+  display: flex;
 }
 
 .product-box-data {
@@ -51,47 +62,56 @@
   margin: 50px;
   color: var(--dark-gray);
 }
+/*
+.product-box-data p {
+  font-size: 1em;
+  text-align: center;
+  margin: 30px 0 30px 50px;
+  color: var(--dark-gray);
+  border-radius: 8px;
+  box-shadow: 10px 5px 5px var(--medium-gray);
 
-.btn_order {
-  font-size: 12px;
-  width: 80px;
-  padding: 5px;
+}*/
+/*
+.btn-product {
+
+  text-align: center;
+  padding: 10px;
+  border: 1px solid var(--dark-blue);
+  border-radius: 30px;
   background-color: var(--ligth-lilac);
-  border-radius: 10px;
-  color: var(--dust-white);
-  box-shadow: 2px 2px 2px var(--dark-gray);
-  margin: 20px 120px;
+  width: 80px;
 }
 
-@media (min-width: 600px) {
-  /* tablet, landscape iPad, lo-res laptops ands desktops */ 
+.btn-product:hover {
+    cursor: pointer;
+    color: var(--ligth-lilac);
+}
+*/
+@media (min-width: 801px) {
+  /* tablet, landscape iPad, lo-res laptops ands desktops */
   .products-wrapper {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-}
+  }
 
   .product-box {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
     width: 350px;
-    align-items: center;
-    justify-content: center;
   }
-  }
+}
 
-@media (min-width: 900px) {
+@media (min-width: 1025px) {
   /* big landscape tablets, laptops, and desktops */
   .product-box {
     width: 300px;
   }
-  }
+}
 
-  @media (min-width: 1200px) {
-    /* hi-res laptops and desktops */
-    .product-box {
-      width: 300px;
-    }
+@media (min-width: 1281px) {
+  /* hi-res laptops and desktops */
+
+  .product-box {
+    width: 500px;
   }
-  
+}

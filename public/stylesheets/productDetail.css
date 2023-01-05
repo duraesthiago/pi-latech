@@ -5,6 +5,7 @@
 }
 
 .product-details {
+    background: #070d40;
     width: 90%;
     box-shadow: var(--medium-gray) 0px 1px 8px;
     border-radius: 8px;
