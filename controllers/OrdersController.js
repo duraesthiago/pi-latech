@@ -1,4 +1,4 @@
-const { Product, Address, Purchase } = require('../database/models')
+const { Product, Address, User, Purchase } = require('../database/models')
 
 
 const ordersController = {
@@ -46,11 +46,13 @@ const ordersController = {
         });
 
         req.session.order = productsIntoCart;
+        let total = 0
+        for(let i=0; i< productsIntoCart.length; i++)
+        total += productsIntoCart[i].totalProduto
+        console.log(total)
+        
 
-        let addresses = await Address.findAll()
-
-
-        res.render('cart.ejs', { productsIntoCart, total: req.session.total, addresses: addresses })
+        res.render('cart.ejs', { productsIntoCart, total})
     },
 
     updateCart: (req, res) => {
@@ -71,17 +73,45 @@ const ordersController = {
 
         req.session.order = productsIntoCart;
         req.session.total = total
-
-
-
+            
         res.render('cart.ejs', { productsIntoCart, total });
-
 
     },
 
-    releaseOrder: (req, res) => {
+    payment: async (req, res) => {                    
+        let id = req.session.userLogged.idUser
+                
+        let user = await User.findByPk(id, {
+            raw: true,
+            include: [
+                { model: Address, as: 'addresses' }
+            ]
+        });
+
+        let addressesUser = await Address.findAll({raw: true, where:{users_idUser: id}});
+
+        productsIntoCart = req.session.order
+        total = req.session.total
+
+        let loggedUser = (req.session.userLogged !== undefined)
+        
+        res.render('cartPayment.ejs', { productsIntoCart, total, user, loggedUser, addressesUser })
+        
+    },
+    
+    releaseOrder: async (req, res) => {
         let pedidos = req.session.order
-        //let total = req.session.total
+        let total = req.session.total
+
+        let newAdress = await Address.create({
+            Endereco: req.body.endereco,
+            Cidade: req.body.cidade,
+            Estado: req.body.estado,
+            users_idUser: req.session.userLogged.idUser
+        })
+
+       
+        res.send("pedidoFinalizado");
 
         /*db.Purchase.create({
             Data_Pedido: new Date().toISOString(),
