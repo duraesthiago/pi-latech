@@ -13,6 +13,7 @@ const UserController = {
     const resultValidations = validationResult(req);
     if (resultValidations.errors.length > 0) {
       return res.render("userSignUp", {
+        error: undefined,
         errors: resultValidations.mapped(),
         oldData: req.body,
       });

@@ -2,7 +2,6 @@
     <!-- Include Header -->
     <%- include('partials/header', {title: 'Início' }) %>
         <!-- Include Banner -->
-        <%- include('partials/banner') %>
             <%- include('partials/slide') %>
                 <main>
                     <link rel="stylesheet" href="/stylesheets/products.css" />
@@ -11,7 +10,7 @@
                         <h2 class="index-title">Produtos</h2>
                         <div class="products-wrapper">
                             <% for (p of products) { %>
-               _                 <div class="product-box">
+                               <div class="product-box">
                                     <section>
                                         <a href="/products/detail/<%= p.idProdutos %>">
 

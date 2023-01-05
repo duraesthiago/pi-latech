@@ -1,19 +1,7 @@
-:root {
-  --pink-degrade: #c837c2;
-  --ligth-lilac: #7f7ae9;
-  --ultra-ligth-blue: #cee3f0;
-  --ligth-blue: #3786e1;
-  --medium-blue: #2c3ac1;
-  --medium-gray: #565656;
-  --dark-blue: #070d40;
-  --dark-gray: #252525;
-  --ligth-gray: #f1f1f1;
-  --dust-white: #fbfbfb;
-}
 
-* {
-  box-sizing: border-box;
-}
+
+
+
 
 .products-wrapper {
   padding: 40px;
@@ -35,7 +23,7 @@
   height: 360px;
   max-width: 300px;
   text-transform: uppercase;
-  border: 1px solid var(--medium-blue);
+  border: 1px solid var();
   background-color: var(--dust-white);
   color: var(--medium-gray);
   border-radius: 10px;
@@ -63,32 +51,22 @@
   margin: 50px;
   color: var(--dark-gray);
 }
-/*
-.product-box-data p {
-  font-size: 1em;
-  text-align: center;
-  margin: 30px 0 30px 50px;
-  color: var(--dark-gray);
-  border-radius: 8px;
-  box-shadow: 10px 5px 5px var(--medium-gray);
 
-}*/
-/*
-.btn-product {
-
-  text-align: center;
-  padding: 10px;
-  border: 1px solid var(--dark-blue);
-  border-radius: 30px;
+.order {
   background-color: var(--ligth-lilac);
+  color: var(--dust-white);
+  text-align: center;
+  border-radius: 30px;
   width: 80px;
-}
+  transition: 0.3s;
+  }
 
-.btn-product:hover {
-    cursor: pointer;
-    color: var(--ligth-lilac);
+.order:hover {
+  cursor: pointer;
+  background-color: var(--ligth-lilac);
+  color: var(--pink-degrade);
 }
-*/
+ 
 @media (min-width: 801px) {
   /* tablet, landscape iPad, lo-res laptops ands desktops */
   .products-wrapper {
