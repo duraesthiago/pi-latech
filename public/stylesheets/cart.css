@@ -1,17 +1,4 @@
 
-:root {
-  --pink-degrade: #c837c2;
-  --ligth-lilac: #7f7ae9;
-  --ultra-ligth-blue: #cee3f0;
-  --ligth-blue: #3786e1;
-  --medium-blue: #2c3ac1;
-  --medium-gray: #565656;
-  --dark-blue: #070d40;
-  --dark-gray: #252525;
-  --ligth-gray:#f1f1f1;
-  --dust-white: #fbfbfb;
-  --warning: #b00d0d;
-}
 
 .ls-cart {
   width: 100%;
@@ -226,6 +213,7 @@ a:hover {
 }
 .ls-btn-primary {
   margin-left: 120px;
+  margin-bottom: 10px;
   background-color: var(--dust-white);
   box-shadow: var(--medium-gray) 0px 1px 8px;
   border-radius: 4px;
