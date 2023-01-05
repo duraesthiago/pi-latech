@@ -70,16 +70,16 @@ ul {
   margin: 0;
 }
 
-/* button {
+button {
   background-color: var(--ligth-lilac);
   color: var(--dust-white);
   transition: 0.3s;
-  }
+}
 
 button:hover {
   background-color: var(--ligth-lilac);
-  color: var(--pink-degrade)
-} */
+  color: var(--pink-degrade);
+}
 
 a {
   text-decoration: none;
