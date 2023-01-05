@@ -51,7 +51,7 @@ strong {
   width: 340px;
   font-size: 10px;
   border-radius: 12px;
-  border: var(--ligth-blue) 0.5px solid;
+  box-shadow: var(--medium-gray) 0px 1px 8px;
   transition: 0.3s ease-out;
   margin-bottom: 5px;
 }
