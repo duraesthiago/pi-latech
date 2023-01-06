@@ -22,7 +22,7 @@ router.get('/panel', notLoggedAdminMiddleware, AdminController.showAdminPanel);
 router.get('/adminUsersList', notLoggedAdminMiddleware, AdminController.getUsers);
 
 router.get('/adminEditUser/:id', AdminController.adminUserToEdit);
-//router.put('/adminEditUser/:id/update', AdminController.updateUserData);
+router.put('/adminEditUser/:id/update', AdminController.updateUserData);
 
 router.get('/adminProduct', notLoggedAdminMiddleware, AdminController.adminShowProduct);
 

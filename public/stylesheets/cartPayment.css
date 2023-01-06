@@ -1,13 +1,4 @@
-:root {
-    --pink-degrade: #C837C2;
-    --ligth-lilac: #7F7AE9;
-    --ultra-ligth-blue: #CEE3F0;
-    --ligth-blue: #3786E1;
-    --medium-blue: #2C3AC1;
-    --dark-blue: #070D40;
-    --dark-gray: #252525;
-    --dust-white: #FBFBFB;
-  }
+
   .ls-cart-header {
     width: 100vh;
     max-width: 150px;

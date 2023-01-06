@@ -1,13 +1,22 @@
-
-
+:root {
+  --pink-degrade: #C837C2;
+  --ligth-lilac: #7F7AE9;
+  --ultra-ligth-blue: #CEE3F0;
+  --ligth-blue: #3786E1;
+  --medium-blue: #2C3AC1;
+  --medium-gray: #565656;
+  --dark-blue: #070D40;
+  --dark-gray: #252525;
+  --ligth-gray:#f1f1f1;
+  --dust-white: #FBFBFB;
+  --warning: #B00D0D;
+}
 .ls-cart {
   width: 100%;
 }
-
 .ls-cart-header{
   width: 90%;
 }
-
 .mycart {
   width: 150px;
   height: 60px;
@@ -21,18 +30,15 @@
   float: right;
   box-shadow: var(--medium-gray) 0px 1px 8px;
 }
-
 .ls-cart-content {
   width: 90%;
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
-
 .ls-checkbox-cart {
   visibility: hidden;
 }
-
 .ls-no-style-list {
   display: flex;
   flex-direction: column;
@@ -48,7 +54,6 @@
   transition: 0.3s ease-out;
   margin: 10px;
 }
-
 .ls-no-style-list a {
   width: 95%;
   margin-left: 8px;
@@ -124,7 +129,6 @@ a:hover {
   box-shadow: var(--dark-blue) 0px 1px 8px;
   opacity: 0.5;
   transition: 0.4s;
-  height: 30px;
 }
 .btn-zip-code:hover {
   cursor: pointer;
@@ -168,7 +172,6 @@ a:hover {
    margin-top: 10px;
   color: var(--dark-gray);
 }
-
 .ls-about-your-order p{
   font-size: 16px;
   font-weight: normal;
@@ -176,7 +179,6 @@ a:hover {
   line-height: 8px;
   margin: 20px;
 }
-
 .ls-about-your-order a{
   font-size: 16px;
   font-weight: normal;
@@ -184,7 +186,6 @@ a:hover {
   line-height: 8px;
   margin: 20px;
 }
-
 .delivery-tax {
   border: 1px solid var(--ligth-blue);
   border-radius: 8px;
@@ -214,7 +215,6 @@ a:hover {
 }
 .ls-btn-primary {
   margin-left: 120px;
-  margin-bottom: 10px;
   background-color: var(--dust-white);
   box-shadow: var(--medium-gray) 0px 1px 8px;
   border-radius: 4px;
@@ -223,66 +223,45 @@ a:hover {
   padding: 8px;
   opacity: 0.5;
   transition: 0.4s;
-  }
+}
 .ls-btn-primary:hover {
   cursor: pointer;
   opacity: 1;
 }
 @media (min-width: 600px) {
   /* tablet, landscape iPad, lo-res laptops ands desktops */
- 
   .ls-cart-header {
     font-size: 16px;
     width: 100%;
   }
-
   .ls-no-style-list {
     display: flex;
     flex-direction: column;
     width: 500px;
     margin: 10px;
   }
-
    .ls-no-style-list li {
     font-size: 16px;
     margin:20px 30px;
     padding: 10px;
     width: 500px;
-
   }
   .cart-btn {
     margin-bottom: 10px;
   }
-
   .btn-zip-code {
     margin-left: 120px;
   }
   .btn-zip-code-submit {
     margin-left: 380px;
   }
-
   .amount-order {
     width: 750px;
     margin: 10px 25px;
   }
-.btn-delivery-shipp-cost {
-    height: 200px;
-    width: auto;
-    }
-
-.btn-delivery-shipp-cost label {
-  color: red;
-  font-size: 0.8rem;
-  margin: 10px;
+  .ls-btn-primary {
+    margin-left: 340px;
   }
-
-
-@media (min-width: 801px) {
-  /* tablet, landscape iPad, lo-res laptops ands desktops */
- .ls-cart-header{
-  font-size: 16px;
-  margin-left: 600px;
-}
 }
 @media (min-width: 900px) {
   /* big landscape tablets, laptops, and desktops */
@@ -290,84 +269,66 @@ a:hover {
     font-size: 16px;
     width: 100%;
   }
-
   .mycart {
     margin-right: 100px;
   }
-
   .ls-no-style-list {
     display: grid;
     grid-template-columns: 1fr 1fr;
     margin: 10px;
   }
-
    .ls-no-style-list li {
     font-size: 16px;
     margin: 10px 35px;
     padding: 10px;
     width: 350px;
   }
-
   .cart-btn {
     margin-bottom: 10px;
   }
-
   .btn-zip-code {
     margin-left: 120px;
   }
   .btn-zip-code-submit {
     margin-left: 380px;
   }
-
    .ls-about-your-order{
     width: 800px;
    height: 320px;
    margin: 10px 0 10px 48px;
-  } 
-  
+  }
   .ls-btn-primary {
     margin-left: 380px;
   }
 }
-
   @media (min-width: 1200px) {
     /* hi-res laptops and desktops */
-
     .ls-no-style-list {
       display: grid;
       grid-template-columns: 1fr 1fr 1fr;
       margin: 10px;
     }
-
     .ls-no-style-list li {
       width: 300px;
     }
   }
-    
   @media (min-width: 1800px) {
     /* hi-res laptops and desktops */
-
     .ls-no-style-list {
       display: grid;
       grid-template-columns: 1fr 1fr 1fr 1fr;
       margin: 10px;
     }
-
     .ls-no-style-list li {
       width: 350px;
     }
-
     .ls-about-your-order{
       width: 1600px;
      height: 400px;
      margin: 60px 100px;
-    } 
-
+    }
     .ls-btn-primary {
       margin-top: 60px;
       margin-left: 740px;
     }
-    
   }
-    
-

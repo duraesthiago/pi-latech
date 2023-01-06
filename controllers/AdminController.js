@@ -12,6 +12,10 @@ const AdminController = {
     res.render("mainAdmin");
   },
 
+  showAdminPanel: (req, res) => {
+    res.render("adminPanel")
+  },
+
   adminSignUp: (req, res) => {
     res.render("adminSignUp")
   },
@@ -118,10 +122,6 @@ const AdminController = {
     return res.render('adminUsersList', { usersList })
   },
 
-  adminEditUser: (req, res) => {
-    res.render("adminEditUser")
-  },
-
   adminUserToEdit: async (req, res) => {
     let userId = req.params.id;
       console.log(req.body)
@@ -137,7 +137,7 @@ const AdminController = {
     });
 
     if (user)
-      res.render("adminUpdateUser", { user });
+      res.render("adminEditUser", { user });
     //console.log(user)
 
   },
@@ -162,11 +162,7 @@ const AdminController = {
     //   console.log(userLogged)
     //  console.log(req.body);
     //  console.log(req.params.id);
-    return res.redirect('/admin')
-  },
-
-  showAdminPanel: (req, res) => {
-    res.render("adminPanel")
+    return res.rendirect('/adminUsersList')
   },
 
   adminShowProduct: async (req, res) => {
