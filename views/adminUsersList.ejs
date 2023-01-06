@@ -3,7 +3,7 @@
   <!-- Include Header -->
   <%- include('partials/headerAdmin') %>
 
-    <main>
+    <main class="list-wrapper">
       <link rel="stylesheet" href="/stylesheets/adminUsersList.css" />
 
       <h3 class="edit_title">Painel de Administrador - Lista de Usuários</h3>
@@ -30,7 +30,7 @@
                     >Editar</a>
                    </button> 
  
-                    <form method="post" action="/admin/adminDeleteUser/<%= user.idUser %>"">
+                    <form method="post" action="/admin/adminDeleteUser/<%= user.idUser %>">
                       <button class="btn-admin-delete-user" type="submit">Excluir</button>
                     </form>
                </div>

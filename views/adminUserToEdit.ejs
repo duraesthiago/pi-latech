@@ -15,7 +15,7 @@
       <form
         class="user-info-form"
         method="post"
-        action="/admin/"
+        action="/admin/adminEditUser/<%=user.idUser %>/update?_method=PUT" method="POST""
       >
         <div class="user-avatar">
           <img class="img-avatar" src=" " />
@@ -29,21 +29,21 @@
               type="text"
               id="nome"
               name="name"
-              value=""
+              value=" <%= user.Nome %>"
             />
           </div>
 
           <div class="user-form">
             <div class="user-form-class">
               <label class="form-label" for="sobrenome"
-                >Sobrenome do usuário:
+                >Sobrenome do usuário: 
               </label>
               <input
                 class="input-label"
                 type="text"
                 id="lastName"
                 name="lastName"
-                value=""
+                value="<%= user.Sobrenome %>"
               />
             </div>
             </div>
@@ -56,20 +56,20 @@
                     type="text"
                     id="email"
                     name="email"
-                    value=""
+                    value="<%= user.Email %> "
                   />
                 </div>
           </div>
 
           <div class="user-form">
             <div class="user-form-class">
-              <label class="form-label" for="nome">Cpf do usuário: </label>
+              <label class="form-label" for="nome">Cpf do usuário:  </label>
               <input
                 class="input-label"
                 type="text"
                 id="cpf"
                 name="personal_id"
-                value=""
+                value="<%= user.Cpf %>"
               />
             </div>
             </div>
@@ -80,10 +80,10 @@
               type="text"
               id="telefone"
               name="phone"
-              value=""
+              value=" <%= user.Telefone %>"
             />
           </div>
-          <form method="post" action="admin/"></form>
+          
           <button class="btn-save" type="submit">Salvar</button>
         </div>
       </form>
