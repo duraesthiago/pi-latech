@@ -48,12 +48,15 @@ const ordersController = {
         req.session.order = productsIntoCart;
         let total = 0
         for(let i=0; i< productsIntoCart.length; i++)
-        total += productsIntoCart[i].totalProduto              
+        total += productsIntoCart[i].totalProduto          
+         
+        req.session.total = total
 
         res.render('cart.ejs', { productsIntoCart, total})
     },
 
     updateCart: (req, res) => {
+        
         let idProductToChange = req.body.productId;
         let productQtyChanged = req.body.productQty;
 
@@ -75,7 +78,10 @@ const ordersController = {
 
     },
 
-    payment: async (req, res) => {                    
+    payment: async (req, res) => {      
+        
+        console.log(req.session.total)
+                      
         let id = req.session.userLogged.idUser
                 
         let user = await User.findByPk(id, {
@@ -89,19 +95,18 @@ const ordersController = {
 
         productsIntoCart = req.session.order
 
-        let total = req.session.total
+        total = req.session.total
         
         let loggedUser = (req.session.userLogged !== undefined)
         
-        res.render('cartPayment.ejs', { productsIntoCart, total, user, loggedUser, addressesUser })
+        res.render('cartPayment.ejs', { productsIntoCart, total, user, loggedUser, addressesUser, })
         
     },
 
         
     releaseOrder: async (req, res) => {
         let pedidos = req.session.order
-        let total = req.session.total
-
+        
         let newAdress = await Address.create({
             Endereco: req.body.endereco,
             Cidade: req.body.cidade,
@@ -113,20 +118,21 @@ const ordersController = {
         if(req.body.endereco){
             deliveryAddress = req.body.endereco
         } else {
-          deliveryAddress = req.body.address_id
+            deliveryAddress = req.body.address_id
         }
-            console.log(deliveryAddress)
-
-        //console.log(req.body.address_id)  
-        //console.log(req.body.endereco) 
- 
-        /*db.Purchase.create({
+        console.log(deliveryAddress)
+        
+        req.session.total = total
+        console.log(total)
+                     
+        let newPurchase = await Purchase.create({
             Data_Pedido: new Date().toISOString(),
             Total: req.session.total,
-            Forma_de_Pagamento: req.body.payment-option
-            Endereço_de_Entrega:
-        })*/
-        res.send(deliveryAddress);
+            Forma_de_Pagamento: req.body.payment,
+            Endereço_de_Entrega: deliveryAddress,
+            Users_idUser: req.session.userLogged.idUser,
+        })
+        res.send("Pedido Finalizado com sucesso");
     }
 }
 

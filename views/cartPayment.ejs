@@ -47,14 +47,13 @@
               <h5>resumo do pedido</h5>
 
               <img src="" alt="" />
-              <p>Subtotal: R$ <%= total %>
-              </p>
+              <p>Subtotal: R$ <%= total %></p>
               <p>Frete: Grátis! </p>
 
               <form action="/orders/release" method="POST">
                 <label>Forma de Pagamento:
 
-                  <select name="payment-option" id="payment-option">
+                  <select name="payment" id="payment">
                     <option selected disabled>Selecione a forma de pagamento</option>
                     <option value="Pix">PIX</option>
                     <option value="cartao">Cartão de Crédito</option>
@@ -78,7 +77,7 @@
                 <input type="text" id="cidade" name="cidade" placeholder="Cidade">
                 <input type="text" id="estado" name="estado" placeholder="Estado">
                 
-                <p>Total a pagar: R$ <%= total%> <br>
+                <p>Total a pagar: R$ <%= total %> <br>
 
                 <button class="ls-btn-primary" type="submit">Finalizar Compra</button>
                 

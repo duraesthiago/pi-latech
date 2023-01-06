@@ -33,17 +33,18 @@
                     <p>R$ <%= p.Preco %>
                     </p>
 
+                    
                     <div class="cart-btn-label">
-
                       <form action="/orders/updateCart?_method=PUT" method="POST">
                         <label for="quantity">Quantidade:</label>
                         <input type="hidden" id="id" name="productId" value="<%=p.idProdutos %>">
                         <input type="number" id="quantidade" name="productQty" value="<%= p.quantidade %>" min="1"
-                          max="99">
+                        max="99">
                         <input type="submit" value="Adicionar">
                       </form>
-
                     </div>
+                    
+                    
                   </li>
                   <% } %>
               </ul>
