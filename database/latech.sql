@@ -1,15 +1,15 @@
-CREATE DATABASE  IF NOT EXISTS `latech` /*!40100 DEFAULT CHARACTER SET utf8 */;
+CREATE DATABASE  IF NOT EXISTS `latech` /*!40100 DEFAULT CHARACTER SET utf8mb3 */ /*!80016 DEFAULT ENCRYPTION='N' */;
 USE `latech`;
--- MariaDB dump 10.19  Distrib 10.4.24-MariaDB, for Win64 (AMD64)
+-- MySQL dump 10.13  Distrib 8.0.30, for Win64 (x86_64)
 --
 -- Host: localhost    Database: latech
 -- ------------------------------------------------------
--- Server version	10.4.24-MariaDB
+-- Server version	8.0.30
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
+/*!50503 SET NAMES utf8 */;
 /*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
 /*!40103 SET TIME_ZONE='+00:00' */;
 /*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
@@ -23,17 +23,17 @@ USE `latech`;
 
 DROP TABLE IF EXISTS `addresses`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `addresses` (
-  `idAddresses` int(11) NOT NULL AUTO_INCREMENT,
+  `idAddresses` int NOT NULL AUTO_INCREMENT,
   `Endereco` varchar(100) DEFAULT NULL,
   `Cidade` varchar(45) DEFAULT NULL,
   `Estado` varchar(45) DEFAULT NULL,
-  `users_idUser` int(11) NOT NULL,
+  `users_idUser` int NOT NULL,
   PRIMARY KEY (`idAddresses`),
   KEY `fk_addresses_users1_idx` (`users_idUser`),
   CONSTRAINT `fk_addresses_users1` FOREIGN KEY (`users_idUser`) REFERENCES `users` (`idUser`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -42,7 +42,7 @@ CREATE TABLE `addresses` (
 
 LOCK TABLES `addresses` WRITE;
 /*!40000 ALTER TABLE `addresses` DISABLE KEYS */;
-INSERT INTO `addresses` VALUES (1,'Rua Itapuã, n1, Bairro Itapuã, Salvador, Bahia','Salvador','Bahia',1),(2,'Rua das Palmeiras 1','São Paulo','SP',2),(3,'Rua das Palmeiras 2','São Paulo','SP',2),(4,'Rua das Palmeiras 3','São Paulo','SP',2);
+INSERT INTO `addresses` VALUES (1,'Rua Itapuã, n1, Bairro Itapuã, Salvador, Bahia','Salvador','Bahia',1),(2,'Rua das Palmeiras 1','São Paulo','SP',2),(3,'Rua das Palmeiras 2','São Paulo','SP',2),(4,'Rua das Palmeiras 3','São Paulo','SP',2),(5,'Rua sem numero','São Paulo','SP',6),(8,'Rua dos Cachorros 11','São Paulo','SP',6),(14,'Rua das Palmeiras 000','São Paulo','SP',6),(15,'','','',6);
 /*!40000 ALTER TABLE `addresses` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -52,15 +52,15 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `admin`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `admin` (
-  `idAdmin` int(11) NOT NULL AUTO_INCREMENT,
+  `idAdmin` int NOT NULL AUTO_INCREMENT,
   `WorkerId` varchar(45) NOT NULL,
   `Name` varchar(100) NOT NULL,
   `Email` varchar(45) NOT NULL,
   `Password` varchar(200) NOT NULL,
   PRIMARY KEY (`idAdmin`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -79,12 +79,12 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `brands`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `brands` (
-  `idMarcas` int(11) NOT NULL AUTO_INCREMENT,
+  `idMarcas` int NOT NULL AUTO_INCREMENT,
   `Marca` varchar(45) NOT NULL,
   PRIMARY KEY (`idMarcas`)
-) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -103,12 +103,12 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `categories`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `categories` (
-  `idCategorias` int(11) NOT NULL AUTO_INCREMENT,
+  `idCategorias` int NOT NULL AUTO_INCREMENT,
   `Categoria` varchar(45) NOT NULL,
   PRIMARY KEY (`idCategorias`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -127,18 +127,18 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `images`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `images` (
-  `idImagens` int(11) NOT NULL AUTO_INCREMENT,
+  `idImagens` int NOT NULL AUTO_INCREMENT,
   `Nome` varchar(45) NOT NULL,
   `Data_Upload` varchar(45) NOT NULL,
   `Imagem` varchar(100) DEFAULT NULL,
-  `Produtos_idProdutos` int(11) NOT NULL,
-  `Marcas_idMarcas` int(11) NOT NULL,
+  `Produtos_idProdutos` int NOT NULL,
+  `Marcas_idMarcas` int NOT NULL,
   PRIMARY KEY (`idImagens`),
   KEY `fk_Imagens_Produtos1_idx` (`Produtos_idProdutos`),
   KEY `fk_Imagens_Marcas1_idx` (`Marcas_idMarcas`)
-) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -157,19 +157,19 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `products`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `products` (
-  `idProdutos` int(11) NOT NULL AUTO_INCREMENT,
+  `idProdutos` int NOT NULL AUTO_INCREMENT,
   `Nome` varchar(100) NOT NULL,
   `Informacao` varchar(1000) DEFAULT NULL,
   `Codigo` varchar(45) DEFAULT NULL,
-  `Preco` decimal(10,2) DEFAULT 0.00,
-  `Oferta` tinyint(4) DEFAULT NULL,
-  `PrecoComDesconto` decimal(10,2) DEFAULT 0.00,
-  `Categorias_id` int(11) NOT NULL,
-  `Marcas_id` int(11) NOT NULL,
-  `admin_idAdmin` int(11) DEFAULT NULL,
-  `Status` tinyint(1) NOT NULL DEFAULT 1,
+  `Preco` decimal(10,2) DEFAULT '0.00',
+  `Oferta` tinyint DEFAULT NULL,
+  `PrecoComDesconto` decimal(10,2) DEFAULT '0.00',
+  `Categorias_id` int NOT NULL,
+  `Marcas_id` int NOT NULL,
+  `admin_idAdmin` int DEFAULT NULL,
+  `Status` tinyint(1) NOT NULL DEFAULT '1',
   PRIMARY KEY (`idProdutos`),
   KEY `fk_Produtos_Categorias1_idx` (`Categorias_id`),
   KEY `fk_Produtos_Marcas1_idx` (`Marcas_id`),
@@ -177,7 +177,7 @@ CREATE TABLE `products` (
   CONSTRAINT `fk_products_admin1` FOREIGN KEY (`admin_idAdmin`) REFERENCES `admin` (`idAdmin`),
   CONSTRAINT `fk_products_brands1` FOREIGN KEY (`Marcas_id`) REFERENCES `brands` (`idMarcas`),
   CONSTRAINT `fk_products_categories1` FOREIGN KEY (`Categorias_id`) REFERENCES `categories` (`idCategorias`)
-) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -196,16 +196,16 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `products_has_purchases`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `products_has_purchases` (
-  `Produtos_idProdutos` int(11) NOT NULL,
-  `Pedidos_idPedidos` int(11) NOT NULL,
+  `Produtos_idProdutos` int NOT NULL,
+  `Pedidos_idPedidos` int NOT NULL,
   PRIMARY KEY (`Produtos_idProdutos`,`Pedidos_idPedidos`),
   KEY `fk_Produtos_has_Pedidos_Pedidos1_idx` (`Pedidos_idPedidos`),
   KEY `fk_Produtos_has_Pedidos_Produtos_idx` (`Produtos_idProdutos`),
   CONSTRAINT `fk_Produtos_has_Pedidos_Pedidos1` FOREIGN KEY (`Pedidos_idPedidos`) REFERENCES `purchases` (`idPedidos`),
   CONSTRAINT `fk_Produtos_has_Pedidos_Produtos` FOREIGN KEY (`Produtos_idProdutos`) REFERENCES `products` (`idProdutos`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -224,22 +224,21 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `purchases`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `purchases` (
-  `idPedidos` int(11) NOT NULL AUTO_INCREMENT,
+  `idPedidos` int NOT NULL AUTO_INCREMENT,
   `Data_pedido` datetime DEFAULT NULL,
   `Total` decimal(10,2) NOT NULL,
-  `Users_idUser` int(11) NOT NULL,
   `Forma_de_Pagamento` varchar(45) DEFAULT NULL,
   `Endereço_de_Entrega` varchar(100) DEFAULT NULL,
-  `addresses_idAddresses` int(11) NOT NULL,
-  `admin_idAdmin` int(11) DEFAULT NULL,
-  KEY `fk_purchases_addresses1_idx` (`addresses_idAddresses`,`admin_idAdmin`),
-  KEY `fk_purchases_admin1_idx` (`idPedidos`),
-  KEY `fk_Purchases_Users1` (`admin_idAdmin`),
-  CONSTRAINT `fk_Purchases_Users1` FOREIGN KEY (`admin_idAdmin`) REFERENCES `users` (`idUser`),
-  CONSTRAINT `fk_purchases_admin1` FOREIGN KEY (`admin_idAdmin`) REFERENCES `admin` (`idAdmin`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+  `Users_idUser` int NOT NULL,
+  `admin_idAdmin` int DEFAULT NULL,
+  PRIMARY KEY (`idPedidos`),
+  KEY `fk_Purchases_Users1_idx` (`Users_idUser`) /*!80000 INVISIBLE */,
+  KEY `fk_purchases_admin1_idx` (`admin_idAdmin`),
+  CONSTRAINT `fk_purchases_admin1` FOREIGN KEY (`admin_idAdmin`) REFERENCES `admin` (`idAdmin`),
+  CONSTRAINT `fk_Purchases_Users1` FOREIGN KEY (`Users_idUser`) REFERENCES `users` (`idUser`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -248,7 +247,7 @@ CREATE TABLE `purchases` (
 
 LOCK TABLES `purchases` WRITE;
 /*!40000 ALTER TABLE `purchases` DISABLE KEYS */;
-INSERT INTO `purchases` VALUES (1,NULL,999.00,1,'Pix','Rua Itapuã, n1, Bairro Itapuã, Salvador, Bahia',1,1);
+INSERT INTO `purchases` VALUES (1,NULL,999.00,'Pix','Rua Itapuã, n1, Bairro Itapuã, Salvador, Bahia',1,1),(2,'2023-01-06 16:35:07',999.00,'Pix','Rua dos Cachorros 11',6,NULL),(3,'2023-01-06 16:37:27',5998.00,'Pix','Rua das Palmeiras 000',6,NULL);
 /*!40000 ALTER TABLE `purchases` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -258,9 +257,9 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `users`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `users` (
-  `idUser` int(11) NOT NULL AUTO_INCREMENT,
+  `idUser` int NOT NULL AUTO_INCREMENT,
   `Nome` varchar(45) NOT NULL,
   `Sobrenome` varchar(45) NOT NULL,
   `Email` varchar(45) NOT NULL,
@@ -268,12 +267,12 @@ CREATE TABLE `users` (
   `Telefone` varchar(45) NOT NULL,
   `Senha` varchar(100) NOT NULL,
   `Avatar` varchar(45) NOT NULL,
-  `admin_idAdmin` int(11) DEFAULT NULL,
+  `admin_idAdmin` int DEFAULT NULL,
   PRIMARY KEY (`idUser`),
   KEY `fk_purchases_users1_idx` (`admin_idAdmin`),
   KEY `fk_users_admin1_idx` (`admin_idAdmin`),
   CONSTRAINT `fk_users_admin1` FOREIGN KEY (`admin_idAdmin`) REFERENCES `admin` (`idAdmin`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -282,17 +281,9 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'Ana','Santos Silva','ana@email.com','12312312312312','7198888888','123456','efsd',NULL),(2,'Lucas','Lima Paz','lucas@email.com','12312312312312','71991919191','654321','sdvsdv',NULL),(3,'Paula','Simon','paula@email.com','12345567898','99899 5544','$2b$10$c5/LTTGil85FRq7ksxnfR.4kRLHe036GRzw7eWUfkZB/Z2TITg4c2','/img/avatars/1672661555793_img.png',NULL),(4,'Sergio','Aguilar','sergio@email.com','16162273784','121234567890','$2b$10$Bc6jWmG946SSIBpS4mAMwe9y1jLLBv2hrbhhXTzaqeVerqMr4fRoi','/img/avatars/1672744673013_img.png',NULL),(5,'Arianne','Barbosa','ari@email.com','12345678901','51 18998 1111','$2b$10$iA5G/JBFRpjkUSpBJQQ90eK7Gw1X2i7SEARA/7z.ZQ5HjkpKwmVC2','/img/avatars/1672744798543_img.png',NULL);
+INSERT INTO `users` VALUES (1,'Ana','Santos Silva','ana@email.com','12312312312312','7198888888','123456','efsd',NULL),(2,'Lucas','Lima Paz','lucas@email.com','12312312312312','71991919191','654321','sdvsdv',NULL),(3,'Paula','Simon','paula@email.com','12345567898','99899 5544','$2b$10$c5/LTTGil85FRq7ksxnfR.4kRLHe036GRzw7eWUfkZB/Z2TITg4c2','/img/avatars/1672661555793_img.png',NULL),(4,'Sergio','Aguilar','sergio@email.com','16162273784','121234567890','$2b$10$Bc6jWmG946SSIBpS4mAMwe9y1jLLBv2hrbhhXTzaqeVerqMr4fRoi','/img/avatars/1672744673013_img.png',NULL),(5,'Arianne','Barbosa','ari@email.com','12345678901','51 18998 1111','$2b$10$iA5G/JBFRpjkUSpBJQQ90eK7Gw1X2i7SEARA/7z.ZQ5HjkpKwmVC2','/img/avatars/1672744798543_img.png',NULL),(6,'Sergio','Andres','aguilar@mail.com','01234567891','90021212121','$2b$10$F3q.RvpjxvXny46Ot13Vvuz0NXstsI6zRAbn9Lyhlr2Xb0WhPdkGe','/img/avatars/1672967025866_img.jpg',1);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
-
---
--- Dumping events for database 'latech'
---
-
---
--- Dumping routines for database 'latech'
---
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -303,4 +294,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-01-03 18:48:13
+-- Dump completed on 2023-01-06 20:41:14
