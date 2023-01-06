@@ -47,7 +47,7 @@
               <h5>resumo do pedido</h5>
 
               <img src="" alt="" />
-              <p>Subtotal: R$ <%= total%>
+              <p>Subtotal: R$ <%= total %>
               </p>
               <p>Frete: Grátis! </p>
 
@@ -64,28 +64,27 @@
                 </label><br>
 
                 <label for="address_id">Selecione o endereço de entrega</label>
-                <select name="address_id" id="">
+                <select name="address_id" id="address_id">
 
+                  <option selected disabled>Selecione um Endereço</option>
                   <% for( a of addressesUser ) {%>
-                    <option value="<%= a.Endereco%>">
-                      <%= a.Endereco %>
-                    </option>
+                    <option value="<%= a.Endereco%>"><%= a.Endereco %></option>
                     <% } %>
                 </select> <br>
 
-
-                <p>Total a pagar: R$ <%= total%>
-                </p>
-
+                
                 <label for="endereco">Cadastrar novo endereço</label>
                 <input type="text" id="endereco" name="endereco" placeholder="Digite novo endereço">
                 <input type="text" id="cidade" name="cidade" placeholder="Cidade">
                 <input type="text" id="estado" name="estado" placeholder="Estado">
+                
+                <p>Total a pagar: R$ <%= total%> <br>
 
                 <button class="ls-btn-primary" type="submit">Finalizar Compra</button>
-
+                
+                </p>
               </form>
-
+              
 
             </div>
 

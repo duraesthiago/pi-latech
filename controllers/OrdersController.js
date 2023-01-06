@@ -48,9 +48,7 @@ const ordersController = {
         req.session.order = productsIntoCart;
         let total = 0
         for(let i=0; i< productsIntoCart.length; i++)
-        total += productsIntoCart[i].totalProduto
-        console.log(total)
-        
+        total += productsIntoCart[i].totalProduto              
 
         res.render('cart.ejs', { productsIntoCart, total})
     },
@@ -69,8 +67,7 @@ const ordersController = {
         let total = 0
         for (let i = 0; i < productsIntoCart.length; i++)
             total += productsIntoCart[i].totalProduto
-        console.log(total)
-
+        
         req.session.order = productsIntoCart;
         req.session.total = total
             
@@ -91,14 +88,16 @@ const ordersController = {
         let addressesUser = await Address.findAll({raw: true, where:{users_idUser: id}});
 
         productsIntoCart = req.session.order
-        total = req.session.total
 
+        let total = req.session.total
+        
         let loggedUser = (req.session.userLogged !== undefined)
         
         res.render('cartPayment.ejs', { productsIntoCart, total, user, loggedUser, addressesUser })
         
     },
-    
+
+        
     releaseOrder: async (req, res) => {
         let pedidos = req.session.order
         let total = req.session.total
@@ -109,16 +108,25 @@ const ordersController = {
             Estado: req.body.estado,
             users_idUser: req.session.userLogged.idUser
         })
+        
+        let deliveryAddress = ''
+        if(req.body.endereco){
+            deliveryAddress = req.body.endereco
+        } else {
+          deliveryAddress = req.body.address_id
+        }
+            console.log(deliveryAddress)
 
-       
-        res.send("pedidoFinalizado");
-
+        //console.log(req.body.address_id)  
+        //console.log(req.body.endereco) 
+ 
         /*db.Purchase.create({
             Data_Pedido: new Date().toISOString(),
             Total: req.session.total,
-            Forma_de_Pagamento:
+            Forma_de_Pagamento: req.body.payment-option
             Endereço_de_Entrega:
-                    })*/
+        })*/
+        res.send(deliveryAddress);
     }
 }
 

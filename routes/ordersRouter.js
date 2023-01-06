@@ -9,7 +9,8 @@ router.put('/updateCart', ordersController.updateCart)
 router.get('/release', ordersController.releaseOrder)
 
 router.get('/payment', ordersController.payment)
-//router.post('/payment', ordersController.payment)
+
+//router.post('/getAddress', ordersController.getAddress)
 
 
 router.post('/release', ordersController.releaseOrder)
