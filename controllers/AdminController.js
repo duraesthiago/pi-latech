@@ -1,25 +1,29 @@
 const { Op } = require("sequelize");
 const { validationResult } = require("express-validator");
-const { Admin, User, Product, Image, Brand, Category } = require("../database/models");
+const {
+  Admin,
+  User,
+  Product,
+  Image,
+  Brand,
+  Category,
+} = require("../database/models");
 const bcrypt = require("bcrypt");
 const { raw } = require("express");
 
 const AdminController = {
-
-  
-  main: (req, res) => {
+  admin: (req, res) => {
     //let error = req.query.error ? 1 : 0;
-    res.render("mainAdmin");
+    res.render("adminMain");
   },
 
   showAdminPanel: (req, res) => {
-    res.render("adminPanel")
+    res.render("adminPanel");
   },
 
   adminSignUp: (req, res) => {
-    res.render("adminSignUp")
+    res.render("adminSignUp");
   },
-
 
   createAdmin: async (req, res) => {
     const resultValidations = validationResult(req);
@@ -82,23 +86,19 @@ const AdminController = {
           return res.redirect("/admin/login");
         } else {
           if (adminToLogin && isPasswordVerified) {
-
             delete adminToLogin.Password;
             req.session.adminLogged = adminToLogin;
-          
           }
 
           if (req.body.remember_admin) {
             res.cookie("adminEmail", req.body.emailAdmin, {
-              maxAge: (1000 * 60) * 1000
+              maxAge: 1000 * 60 * 1000,
             });
             console.log(req.session.adminLogged);
-
           }
           if (!req.body.remember_admin) {
             res.cookie("adminEmail", req.body.emailAdmin, {
-              maxAge: (1000 * 60) * 5
-
+              maxAge: 1000 * 60 * 5,
             });
           }
 
@@ -113,64 +113,60 @@ const AdminController = {
     }
   },
 
-  adminEditUser: (req, res) => {
-    res.render("adminEditUser")
-  },
-
   getUsers: async (req, res) => {
-    const usersList = await User.findAll({raw: true})
-    return res.render('adminUsersList', { usersList })
+    const usersList = await User.findAll({ raw: true });
+    return res.render("adminUsersList", { usersList });
   },
 
   adminUserToEdit: async (req, res) => {
     let userId = req.params.id;
-      console.log(req.body)
+    console.log(req.body);
 
     let user = await User.findByPk(userId);
-    user.set({
-        Nome: req.body.name,
-        Sobrenome: req.body.lastName,
-        Email: req.body.email,
-        Cpf: req.body.personal_id,
-        Telefone: req.body.phone,
-        Avatar: req.body.avatar,
-    });
 
-    if (user)
-      res.render("adminEditUser", { user });
-    //console.log(user)
-
+    console.log(user);
+    res.render("adminUserToEdit", { user });
   },
 
   updateUserData: async (req, res) => {
-    let user = await User.update(
-      { 
+    await User.findByPk(req.params.id);
+    console.log(req.body);
+    
+    let userUpdated = await User.update(
+      {
         Nome: req.body.name,
         Sobrenome: req.body.lastName,
-        Email: req.body.email,
-        Cpf: req.body.personal_id,
         Telefone: req.body.phone,
         Avatar: req.body.avatar,
       },
-
       {
         where: {
           idUser: req.params.id
         }
       }
     )
-    //   console.log(userLogged)
-    //  console.log(req.body);
-    //  console.log(req.params.id);
-    return res.rendirect('/adminUsersList')
+    console.log(userUpdated)
+    res.redirect("/admin/adminUsersList");
+  },
+
+  adminDeleteUser: async (req, res) => {
+    await User.destroy({
+      where: {
+        idUser: req.params.id,
+      },
+    });
+    return res.redirect("/admin/adminUsersList");
   },
 
   adminShowProduct: async (req, res) => {
     let products = await Product.findAll({
       raw: true,
-      include: [{
-        model: Image, as: 'images',
-      }]
+      include: [
+        {
+          model: Image,
+          as: "images",
+        },
+      ],
     });
     res.render("adminProduct", { products });
   },
@@ -179,15 +175,18 @@ const AdminController = {
     let s = req.query.search;
     let products = await Product.findAll({
       raw: true,
-      include: [{
-        model: Image, as: 'images',
-      }],
+      include: [
+        {
+          model: Image,
+          as: "images",
+        },
+      ],
       where: {
         Nome: {
-          [Op.like]: `%${s}%`
-        }
-      }
-    })
+          [Op.like]: `%${s}%`,
+        },
+      },
+    });
 
     res.render("adminProduct", { products });
   },
@@ -197,15 +196,15 @@ const AdminController = {
     let product = await Product.findByPk(id, {
       raw: true,
       include: [
-        { model: Image, as: 'images' },
-        { model: Brand, as: 'brands' },
-        { model: Category, as: 'categories' }
-      ]
+        { model: Image, as: "images" },
+        { model: Brand, as: "brands" },
+        { model: Category, as: "categories" },
+      ],
     });
 
     let brands = await Brand.findAll({ raw: true });
 
-    res.render('adminEditProduct', { product, brands });
+    res.render("adminEditProduct", { product, brands });
   },
 
   adminEditProduct: async (req, res) => {
@@ -221,18 +220,18 @@ const AdminController = {
       Marcas_id: req.body.idMarcas,
       Oferta: req.body.Oferta,
       Status: req.body.Status,
-      Informacoes: req.body.Informacoes
+      Informacoes: req.body.Informacoes,
     });
 
     await product.save();
 
-    res.redirect('/admin/adminProduct');
+    res.redirect("/admin/adminProduct");
   },
 
   adminShowCreateProduct: async (req, res) => {
     let brands = await Brand.findAll({ raw: true });
     let category = await Category.findAll({ raw: true });
-    res.render('adminCreateProduct', { brands, category });
+    res.render("adminCreateProduct", { brands, category });
   },
 
   adminCreateProduct: async (req, res) => {
@@ -245,19 +244,18 @@ const AdminController = {
       Status: req.body.Status,
       Marcas_id: req.body.idMarcas,
       Categorias_id: req.body.Categoria,
-      Informacao: req.body.Informacoes
-    })
+      Informacao: req.body.Informacoes,
+    });
 
     const newImage = await Image.create({
       Nome: "Default Image",
       Data_Upload: "07/12/2022",
       Imagem: "/img/default-img.jpg",
       Produtos_idProdutos: newProduct.idProdutos,
-      Marcas_idMarcas: newProduct.Marcas_id
+      Marcas_idMarcas: newProduct.Marcas_id,
     });
 
-    return res.redirect('/admin/adminProduct');
-
+    return res.redirect("/admin/adminProduct");
   },
 
   adminDeleteProduct: async (req, res) => {
@@ -272,10 +270,10 @@ const AdminController = {
       product.set({
         Status: 1,
       });
-    };
+    }
     await product.save();
 
-    res.redirect('/admin/adminProduct');
+    res.redirect("/admin/adminProduct");
   },
 
   logoutAdmin: (req, res) => {
@@ -283,5 +281,5 @@ const AdminController = {
     res.clearCookie("AdminEmail");
     return res.redirect("/");
   },
-}
+};
 module.exports = AdminController;

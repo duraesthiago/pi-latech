@@ -46,7 +46,16 @@
   .admin-content p  {
     margin: 15px  50px;
   }
-  
+  .admin-login, .admin-signup{
+    font-size: 12px;
+  width: 80px;
+  padding: 5px;
+  background-color: var(--ligth-lilac);
+  border-radius: 10px;
+  color: var(--dust-white);
+  box-shadow: 2px 2px 2px var(--dark-gray);
+  margin: 20px 120px;
+  }
 
   
     /* tablet, landscape iPad, lo-res laptops ands desktops */ 

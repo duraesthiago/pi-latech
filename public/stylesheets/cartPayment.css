@@ -1,75 +1,48 @@
+.main-payment{
+  width: 100%;
+  display: flex;
+  flex-direction: column ;
+  align-items: center;
+  margin: 5px;
+}
 
-  .ls-cart-header {
-    width: 100vh;
-    max-width: 150px;
+.payment_title{
+  width: 80%;
+  margin: 5% 4%;
+  background: linear-gradient( 120deg, var(--pink-degrade) 0%, var(--ligth-lilac) 52%, var(--dark-blue) 100% );
+  padding: 2%;
+  color: var(--dust-white);
+  border-radius: 10px;
+  box-shadow: 4px 4px 4px var(--dark-gray);
+}
+
+
+  .ls-payment-content {
+    width: 90%;
+    margin: 5px;
+    padding: 10px;
+    background-color: var(--ligth-gray);
+    color: var(--dark-gray);
+    box-shadow: 4px 4px 4px var(--dark-gray);
+    border:1px solid var(--pink-degrade);
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background-color: var(--ultra-ligth-blue);
-    border-radius: 10px;
-    margin-top: 8px;
-    margin-left: 190px;
-    height: 60px;
-    box-shadow: var(--dark-blue) 0px 1px 8px;
   }
-  .ls-cart-header small,
-  strong {
-    font-size: 12px;
-    column-gap: 2px;
-    z-index: 1;
+  
+  .product-img img {
+    width: 25%;    box-shadow: 4px 4px 4px var(--dark-gray);
+
+   
   }
-  .ls-ico-cart {
-    visibility: hidden;
-  }
-  .ls-checkbox-cart {
-    visibility: hidden;
-  }
-  .ls-cart-content {
-    width: 600px;
-    padding: 20px;
-    background-color: rgba(0,0,0,0.5);
-    color: #FFF;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  table {
-    width: 50%;
-    border-collapse: collapse;
-  }
-  table td {
-    border: solid 1px #333;
-      padding: 10px;
-  }
-  table:first-child {
-    width: 100px;
-      padding: 1px;
-  }
-  a:hover {
-    cursor: pointer;
-  }
-  table p {
-    font-size: 12px;
-    text-align: left;
-  }
-  table p:nth-child(2) {
-    font-size: 12px;
-    margin-left: 8px;
-  }
-  table img {
-    width: 25%;
-      display: block;
-      text-align: left;
-  }
-  .cart-btn-label{
+  /* .cart-btn-label{
     display: flex;
     flex-direction: column;
     align-items: flex-end;
     justify-content: flex-end;
     margin-right: 20px;
     margin-bottom: 10px;
-  }
-  .cart-btn-label>label{
+  } */
+  /* .cart-btn-label>label{
     margin-right: 45px;
     margin-bottom: 2px;
   }
@@ -134,10 +107,8 @@
   .ls-about-your-order {
     border: 1px solid var(--ligth-blue);
     border-radius: 8px;
-    width: 380px;
-    height: 300px;
+    width: 340px;
     margin: 10px;
-    /* margin-left: 20px; */
   }
   .ls-about-your-order h5 {
     text-align: center;
@@ -149,50 +120,13 @@
     line-height: 8px;
     margin: 20px;
   }
-  .delivery-tax {
-    border: 1px solid var(--ligth-blue);
-    border-radius: 8px;
-    width: 340px;
-    height: 50px;
-    margin: 10px;
-  }
-  .delivery-tax p{
-    margin-top:15px;
-    margin-left: 10px;
-  }
-  .ls-cart-footer{
-    width:100%;
-    height: 30px;
-    margin: 20px;
-  }
-  .amount-order {
-    border: 1px solid var(--ligth-blue);
-    border-radius: 8px;
-    width: 340px;
-    height: 50px;
-    margin: 10px;
-  }
-  .amount-order p{
-    margin-top:15px;
-    margin-left: 10px;
-  }
-  .ls-btn-primary {
-    margin-left: 100px;
-    background-color: var(--ultra-ligth-blue);
-    border-radius: 4px;
-    color: var(--dark-blue);
-    font-size: 12px;
-    padding: 8px;
-    opacity: 0.5;
-    transition: 0.4s
-  }
-  .ls-btn-primary:hover {
-  cursor: pointer;
-  opacity: 1;
-  }
-  @media (min-width: 801px) {
+  */
+
+  
+  
+  /* @media (min-width: 600px) {
     /* tablet, landscape iPad, lo-res laptops ands desktops */
-   .ls-cart-header{
+   /* .ls-cart-header{
     font-size: 16px;
     margin-left: 600px;
   }
@@ -226,15 +160,15 @@
     margin-left: 340px;
     }
   }
-  @media (min-width: 1025px) {
+  @media (min-width: 900px) {
     /* big landscape tablets, laptops, and desktops */
-    .ls-cart {
+    /* .ls-cart {
       margin-left: 100px;
     }
-    @media (min-width: 1281px) {
+    @media (min-width: 1200px) {
       /* hi-res laptops and desktops */
-    .ls-cart{
+    /* .ls-cart{
       margin-left: 230px
     }
     }
-  }
+  }  */

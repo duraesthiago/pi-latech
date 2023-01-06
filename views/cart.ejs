@@ -3,80 +3,71 @@
   <%- include('partials/header', {title: 'Início' }) %>
     <!-- Include Banner -->
     <%- include('partials/slide') %>
-      <main>
-        <link rel="stylesheet" href="../stylesheets/cart.css">
-        <div class="ls-cart">
-          <header class="ls-cart-header">
-            <div class="mycart">
-              <small>MEU CARRINHO</small>
-              <input type="checkbox" class="ls-checkbox-cart" />
-              <strong>
-                <%= qty %> Produtos
-              </strong>
-            </div>
-          </header>
+    <main>
+      <div class="ls-cart">
+          <link rel="stylesheet" href="../stylesheets/cart.css">
+
+        <h3 class="cart_title">Meu Carrinho. <br>
+            <%=  qty %> Produto(s)</h3>
+
+
+          <!-- <header class="ls-cart-header">
+            <span class="ls-ico-cart ls-float-left"></span>
+            <small>MEU CARRINHO</small>
+            <input type="checkbox" class="ls-checkbox-cart" />
+            <strong>
+              <%= qty %> Produtos
+            </strong>
+          </header> -->
           <div class="ls-cart-content">
             <% if(productsIntoCart.length> 0){ %>
-              <ul class="ls-no-style-list">
-                <% for(p of productsIntoCart) {%>
-                  <li>
-                    <a href="#">
-                      <h4 class="ls-title-product"><strong>01</strong>
-                        <%= p.categories %>
-                      </h4>
-                      <img src="<%= p['images.Imagem'] %>" alt="" />
-                      <p>
-                        <%= p.Nome %>
+
+              <ul>
+                <div class="ls-no-style-list">
+                  <% for(p of productsIntoCart) {%>
+                    <li>
+                      <a href="#"> 
+                        <h4 class="ls-title-product"><strong>01</strong></h4><br>
+                        <img src="<%= p['images.Imagem'] %>" alt="" />
+                        <p>
+                          <%= p.Nome %>
+                        </p>
+                      </a>
+                      <p>R$ <%= p.Preco %>
                       </p>
-                    </a>
-                    <p>
-                      R$ <%= p.Preco %>
-                    </p>
-                    <div class="cart-btn-label">
-                      <form action="/orders/updateCart?_method=PUT" method="POST">
-                        <label for="quantity">Quantidade:</label>
-                        <input type="hidden" id="id" name="productId" value="<%=p.idProdutos %>">
-                        <input type="number" id="quantidade" name="productQty" value="<%= p.quantidade %>" min="1"
-                          max="99">
-                        <input type="submit" value="Adicionar">
-                      </form>
-                    </div>
-                  </li>
-                  <% } %>
+                      <div class="cart-btn-label">
+                        <form action="/orders/updateCart?_method=PUT" method="POST">
+                          <label for="quantity">Quantidade:</label>
+                          <input type="hidden" id="id" name="productId" value="<%=p.idProdutos %>">
+                          <input type="number" id="quantidade" name="productQty" value="<%= p.quantidade %>" min="1"
+                            max="99">
+                          <input type="submit" value="Adicionar">
+                        </form>
+                      </div>
+                    </li>
+                    <% } %>
+                </div>
               </ul>
-          </div>
-          <div class="btn-delivey-shipp">
-            <input class="btn-zip-code" type="text" placeholder="digite o CEP" />
-            <input class="btn-zip-code-submit" type="submit" />
           </div>
           <div class="ls-about-your-order">
             <h5>resumo do pedido</h5>
-              <img src="" alt="" />
-              <p>Subtotal: R$ <%= total%></p>
-              <p>Frete: Grátis! </p>
-              <form class="order-form" action="/orders/release" method="POST">
-                <label>Forma de Pagamento: <br>
-                  <select name="payment-option" id="payment-option">
-                    <option selected disabled>Selecione a forma de pagamento</option>
-                    <option value="Pix">PIX</option>
-                    <option value="cartao">Cartão de Crédito</option>
-                    <option value="boleto">Boleto Bancario</option>
-                  </select><br>
-                  <a href="/user/paymentOption/add">Adicionar forma de pagamento</a>
-                </label><br>
-                <label for="address_id">Selecione o endereço de entrega</label> <br>
-                <select name="address_id" id="">
-                  <% for (let i=0; i < addresses.length; i++) { %>
-                    <option value="<%= addresses[i].idAddresses%>">
-                      <%= addresses[i].Endereco %>
-                      </option>
-                      <% } %>
-                </select> <br>
-                <a href="/products">Continuar comprando...</a>
-                <p>Total a pagar: R$ <%= total%></p>
-                  <button class="ls-btn-primary" type="submit">Finalizar Compra</button>
-              </form>
-            </div>
+            <img src="" alt="" />
+            <p>Subtotal: R$ <%= total %></p>
+              <p>Calcule frete e prazo</p>
+              <input class="btn-zip-code" type="text" placeholder="digite o CEP" />
+              <input class="btn-zip-code-submit" type="hidden" />
+              <div class="delivery-shipp-cost">
+                <label for="gratis">receba gratis até 31 de janeiro</label>
+                <input type="radio" name="ship-type" id="gratis" checked>
+                <label for="loja">retire na loja</label>
+                <input type="radio" name="ship-type" id="loja">
+                <label for="express">Entrega express R$50,00</label>
+                <input type="radio" name="ship-type" id="express">
+              </div>
+            <a href="/products">Continuar comprando...</a>
+            <p>Total a pagar: R$ <%= total %></p>
+              <a href="/orders/payment"><button class="ls-btn-primary" type="submit">Continuar</button></a>
+          </div>
           <!--<div class="delivery-tax">
                 <p>R$(frete): </p>
               </div>
@@ -88,10 +79,10 @@
               <button class="ls-btn-primary" type="submit">Finalizar Compra</button>
             </form>
           </section>-->
-            <% } else { %>
-              No productsIntoCar
-              <% } %>
-          </div>
+          <% } else { %>
+            No productsIntoCar
+            <% } %>
+        </div>
         </div>
       </main>
       <%- include('partials/footer') %>
