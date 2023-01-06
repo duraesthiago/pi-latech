@@ -103,7 +103,7 @@
 
     .main-pic  {
         width: 60%;
-        margin-left: 100px;
+        margin-left: 105px;
     }
 
     .small-pics  {
@@ -124,7 +124,7 @@
     }
 }
 
-@media(min-width:900px){
+@media(min-width: 800px){
 
     .detail {
         max-width: 80%;
@@ -133,7 +133,7 @@
 
     .main-pic  {
         width: 50%;
-        margin-left: 160px;
+        margin-left: 140px;
     }
 
     .small-pics  {
@@ -163,6 +163,12 @@
     .btn_order_detail {
         margin-left: 330px;
      }
+}
+@media(min-width: 1300px){
+    .main-pic {
+        margin-left: 220px;
+    }
+
 }
 @media(min-width:1800px){
     .main-pic {
