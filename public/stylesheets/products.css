@@ -1,3 +1,35 @@
+.cart-carrinho{
+  display: flex;
+  flex-direction: row-reverse;
+}
+.ls-cart-header {
+  width: 100vh;
+
+  max-width: 150px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+ 
+  justify-content: center;
+  box-shadow: var(--medium-gray) 0px 1px 8px;
+  border-radius: 10px;
+  margin: 60px 10px;  
+  height: 60px;
+  position: relative
+  
+}
+.ls-cart-header small,
+strong {
+  font-size: 12px;
+  column-gap: 2px;
+  z-index: 1;
+}
+.ls-ico-cart {
+  visibility: hidden;
+}
+.ls-checkbox-cart {
+  visibility: hidden;
+}
 .products-wrapper {
   display: flex;
   flex-direction: column;
