@@ -14,6 +14,7 @@ const usersRouter = require('./routes/usersRouter');
 
 const getViewsData = require('./middlewares/GetViewsData');
 const loggedUserDataMiddleware = require('./middlewares/loggedUserDataMiddleware');
+const loggedAdminDataMiddleware = require('./middlewares/loggedAdminDataMiddleware');
 
 const app = express();
 // view engine setup
@@ -41,6 +42,7 @@ app.use(express.urlencoded({ extended: false }));
 
 app.use(getViewsData);
 app.use(loggedUserDataMiddleware);
+app.use(loggedAdminDataMiddleware);
 app.use('/', indexRouter);
 app.use('/admin', adminRouter);
 app.use('/orders', ordersRouter);

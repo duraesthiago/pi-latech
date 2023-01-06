@@ -13,11 +13,12 @@ const UserController = {
     const resultValidations = validationResult(req);
     if (resultValidations.errors.length > 0) {
       return res.render("userSignUp", {
+        error: undefined, //Aqui está o erro!
         errors: resultValidations.mapped(),
         oldData: req.body,
       });
-  }
-  
+    }
+
     let userExists = await User.findOne({
       raw: true,
       where: {
@@ -27,7 +28,7 @@ const UserController = {
     if (userExists) {
       res.redirect("/users/login?error=2");
     } else {
-      let avatarFileName =req.file.filename;
+      let avatarFileName = req.file.filename;
       const userCreated = await User.create({
         Nome: req.body.name,
         Sobrenome: req.body.last_name,
@@ -73,27 +74,27 @@ const UserController = {
           return res.redirect("/users/login?error=1");
         } else {
           if (userToLogin && isPasswordVerified) {
-            
+
             delete userToLogin.Senha;
             req.session.userLogged = userToLogin;
             console.log(req.session.userLogged);
-            }  
-            
-            if (req.body.remember_user) {
-              res.cookie("userEmail", req.body.email, {
-                maxAge: (1000 * 60) * 30
-              });
-            }
-            if(!req.body.remember_user){
-              res.cookie("userEmail", req.body.email, {
-                maxAge: (1000 * 60) * 5
+          }
+
+          if (req.body.remember_user) {
+            res.cookie("userEmail", req.body.email, {
+              maxAge: (1000 * 60) * 60
+            });
+          }
+          if (!req.body.remember_user) {
+            res.cookie("userEmail", req.body.email, {
+              maxAge: (1000 * 60) * 30
 
             });
-            }
-
-               res.redirect("/");
-            }
           }
+
+          res.redirect("/");
+        }
+      }
     } catch (error) {
       return res.render("userSignUp", {
         error:
@@ -112,38 +113,39 @@ const UserController = {
     });
   },
 
-  
 
-  updateUser:  async (req,res) => {
+
+  updateUser: async (req, res) => {
     let userId = req.params.id;
     let userLogged = await User.findByPk(userId);
 
-    if(userLogged)
-    res.render("updateUser", { userLogged
-    });
+    if (userLogged)
+      res.render("updateUser", {
+        userLogged
+      });
     //console.log(userLogged)
 
- },
+  },
 
- updateUserData:   async (req, res) => {
-   let userLogged =  await User.update(
-    {
-      Nome: req.body.name,
-      Sobrenome: req.body.lastName,
-      Telefone: req.body.phone,
-      Avatar: req.body.avatar,
-    },
-    {
-      where:{
-        idUser: req.params.id
-      } 
-    }
+  updateUserData: async (req, res) => {
+    let userLogged = await User.update(
+      {
+        Nome: req.body.name,
+        Sobrenome: req.body.lastName,
+        Telefone: req.body.phone,
+        Avatar: req.body.avatar,
+      },
+      {
+        where: {
+          idUser: req.params.id
+        }
+      }
     )
-  //   console.log(userLogged)
-  //  console.log(req.body);
-  //  console.log(req.params.id);
-    return  res.redirect('/')
- },
+    //   console.log(userLogged)
+    //  console.log(req.body);
+    //  console.log(req.params.id);
+    return res.redirect('/')
+  },
 
   logout: (req, res) => {
     req.session.destroy();
@@ -151,15 +153,15 @@ const UserController = {
     return res.redirect("/");
   },
 
-  deleteUser: async (req,res) => {
-    await User.destroy (
+  deleteUser: async (req, res) => {
+    await User.destroy(
       {
-        where:{
+        where: {
           idUser: req.params.id
         }
       }
-      )
-      req.session.destroy();
+    )
+    req.session.destroy();
     return res.redirect('/')
   }
 };

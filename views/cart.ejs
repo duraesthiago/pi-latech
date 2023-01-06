@@ -4,19 +4,19 @@
     <!-- Include Banner -->
     <%- include('partials/slide') %>
 
-      <link rel="stylesheet" href="../public/stylesheets/cart.css">
 
 
       <main>
-        <link rel="stylesheet" href="/stylesheets/cart.css">
+        <link rel="stylesheet" href="../stylesheets/cart.css">
         <div class="ls-cart">
           <header class="ls-cart-header">
-            <span class="ls-ico-cart ls-float-left"></span>
-            <small>MEU CARRINHO</small>
-            <input type="checkbox" class="ls-checkbox-cart" />
-            <strong>
-              <%= qty %> Produtos
-            </strong>
+            <div class="mycart">
+              <small>MEU CARRINHO</small>
+              <input type="checkbox" class="ls-checkbox-cart" />
+              <strong>
+                <%= qty %> Produtos
+              </strong>
+            </div>
           </header>
           <div class="ls-cart-content">
             <% if(productsIntoCart.length> 0){ %>

@@ -2,10 +2,10 @@
   <!-- Include Header -->
   <%- include('partials/header', {title: 'Início' }) %>
     <!-- Include navbarCategories -->
-      <%- include('partials/navbarCategories') %>   
-    <!-- Include Slide-->
+    <%- include('partials/navbarCategories') %>
+      <!-- Include Slide-->
       <%- include('partials/slide') %>
-      
+
         <main class="index-main">
           <div class="products-list">
             <h2 class="index-title">OFERTAS DA SEMANA</h2>
@@ -20,7 +20,7 @@
                   </div>
                   <div class="products-price">R$ <%= product.PrecoComDesconto.toFixed(2) %>
                   </div>
-                  <Button class="detail-products-button"><a href="/products/detail/<%= product.idProdutos %>"
+                  <Button class="detail-products-button"><a href="/products/<%= product.idProdutos %>"
                       class="link-button">Ver mais</a></Button>
                 </article>
                 <% } %>
