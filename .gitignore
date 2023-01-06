@@ -9,3 +9,4 @@ esqueleto header e footer html
 .env
 routes/OrdersRouter.js
 public/.DS_Store
+.DS_Store
