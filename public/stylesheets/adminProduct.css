@@ -51,7 +51,7 @@ h3 {
 .btn-sb {
   max-width: 30px;
   border: none;
-  background: none;
+  background-color: var(--dust-white);
   margin-left: 60px;
 }
 
