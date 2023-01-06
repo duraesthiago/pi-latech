@@ -292,7 +292,12 @@ a:hover {
       
       margin-left: 360px;
     }
-   
+    @media(min-width: 1300px){
+      .ls-about-your-order {
+      
+        margin-left: 430px;
+      }
+    }
 } @media (min-width: 1800px) {
   /* hi-res laptops and desktops */
   .ls-about-your-order {
@@ -300,4 +305,5 @@ a:hover {
     margin-left: 655px;
   }
  
+}
 }

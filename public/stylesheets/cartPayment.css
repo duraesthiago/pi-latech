@@ -35,9 +35,9 @@
     visibility: hidden;
   }
   .ls-cart-content {
-    width: 600px;
+
     padding: 20px;
-    background-color: rgba(0,0,0,0.5);
+    background-color: var(--dust-white);
     color: #FFF;
     margin-left: auto;
     margin-right: auto;

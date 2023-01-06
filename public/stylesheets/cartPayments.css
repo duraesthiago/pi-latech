@@ -36,19 +36,19 @@ strong {
 }
 
 .ls-cart-content {
-  width: 600px;
+  
   padding: 20px;
-  background-color: rgba(0,0,0,0.5);
-  color: #FFF;
-  margin-left: auto;
-  margin-right: auto;
+  background-color: var(--dust-white);
+  
+  margin-left: 10px;
 }
 table {
   width: 50%;
   border-collapse: collapse;
 }
 table td {
-  border: solid 1px #333;
+  box-shadow: var(--medium-gray) 0px 1px 8px;
+
     padding: 10px;
 }
 table:first-child {
@@ -142,15 +142,17 @@ table img {
   opacity: 1;
 }
 .ls-about-your-order {
-  border: 1px solid var(--ligth-blue);
+  box-shadow: var(--medium-gray) 0px 1px 8px;
   border-radius: 8px;
-  width: 380px;
-  height: 300px;
   margin: 10px;
-  /* margin-left: 20px; */
+  padding: 20px;
 }
-.ls-about-your-order h5 {
+.ls-about-your-order h5, p, form, label{
+  text-transform: capitalize;
   text-align: center;
+
+  
+
 }
 .ls-about-your-order  p {
   font-size: 16px;
@@ -187,21 +189,30 @@ table img {
   margin-left: 10px;
 }
 .ls-btn-primary {
-  margin-left: 100px;
-  background-color: var(--ultra-ligth-blue);
-  border-radius: 4px;
-  color: var(--dark-blue);
   font-size: 12px;
-  padding: 8px;
-  opacity: 0.5;
-  transition: 0.4s
+  width: 100px;
+  padding: 5px;
+  background-color: #00ff00;
+  border-radius: 10px;
+  color: var(--dark-gray);
+  box-shadow: 2px 2px 2px var(--dark-gray);
+  margin: 20px 120px;
 }
 .ls-btn-primary:hover {
 cursor: pointer;
 opacity: 1;
 }
-@media (min-width: 801px) {
+@media (min-width: 600px){
+  .ls-cart-content {
+    display: flex;
+    align-items: center;
+  }
+}
+@media (min-width: 800px) {
   /* tablet, landscape iPad, lo-res laptops ands desktops */
+  .ls-about-your-order{
+    margin-left: 00px;
+  }
  .ls-cart-header{
   font-size: 16px;
   margin-left: 600px;
@@ -223,30 +234,21 @@ opacity: 1;
 }
 .ls-about-your-order  {
   width: 600px;
-  margin: 10px 25px;
+  margin-left: 120px;
 }
-.delivery-tax {
-  width: 750px;
-  margin: 10px 25px;
-}
-.amount-order {
-  width: 750px;
-  margin: 10px 25px
-}
-.ls-btn-primary {
-  margin-left: 340px;
-  }
-}
-@media (min-width: 1025px) {
+
+@media (min-width: 1200px) {
   /* big landscape tablets, laptops, and desktops */
-  .ls-cart {
-    margin-left: 100px;
+  .ls-about-your-order  {
+    width: 600px;
+    margin-left: 300px;
   }
- 
-  @media (min-width: 1281px) {
-    /* hi-res laptops and desktops */
-  .ls-cart{
-    margin-left: 230px
+}
+@media (min-width: 1800px) {
+  /* big landscape tablets, laptops, and desktops */
+  .ls-about-your-order  {
+    width: 900px;
+    margin-left: 400px;
   }
-  }
+}
 }
