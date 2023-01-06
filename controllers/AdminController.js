@@ -6,14 +6,14 @@ const { raw } = require("express");
 
 const AdminController = {
 
-  main: async (req, res) => {
-
+  
+  main: (req, res) => {
+    //let error = req.query.error ? 1 : 0;
     res.render("mainAdmin");
   },
 
-  signUp: (req, res) => {
-    //let error = req.query.error ? 1 : 0;
-    res.render("adminSignUp");
+  adminSignUp: (req, res) => {
+    res.render("adminSignUp")
   },
 
 
@@ -72,10 +72,10 @@ const AdminController = {
       );
 
       if (!adminToLogin) {
-        return res.redirect("/admin");
+        return res.redirect("/admin/create");
       } else {
         if (!isPasswordVerified) {
-          return res.redirect("/admin");
+          return res.redirect("/admin/login");
         } else {
           if (adminToLogin && isPasswordVerified) {
 
@@ -111,9 +111,10 @@ const AdminController = {
   adminEditUser: (req, res) => {
     res.render("adminEditUser")
   },
+
   getUsers: async (req, res) => {
-    const usersList = await User.findAll()
-    return res.render('userList')
+    const usersList = await User.findAll({raw: true})
+    return res.render('usersList', { usersList })
   },
 
   adminEditUser: (req, res) => {
@@ -273,7 +274,7 @@ const AdminController = {
   logoutAdmin: (req, res) => {
     req.session.destroy();
     res.clearCookie("AdminEmail");
-    return res.redirect("/admin/index");
+    return res.redirect("/");
   },
 }
 module.exports = AdminController;
