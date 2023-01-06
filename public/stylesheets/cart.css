@@ -276,8 +276,10 @@ a:hover {
   .ls-about-your-order {
     width: 400px;
     align-items: center;
+    margin-left: 200px;
   }
 }
+
 @media (min-width: 900px) {
   /* big landscape tablets, laptops, and desktops */
   .ls-cart {
@@ -286,8 +288,16 @@ a:hover {
 
   @media (min-width: 1200px) {
     /* hi-res laptops and desktops */
-    .ls-cart {
-      margin-left: 230px;
+    .ls-about-your-order {
+      
+      margin-left: 360px;
     }
+   
+} @media (min-width: 1800px) {
+  /* hi-res laptops and desktops */
+  .ls-about-your-order {
+    
+    margin-left: 655px;
   }
+ 
 }
