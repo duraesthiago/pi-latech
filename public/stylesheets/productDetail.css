@@ -163,6 +163,12 @@
         margin-left: 330px;
      }
 }
+@media(min-width: 1300px){
+    .main-pic {
+        margin-left: 220px;
+    }
+
+}
 @media(min-width:1800px){
     .main-pic {
         width: 40%;
