@@ -87,12 +87,12 @@ const AdminController = {
 
           if (req.body.remember_admin) {
             res.cookie("adminEmail", req.body.emailAdmin, {
-              maxAge: (1000 * 60) * 30
+              maxAge: (1000 * 60) * 30000
             });
           }
           if (!req.body.remember_admin) {
             res.cookie("adminEmail", req.body.email, {
-              maxAge: (1000 * 60) * 5
+              maxAge: (1000 * 60) * 5000
 
             });
           }
