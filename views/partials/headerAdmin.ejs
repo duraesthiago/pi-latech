@@ -5,15 +5,7 @@
         <a href="/">
           <img class="logo" src="/img/logo_latech_final.png" alt="logo-latech" />
         </a>
-        <div class="search-form">
-          <!-- Alterada a posição da div para funcionamento das medias queries-->
-          <form action="/search" method="get" class="search-bar">
-            <input class="search-bar" type="text" name="q" placeholder="O que você procura...?" />
-            <button class="btn_sb" type="submit">
-              <img class="btn_search" src="/img/icons8-pesquisar.svg" />
-            </button>
-          </form>
-        </div>
+        
         <div class="menu-hamburguer">
           <input class="checkbox-menu" type="checkbox" id="checkbox-menu" />
           <label class="hamburguer" for="checkbox-menu">
@@ -33,13 +25,13 @@
                 <ul class="over">
                   <% if (locals.isAdminLogged) {%>
     
-                  <li class="over"><a href="/admin/logout">Sair</a></li>
-                  <li class="over"><a href="/admin/panel">Painel</a></li>
+                  <li class="over"><a href="/admin/logout/">Sair</a></li>
+                  <li class="over"><a href="/admin/panel/">Painel</a></li>
     
                   <% } else { %>
     
                   <li><a href="/admin/login">Entrar</a></li>
-                  <li><a href="/admin/">Cadastrar</a></li>
+                  <li><a href="/admin/signUp">Cadastrar</a></li>
     
                   <% } %>
                 </ul>
@@ -55,5 +47,5 @@
         </div>
       </div>
     
-      <script src="/dropDownUserMenu.js"></script>
+      <script src="/dropDownAdminMenu.js"></script>
     </header>

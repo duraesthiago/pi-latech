@@ -7,14 +7,20 @@
     color: var(--medium-blue);
     text-align: center;
     margin: 20px;
-      
-
 }
+.aboutUs-tittle img{
+    width: 40%;
+}
+
+.aboutUs-tittle img{
+    width: 200px;
+}
+
 .aboutUs-article{
     font-family: 'Oswald', sans-serif;
     font-size: 16px;
     color: var(--dark-gray);
-    border: 2px solid var(--pink-degrade);
+    box-shadow: var(--medium-gray) 0px 1px 8px;
     border-radius: 16px;
     text-align: justify;
     margin: 20px;
@@ -25,11 +31,11 @@
     font-family: 'Oswald', sans-serif;
     font-size: 16px;
     color: var(--dark-gray);
-    border: 2px solid var(--pink-degrade);
+    box-shadow: var(--medium-gray) 0px 1px 8px;
     border-radius: 16px;
     text-align: center;
     margin: 20px;
-    padding:20px;
+    padding: 40px 60px;
 }
 .aboutUs-into h2{
     font-size: 1.4em;
@@ -44,6 +50,27 @@
     height: 100px;
     text-align: center;
     color: antiquewhite;
-    padding: 20px;
+    padding: 30px;
     
+}
+
+@media (min-width: 600px){
+    .aboutUs-tittle img{
+        width: 300px;
+    }
+}
+@media (min-width: 900px){
+    .aboutUs-tittle img{
+        width: 350px;
+    }
+}
+@media (min-width: 1200px){
+    .aboutUs-tittle img{
+        width: 450px;
+    }
+}
+@media (min-width: 1800px){
+    .aboutUs-tittle img{
+        width: 500px;
+    }
 }
