@@ -3,16 +3,20 @@
   margin: 1% 4%;
   background: linear-gradient( 120deg, var(--pink-degrade) 0%, var(--ligth-lilac) 52%, var(--dark-blue) 100% );
   padding: 2%;
-  color: #fbfbfb;
+  color: var(--dust-white);
   border-radius: 20px;
   box-shadow: 4px 4px 4px var(--dark-gray);
 }
 
 .register_account {
-  width: 100vw;
-  height: 100vh;
+  width:90%;
+  height: 100%;
   border-radius: 8px;
   margin-top: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }  
 
 .error {
@@ -26,17 +30,16 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  color: var(--ligth-blue);
+  color: var(--medium-gray);
   margin: 20px ;
-  row-gap: 10px;
-  padding: 5px;
+  row-gap: 10px; 
 }
 
 .name {
-  width: 100%;
+  width: 80%;
   margin: auto;
   padding: 10px 5px;
-  border: 1px solid var(--medium-blue);
+  border: 1px solid var(--medium-gray);
   border-radius: 8px;
 }
 
@@ -54,7 +57,7 @@
 }
 .btn_registration:hover{
   cursor: pointer;
-  background-color: var(--ligth-blue);
+  background-color: var(--pink-degrade);
   }
 
 ::placeholder {
@@ -69,54 +72,21 @@
 
 
 @media (min-width: 600px){
-  .input_container{
-    max-width: 600px;
-    margin: 100px;
-  }
-  
-  .register_account{
-    max-height: 500px;
-    margin-top: 80px;
-  }
-
-
-.btn_registration{
-  margin-top: 30px;
-}
 }
 
 @media (min-width: 900px){
-
-.input_container{
-  margin: 100px 185px;}
-
 .name {
-  max-width: 600px;
-}
-
-.btn_registration {
-  max-width: 500px;
+  max-width: 70%; 
 }
 }
 
 @media (min-width: 1200px){
-
   .input_container{
-    margin: 100px 300px;
+    margin-top: 100px;
   }
 
-  .register_account{
-    margin-top: 200px;
-  }
 }
 
 @media (min-width: 1800px){
 
-  .input_container{
-    margin: 100px 600px;
-  }
-
-  .register_account{
-    margin-top: 200px;
-  }
-}
+} 
