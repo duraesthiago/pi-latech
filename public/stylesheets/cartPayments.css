@@ -230,6 +230,17 @@ table td {
   padding: 40px;
   }
 }
+@media (min-width: 1300px) {
+  /* big landscape tablets, laptops, and desktops */
+  .ls-about-your-order  {
+    width: 900px;
+    margin-left: 220px;
+  }
+
+  table td {
+  padding: 40px;
+  }
+}
 @media (min-width: 1800px) {
   /* big landscape tablets, laptops, and desktops */
   .ls-about-your-order  {

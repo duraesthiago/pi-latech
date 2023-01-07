@@ -193,14 +193,14 @@ a:hover {
   margin-left: 10px;
 }
 .ls-btn-primary {
-  margin-left: 100px;
-  background-color: var(--ultra-ligth-blue);
-  border-radius: 4px;
-  color: var(--dark-blue);
   font-size: 12px;
-  padding: 8px;
-  opacity: 0.5;
-  transition: 0.4s;
+  width: 100px;
+  padding: 5px;
+  background-color: #00ff00;
+  border-radius: 10px;
+  color: var(--dark-gray);
+  box-shadow: 2px 2px 2px var(--dark-gray);
+  margin: 20px 120px;
 }
 .ls-btn-primary:hover {
   cursor: pointer;
