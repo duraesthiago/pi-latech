@@ -2,14 +2,16 @@
     <!-- Include Header -->
     <%- include('partials/header', {title: 'Início' }) %>
         <!-- Include Banner -->
-        <%- include('partials/banner') %>
+        <%- include('partials/slide') %>
             <main>
-                <link rel="stylesheet" href="/stylesheets/product-detail.css">
+                <link rel="stylesheet" href="/stylesheets/productDetail.css">
                 <section class="detail">
                     <div class="product-details">
-                        <div class="main-picture">
+
+                    <div class="main-pictures">
                             <img class="main-pic" src="<%=product['images.Imagem']%>" alt="" />
-                        </div>
+                        
+                    </div>
                         <div class="small-pictures">
                             <img class="small-pics" src="<%=product['images.Imagem']%>" alt="" />
                             <img class="small-pics" src="<%=product['images.Imagem']%>" alt="" />
@@ -22,8 +24,8 @@
                         <p>valor: R$ <%= product.Preco %>
                         </p>
                         <form action="/orders/addCart" method="POST">
-                            <input type="hidden" name="selectedProduct" value=<%=product.idProdutos %>">
-                            <button class="order" type="submit">comprar</button>
+                            <input type="hidden" name="selectedProduct" value="<%=product.idProdutos %>">
+                            <button class="btn_order_detail" type="submit">comprar</button>
                         </form>
                     </div>
                     </div>

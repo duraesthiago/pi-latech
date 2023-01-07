@@ -1,65 +1,78 @@
 
-:root {
-  --pink-degrade: #c837c2;
-  --ligth-lilac: #7f7ae9;
-  --ultra-ligth-blue: #cee3f0;
-  --ligth-blue: #3786e1;
-  --medium-blue: #2c3ac1;
-  --medium-gray: #565656;
-  --dark-blue: #070d40;
-  --dark-gray: #252525;
-  --ligth-gray:#f1f1f1;
-  --dust-white: #fbfbfb;
-}
-.login{
-  width: 100%;
+.index_title{
+  margin: 1% 4%;
+  background: linear-gradient( 120deg, var(--pink-degrade) 0%, var(--ligth-lilac) 52%, var(--dark-blue) 100% );
+  padding: 2%;
+  color:var(--dust-white);
+  border-radius: 20px;
+  box-shadow: 4px 4px 4px var(--dark-gray);
 }
 
-.input-container {
-  width: 17rem;
-  height: 100%;
-  padding: 20px 20px 10px 5px;
-  /* margin: 24px; */
-  border: 1px solid var(--medium-blue);
-  border-radius: 8px;
+.login {
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-around;
-  color: var(--pink-degrade);
+  justify-content: center;
 }
 
+.input_container {
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 5px; 
+  margin: 50px 10px;
+  border: 1px solid var(--medium-blue);
+  border-radius: 8px;
+  color: var(--pink-degrade);
+} 
+
+.label{
+  margin: 8px;
+}
 
 .error{
   text-align: center;
   color: var(--medium-blue);
 }
 
-.email,
-.password
+.email, .password 
  {
-  width: 100%;
-  padding: 16px 0px 16px 5px;
+  width: 90%;
+  margin-left: 9px;
+  margin-top: 16px;
+  margin-bottom: 8px;
+  padding: 16px 8px;
   border: 1px solid var(--medium-blue);
   border-radius: 8px;
-  margin:5px;
  }
 
-
-.btn-login {
-  font-size: 12px;
+ .checkbox {
+  margin-left: 9px;
+  margin-top: 16px;
+  margin-bottom: 8px;
+ }
+.wrapper_btnlogin{
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  width: 80px;
-  padding: 5px;
-  background-color: #7f7ae9;
-  border-radius: 10px;
-  color: #fbfbfb;
-  display: inline-block;
-  box-shadow: 2px 2px 2px var(--dark-gray);
-  justify-items: center;
+  justify-content: center;
 }
 
-.btn-login:hover {
+.btn_login {
+  font-size: 12px;
+  width: 80px;
+  padding: 5px;
+  background-color: var(--ligth-lilac);
+  border-radius: 10px;
+  color: var(--dust-white);
+  box-shadow: 2px 2px 2px var(--dark-gray);
+  margin-top:20px;
+}
+
+.btn_login:hover {
 cursor: pointer;
 background-color: var(--ligth-blue);
 }
@@ -74,51 +87,54 @@ background-color: var(--ligth-blue);
   color: var(--dark-blue);
 }
 
-.remember-password{
-  margin-left: 60px; 
+.remember_password{
+  margin: 10px 95px; 
   color: var(--medium-blue);
   opacity: 0.5;
 }
 
-.remember-password:hover{
+.remember_password:hover{
   cursor: pointer;
   text-decoration: underline;
   opacity: 1;
 }
 
-.sign-up{
+.sign_up{
   color: var(--medium-blue);
   margin-left: 60px;
   font-size: 8px;
   opacity: .3;
 }
 
-.sign-up:hover{
+.sign_up:hover{
   text-decoration: underline;
   cursor: pointer;
   opacity: 1;
 }
 
-@media(min-width: 801px){
-.input-container{
-  margin-top: 20px auto;
-}
+ @media(min-width: 600px){
+  .input_container{
+    width: 90%;
+    padding-top:30px
+    }
 }
 
-@media(min-width: 1025px){
-  .input-container{
-    margin-left: 420px;
-  }
+
+@media(min-width: 900px){
+  .input_container{
+    width: 70%;
+    }
 }
 
 @media(min-width: 1200px){
-  .input-container{
-    margin-left: 540px;
+  .input_container{
+    width: 60%;
   }
 }
 
 @media(min-width: 1800px){
-  .input-container{
-    margin-left: 780px;
+  .input_container{
+    width: 50%;
   }
 }
+

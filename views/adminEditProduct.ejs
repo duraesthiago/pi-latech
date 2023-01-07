@@ -1,0 +1,90 @@
+<%- include('partials/head') %>
+    <!-- Include Header -->
+    <%- include('partials/header', {title: 'Início' }) %>
+
+        <main>
+            <link rel="stylesheet" href="/stylesheets/adminEditProduct.css">
+
+            <h3 class="edit_title">Painel de Administrador >> EDITAR PRODUTO</h3>
+
+            <section class="detail">
+                <div class="product-details">
+                    <div class="main-picture">
+                        <img class="main-pic" src="<%=product['images.Imagem']%>" alt="" />
+                    </div>
+                    <div class="small-pictures">
+                        <img class="small-pics" src="<%=product['images.Imagem']%>" alt="" />
+                        <img class="small-pics" src="<%=product['images.Imagem']%>" alt="" />
+                        <img class="small-pics" src="<%=product['images.Imagem']%>" alt="" />
+                    </div>
+                </div>
+                <form class="admin-product-form"
+                    action="/admin/adminEditProduct/<%=product.idProdutos %>/update?_method=PUT" method="POST">
+                    <div class="description-product">
+
+                        <label for="Nome" class="form-label">Nome do produto:</label>
+                        <input class="edit-product-input" type="text" id="nome" name="Nome" placeholder="Ex: Iphone..."
+                            value="<%= product.Nome %>">
+
+                        <label for="Valor" class="form-label">Valor:</label>
+                        <input class="edit-product-input" type="text" id="valor" name="Preco" placeholder="R$ 99.99"
+                            value="<%= product.Preco %>">
+
+                        <div class="offer-input">
+                            <h4>Em oferta:</h4>
+                            <% if (product.Oferta==1) { %>
+                                <label for="Valor" class="form-label">Sim</label>
+                                <input type="radio" id="checked" name="Oferta" value="1" checked>
+                                <label for="Valor" class="form-label">Não</label>
+                                <input type="radio" id="checked" name="Oferta" value="0">
+                                <% } else { %>
+                                    <label for="Valor" class="form-label">Sim</label>
+                                    <input type="radio" id="checked" name="Oferta" value="1">
+                                    <label for="Valor" class="form-label">Não</label>
+                                    <input type="radio" id="checked" name="Oferta" value="0" checked>
+                                    <% } %>
+                        </div>
+
+                        <div class="offer-input">
+                            <h4>Em venda:</h4>
+                            <% if (product.Status==1) { %>
+                                <label for="Valor" class="form-label">Sim</label>
+                                <input type="radio" id="checked" name="Status" value="1" checked>
+                                <label for="Valor" class="form-label">Não</label>
+                                <input type="radio" id="checked" name="Status" value="0">
+                                <% } else { %>
+                                    <label for="Valor" class="form-label">Sim</label>
+                                    <input type="radio" id="checked" name="Status" value="1">
+                                    <label for="Valor" class="form-label">Não</label>
+                                    <input type="radio" id="checked" name="Status" value="0" checked>
+                                    <% } %>
+                        </div>
+
+                        <label for="Valor" class="form-label">Valor com Desconto:</label>
+                        <input class="edit-product-input" type="text" id="desconto" name="PrecoComDesconto"
+                            placeholder="Ex: R$ 99.99 " value="<%= product.PrecoComDesconto %>">
+
+                        <label for="Marca" class="form-label">Marca:</label>
+                        <select class="edit-product-input" name="idMarcas" id="idMarcas">
+                            <option selected value="<%=product['brands.idMarcas']%>">
+                                <%=product['brands.Marca']%>
+                            </option>
+                            <% for (b of brands) { %>
+                                <option value="<%=b.idMarcas %>">
+                                    <%= b.Marca %>
+                                </option>
+                                <% } %>
+
+                        </select>
+
+                        <label for="Informacoes" class="form-label">Informações:</label>
+                        <input class="edit-product-input" type="text" id="informacoes" name="Informacoes"
+                            placeholder="Digite as informações do produto" value="<%=product.Informacao%>">
+                    </div>
+                    <div class="btn-edit-product-form">
+                        <button type="submit" class="button">Salvar alterações</button>
+                    </div>
+                </form>
+            </section>
+        </main>
+        <%- include('partials/footer') %>

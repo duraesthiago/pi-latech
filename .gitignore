@@ -1,7 +1,13 @@
+node_modules,
+.env
+.DS_store
 node_modules
 .DS_Store
 button.html
 button.css
 esqueleto header e footer html
 .env
-.DS_Store
+routes/OrdersRouter.js
+public/.DS_Store
+*/.DS_Store
+

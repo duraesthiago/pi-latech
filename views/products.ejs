@@ -2,36 +2,54 @@
     <!-- Include Header -->
     <%- include('partials/header', {title: 'Início' }) %>
         <!-- Include Banner -->
-        <%- include('partials/banner') %>
+        <%- include('partials/slide') %>
+
+
             <main>
                 <link rel="stylesheet" href="/stylesheets/products.css" />
                 <!-- todos los productos -->
-                <div class="products-container">
+
+                <div class="cart-carrinho">
                     <div>
-                        <div class="products-wrapper">
-                            <% for (p of products) { %>
-                                <div>
-                                    <section class="product-box">
-                                        <a href="/products/detail/<%= p.idProdutos %>">
-                                            <figure class="product-box">
-                                                <img src="<%= p['images.Imagem']%>" alt="imagem do produto" />
-                                            </figure>
-                                            <article class="product-box_data">
-                                                <h2>R$ <%= p.Preco %>
-                                                </h2>
-                                                <p>
-                                                    <%= p.Nome %>
-                                                </p>
-                                            </article>
-                                        </a>
-                                        <form class="btn-product" action="/orders/addCart" method="POST">
-                                            <input type="hidden" name="selectedProduct" value=<%=p.idProdutos %>">
-                                            <button class="order" type="submit">ADICIONAR</button>
-                                        </form>
-                                    </section>
-                                </div>
-                                <% } %>
-                        </div>
+                        <header class="ls-cart-header">
+                            <span class="ls-ico-cart ls-float-left"></span>
+                            <small>MEU CARRINHO</small>
+                            <input type="checkbox" class="ls-checkbox-cart" />
+                            <strong>
+                                <%= qty %> Produtos
+                            </strong>
+                        </header>
+                    </div>
+                </div>
+
+
+                <div class="products-container">
+
+                    <h2 class="index-title">Produtos</h2>
+                    <div class="products-wrapper">
+                        <% for (p of products) { %>
+                            <div class="product-box">
+                                <section>
+                                    <a href="/products/detail/<%= p.idProdutos %>">
+
+                                        <img class="product-box-image" src="<%= p['images.Imagem']%>"
+                                            alt="imagem do produto" />
+
+                                        <article class="product-box_data">
+                                            <h2>
+                                                <%= p.Nome %>
+                                            </h2>
+                                            <p>R$ <%= p.Preco %>
+                                            </p>
+                                        </article>
+                                    </a>
+                                    <form action="/orders/addCart" method="POST">
+                                        <input type="hidden" name="selectedProduct" value=<%=p.idProdutos %>">
+                                        <button class="btn_order" type="submit">ADICIONAR</button>
+                                    </form>
+                                </section>
+                            </div>
+                            <% } %>
                     </div>
                 </div>
             </main>

@@ -1,0 +1,129 @@
+
+.admin_index_title{
+  margin: 1% 4%;
+  background: linear-gradient( 120deg, var(--pink-degrade) 0%, var(--ligth-lilac) 52%, var(--dark-blue) 100% );
+  padding: 2%;
+  color:var(--dust-white);
+  border-radius: 20px;
+  box-shadow: 4px 4px 4px var(--dark-gray);
+}
+
+.admin_login {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.input_admin_container {
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 5px; 
+  margin: 50px 10px;
+  border: 1px solid var(--medium-blue);
+  border-radius: 8px;
+  color: var(--pink-degrade);
+} 
+
+.label{
+  margin: 8px;
+}
+
+.error{
+  text-align: center;
+  color: var(--medium-blue);
+}
+
+.admin_email, .admin_password 
+ {
+  width: 90%;
+  margin-left: 9px;
+  margin-top: 16px;
+  margin-bottom: 8px;
+  padding: 16px 8px;
+  border: 1px solid var(--medium-blue);
+  border-radius: 8px;
+ }
+
+ .checkbox {
+  margin-left: 9px;
+  margin-top: 16px;
+  margin-bottom: 8px;
+ }
+.wrapper_admin_btnlogin{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn_admin_login {
+  font-size: 12px;
+  width: 80px;
+  padding: 5px;
+  background-color: var(--ligth-lilac);
+  border-radius: 10px;
+  color: var(--dust-white);
+  box-shadow: 2px 2px 2px var(--dark-gray);
+  margin-top:20px;
+}
+
+.btn_admin_login:hover {
+cursor: pointer;
+background-color: var(--ligth-blue);
+}
+
+::placeholder {
+  color: var(--ligth-lilac);
+  opacity: 0.3;
+}
+
+.danger{
+  font-size: 0.5rem;
+  color: var(--dark-blue);
+}
+
+.remember_admin_password{
+  margin: 10px 95px; 
+  color: var(--medium-blue);
+  opacity: 0.5;
+}
+
+.remember_admin_password:hover{
+  cursor: pointer;
+  text-decoration: underline;
+  opacity: 1;
+}
+
+
+
+ @media(min-width: 600px){
+  .input_container{
+    width: 90%;
+    padding-top:30px
+    }
+}
+
+
+@media(min-width: 900px){
+  .input_admin_container{
+    width: 70%;
+    }
+}
+
+@media(min-width: 1200px){
+  .input_admin_container{
+    width: 60%;
+  }
+}
+
+@media(min-width: 1800px){
+  .input_admin_container{
+    width: 50%;
+  }
+}
+

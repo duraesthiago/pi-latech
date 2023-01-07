@@ -1,13 +1,13 @@
-const db = require('../database/models')
+const { Product, Address, User, Purchase } = require('../database/models')
 
 
 const ordersController = {
     index: (req, res) => {
 
-        db.Product.findAll()
+        Product.findAll()
             .then(function (productsReturned) {
-                return res.render('index.ejs', { products: productsReturned })
             })
+        return res.render('products.ejs', { products: productsReturned })
             .catch((error) => console.log(error))
 
     },
@@ -20,7 +20,6 @@ const ordersController = {
             req.session.cart = [req.body.selectedProduct]
         }
 
-
         res.redirect('/products')
     },
 
@@ -29,16 +28,13 @@ const ordersController = {
         let idsIntoCart = req.session.cart
 
         let getProductById = async (id) => {
-            console.log("🚀 ~ file: OrdersController.js:32 ~ getProductById ~ id", id)
-
-            let productFound = await db.Product.findByPk(
+            let productFound = await Product.findByPk(
                 id, {
                 raw: true,
                 include: [
                     { association: 'images' },
                 ]
             })
-            console.log("🚀 ~ file: OrdersController.js:51 ~ getProductById ~ id", id)
             return productFound
         }
 
@@ -50,7 +46,13 @@ const ordersController = {
         });
 
         req.session.order = productsIntoCart;
-        res.render('cart.ejs', { productsIntoCart })
+        let total = 0
+        for(let i=0; i< productsIntoCart.length; i++)
+        total += productsIntoCart[i].totalProduto
+        console.log(total)
+        
+
+        res.render('cart.ejs', { productsIntoCart, total})
     },
 
     updateCart: (req, res) => {
@@ -64,24 +66,56 @@ const ordersController = {
         productsIntoCart[index].quantidade = productQtyChanged;
         productsIntoCart[index].totalProduto = productsIntoCart[index].Preco * productsIntoCart[index].quantidade;
 
+        let total = 0
+        for (let i = 0; i < productsIntoCart.length; i++)
+            total += productsIntoCart[i].totalProduto
+        console.log(total)
+
         req.session.order = productsIntoCart;
-
-        res.render('cart.ejs', { productsIntoCart });
-
+        req.session.total = total
+            
+        res.render('cart.ejs', { productsIntoCart, total });
 
     },
 
-    releaseOrder: (req, res) => {
+    payment: async (req, res) => {                    
+        let id = req.session.userLogged.idUser
+                
+        let user = await User.findByPk(id, {
+            raw: true,
+            include: [
+                { model: Address, as: 'addresses' }
+            ]
+        });
+
+        let addressesUser = await Address.findAll({raw: true, where:{users_idUser: id}});
+
+        productsIntoCart = req.session.order
+        total = req.session.total
+
+        let loggedUser = (req.session.userLogged !== undefined)
+        
+        res.render('cartPayment.ejs', { productsIntoCart, total, user, loggedUser, addressesUser })
+        
+    },
+    
+    releaseOrder: async (req, res) => {
         let pedidos = req.session.order
-        res.send(pedidos);
-        /*let total = 0
-        for (let i = 0; i < productsReturned.length; i++) {
-            sum += productsReturned[i].preco
-            return total
-        }
-        db.Purchase.create({
-            Data_Pedido:,
-            Total:
+        let total = req.session.total
+
+        let newAdress = await Address.create({
+            Endereco: req.body.endereco,
+            Cidade: req.body.cidade,
+            Estado: req.body.estado,
+            users_idUser: req.session.userLogged.idUser
+        })
+
+       
+        res.send("pedidoFinalizado");
+
+        /*db.Purchase.create({
+            Data_Pedido: new Date().toISOString(),
+            Total: req.session.total,
             Forma_de_Pagamento:
             Endereço_de_Entrega:
                     })*/
