@@ -34,6 +34,49 @@
 
    
   }
+  .ls-ico-cart {
+    visibility: hidden;
+  }
+  .ls-checkbox-cart {
+    visibility: hidden;
+  }
+  .ls-cart-content {
+
+    padding: 20px;
+    background-color: var(--dust-white);
+    color: #FFF;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  table {
+    width: 50%;
+    border-collapse: collapse;
+  }
+  table td {
+    border: solid 1px #333;
+      padding: 10px;
+  }
+  table:first-child {
+    width: 100px;
+      padding: 1px;
+  }
+  a:hover {
+    cursor: pointer;
+  }
+  table p {
+    font-size: 12px;
+    text-align: left;
+  }
+  table p:nth-child(2) {
+    font-size: 12px;
+    margin-left: 8px;
+  }
+  table img {
+    width: 25%;
+      display: block;
+      text-align: left;
+  }
+  .cart-btn-label{
   /* .cart-btn-label{
     display: flex;
     flex-direction: column;
