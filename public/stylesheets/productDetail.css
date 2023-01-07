@@ -5,7 +5,6 @@
 }
 
 .product-details {
-    background: #070d40;
     width: 90%;
     box-shadow: var(--medium-gray) 0px 1px 8px;
     border-radius: 8px;
@@ -98,12 +97,12 @@
 @media(min-width:600px){
 
 .product-details{
-    margin: 20px 40px;
+    margin: 20px 30px;
 }
 
     .main-pic  {
         width: 60%;
-        margin-left: 100px;
+        margin-left: 110px;
     }
 
     .small-pics  {
@@ -124,7 +123,7 @@
     }
 }
 
-@media(min-width:900px){
+@media(min-width: 900px){
 
     .detail {
         max-width: 80%;
@@ -133,7 +132,7 @@
 
     .main-pic  {
         width: 50%;
-        margin-left: 160px;
+        margin-left: 165px;
     }
 
     .small-pics  {
@@ -164,6 +163,7 @@
         margin-left: 330px;
      }
 }
+
 @media(min-width:1800px){
     .main-pic {
         width: 40%;

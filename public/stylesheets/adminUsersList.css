@@ -1,0 +1,120 @@
+.list-wrapper{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.edit_title{
+    width: 90%;
+    margin: 10% 4%;
+    background: linear-gradient( 120deg, var(--pink-degrade) 0%, var(--ligth-lilac) 52%, var(--dark-blue) 100% );
+    padding: 2%;
+    color: var(--dust-white);
+    border-radius: 10px;
+    box-shadow: 4px 4px 4px var(--dark-gray);
+  }
+
+  .edit-container {
+    width: 360px;
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 10px;
+    color: var(--medium-gray);
+   
+  }
+
+  .edit-container h2{
+    text-align: center;
+    text-transform: uppercase;
+  }
+
+  .edit-user-container li{
+    border-radius: 10px;
+    box-shadow: 4px 4px 4px var(--medium-gray);
+  }
+
+  .edit-user-container {
+    width: 90%;
+    margin: 8%;
+  }
+
+  .user-data{
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+
+.btn-container{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  margin: 10px 0;
+}
+  
+  .btn-admin-edit-user  {
+    font-size: 12px;
+    width: 40px;
+    padding: 5px;
+    background-color: var(--ligth-lilac);
+    border-radius: 10px;
+    color: var(--dust-white);
+    box-shadow: 2px 2px 2px var(--dark-gray);
+  }
+
+  .btn-admin-edit-user a{
+    color: var(--dust-white);
+  }
+
+  .btn-admin-delete-user {
+    font-size: 12px;
+    width: 40px;
+    padding: 5px;
+    background-color: var(--warning);
+    border-radius: 10px;
+    color: var(--dust-white);
+    box-shadow: 2px 2px 2px var(--dark-gray);
+  }
+
+  @media(min-width: 600px){
+    .edit-container {
+      width: 90%;
+      font-size: 16px ; 
+   }
+  .edit-user-container {
+    width: 90%;
+}
+  }
+@media(min-width: 900px){
+  .edit-container {
+    width: 900px;
+    font-size: 20px;
+    margin: 0 20px;
+}
+.edit-user-container {
+  width: 90%;
+}
+.user-data{
+  padding: 30px;
+  margin: 20px;
+}
+}
+@media(min-width: 1200px){
+  .edit-container {
+    width: 1200px;
+    font-size: 32px ;
+    margin: 0 50px;
+}
+
+.user-data{
+  padding: 30px;
+  margin: 0px 50px;
+}
+}
+
+@media(min-width: 1800px){
+  .edit-container {
+    width: 1400px;
+    font-size: 32px;
+   }
+  }

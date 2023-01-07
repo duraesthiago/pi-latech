@@ -1,50 +1,66 @@
 <%- include('partials/head') %>
-  <!-- Include Header -->
-  <%- include('partials/header', {title: 'Início' }) %>
-    <!-- Include Banner -->
-    <%- include('partials/banner') %>
+<!-- Include Header -->
+<%- include('partials/header', {title: 'Início' }) %>
+<!-- Include Banner -->
+<%- include('partials/slide') %>
 
-      <link rel="stylesheet" href="/stylesheets/cartPayments.css">
+<main class="main-payment">
+<link rel="stylesheet" href="../stylesheets/cartPayment.css" />
 
-      <% if(!loggedUser) { %>
-        <a id="linkEntrar" href="/users/">Faça login ou cadastre-se</a>
-        <% } else { %>
+<h3 class="payment_title">Pagamento</h3>
 
-          <main>
-            <link rel="stylesheet" href="/stylesheets/cartPayments.css">
+<% if(!loggedUser) { %>
+<a id="linkEntrar" href="/users">Faça login ou cadastre-se</a>
+<% } else { %>
 
+  <div>
 
-            <div class="ls-cart-content">
-              <% if(productsIntoCart.length> 0){ %>
-                <table>
-                  <% for(p of productsIntoCart) {%>
-                    <tr>
-                      <td><img src="<%= p['images.Imagem'] %>" alt=""></td>
-                      <td>
-                        <%= p.Nome %>
-                      </td>
+    <div class="ls-payment-content">
+      <% if(productsIntoCart.length > 0){ %>
+      <div>
+        <% for(p of productsIntoCart) {%>
+        <div>
+          <div class="product-img">
+            <img src="<%= p['images.Imagem'] %>" alt="" />
+          </div>
+          <div><%= p.Nome %></div>
 
-                      <td>R$ <%= p.Preco %>
-                      </td>
+          <div>R$ <%= p.Preco %></div>
 
-                      <td class="cart-btn-label">
+          <div class="cart-btn-label">
+            <form action="/orders/updateCart?_method=PUT" method="POST">
+              <label for="quantity">Quantidade:</label>
+              <input
+                type="hidden"
+                id="id"
+                name="productId"
+                value="<%=p.idProdutos %>"
+              />
+              <input
+                type="number"
+                id="quantidade"
+                name="productQty"
+                value="<%= p.quantidade %>"
+                min="1"
+                max="99"
+              />
+              <input type="submit" value="Adicionar" />
+            </form>
+          </div>
+        </div>
+        <% } %>
+    </div>
 
-                        <form action="/orders/updateCart?_method=PUT" method="POST">
-                          <label for="quantity">Quantidade:</label>
-                          <input type="hidden" id="id" name="productId" value="<%=p.idProdutos %>">
-                          <input type="number" id="quantidade" name="productQty" value="<%= p.quantidade %>" min="1"
-                            max="99">
-                          <input type="submit" value="Adicionar">
-                        </form>
+    <div class="ls-about-your-order">
+      <h5>resumo do pedido</h5>
 
-                      </td>
-                    </tr>
-                    <% } %>
-                </table>
-            </div>
+      <img src="" alt="" />
+      <p>Subtotal: R$ <%= total%></p>
+      <p>Frete: Grátis!</p>
 
-            <div class="ls-about-your-order">
-              <h5>resumo do pedido</h5>
+      <form action="/orders/release" method="POST">
+        <label
+          >Forma de Pagamento:
 
               <img src="" alt="" />
               <p>Subtotal: R$ <%= total %></p>
@@ -95,5 +111,33 @@
                 </div>
           </main>
 
+        <label for="address_id">Selecione o endereço de entrega</label>
+        <select name="address_id" id="">
+          <% for( a of addressesUser ) {%>
+          <option value="<%= a.Endereco%>"><%= a.Endereco %></option>
           <% } %>
-            <%- include('partials/footer') %>
+        </select>
+        <br />
+
+        <p>Total a pagar: R$ <%= total%></p>
+
+        <label for="endereco">Cadastrar novo endereço</label>
+        <input
+          type="text"
+          id="endereco"
+          name="endereco"
+          placeholder="Digite novo endereço"
+        />
+        <input type="text" id="cidade" name="cidade" placeholder="Cidade" />
+        <input type="text" id="estado" name="estado" placeholder="Estado" />
+
+        <button class="ls-btn-primary" type="submit">Finalizar Compra</button>
+      </form>
+    </div>
+
+    <% } else { %> Nenhum produto no carrinho <% } %>
+  </div>
+  <% } %> 
+</main>
+
+<%- include('partials/footer') %>

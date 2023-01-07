@@ -1,0 +1,16 @@
+
+.errorContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.error-title{
+    margin: 1% 4%;
+    background: linear-gradient( 120deg, var(--pink-degrade) 0%, var(--ligth-lilac) 52%, var(--dark-blue) 100% );
+    padding: 2%;
+    color: var(--dust-white);
+    border-radius: 20px;
+    box-shadow: 4px 4px 4px var(--dark-gray);
+}
