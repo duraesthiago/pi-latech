@@ -42,6 +42,10 @@ module.exports = (sequelize, DataTypes) => {
             Avatar: {
                 type: DataTypes.STRING,
                 allowNull: false
+            },
+            admin_idAdmin: {
+                type: DataTypes.INTEGER,
+                allowNull: true,
             }
 
         },
@@ -55,8 +59,8 @@ module.exports = (sequelize, DataTypes) => {
     )
     User.associate = function (models) {
         User.hasMany(models.Purchase, { as: "purchases", foreignKey: "Users_idUser" })
-        User.hasMany(models.Address, { as: "addresses", foreignKey: "Users_idUser", })
-        User.belongsTo(models.Admin, { as: "admin", foreignKey: "admin_idAdmin", })
+        User.hasMany(models.Address, { as: "addresses", foreignKey: "Users_idUser" })
+        User.belongsTo(models.Admin, { as: "admin", foreignKey: "admin_idAdmin" })
 
     }
     return User

@@ -13,6 +13,7 @@ const UserController = {
     const resultValidations = validationResult(req);
     if (resultValidations.errors.length > 0) {
       return res.render("userSignUp", {
+        error: undefined,
         errors: resultValidations.mapped(),
         oldData: req.body,
       });
@@ -81,12 +82,12 @@ const UserController = {
 
           if (req.body.remember_user) {
             res.cookie("userEmail", req.body.email, {
-              maxAge: (1000 * 60) * 30
+              maxAge: (1000 * 60) * 60
             });
           }
           if (!req.body.remember_user) {
             res.cookie("userEmail", req.body.email, {
-              maxAge: (1000 * 60) * 5
+              maxAge: (1000 * 60) * 30
 
             });
           }

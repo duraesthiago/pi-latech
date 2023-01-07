@@ -1,0 +1,94 @@
+<%- include('partials/head') %>
+
+<!-- Include Header -->
+<%- include('partials/headerAdmin') %>
+
+
+<main class="edit-container">
+  <link rel="stylesheet" href="/stylesheets/adminEditUser.css" />
+  <br />
+  <h2 class="edit_title">Editar Conta de Usuário</h2>
+  <br />
+  <div class="admin-edit-container">
+    <div class="user-info-container">
+
+      <form
+        class="user-info-form"
+        method="post"
+        action="/admin/adminEditUser/<%=user.idUser %>/update?_method=PUT" method="POST""
+      >
+        <div class="user-avatar">
+          <img class="img-avatar" src=" " />
+        </div>
+
+        <div class="user-form">
+          <div class="user-form-class">
+            <label class="form-label" for="nome">Nome do usuário: </label>
+            <input
+              class="input-label"
+              type="text"
+              id="nome"
+              name="name"
+              value=" <%= user.Nome %>"
+            />
+          </div>
+
+          <div class="user-form">
+            <div class="user-form-class">
+              <label class="form-label" for="sobrenome"
+                >Sobrenome do usuário: 
+              </label>
+              <input
+                class="input-label"
+                type="text"
+                id="lastName"
+                name="lastName"
+                value="<%= user.Sobrenome %>"
+              />
+            </div>
+            </div>
+
+            <div class="user-form">
+                <div class="user-form-class">
+                  <label class="form-label" for="nome">Email do usuário: </label>
+                  <input
+                    class="input-label"
+                    type="text"
+                    id="email"
+                    name="email"
+                    value="<%= user.Email %> "
+                  />
+                </div>
+          </div>
+
+          <div class="user-form">
+            <div class="user-form-class">
+              <label class="form-label" for="nome">Cpf do usuário:  </label>
+              <input
+                class="input-label"
+                type="text"
+                id="cpf"
+                name="personal_id"
+                value="<%= user.Cpf %>"
+              />
+            </div>
+            </div>
+          <div class="user-form-class">
+            <label class="form-label" for="telefone">Telefone:</label>
+            <input
+              class="input-label"
+              type="text"
+              id="telefone"
+              name="phone"
+              value=" <%= user.Telefone %>"
+            />
+          </div>
+          
+          <button class="btn-save" type="submit">Salvar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</main>
+<!-- Include Footer -->
+<%- include('partials/footer') %>
