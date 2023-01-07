@@ -8,23 +8,26 @@
   box-shadow: 4px 4px 4px var(--dark-gray);
 }
 
-
+.login {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
 
 .input_container {
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   padding: 5px; 
   margin: 50px 10px;
   border: 1px solid var(--medium-blue);
   border-radius: 8px;
   color: var(--pink-degrade);
 } 
-
-.form_wrapper{
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: space-evenly;
-  flex-wrap: nowrap;
-}
 
 .label{
   margin: 8px;
@@ -51,7 +54,12 @@
   margin-top: 16px;
   margin-bottom: 8px;
  }
-
+.wrapper_btnlogin{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
 
 .btn_login {
   font-size: 12px;
@@ -61,7 +69,7 @@
   border-radius: 10px;
   color: var(--dust-white);
   box-shadow: 2px 2px 2px var(--dark-gray);
-  margin: 20px 120px;
+  margin-top:20px;
 }
 
 .btn_login:hover {
@@ -104,60 +112,29 @@ background-color: var(--ligth-blue);
   opacity: 1;
 }
 
-@media(min-width: 600px){
-.input_container{
-  width: 90%;
-  margin: 30px;
-}
-
-.btn_login{
-  margin: 20px 315px;
-}
-
-.remember_password{
-  margin: 20px 290px;
-}
+ @media(min-width: 600px){
+  .input_container{
+    width: 90%;
+    padding-top:30px
+    }
 }
 
 
 @media(min-width: 900px){
   .input_container{
-    margin-left: 50px;
-    margin-bottom: 40px;
-  }
-
-  .email, .password {
-    margin-left: 40px;
-}
-
-  .btn_login{
-    margin-left: 420px;
-  }
-
-  .remember_password{
-    margin-left: 390px;
-  }
+    width: 70%;
+    }
 }
 
 @media(min-width: 1200px){
   .input_container{
-    margin-left: 50px;
-  }
-  .btn_login{
-    margin-left: 500px;
-  }
-
-  .remember_password{
-    margin-left: 480px;
+    width: 60%;
   }
 }
 
 @media(min-width: 1800px){
-  .btn_login{
-    margin: 30px 765px;
-  }
-
-  .remember_password{
-    margin: 30px 738px;
+  .input_container{
+    width: 50%;
   }
 }
+

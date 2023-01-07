@@ -3,7 +3,7 @@ const { Admin } = require ('../database/models')
 
 const loggedAdminDataMiddleware =   async (req, res, next) => {
     
-    res.locals.isAdimnLogged = false;
+    res.locals.isAdminLogged = false;
 
     if(req.session.adminLogged) {
         

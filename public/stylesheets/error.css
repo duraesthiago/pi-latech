@@ -20,3 +20,9 @@
     width:80%;
     margin: 20%;
 }
+.error-img{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
