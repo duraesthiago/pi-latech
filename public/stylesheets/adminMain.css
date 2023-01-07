@@ -33,6 +33,7 @@
 
   .admin-content h3{
     margin-top: 30px;
+    text-align: center;
     color: var(--pink-degrade);
   }
   
@@ -46,15 +47,20 @@
   .admin-content p  {
     margin: 15px  50px;
   }
+  .wrapper-admin-form-btns{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    padding-bottom:20px ;
+  }
   .admin-login, .admin-signup{
-    font-size: 12px;
+  font-size: 12px;
   width: 80px;
   padding: 5px;
   background-color: var(--ligth-lilac);
   border-radius: 10px;
   color: var(--dust-white);
   box-shadow: 2px 2px 2px var(--dark-gray);
-  margin: 20px 120px;
   }
 
   
