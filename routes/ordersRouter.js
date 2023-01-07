@@ -10,8 +10,6 @@ router.put('/updateCart', notLoggedUserMiddleware, ordersController.updateCart)
 router.get('/release', notLoggedUserMiddleware, ordersController.releaseOrder)
 
 router.get('/payment',notLoggedUserMiddleware, ordersController.payment)
-//router.post('/payment', ordersController.payment)
-
 
 router.post('/release', notLoggedUserMiddleware, ordersController.releaseOrder)
 
