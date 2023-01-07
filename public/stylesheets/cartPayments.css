@@ -68,9 +68,7 @@ table p:nth-child(2) {
   margin-left: 8px;
 }
 table img {
-  width: 25%;
-    display: block;
-    text-align: left;
+  width: 80px;
 }
 
 .cart-btn-label>label{
@@ -212,7 +210,10 @@ opacity: 1;
 }
 .ls-about-your-order  {
   width: 600px;
-  margin-left: 80px;
+  margin-left: 130px;
+}
+table img {
+  width: 100px;
 }
 
 table td {
@@ -225,7 +226,10 @@ table td {
     width: 900px;
     margin-left: 130px;
   }
-
+  table img {
+    width: 150px;
+  }
+  
   table td {
   padding: 40px;
   }
@@ -248,4 +252,8 @@ table td {
     margin-left: 450px;
   }
 }
+table img {
+  width: 200px;
+}
+
 }
