@@ -1,16 +1,28 @@
 
-.errorContainer{
+.error-container{
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+
 }
 
-.error-title{
-    margin: 1% 4%;
+.error_title{
+    width: 90%;
+    margin: 10% 4%;
     background: linear-gradient( 120deg, var(--pink-degrade) 0%, var(--ligth-lilac) 52%, var(--dark-blue) 100% );
     padding: 2%;
     color: var(--dust-white);
     border-radius: 20px;
     box-shadow: 4px 4px 4px var(--dark-gray);
+}
+.error-container img{
+    width:80%;
+    margin: 20%;
+}
+.error-img{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }

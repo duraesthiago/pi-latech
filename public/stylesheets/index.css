@@ -244,7 +244,7 @@ a {
     var(--dark-blue) 100%
   );
   padding: 2%;
-  color: #fbfbfb;
+  color: var(--dust-white);
   border-radius: 20px;
   box-shadow: 4px 4px 4px var(--dark-gray);
 }

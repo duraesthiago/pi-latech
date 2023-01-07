@@ -11,10 +11,10 @@
 <h2 class="index_title">Minha Conta</h2>
 <br>
 <div class="account-container">
-  <div class="user-menu">
+  <!-- <div class="user-menu">
     <button class="btn-user-purchase-order" id="btn-user-purchaise">Meus pedidos</button>
     <button class="btn-user-data" id="btn-user-data">Meus dados</button>
-  </div>
+  </div> -->
   <div class="order-container">
     <br>
     <h3>Meus Pedidos</h3>
@@ -52,7 +52,6 @@
     </div>
   </div>
   <div class="user-info-container">
-    
     <h3 class="greeting">Olá, <%= userLogged.Nome %></h3>
 
     <ul class="avatar">
@@ -66,7 +65,7 @@
       <li>Cpf: <%= userLogged.Cpf %></li> <br>
       <li>Telefone: <%= userLogged.Telefone%></li> <br>
     </ul>
-      
+      <div class="wrapper-form-buttons">
         
         <form action="/users/accountUpdate/<%= userLogged.idUser %>">
         <button class="btn-update" type="submit">Editar</button>
@@ -75,7 +74,7 @@
       <form method="post" action="/users/delete/<%= userLogged.idUser %>">
         <button class="btn-delete" type="submit">Excluir Conta</button>
       </form>
-
+    </div>
     
 
   </div>
