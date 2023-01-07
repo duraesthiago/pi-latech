@@ -22,14 +22,14 @@ module.exports = (sequelize, DataTypes) => {
                 type: DataTypes.STRING,
                 allowNull: true
             },
+            Users_idUser: {
+                type: DataTypes.INTEGER,
+                allowNull: false
+            },
             Endereço_de_Entrega: {
                 type: DataTypes.STRING,
                 allowNull: true
             },
-            Users_idUser: {
-                type: DataTypes.INTEGER,
-                allowNull: false
-            }
         },
         {
             tableName: "purchases",
