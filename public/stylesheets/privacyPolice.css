@@ -1,0 +1,22 @@
+
+.forgot-password-index{
+ margin: 1% 4%;
+ background: linear-gradient( 120deg, var(--pink-degrade) 0%, var(--ligth-lilac) 52%, var(--dark-blue) 100% );
+ padding: 2%;
+ color:var(--dust-white);
+ border-radius: 20px;
+ box-shadow: 4px 4px 4px var(--dark-gray);
+}
+.privacy-rules{
+    color: var(--medium-gray);
+    font-size: 8px;
+    text-align: left;
+}
+
+.privacy-rules article{
+    margin-left: 40px;
+}
+
+.privacy-rules p{
+    margin-left: 20px;
+}

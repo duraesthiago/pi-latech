@@ -28,11 +28,14 @@
           <li><a href="/aboutUs">Sobre nós</a></li>
           <li>
             <a href="/"><img src="/img/icons8-adicionar-usuario-masculino-50.svg" /></a>
-            <ul>
-              <li><a href="#">Cadastrar</a></li>
-              <li><a href="#">Entrar</a></li>
-              <li><a href="#">Minha Conta</a></li>
-              <li><a href="#">Sair</a></li>
+            <ul class="over">
+              <% if (locals.isLogged) {%>
+              <li class="over"><a href="/users/logout">Sair</a></li>
+              <li class="over"><a href="/users/account">Ver Conta</a></li>
+              <% } else { %>
+              <li><a href="/users/login">Entrar</a></li>
+              <li><a href="/users/">Cadastrar</a></li>
+              <% } %>
             </ul>
           </li>
           <li>
