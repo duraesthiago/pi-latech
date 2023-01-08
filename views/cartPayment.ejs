@@ -5,13 +5,14 @@
 <%- include('partials/slide') %>
 
 <main class="main-payment">
-<link rel="stylesheet" href="../stylesheets/cartPayment.css" />
+<link rel="stylesheet" href="../public/stylesheets/cartPayment.css" />
 
 <h3 class="payment_title">Pagamento</h3>
 
 <% if(!loggedUser) { %>
-<a id="linkEntrar" href="/users">Faça login ou cadastre-se</a>
-<% } else { %>
+  <a id="linkEntrar" href="/users">Faça login ou cadastre-se</a>
+  <% } else { %>
+  
 
   <div>
 
@@ -30,21 +31,11 @@
           <div class="cart-btn-label">
             <form action="/orders/updateCart?_method=PUT" method="POST">
               <label for="quantity">Quantidade:</label>
-              <input
-                type="hidden"
-                id="id"
-                name="productId"
-                value="<%=p.idProdutos %>"
-              />
-              <input
-                type="number"
-                id="quantidade"
-                name="productQty"
-                value="<%= p.quantidade %>"
+              <input type="hidden" id="id" name="productId" value="<%=p.idProdutos %>"/>
+              <input type="number" id="quantidade" name="productQty" value="<%= p.quantidade %>"
                 min="1"
-                max="99"
-              />
-              <input type="submit" value="Adicionar" />
+                max="99"/>
+              <input type="submit" value="Adicionar"/>
             </form>
           </div>
         </div>
@@ -80,7 +71,6 @@
 
                 <label for="address_id">Selecione o endereço de entrega</label>
                 <select name="address_id" id="address_id">
-
                   <option selected disabled>Selecione um Endereço</option>
                   <% for( a of addressesUser ) {%>
                     <option value="<%= a.Endereco%>"><%= a.Endereco %></option>
