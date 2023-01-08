@@ -85,29 +85,12 @@
               <a href="/orders/payment"><button class="btn-order" type="submit">Continuar</button></a>
             </div>
 
-
-
-
-
-
           </div>
-
-          <!--<div class="delivery-tax">
-                <p>R$(frete): </p>
-              </div>
-          <div class="amount-order">
-          </div>
-          <section class="ls-cart-footer ls-txt-center">
-            <form action="/orders/release" method="POST">
-              <input type="hidden" name="confirmedPurchase" value="">
-              <button class="ls-btn-primary" type="submit">Finalizar Compra</button>
-            </form>
-          </section>-->
-
-
           <% } else { %>
-            No productsIntoCar
-            <% } %>
+          <div class="empty-cart">
+           <h1>Seu carrinho está vazio</h1> 
+          </div>
+          <% } %>
         </div>
         </div>
       </main>

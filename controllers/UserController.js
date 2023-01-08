@@ -104,7 +104,7 @@ const UserController = {
   },
 
   recoverPassword: (req, res) => {
-    res.render("recoverPassword");
+    res.send("Um email foi enviado para sua caixa Postal para recuperar sua senha.");
   },
 
   showUserAccount: async (req, res) => {
