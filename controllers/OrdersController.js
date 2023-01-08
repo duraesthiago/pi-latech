@@ -82,6 +82,7 @@ const ordersController = {
         
         console.log(req.session.total)
                       
+        let loggedUser = (req.session.userLogged !== undefined)
         let id = req.session.userLogged.idUser
                 
         let user = await User.findByPk(id, {
@@ -97,7 +98,6 @@ const ordersController = {
 
         total = req.session.total
         
-        let loggedUser = (req.session.userLogged !== undefined)
         
         res.render('cartPayment.ejs', { productsIntoCart, total, user, loggedUser, addressesUser, })
         
