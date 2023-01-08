@@ -2,58 +2,42 @@
   <!-- Include Header -->
   <%- include('partials/header', {title: 'Início' }) %>
     <!-- Include Banner -->
+    <%- include('partials/navbarCategories') %>
     <%- include('partials/slide') %>
-    <main>
-      <div class="ls-cart">
-          <link rel="stylesheet" href="../stylesheets/cart.css">
-
-        <h3 class="cart_title">Meu Carrinho. <br>
-            <%=  qty %> Produto(s)</h3>
-
-
-          <!-- <header class="ls-cart-header">
-            <span class="ls-ico-cart ls-float-left"></span>
+      <main>
+        <link rel="stylesheet" href="/stylesheets/cart.css">
+        <div class=" ls-cart">
+          <header class=" cart-title">
+            <span class=""></span>
             <small>MEU CARRINHO</small>
             <input type="checkbox" class="ls-checkbox-cart" />
             <strong>
               <%= qty %> Produtos
             </strong>
-          </header> -->
+          </header>
           <div class="ls-cart-content">
             <% if(productsIntoCart.length> 0){ %>
-
-              <ul>
-                <div class="ls-no-style-list">
-                  <% for(p of productsIntoCart) {%>
-                    <li>
-                      <a href="#"> 
-                        <h4 class="ls-title-product"><strong>01</strong></h4><br>
-                        <img src="<%= p['images.Imagem'] %>" alt="" />
-                        <p>
-                          <%= p.Nome %>
-                        </p>
-                      </a>
-                      <p>R$ <%= p.Preco %>
+              <ul class="ls-no-style-list">
+                <% for(p of productsIntoCart) {%>
+                  <li>
+                    <a href="#">
+                      <h4 class="ls-title-product"><strong>01</strong></h4>
+                      <img src="<%= p['images.Imagem'] %>" alt="" />
+                      <p>
+                        <%= p.Nome %>
                       </p>
                     </a>
                     <p>R$ <%= p.Preco %>
                     </p>
-
-                    
                     <div class="cart-btn-label">
                       <form action="/orders/updateCart?_method=PUT" method="POST">
                         <label for="quantity">Quantidade:</label>
                         <input type="hidden" id="id" name="productId" value="<%=p.idProdutos %>">
                         <input type="number" id="quantidade" name="productQty" value="<%= p.quantidade %>" min="1"
-                        max="99">
+                          max="99">
                         <input type="submit" value="Adicionar">
                       </form>
                     </div>
-                    
-                    <div class="w3-padding w3-small w3-text-orange">
-                      <i class="material-icons">delete</i>
-                      </div>
-
                   </li>
                   <% } %>
               </ul>
@@ -61,39 +45,29 @@
           <div class="ls-about-your-order">
             <h5>resumo do pedido</h5>
             <img src="" alt="" />
-            <p>Subtotal: R$ <%= total %></p>
-              <p>Calcule frete e prazo</p>
-              <input class="btn-zip-code" type="text" placeholder="digite o CEP" />
-              <input class="btn-zip-code-submit" type="hidden" />
-              <div class="delivery-shipp-cost">
-                <label for="gratis">receba gratis até 31 de janeiro</label>
-                <input type="radio" name="ship-type" id="gratis" checked>
-                <label for="loja">retire na loja</label>
-                <input type="radio" name="ship-type" id="loja">
-                <label for="express">Entrega express R$50,00</label>
-                <input type="radio" name="ship-type" id="express">
-              </div>
+            <p>Subtotal: R$ <%= total %>
+            </p>
+            <p>Calcule frete e prazo</p>
+            <input class="btn-zip-code" type="text" placeholder="digite o CEP" />
+            <input class="btn-zip-code-submit" type="hidden" />
+            <div class="delivery-shipp-cost">
+              <label for="gratis">receba gratis até 31 de janeiro</label>
+              <input type="radio" name="ship-type" id="gratis" checked>
+              <br>
+              <label for="loja">retire na loja</label>
+              <input type="radio" name="ship-type" id="loja">
+              <br>
+              <label for="express">Entrega express R$50,00</label>
+              <input type="radio" name="ship-type" id="express">
+            </div>
             <a href="/products">Continuar comprando...</a>
-            <p>Total a pagar: R$ <%= total %></p>
-
-              <a href="/orders/payment"><button class="ls-btn-primary" type="submit">Continuar para pagamento</button></a>
-           
-
-            
-
-
+            <p>Total a pagar: R$ <%= total %>
+            </p>
+            <div class="wrap-btn-order">
+              <a href="/orders/payment"><button class="btn-order" type="submit">Continuar</button></a>
+            </div>
           </div>
-          <!--<div class="delivery-tax">
-                <p>R$(frete): </p>
-              </div>
-          <div class="amount-order">
-          </div>
-          <section class="ls-cart-footer ls-txt-center">
-            <form action="/orders/release" method="POST">
-              <input type="hidden" name="confirmedPurchase" value="">
-              <button class="ls-btn-primary" type="submit">Finalizar Compra</button>
-            </form>
-          </section>-->
+          
           <% } else { %>
             No productsIntoCar
             <% } %>

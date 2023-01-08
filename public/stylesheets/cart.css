@@ -121,14 +121,14 @@
     margin-left: 20px;  
 }
 .ls-btn-primary{
-  box-shadow: 4px 4px 4px var(--dark-gray);
-  background-color: var(--dark-gray);
+  font-size: 12px;
+  width: 100px;
+  padding: 5px;
+  background-color: var(--ligth-lilac);
+  border-radius: 10px;
   color: var(--dust-white);
-  opacity: 0.5;
-  transition: 0.4s;
-  padding: 8px;
-  border-radius: 4px;
-  margin-left: 110px;
+  box-shadow: 2px 2px 2px var(--dark-gray);
+  margin: 20px 120px;
 }
  
     .ls-cart-footer {
