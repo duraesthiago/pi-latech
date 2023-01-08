@@ -23,10 +23,10 @@
   align-items: center;
   justify-content: center;
   padding: 5px; 
-  margin: 50px 10px;
-  border: 1px solid var(--medium-blue);
+  margin: 20px 10px;
+  border: 1px solid var(--dark-gray);
   border-radius: 8px;
-  color: var(--pink-degrade);
+  color: var(--medium-gray);
 } 
 
 .label{
@@ -45,7 +45,7 @@
   margin-top: 16px;
   margin-bottom: 8px;
   padding: 16px 8px;
-  border: 1px solid var(--medium-blue);
+  border: 1px solid var(--dark-gray);
   border-radius: 8px;
  }
 
@@ -74,7 +74,7 @@
 
 .btn_login:hover {
 cursor: pointer;
-background-color: var(--ligth-blue);
+background-color: var(--pink-degrade);
 }
 
 ::placeholder {
@@ -84,12 +84,12 @@ background-color: var(--ligth-blue);
 
 .danger{
   font-size: 0.5rem;
-  color: var(--dark-blue);
+  color: var(--warning);
 }
 
 .remember_password{
   margin: 10px 95px; 
-  color: var(--medium-blue);
+  color: var(--dark-gray);
   opacity: 0.5;
 }
 
@@ -100,7 +100,7 @@ background-color: var(--ligth-blue);
 }
 
 .sign_up{
-  color: var(--medium-blue);
+  color: var(--dark-gray);
   margin-left: 60px;
   font-size: 8px;
   opacity: .3;
@@ -110,6 +110,32 @@ background-color: var(--ligth-blue);
   text-decoration: underline;
   cursor: pointer;
   opacity: 1;
+}
+
+.or-create{
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+  align-items: center;
+  justify-content: center;
+  padding: 5px; 
+  margin: 20px;
+  border: 1px solid var(--dark-gray);
+  border-radius: 8px;
+  color: var(--medium-gray);
+}
+.btn-registration {
+  font-size: 12px;
+  align-items: center;
+  width: 80px;
+  padding: 5px;
+  background-color: var(--ligth-lilac);
+  border-radius: 10px;
+  color: var(--dust-white);
+  display: inline-block;
+  box-shadow: 2px 2px 2px var(--dark-gray);
+  justify-items: center;margin-bottom: 20px;
 }
 
  @media(min-width: 600px){
@@ -124,16 +150,25 @@ background-color: var(--ligth-blue);
   .input_container{
     width: 70%;
     }
+    .or-create{
+      width: 70%;
+    }
 }
 
 @media(min-width: 1200px){
   .input_container{
     width: 60%;
   }
+  .or-create{
+    width: 60%;
+  }
 }
 
 @media(min-width: 1800px){
   .input_container{
+    width: 50%;
+  }
+  .or-create{
     width: 50%;
   }
 }

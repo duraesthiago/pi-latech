@@ -12,6 +12,7 @@ const uploadFile = require('../middlewares/multerMiddleware');
 router.get('/', loggedUserMiddleware, UserController.signUp);
 router.post('/create', uploadFile.single('avatar'), validationsSignUp, UserController.createUser);
 
+
 router.get('/login', loggedUserMiddleware, UserController.userLogin);
 router.post('/login', UserController.loginProcess);
 router.get('/recoverPassword', UserController.recoverPassword);

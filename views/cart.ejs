@@ -2,22 +2,24 @@
   <!-- Include Header -->
   <%- include('partials/header', {title: 'Início' }) %>
     <!-- Include Banner -->
+    <%- include('partials/navbarCategories') %>
+
     <%- include('partials/slide') %>
 
-      <link rel="stylesheet" href="../public/stylesheets/cart.css">
 
 
       <main>
         <link rel="stylesheet" href="/stylesheets/cart.css">
-        <div class="ls-cart">
-          <header class="ls-cart-header">
-            <span class="ls-ico-cart ls-float-left"></span>
+
+        <div class=" ls-cart">
+          <header class=" cart-title">
+            <span class=""></span>
             <small>MEU CARRINHO</small>
             <input type="checkbox" class="ls-checkbox-cart" />
             <strong>
               <%= qty %> Produtos
             </strong>
-          </header> -->
+          </header>
           <div class="ls-cart-content">
             <% if(productsIntoCart.length> 0){ %>
               <ul class="ls-no-style-list">
@@ -61,13 +63,13 @@
             <input class="btn-zip-code" type="text" placeholder="digite o CEP" />
             <input class="btn-zip-code-submit" type="hidden" />
 
-            <div class="btn-delivery-shipp-cost">
+            <div class="delivery-shipp-cost">
               <label for="gratis">receba gratis até 31 de janeiro</label>
               <input type="radio" name="ship-type" id="gratis" checked>
-
+              <br>
               <label for="loja">retire na loja</label>
               <input type="radio" name="ship-type" id="loja">
-
+              <br>
               <label for="express">Entrega express R$50,00</label>
               <input type="radio" name="ship-type" id="express">
             </div>
@@ -79,8 +81,10 @@
 
             <p>Total a pagar: R$ <%= total %>
             </p>
+            <div class="wrap-btn-order">
+              <a href="/orders/payment"><button class="btn-order" type="submit">Continuar</button></a>
+            </div>
 
-            <a href="/orders/payment"><button class="ls-btn-primary" type="submit">Continuar</button></a>
 
 
 
