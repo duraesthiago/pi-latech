@@ -22,9 +22,9 @@
   align-items: center;
   justify-content: center;
   margin: 50px 10px;
-  border: 1px solid var(--medium-blue);
+  border: 1px solid var(--dark-gray);
   border-radius: 8px;
-  color: var(--pink-degrade);
+  color: var(--medium-gray);
 } 
 
 .input_admin_container form{
@@ -37,7 +37,7 @@
 
 .error{
   text-align: center;
-  color: var(--medium-blue);
+  color: var(--warning);
 }
 
 .admin_email, .admin_password 
@@ -47,7 +47,7 @@
   margin-top: 16px;
   margin-bottom: 8px;
   padding: 16px 8px;
-  border: 1px solid var(--medium-blue);
+  border: 1px solid var(--dark-gray);
   border-radius: 8px;
  }
 
@@ -76,7 +76,7 @@
 
 .btn_admin_login:hover {
 cursor: pointer;
-background-color: var(--ligth-blue);
+background-color: var(--ligth-lilac);
 }
 
 ::placeholder {
@@ -86,12 +86,12 @@ background-color: var(--ligth-blue);
 
 .danger{
   font-size: 0.5rem;
-  color: var(--dark-blue);
+  color: var(--warning);
 }
 
 .remember_admin_password{
   margin: 10px 95px; 
-  color: var(--medium-blue);
+  color: var(--medium-gray);
   opacity: 0.5;
 }
 

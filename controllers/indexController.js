@@ -77,7 +77,8 @@ const IndexController = {
 
   police: (req, res) => {
     res.render("privacyPolice")
-  }
+  },
+ 
 
 };
 
