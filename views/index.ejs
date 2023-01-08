@@ -7,23 +7,26 @@
       <!-- Include Slide-->
       <%- include('partials/slide') %>
         <main class="index-main">
-          <div class="products-list">
+          <div class="products-container">
             <h2 class="index-title">OFERTAS DA SEMANA</h2>
-            <div class="products-content">
+            <div class="products-wrapper">
               <% for(let product of products){ %>
-                <article class="products-itens">
-                  <img class="products-image" src="<%= product['images.Imagem'] %>" alt="<%= product.Nome%>" />
-                  <div class="products-description">
-                    <%= product.Nome %>
-                  </div>
-                  <div class="products-old-price">R$ <%= product.Preco %>
-                  </div>
-                  <div class="products-price">R$ <%= product.PrecoComDesconto %>
-                  </div>
-                  <Button class="detail-products-button">
-                    <a href="/products/detail/<%= product.idProdutos %>" class="link-button">Ver mais</a>
-                  </Button>
-                </article> 
+                <div class="products-box">  
+                  <section>
+                    <a href="/products/detail/<%= product.idProdutos %>">
+                      <img src="<%= product['images.Imagem'] %>" alt="<%= product.Nome%>" />
+                      <h2>
+                        <%= product.Nome %>
+                      </h2>
+                      <div id="products-old-price">R$ <%= product.Preco %></div>
+                      <div id="products-price">
+                        R$ <%= product.PrecoComDesconto %>
+                      </div>                                     
+                      <button><a href="/products/detail/<%= product.idProdutos %>" class="btn_order">Ver mais</a>
+                      </Button>
+                    </a> 
+                </section>
+                </div> 
               <% } %>
             </div>
           </div>          
