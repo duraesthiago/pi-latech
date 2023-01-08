@@ -2,7 +2,6 @@ module.exports = (sequelize, DataTypes) => {
 
     let Purchase = sequelize.define(
         "Purchase",
-        "Purchase",
         {
             idPedidos: {
                 type: DataTypes.INTEGER,
@@ -10,7 +9,7 @@ module.exports = (sequelize, DataTypes) => {
                 allowNull: false,
                 primaryKey: true
             },
-            Data_Pedido: {
+            Data_pedido: {
                 type: DataTypes.DATE,
                 allowNull: true
             },
@@ -31,11 +30,10 @@ module.exports = (sequelize, DataTypes) => {
                 type: DataTypes.INTEGER,
                 allowNull: false
             },
-            addresses_idAddresses: {
+            admin_idAdmin:{
                 type: DataTypes.INTEGER,
-                allowNull: false
+                allowNull: true
             }
-
         },
         {
             tableName: "purchases",
@@ -62,9 +60,7 @@ module.exports = (sequelize, DataTypes) => {
                 timestamps: false
             }
         )
-        Purchase.belongsTo(models.Address, {
-            as: 'addresses', foreignKey: "addresses_idAddresses"
-        })
+        
 
 
 
