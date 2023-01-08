@@ -73,6 +73,10 @@ const IndexController = {
         return product
       })
     res.render("search", { title: "Latech", products });
+  },
+
+  police: (req, res) => {
+    res.render("privacyPolice")
   }
 
 };
