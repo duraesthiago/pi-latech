@@ -37,7 +37,7 @@ const UserController = {
         Avatar: `/img/avatars/${avatarFileName}`,
         Cpf: req.body.personal_id,
         Senha: bcrypt.hashSync(req.body.password, 10),
-        admin_idAdmin: 1 //Verificar como tratar isso
+        admin_idAdmin: 0 //Verificar como tratar isso
       });
       return res.redirect("/users/login");
     }
@@ -107,14 +107,6 @@ const UserController = {
     res.render("recoverPassword");
   },
 
-  showUserAccount: async (req, res) => {
-    res.render("userAccount", {
-      userLogged: req.session.userLogged,
-    });
-  },
-
-
-
   updateUser: async (req, res) => {
     let userId = req.params.id;
     let userLogged = await User.findByPk(userId);
@@ -145,6 +137,12 @@ const UserController = {
     //  console.log(req.body);
     //  console.log(req.params.id);
     return res.redirect('/')
+  },
+
+  showUserAccount: async (req, res) => {
+    res.render("userAccount", {
+      userLogged: req.session.userLogged,
+    });
   },
 
   logout: (req, res) => {

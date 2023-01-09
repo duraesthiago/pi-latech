@@ -6,7 +6,7 @@
 
     
     <% if(!loggedUser) { %>
-      <a id="linkEntrar" href="/users/">Faça login ou cadastre-se</a>
+      <a id="linkEntrar" href="/users/login">Faça login ou cadastre-se</a>
       <% } else { %>
         
         <main class="main-payment">
@@ -14,20 +14,19 @@
           
           <h2 class="payment_title">Pagamento</h2>
 
-            <!-- <div class="ls-cart-content">
+            <div class="ls-cart-content">
               <% if(productsIntoCart.length> 0){ %>
-                <table>
+                <div class="table-content">
                   <% for(p of productsIntoCart) {%>
-                    <tr>
-                      <td><img src="<%= p['images.Imagem'] %>" alt=""></td>
-                      <td>
-                        <%= p.Nome %>
-                      </td>
+                    <ul>
+                      <li><img src="<%= p['images.Imagem'] %>" alt="">
+                      <li class="description">
+                        <p> <%= p.Nome %> </p> <br>
+                        <p>R$ <%= p.Preco %> </p>
 
-                      <td>R$ <%= p.Preco %>
-                      </td>
+                    </ul>
 
-                      <td class="cart-btn-label">
+                      <!-- <td class="cart-btn-label">
 
                         <form action="/orders/updateCart?_method=PUT" method="POST">
                           <label for="quantity">Quantidade:</label>
@@ -35,13 +34,13 @@
                           <input type="number" id="quantidade" name="productQty" value="<%= p.quantidade %>" min="1"
                             max="99">
                           <input type="submit" value="Adicionar">
-                        </form>
+                        </form> 
 
-                      </td>
-                    </tr>
+                      </td> -->
+                    </ul>
                     <% } %>
-                </table>
-            </div> -->
+                </div>
+            </div>
 
             <div class="payment-content">
               <h5>resumo do pedido</h5>
@@ -54,7 +53,7 @@
               <form action="/orders/release" method="POST" class="payment-form">
                 <label>Forma de Pagamento: <br>
 
-                  <select name="payment-option" id="payment-option">
+                  <select name="payment" id="payment">
                     <option selected disabled>Selecione a forma de pagamento</option>
                     <option value="Pix">PIX</option>
                     <option value="cartao">Cartão de Crédito</option>

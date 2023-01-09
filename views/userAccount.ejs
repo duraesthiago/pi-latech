@@ -1,8 +1,6 @@
 <%- include('partials/head') %>
 <!-- Include Header -->
 <%- include('partials/header', {title: 'Início' }) %>
-<%- include('partials/navbarCategories') %>
-
 
 
 
@@ -10,7 +8,7 @@
 
   <link rel="stylesheet" href="../stylesheets/userAccount.css" />
   <br>
-<h2 class="index_title">Minha Conta</h2>
+<h2 class="index_title">Minha Conta: Olá,  <%= userLogged.Nome %></h2>
 <br>
 <div class="account-container">
   <!-- <div class="user-menu">
@@ -18,18 +16,37 @@
     <button class="btn-user-data" id="btn-user-data">Meus dados</button>
   </div> -->
   <div class="order-container">
-    <br>
-    <h3>Meus Pedidos</h3>
-    <br>
-    <ul class="order-list">
-      <li>Pedido:</li>
-      <br>
-      <li>Status:</li>
-    </ul>
-    <br>
-    <h3>Minhas Compras</h3>
-    <br>
+    <div class="user-info-container">
+      <h3 class="greeting">Dados da Conta</h3>
+  
+      <ul class="avatar">
+        <li><img class="img-avatar" src="<%= userLogged.Avatar %> "></li>
+        </ul>
+  
+        <ul class="user-info">
+        <li>Nome do usuário: <%= userLogged.Nome %> </li> <br>
+        <li>Sobrenome do usuário: <%= userLogged.Sobrenome %></li> <br>
+        <li>E-mail: <%= userLogged.Email %></li> <br>
+        <li>Cpf: <%= userLogged.Cpf %></li> <br>
+        <li>Telefone: <%= userLogged.Telefone%></li> <br>
+      </ul>
+        <div class="wrapper-form-buttons">
+          
+          <form action="/users/accountUpdate/<%= userLogged.idUser %>">
+          <button class="btn-update" type="submit">Editar</button>
+        </form>
+  
+        <form method="post" action="/users/delete/<%= userLogged.idUser %>">
+          <button class="btn-delete" type="submit">Excluir Conta</button>
+        </form>
+      </div>
+      
+  
+    </div>
+    
     <div class="ordered-products-container">
+      <h3>Minhas Compras</h3>
+      <br>
       <div class="list-of-products">
         <div class="ordered-product">
           <img src="/img/celular.png" alt="" />
@@ -53,33 +70,7 @@
       </ul>
     </div>
   </div>
-  <div class="user-info-container">
-    <h3 class="greeting">Olá, <%= userLogged.Nome %></h3>
-
-    <ul class="avatar">
-      <li><img class="img-avatar" src="<%= userLogged.Avatar %> "></li>
-      </ul>
-
-      <ul class="user-info">
-      <li>Nome do usuário: <%= userLogged.Nome %> </li> <br>
-      <li>Sobrenome do usuário: <%= userLogged.Sobrenome %></li> <br>
-      <li>E-mail: <%= userLogged.Email %></li> <br>
-      <li>Cpf: <%= userLogged.Cpf %></li> <br>
-      <li>Telefone: <%= userLogged.Telefone%></li> <br>
-    </ul>
-      <div class="wrapper-form-buttons">
-        
-        <form action="/users/accountUpdate/<%= userLogged.idUser %>">
-        <button class="btn-update" type="submit">Editar</button>
-      </form>
-
-      <form method="post" action="/users/delete/<%= userLogged.idUser %>">
-        <button class="btn-delete" type="submit">Excluir Conta</button>
-      </form>
-    </div>
-    
-
-  </div>
+ 
 </main>
 
 <!-- Include Footer -->
