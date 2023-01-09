@@ -6,29 +6,30 @@
     <%- include('partials/slide') %>
       <main>
         <link rel="stylesheet" href="/stylesheets/cart.css">
+        
         <div class=" ls-cart">
           <header class=" cart-title">
             <span class=""></span>
             <small>MEU CARRINHO</small>
             <input type="checkbox" class="ls-checkbox-cart" />
             <strong>
-              <%= qty %> Produtos
+              <%= qtyUpdated %> Produto(s)
             </strong>
           </header>
+
           <div class="ls-cart-content">
             <% if(productsIntoCart.length> 0){ %>
               <ul class="ls-no-style-list">
                 <% for(p of productsIntoCart) {%>
-                  <li>
+
+                  <li id="<%= p.idProdutos %>">
                     <a href="#">
                       <h4 class="ls-title-product"><strong>01</strong></h4>
                       <img src="<%= p['images.Imagem'] %>" alt="" />
-                      <p>
-                        <%= p.Nome %>
-                      </p>
+                      <p><%= p.Nome %></p>
                     </a>
-                    <p>R$ <%= p.Preco %>
-                    </p>
+                    <p>R$ <%= p.Preco %></p>
+
                     <div class="cart-btn-label">
                       <form action="/orders/updateCart?_method=PUT" method="POST">
                         <label for="quantity">Quantidade:</label>
@@ -38,15 +39,19 @@
                         <input type="submit" value="Adicionar">
                       </form>
                     </div>
+                    <div class="w3-padding w3-small w3-text-black">
+                     <i class="material-icons" id="remove" onclick="removeProduct(id)">delete</i>
+                      </div>
+
                   </li>
                   <% } %>
               </ul>
           </div>
+
           <div class="ls-about-your-order">
             <h5>resumo do pedido</h5>
             <img src="" alt="" />
-            <p>Subtotal: R$ <%= total %>
-            </p>
+            <p>Subtotal: R$ <%= total %></p>
             <p>Calcule frete e prazo</p>
             <input class="btn-zip-code" type="text" placeholder="digite o CEP" />
             <input class="btn-zip-code-submit" type="hidden" />
@@ -63,13 +68,15 @@
             <a href="/products">Continuar comprando...</a>
             <p>Total a pagar: R$ <%= total %>
             </p>
+
             <div class="wrap-btn-order">
-              <a href="/orders/payment"><button class="btn-order" type="submit">Continuar</button></a>
+              <a href="/orders/payment"><button class="btn-order" type="submit">Continuar para pagamento</button></a>
             </div>
+
           </div>
           
           <% } else { %>
-            No productsIntoCar
+            Seu carrinho está vazio
             <% } %>
         </div>
         </div>

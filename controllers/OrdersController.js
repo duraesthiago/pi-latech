@@ -26,7 +26,11 @@ const ordersController = {
 
     showCart: async (req, res) => {
         let idsIntoCart = req.session.cart
-
+        
+        let idsFilter = [...new Set(idsIntoCart)]
+        
+        let qtyUpdated = idsFilter.length
+        
         let getProductById = async (id) => {
             let productFound = await Product.findByPk(
                 id, {
@@ -38,7 +42,7 @@ const ordersController = {
             return productFound
         }
 
-        let productsIntoCart = await Promise.all(idsIntoCart.map(getProductById))
+        let productsIntoCart = await Promise.all(idsFilter.map(getProductById))
 
         productsIntoCart.forEach((p) => {
             p.quantidade = 1;
@@ -50,9 +54,10 @@ const ordersController = {
         for(let i=0; i< productsIntoCart.length; i++)
         total += productsIntoCart[i].totalProduto          
          
+        console.log(productsIntoCart)
         req.session.total = total
 
-        res.render('cart.ejs', { productsIntoCart, total})
+        res.render('cart.ejs', { productsIntoCart, total, qtyUpdated})
     },
 
     updateCart: (req, res) => {
@@ -80,9 +85,9 @@ const ordersController = {
 
     payment: async (req, res) => {      
         
-        console.log(req.session.total)
-                      
+                             
         let loggedUser = (req.session.userLogged !== undefined)
+        
         let id = req.session.userLogged.idUser
                 
         let user = await User.findByPk(id, {
@@ -120,13 +125,12 @@ const ordersController = {
         } else {
             deliveryAddress = req.body.address_id
         }
-        console.log(deliveryAddress)
-        
+                
         req.session.total = total
-        console.log(total)
+        
                      
         let newPurchase = await Purchase.create({
-            Data_Pedido: new Date().toISOString(),
+            Data_pedido: new Date().toISOString(),
             Total: req.session.total,
             Forma_de_Pagamento: req.body.payment,
             Endereço_de_Entrega: deliveryAddress,
