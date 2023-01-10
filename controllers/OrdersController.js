@@ -21,7 +21,10 @@ const ordersController = {
         let idsFilter = [...new Set(idsIntoCart)]
         
         let qtyUpdated = idsFilter.length
-        
+        req.session.cart = idsFilter
+        res.locals.qty = qtyUpdated
+        console.log(req.session.cart)
+
         let getProductById = async (id) => {
             let productFound = await Product.findByPk(
                 id, {

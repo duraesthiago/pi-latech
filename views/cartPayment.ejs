@@ -1,5 +1,4 @@
 <%- include('partials/head') %>
-<header>testando</header>
 <!-- Include Header -->
 <%- include('partials/header', {title: 'Início' }) %>
 <!-- Include Banner -->
@@ -15,7 +14,7 @@
       <h2 class="payment_title">Pagamento</h2>
 
       <div class="ls-cart-content">
-        <% if(productsIntoCart.length> 0){ %>
+        
           <div class="table-content">
             <% for(p of productsIntoCart) {%>
               <ul>
@@ -69,16 +68,11 @@
 
               </form>
               
-
             </div>
-
-
-            <% } else { %>
-              Nenhum produto no carrinho
-              <% } %>
+            
 
                 </div>
+                <% } %>
           </main>
-
        
 <%- include('partials/footer') %>
