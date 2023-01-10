@@ -1,33 +1,34 @@
 <!-- Include Head -->
 <%- include('partials/head') %>
-<!-- Include Header -->
-<%- include('partials/header', {title: 'Início' }) %>
-<%- include('partials/navbarCategories') %>
+    <!-- Include Header -->
+    <%- include('partials/header', {title: 'Início' }) %>
+        <%- include('partials/navbarCategories') %>
 
-  <!-- Include Banner -->
-  <%- include('partials/slide') %>  
-    <main>
-        <link rel="stylesheet" href="/stylesheets/search.css">
-        <h2 class="search-title">PRODUTOS ENCONTRADOS</h2>
-        <div class="products-list">
-            <div class="offer-products-content">
-                <% for(let product of products){ %>
-                    <div class="offer-products-itens">
-                    <img class="offer-products-image" src="<%= product['images.Imagem'] %>" alt="<%= product.Nome %>"/>                    
-                    <div class="offer-products-description"><%= product.Nome %></div>                    
-                    <div class="offer-products-price">R$ <%= product.PrecoComDesconto.toFixed(2) %></div>
-                    <Button class="btn-offer-detail-products">
-                    <a href="/products/detail/<%= product.idProdutos %>">Ver mais</a>
-                    </Button>
+            <!-- Include Banner -->
+            <%- include('partials/slide') %>
+                <main>
+                    <link rel="stylesheet" href="/stylesheets/search.css">
+                    <h2 class="search-title">PRODUTOS ENCONTRADOS</h2>
+                    <div class="products-list">
+                        <div class="offer-products-content">
+                            <% for(let product of products){ %>
+                                <div class="offer-products-itens">
+                                    <img class="offer-products-image" src="<%= product['images.Imagem'] %>"
+                                        alt="<%= product.Nome %>" />
+                                    <div class="offer-products-description">
+                                        <%= product.Nome %>
+                                    </div>
+                                    <div class="offer-products-price">R$ <%= product.PrecoComDesconto.toFixed(2) %>
+                                    </div>
+                                    <Button class="btn-offer-detail-products">
+                                        <a href="/products/detail/<%= product.idProdutos %>">Ver mais</a>
+                                    </Button>
+                                </div>
+                                <% } %>
+                        </div>
                     </div>
-                <% } %>               
-                </div>
-            </div>
-          </div>          
-        </main>
-        <!-- Include Footer -->  
-        <%- include('partials/footer') %> 
-
-
-
-
+                    </div>
+                    </div>
+                </main>
+                <!-- Include Footer -->
+                <%- include('partials/footer') %>

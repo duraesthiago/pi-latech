@@ -8,29 +8,73 @@
       <%- include('partials/slide') %>
         <main class="index-main">
           <div class="products-container">
-            <h2 class="index-title">OFERTAS DA SEMANA</h2>
+            <h2 class="index-title">PRODUTOS EM DESTAQUE</h2>
             <div class="products-wrapper">
               <% for(let product of products){ %>
-                <div class="products-box">  
+                <div class="products-box">
                   <section>
                     <a href="/products/detail/<%= product.idProdutos %>">
                       <img src="<%= product['images.Imagem'] %>" alt="<%= product.Nome%>" />
                       <h2>
                         <%= product.Nome %>
                       </h2>
-                      <div id="products-old-price">R$ <%= product.Preco %></div>
-                      <div id="products-price">
-                        R$ <%= product.PrecoComDesconto %>
-                      </div>                                     
+                      <div id="products-old-price">R$ <%= product.Preco %>
+                      </div>
+                      <div id="products-price">R$ <%= product.PrecoComDesconto %>
+                      </div>
                       <button><a href="/products/detail/<%= product.idProdutos %>" class="btn_order">Ver mais</a>
                       </Button>
-                    </a> 
-                </section>
-                </div> 
-              <% } %>
+                    </a>
+                  </section>
+                </div>
+                <% } %>
+            </div>
+            <div class="products-wrapper">
+              <div class="category-box">
+                <a href="/products/category/?category=Notebook">
+                  <img src="/img/indexNotebook.png" alt="Notebook category" />
+                </a>
+              </div>
+              <div class="category-box">
+                <a href="/products/category/?category=Celulares">
+                  <img src="/img/indexCelular.png" alt="Cell category" />
+                </a>
+              </div>
+              <div class="category-box">
+                <a href="/products/category/?category=Desktop">
+                  <img src="/img/indexDesktop.png" alt="Descktop category" />
+                </a>
+              </div>
+              <div class="category-box">
+                <a href="/products/category/?category=Acessorios">
+                  <img src="/img/indexAcessorio.png" alt="Acessory category" />
+                </a>
+              </div>
+            </div>
+            <div class="products-wrapper">
+              <div class="category-box">
+                <a href="/products/category/?category=Notebook">
+                  <img src="/img/indexNotebook.png" alt="Notebook category" />
+                </a>
+              </div>
+              <div class="category-box">
+                <a href="/products/category/?category=Celulares">
+                  <img src="/img/indexCelular.png" alt="Cell category" />
+                </a>
+              </div>
+              <div class="category-box">
+                <a href="/products/category/?category=Desktop">
+                  <img src="/img/indexDesktop.png" alt="Descktop category" />
+                </a>
+              </div>
+              <div class="category-box">
+                <a href="/products/category/?category=Acessorios">
+                  <img src="/img/indexAcessorio.png" alt="Acessory category" />
+                </a>
+              </div>
             </div>
           </div>
           </div>
         </main>
-        <!-- Include Footer -->  
-        <%- include('partials/footer') %> 
+        <!-- Include Footer -->
+        <%- include('partials/footer') %>
