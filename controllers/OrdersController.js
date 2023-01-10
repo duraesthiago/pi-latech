@@ -71,7 +71,8 @@ const ordersController = {
                              
         let loggedUser = (req.session.userLogged !== undefined)
         
-        let id = req.session.userLogged.idUser
+        let id = req.session.userLogged? req.session.userLogged.idUser : 0;
+
         let user = await User.findByPk(id, {
             raw: true,
             include: [

@@ -1,4 +1,5 @@
 <%- include('partials/head') %>
+<header>testando</header>
 <!-- Include Header -->
 <%- include('partials/header', {title: 'Início' }) %>
 <!-- Include Banner -->
@@ -6,10 +7,9 @@
 
 <main class="main-payment">
   <link rel="stylesheet" href="/stylesheets/cartPayment.css">
-
   
   <% if(!loggedUser) { %>
-    <a id="linkEntrar" href="/users">Faça login ou cadastre-se</a>
+    <a id="linkEntrar" href="/users/login">Faça login ou cadastre-se</a>
     <% } else { %>
       
       <h2 class="payment_title">Pagamento</h2>
@@ -27,17 +27,8 @@
               <% } %>
           </div>
       </div>
-
-    
-    <% if(!loggedUser) { %>
-      <a id="linkEntrar" href="/users/login">Faça login ou cadastre-se</a>
-      <% } else { %>
-        
-        <main class="main-payment">
-          <link rel="stylesheet" href="/stylesheets/cartPayment.css">
-          
-          <h2 class="payment_title">Pagamento</h2>
-
+              
+       
     <div class="payment-content">
       <h5>resumo do pedido</h5>
 
