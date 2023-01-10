@@ -19,24 +19,10 @@
                 <div class="table-content">
                   <% for(p of productsIntoCart) {%>
                     <ul>
-                      <li><img src="<%= p['images.Imagem'] %>" alt="">
                       <li class="description">
-                        <p> <%= p.Nome %> </p> <br>
-                        <p>R$ <%= p.Preco %> </p>
-
-                    </ul>
-
-                      <!-- <td class="cart-btn-label">
-
-                        <form action="/orders/updateCart?_method=PUT" method="POST">
-                          <label for="quantity">Quantidade:</label>
-                          <input type="hidden" id="id" name="productId" value="<%=p.idProdutos %>">
-                          <input type="number" id="quantidade" name="productQty" value="<%= p.quantidade %>" min="1"
-                            max="99">
-                          <input type="submit" value="Adicionar">
-                        </form> 
-
-                      </td> -->
+                        <li> Quantidade: <%= p.quantidade %> </li>
+                        <li>Nome: <%= p.Nome %> </li> <br>
+                        <li><p>Valor Unitário: R$ <%= p.Preco %></p> </li>
                     </ul>
                     <% } %>
                 </div>
