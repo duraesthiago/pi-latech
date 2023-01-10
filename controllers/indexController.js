@@ -5,14 +5,12 @@ const IndexController = {
     let products = await Product.findAll({
       limit: 4,
       raw: true,
-      where: { Status: 1 },
       include: [{
         model: Image, as: 'images',
       }],
       where: {
-        Oferta: {
-          [Op.ne]: 0,
-        }
+        Status: 1,
+        Oferta: true,
       },
 
     });
