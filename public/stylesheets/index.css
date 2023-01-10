@@ -94,7 +94,64 @@ a {
   box-shadow: 4px 4px 4px var(--dark-gray);
 }
 
-.products-content {
+.banner-offer a {
+  display: inline-block;
+  text-decoration: none;
+  text-align: center;
+  margin: 10px;
+  font-size: 20px;
+  text-transform: uppercase;
+  color: var(--dark-blue);
+}
+
+.banner-offer img {
+  max-width: 25%;
+  max-height: 25%;
+  margin-left: 80px;
+  border-radius: 12px;
+}
+
+.layout-products-images {
+  max-width: 100%;
+  position: relative;
+  padding-top: 30px;
+}
+
+.layout-products-images ul {
+  padding: 0;
+}
+
+.layout-products-images li {
+  width: 300px;
+  height: 300px;
+  margin: 30px;
+  border: 1px solid var(--medium-blue);
+  border-radius: 20px;
+}
+
+.layout-products-images img {
+  width: 80%;
+  height: 80%;
+  margin: 30px 0 0 30px;
+  padding: auto;
+}
+
+.index-title {
+  margin: 1% 4%;
+  background: linear-gradient(
+    120deg,
+    var(--pink-degrade) 0%,
+    var(--ligth-lilac) 52%,
+    var(--dark-blue) 100%
+  );
+  padding: 2%;
+  color: #fbfbfb;
+  border-radius: 20px;
+  box-shadow: 4px 4px 4px var(--dark-gray);
+}
+
+.products-wrapper {
+  /*novo*/
   display: flex;
   flex-wrap: wrap;
   width: 100%;
@@ -103,69 +160,121 @@ a {
   align-items: stretch;
 }
 
-.products-itens {
-  width: 26%;
-  border: #7f7ae9 solid 1px;
-  border-radius: 20px;
-  margin: 1%;
-  align-items: center;
-  padding: 10px;
-  display: flex;
-  flex-direction: column;
-}
-
-.products-image {
-  width: 25%;
-  display: inline;
+.products-box {
+  /* novo*/
+  font-size: 0.8rem;
   text-align: center;
-}
-
-.products-description {
-  text-align: center;
-  font-size: 12px;
+  width: 300px;
+  height: 300px;
   text-transform: uppercase;
-}
-
-.products-old-price {
-  text-decoration: line-through;
-  font-size: 10px;
-  text-align: center;
+  box-shadow: var(--medium-gray) 0px 1px 8px;
+  background-color: var(--dust-white);
+  border-radius: 10px;
+  transition: 300ms;
+  padding: 10px;
   margin: 5px;
 }
 
-.products-price {
+.products-box img {
+  /*novo*/
+  max-width: 10rem;
+  max-height: 10rem;
+  border-radius: 10px;
+}
+
+.product-box a,
+h2,
+p {
+  line-height: 20px;
+  color: var(--dark-gray);
+}
+
+#products-old-price {
+  text-decoration: line-through;
+  font-size: 12px;
+  text-align: center;
+  margin: 5px;
+  color: var(--dark-gray);
+}
+
+#products-price {
   color: #c837c2;
   font-size: 16px;
   text-align: center;
   margin: 5px;
 }
 
-.detail-products-button {
+.btn_order {
   font-size: 12px;
-  align-items: center;
   width: 80px;
   padding: 5px;
-  margin: 20px;
-  background-color: #7f7ae9;
+  background-color: var(--ligth-lilac);
   border-radius: 10px;
-  color: #fbfbfb;
-  display: inline-block;
+  color: var(--dust-white);
   box-shadow: 2px 2px 2px var(--dark-gray);
-  justify-items: center;
+  margin: 20px 120px;
+}
+.category-box {
+  /* novo*/
+  width: 300px;
+  height: 300px;
+  box-shadow: var(--medium-gray) 0px 1px 8px;
+  background-color: var(--dust-white);
+  border-radius: 10px;
+  transition: 300ms;
+  padding: 10px;
+  margin: 5px;
+}
+.category-box img {
+  width: 100%;
+  height: 100%;
 }
 
-.link-button {
-  color: #fbfbfb;
-}
-
-/* tablet, landscape iPad, lo-res laptops ands desktops */
 @media (min-width: 600px) {
+  /* tablet, landscape iPad, lo-res laptops ands desktops */
+  .products-wrapper {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .product-box {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 350px;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .category-box {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 350px;
+    align-items: center;
+    justify-content: center;
+  }
 }
 
 @media (min-width: 900px) {
+  /* big landscape tablets, laptops, and desktops */
+  .product-box {
+    width: 300px;
+  }
+  .category-box {
+    width: 300px;
+  }
 }
 
 @media (min-width: 1200px) {
+  /* hi-res laptops and desktops */
+  .product-box {
+    width: 300px;
+  }
+  .category-box {
+    width: 300px;
+  }
 }
 
 @media (min-width: 1800px) {
