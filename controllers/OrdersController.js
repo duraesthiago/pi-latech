@@ -1,29 +1,20 @@
 const { Product, Address, User, Purchase } = require('../database/models')
-
-
 const ordersController = {
     index: (req, res) => {
-
         Product.findAll()
             .then(function (productsReturned) {
             })
         return res.render('products.ejs', { products: productsReturned })
             .catch((error) => console.log(error))
-
     },
-
     addCart: (req, res) => {
         if (req.session.cart) {
             req.session.cart.push(req.body.selectedProduct)
         } else {
-
             req.session.cart = [req.body.selectedProduct]
         }
-
         res.redirect('/products')
     },
-
-
     showCart: async (req, res) => {
         let idsIntoCart = req.session.cart
         
@@ -48,7 +39,6 @@ const ordersController = {
             p.quantidade = 1;
             p.totalProduto = p.Preco * p.quantidade;
         });
-
         req.session.order = productsIntoCart;
         let total = 0
         for(let i=0; i< productsIntoCart.length; i++)
@@ -59,28 +49,21 @@ const ordersController = {
 
         res.render('cart.ejs', { productsIntoCart, total, qtyUpdated})
     },
-
     updateCart: (req, res) => {
         
         let idProductToChange = req.body.productId;
         let productQtyChanged = req.body.productQty;
-
         productsIntoCart = req.session.order;
-
         let index = productsIntoCart.findIndex((p) => p.idProdutos == idProductToChange);
-
         productsIntoCart[index].quantidade = productQtyChanged;
         productsIntoCart[index].totalProduto = productsIntoCart[index].Preco * productsIntoCart[index].quantidade;
-
         let total = 0
         for (let i = 0; i < productsIntoCart.length; i++)
             total += productsIntoCart[i].totalProduto
         
         req.session.order = productsIntoCart;
         req.session.total = total
-            
         res.render('cart.ejs', { productsIntoCart, total });
-
     },
 
     payment: async (req, res) => {      
@@ -89,16 +72,13 @@ const ordersController = {
         let loggedUser = (req.session.userLogged !== undefined)
         
         let id = req.session.userLogged.idUser
-                
         let user = await User.findByPk(id, {
             raw: true,
             include: [
                 { model: Address, as: 'addresses' }
             ]
         });
-
         let addressesUser = await Address.findAll({raw: true, where:{users_idUser: id}});
-
         productsIntoCart = req.session.order
 
         total = req.session.total
@@ -139,5 +119,4 @@ const ordersController = {
         res.send("Pedido Finalizado com sucesso");
     }
 }
-
-module.exports = ordersController 
+module.exports = ordersController

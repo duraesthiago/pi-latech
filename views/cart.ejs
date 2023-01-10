@@ -17,7 +17,6 @@
               <%= qtyUpdated %> Produto(s)
             </strong>
           </header>
-
           <div class="ls-cart-content">
             <% if(productsIntoCart.length> 0){ %>
               <ul class="ls-no-style-list">
@@ -69,16 +68,16 @@
             <a href="/products">Continuar comprando...</a>
             <p>Total a pagar: R$ <%= total %>
             </p>
-
             <div class="wrap-btn-order">
-              <a href="/orders/payment"><button class="btn-order" type="submit">Continuar para pagamento</button></a>
+              <a href="/orders/payment"><button class="btn-order" type="submit">Continuar</button></a>
             </div>
 
           </div>
-          
           <% } else { %>
-            Seu carrinho está vazio
-            <% } %>
+          <div class="empty-cart">
+           <h1>Seu carrinho está vazio</h1> 
+          </div>
+          <% } %>
         </div>
         </div>
       </main>

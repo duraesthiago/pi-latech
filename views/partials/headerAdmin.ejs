@@ -1,51 +1,45 @@
 <header>
-    <link rel="stylesheet" href="/stylesheets/headerAdmin.css">
-    
-      <div class="container-header">
-        <a href="/">
-          <img class="logo" src="/img/logo_latech_final.png" alt="logo-latech" />
-        </a>
-        
-        <div class="menu-hamburguer">
-          <input class="checkbox-menu" type="checkbox" id="checkbox-menu" />
-          <label class="hamburguer" for="checkbox-menu">
-            <span class="hamburguer-line"></span>
-            <span></span>
-            <span></span>
-          </label>
-          <nav class="nav">
-            <ul class="menu" id="nav">
-              <li><a href="/products">Produtos</a></li>
-              <li><a href="/users">Clientes</a></li>
+  <link rel="stylesheet" href="/stylesheets/headerAdmin.css" />
 
-              <li>
-                <a href="/admin"
-                  ><img src="/img/icons8-adicionar-usuario-masculino-50.svg"
-                /></a>
-                <ul class="over">
-                  <% if (locals.isAdminLogged) {%>
-    
-                  <li class="over"><a href="/admin/logout/">Sair</a></li>
-                  <li class="over"><a href="/admin/panel/">Painel</a></li>
-    
-                  <% } else { %>
-    
-                  <li><a href="/admin/login">Entrar</a></li>
-                  <li><a href="/admin/signUp">Cadastrar</a></li>
-    
-                  <% } %>
-                </ul>
-              </li>
-              <li>
-                <a href="/orders/cart"
-                  ><img src="/img/icons8-carrinho-de-compras-carregado-50.svg" />
-                  <%= qty %>
-                </a>
-              </li>
+  <div class="container-header ">
+    <a href="/">
+      <img class="logo" src="/img/logo_latech_final.png" alt="logo-latech" />
+    </a>
+
+    <div class="menu-hamburguer">
+      <input class="checkbox-menu" type="checkbox" id="checkbox-menu" />
+      <label class="hamburguer" for="checkbox-menu">
+        <span class="hamburguer-line"></span>
+        <span></span>
+        <span></span>
+      </label>
+      <nav class="nav">
+        <ul class="menu" id="nav">
+          <li><a href="/products">Produtos</a></li>
+          <li><a href="/users">Clientes</a></li>
+
+          <li>
+            <a href="/admin"
+              ><img src="/img/icons8-adicionar-usuario-masculino-50.svg"
+            /></a>
+            <ul class="over">
+              <% if (locals.isAdminLogged) {%>
+
+              <li><a href="/admin/logout/">Sair</a></li>
+              <li><a href="/admin/panel/">Painel</a></li>
+
+              <% } else { %>
+
+              <li><a href="/admin/login">Entrar</a></li>
+              <li><a href="/admin/signUp">Cadastrar</a></li>
+
+              <% } %>
             </ul>
-          </nav>
-        </div>
-      </div>
-    
-      <script src="/dropDownAdminMenu.js"></script>
-    </header>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+
+  <script src="/dropDownAdminMenu.js"></script>
+</header>

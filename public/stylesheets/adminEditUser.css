@@ -24,7 +24,7 @@
  
 .user-info-container{
 margin: 10px;
-border: 1px solid var(--medium-blue);
+border: 1px solid var(--medium-gray);
 border-radius: 10px;
 display: flex;
 flex-direction: column;
@@ -38,7 +38,7 @@ input[type="file"] {
 
 
 .user-avatar {
-  border: 0.5px solid var(--medium-blue);
+  border: 0.5px solid var(--medium-gray);
     border-radius: 50%;
     margin: 8px;
     width: 80px;
@@ -47,7 +47,7 @@ input[type="file"] {
 }
 
   .img-avatar  {
-    border: 0.5px solid var(--medium-blue);
+    border: 0.5px solid var(--medium-gray);
     border-radius: 50%;
     margin-bottom: 50px;
     width: 80px;
@@ -74,7 +74,7 @@ input[type="file"] {
   width: 100%;
   position: relative;
   top: 8px;
-  color: var(--pink-degrade);
+  color: var(--medium-gray);
   font-size: 12px;
   background-color: var(--dust-white);
   padding: 5px;
@@ -88,7 +88,7 @@ input[type="file"] {
   margin: 5px;
   color: var(--medium-gray);
   font-size: 12px;
-  border: .5px solid var(--medium-blue);
+  border: .5px solid var(--dark-gray);
   border-radius: 10px;
 }
 

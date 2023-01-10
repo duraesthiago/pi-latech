@@ -9,7 +9,7 @@ module.exports = (sequelize, DataTypes) => {
                 allowNull: false,
                 primaryKey: true
             },
-            Data_Pedido: {
+            Data_pedido: {
                 type: DataTypes.DATE,
                 allowNull: true
             },

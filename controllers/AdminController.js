@@ -132,7 +132,7 @@ const AdminController = {
   updateUserData: async (req, res) => {
     await User.findByPk(req.params.id);
     console.log(req.body);
-    
+
     let userUpdated = await User.update(
       {
         Nome: req.body.name,
@@ -236,27 +236,31 @@ const AdminController = {
   },
 
   adminCreateProduct: async (req, res) => {
-    const newProduct = await Product.create({
-      Nome: req.body.Nome,
-      Codigo: req.body.Codigo,
-      Preco: req.body.Preco,
-      PrecoComDesconto: req.body.PrecoComDesconto,
-      Oferta: req.body.Oferta,
-      Status: req.body.Status,
-      Marcas_id: req.body.idMarcas,
-      Categorias_id: req.body.Categoria,
-      Informacao: req.body.Informacoes,
-    });
+    if (req.body.Nome !== '' || req.body.Preco !== '') {
+      const newProduct = await Product.create({
+        Nome: req.body.Nome,
+        Codigo: req.body.Codigo,
+        Preco: req.body.Preco,
+        PrecoComDesconto: req.body.PrecoComDesconto,
+        Oferta: req.body.Oferta,
+        Status: req.body.Status,
+        Marcas_id: req.body.idMarcas,
+        Categorias_id: req.body.Categoria,
+        Informacao: req.body.Informacoes,
+      });
 
-    const newImage = await Image.create({
-      Nome: "Default Image",
-      Data_Upload: "07/12/2022",
-      Imagem: "/img/default-img.jpg",
-      Produtos_idProdutos: newProduct.idProdutos,
-      Marcas_idMarcas: newProduct.Marcas_id,
-    });
+      const newImage = await Image.create({
+        Nome: "Default Image",
+        Data_Upload: "07/12/2022",
+        Imagem: "/img/default-img.jpg",
+        Produtos_idProdutos: newProduct.idProdutos,
+        Marcas_idMarcas: newProduct.Marcas_id,
+      });
 
-    return res.redirect("/admin/adminProduct");
+      return res.redirect("/admin/adminProduct");
+    } else {
+      return res.redirect("/admin/adminProductCreate");
+    };
   },
 
   adminDeleteProduct: async (req, res) => {

@@ -28,6 +28,15 @@
           </div>
       </div>
 
+    
+    <% if(!loggedUser) { %>
+      <a id="linkEntrar" href="/users/login">Faça login ou cadastre-se</a>
+      <% } else { %>
+        
+        <main class="main-payment">
+          <link rel="stylesheet" href="/stylesheets/cartPayment.css">
+          
+          <h2 class="payment_title">Pagamento</h2>
 
     <div class="payment-content">
       <h5>resumo do pedido</h5>
@@ -47,7 +56,8 @@
                     <option value="boleto">Boleto Bancario</option>
                   </select>
 
-                </label><br>
+                </label>
+                <br>
 
                 <label for="address_id">Selecione o endereço de entrega</label>
                 <select name="address_id" id="address_id">
@@ -62,12 +72,10 @@
                 <input type="text" id="endereco" name="endereco" placeholder="Digite novo endereço">
                 <input type="text" id="cidade" name="cidade" placeholder="Cidade">
                 <input type="text" id="estado" name="estado" placeholder="Estado">
-                
-                <p>Total a pagar: R$ <%= total %> <br>
+                <div class="btn-wrap">  
+                  <button class="btn-order-conclusion" type="submit">Finalizar Compra</button>
+                </div>
 
-                <button class="ls-btn-primary" type="submit">Finalizar Compra</button>
-                
-                </p>
               </form>
               
 
