@@ -3,7 +3,9 @@ const { Product, Image } = require("../database/models");
 const IndexController = {
   index: async (req, res) => {
     let products = await Product.findAll({
-      raw: true,
+      limit:4,
+      raw: true,  
+      where: { Status: 1 },    
       include: [{
         model: Image, as: 'images',
       }],
@@ -31,6 +33,7 @@ const IndexController = {
     let q = req.query.q;
     let products = await Product.findAll({
       raw: true,
+      where: { Status: 1 },
       include: [{
         model: Image, as: 'images',
       }],
@@ -56,16 +59,7 @@ const IndexController = {
         }
       }
     })
-    products = products.map(
-      (product) => {
-        if (idProdutosComDesconto.includes(product.id)) {
-          product.PrecoComDesconto = product.Preco * 0.7
-        } else {
-          product.PrecoComDesconto = product.Preco * 1
-        }
-        return product
-      })
-    res.render("search", { title: "Latech", products });
+    
   },
 
   police: (req, res) => {
