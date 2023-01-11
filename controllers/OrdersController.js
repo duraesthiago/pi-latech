@@ -25,8 +25,7 @@ const ordersController = {
         let qtyUpdated = idsFilter.length
         req.session.cart = idsFilter
         res.locals.qty = qtyUpdated
-        console.log(req.session.cart)
-
+        
         let getProductById = async (id) => {
             let productFound = await Product.findByPk(
                 id, {
@@ -49,7 +48,6 @@ const ordersController = {
         for(let i=0; i< productsIntoCart.length; i++)
         total += productsIntoCart[i].totalProduto          
          
-        console.log(productsIntoCart)
         req.session.total = total
 
         res.render('cart.ejs', { productsIntoCart, total, qtyUpdated})
@@ -71,12 +69,12 @@ const ordersController = {
         res.render('cart.ejs', { productsIntoCart, total });
     },
     removeProduct: (req, res) => {
-        console.log(req.session.cart)
+        
         let idParaRemover = req.params.id
         if(req.session.cart){
             req.session.cart = req.session.cart.filter( id => id !=idParaRemover)
         }
-        console.log(req.session.cart)
+        
         res.redirect('/orders/cart')
     },
 
