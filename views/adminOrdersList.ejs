@@ -1,0 +1,48 @@
+<%- include('partials/head') %>
+  <!-- Include Header -->
+  <%- include('partials/headerAdmin') %>
+
+    <%- include('partials/navbarCategories') %>
+
+      <main>
+        <link rel="stylesheet" href="/stylesheets/adminProduct.css" />
+
+        <h3 class="edit_title">Painel de Administrador >> PRODUTOS</h3>
+
+        <!-- Search bar -->
+        <div class="searchAdminForm">
+          <form action="/admin/adminSearchProduct" method="get" class="search-bar">
+            <input class="search-bar" type="text" name="search" placeholder="Buscar produto..." />
+            <button class="btn_sb" type="submit">
+              <img class="btn_search" src="/img/icons8-pesquisar.svg" />
+            </button>
+          </form>
+        </div>
+
+        <!-- Lista de Produtos Ativos -->
+
+        <h3>PRODUTOS ATIVOS</h3>
+
+        <div class="product_list">
+          <ul>
+            <% for (Purchase of ordersList) { %>
+              <li>
+                <p>Numero do Pedido: <%= Purchase.idPedidos %></p><br>
+                <p>Data do Pedido:<%= Purchase.Data_pedido %></p><br>
+                <p>Total do Pedido: <%= Purchase.Total %></p> <br>
+                <p>Forma de Pagamento: <%= Purchase.Forma_de_Pagamento %></p> <br>
+                <p>Endereço de entrega <%= Purchase.Endereço_de_Entrega %></p><br>
+                <p>Nomedo do Usuario: <%= Purchase['users.Nome'] %></p><br>
+                        
+                          <div class="btn-container">
+                            <a href="/admin/adminEditProduct/<%= p.idProdutos %>" class="btn-admin-products">Editar</a>
+                            <form action="/admin/adminDeleteProduct/<%= p.idProdutos %>" method="POST">
+                              <button type="submit" class="btn-admin-products">Excluir</button>
+                            </form>
+                          </div>
+              </li>
+              <% } %>
+          </ul>
+        </div>
+      </main>
+      <%- include('partials/footer') %>
