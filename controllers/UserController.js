@@ -91,7 +91,9 @@ const UserController = {
 
             });
           }
-          let url = req.session.cart? "/orders/payment" : "/"
+          let url = req.session.cart ? "/orders/payment" : "/";
+          console.log("🚀 ~ file: UserController.js:95 ~ loginProcess: ~ req.session.cart", req.session.cart)
+          console.log("🚀 ~ file: UserController.js:95 ~ loginProcess: ~ url", url)
           res.redirect(url);
         }
       }
