@@ -5,14 +5,12 @@ const IndexController = {
     let products = await Product.findAll({
       limit: 4,
       raw: true,
-      where: { Status: 1 },
       include: [{
         model: Image, as: 'images',
       }],
       where: {
-        Oferta: {
-          [Op.ne]: 0,
-        }
+        Status: 1,
+        Oferta: true,
       },
 
     });
@@ -31,35 +29,21 @@ const IndexController = {
 
   search: async (req, res) => {
     let q = req.query.q;
-    let products = await Product.findAll({
-      raw: true,
-      where: { Status: 1 },
-      include: [{
-        model: Image, as: 'images',
-      }],
-      where: {
-        Nome: {
-          [Op.like]: `%${q}%`
-        }
-      }
-    })
 
-    res.render("search", { title: "Latech", products });
-  },
-  search: async (req, res) => {
-    let q = req.query.q;
     let products = await Product.findAll({
       raw: true,
       include: [{
         model: Image, as: 'images',
       }],
       where: {
+        Status: 1,
         Nome: {
           [Op.like]: `%${q}%`
         }
       }
     })
 
+    res.render("search", { products });
   },
 
   police: (req, res) => {

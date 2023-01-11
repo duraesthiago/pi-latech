@@ -1,9 +1,7 @@
-<!-- Include Head -->
 <%- include('partials/head') %>
     <!-- Include Header -->
     <%- include('partials/header', {title: 'Início' }) %>
         <%- include('partials/navbarCategories') %>
-
             <!-- Include Banner -->
             <%- include('partials/slide') %>
                 <main>
@@ -18,7 +16,7 @@
                                     <div class="offer-products-description">
                                         <%= product.Nome %>
                                     </div>
-                                    <div class="offer-products-price">R$ <%= product.PrecoComDesconto.toFixed(2) %>
+                                    <div class="offer-products-price">R$ <%= product.PrecoComDesconto %>
                                     </div>
                                     <Button class="btn-offer-detail-products">
                                         <a href="/products/detail/<%= product.idProdutos %>">Ver mais</a>
@@ -26,7 +24,6 @@
                                 </div>
                                 <% } %>
                         </div>
-                    </div>
                     </div>
                     </div>
                 </main>
