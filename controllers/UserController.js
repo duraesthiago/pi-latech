@@ -92,8 +92,6 @@ const UserController = {
             });
           }
           let url = req.session.cart? "/orders/payment" : "/"
-          console.log(url)
-          console.log(req.session.cart)
           res.redirect(url);
         }
       }
