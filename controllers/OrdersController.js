@@ -13,6 +13,8 @@ const ordersController = {
         } else {
             req.session.cart = [req.body.selectedProduct]
         }
+        console.log(req.body.selectedProduct)
+        console.log(req.session.cart)
         res.redirect('/products')
     },
     showCart: async (req, res) => {
@@ -68,10 +70,18 @@ const ordersController = {
         req.session.total = total
         res.render('cart.ejs', { productsIntoCart, total });
     },
+    removeProduct: (req, res) => {
+        console.log(req.session.cart)
+        let idParaRemover = req.params.id
+        if(req.session.cart){
+            req.session.cart = req.session.cart.filter( id => id !=idParaRemover)
+        }
+        console.log(req.session.cart)
+        res.redirect('/orders/cart')
+    },
 
-    payment: async (req, res) => {      
-        
-                             
+    payment: async (req, res) => {            
+                          
         let loggedUser = (req.session.userLogged !== undefined)
         
         let id = req.session.userLogged? req.session.userLogged.idUser : 0;

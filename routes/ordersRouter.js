@@ -7,6 +7,7 @@ router.post('/addCart', ordersController.addCart)
 router.get('/cart', ordersController.showCart)
 
 router.put('/updateCart', ordersController.updateCart)
+router.delete('/removeProduct/:id', ordersController.removeProduct)
 
 router.get('/payment', ordersController.payment)
 
