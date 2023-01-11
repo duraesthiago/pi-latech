@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="/stylesheets/cartPayment.css">
   
   <% if(!loggedUser) { %>
-    <a id="linkEntrar" href="/users/login">Faça login ou cadastre-se</a>
+    <a class="linkEntrar" href="/users/login">Para continuar comprando faça login ou cadastre-se</a>
     <% } else { %>
       
       <h2 class="payment_title">Pagamento</h2>
@@ -17,11 +17,11 @@
         
           <div class="table-content">
             <% for(p of productsIntoCart) {%>
-              <ul>
-                <li class="description">
-                  <li> Quantidade: <%= p.quantidade %> </li>
-                  <li>Nome: <%= p.Nome %> </li> <br>
-                  <li> Valor Unitário: R$ <%= p.Preco %> </li>
+              <ul class="description">
+                
+                <li>Nome: <%= p.Nome %> </li> <br>
+                <li> Valor Unitário: R$ <%= p.Preco %> </li>
+                <li> Quantidade: <%= p.quantidade %> </li>
               </ul>
               <% } %>
           </div>
@@ -29,12 +29,12 @@
               
        
     <div class="payment-content">
-      <h5>resumo do pedido</h5>
-
+      <h5>Resumo do pedido</h5>
       <img src="" alt="" />
-      <p>Subtotal: R$ <%= total%></p>
+      <p>Total: R$ <%= total%></p>
       <p>Frete: Grátis!</p>
-
+      
+      <p class="payment-questions">Olá, <%= user.Nome %>, selecione uma forma de pagamento:</p>
       <form action="/orders/release" method="POST" class="payment-form">
         <label
           >Forma de Pagamento:
@@ -48,7 +48,7 @@
 
                 </label>
                 <br>
-
+                <p class="payment-questions">Onde você quer receber sua compra?</p>
                 <label for="address_id">Selecione o endereço de entrega</label>
                 <select name="address_id" id="address_id">
                   <option selected disabled>Selecione um Endereço</option>
