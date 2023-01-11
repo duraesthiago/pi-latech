@@ -14,8 +14,6 @@ router.get('/payment', ordersController.payment)
 router.get('/release', ordersController.releaseOrder)
 router.post('/release', ordersController.releaseOrder)
 
-
-//router.post('/remove/:id', ordersController.removeProduct) 
 //router.put('/cancel/:id', ordersController.cancelOrder)
 
 
