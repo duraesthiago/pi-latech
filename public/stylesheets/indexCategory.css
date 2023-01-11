@@ -1,0 +1,35 @@
+.category-container {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: center;
+    height: auto;
+    align-items: stretch;
+}
+
+.category-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: center;
+    height: auto;
+    align-items: stretch;
+}
+  
+.category-box {
+    width: 300px;
+    height: 300px;
+    border-radius: 20px;
+    margin: 5px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.category-box img {
+    width: 100%;
+    height: 100%;
+}
+  

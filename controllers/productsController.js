@@ -11,7 +11,7 @@ const controler = {
                 model: Image, as: 'images'
             }]
         });
-        return res.render('products', { products });
+        return res.render('products', { title: 'Produtos', products });
     },
     sale: async (req, res) => {
         let productsOffer = await Product.findAll({
@@ -19,7 +19,7 @@ const controler = {
                 model: Image, as: 'images',
             }]
         });
-        res.render('products', { products: productsOffer });
+        res.render('products', { title: 'Ofertas', products: productsOffer });
     },
     category: async (req, res) => {
         let reqCategory = req.query.category;

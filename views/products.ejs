@@ -3,39 +3,41 @@
     <%- include('partials/header', {title: 'Início' }) %>
         <!-- Include Banner -->
         <%- include('partials/navbarCategories') %>
-        
-        <%- include('partials/slide') %>
+
+            <%- include('partials/slide') %>
 
 
-            <main>
-                <link rel="stylesheet" href="/stylesheets/products.css" />
-                <!-- todos los productos -->
+                <main>
+                    <link rel="stylesheet" href="/stylesheets/products.css" />
+                    <!-- todos los productos -->
 
-                <div class="cart-carrinho">
-                    <div>
-                        <header class="ls-cart-header">
-                            <span class="ls-ico-cart ls-float-left"></span>
-                            <small>MEU CARRINHO</small>
-                            <input type="checkbox" class="ls-checkbox-cart" />
-                            <strong>
-                                <%= qty %> Produtos
-                            </strong>
-                        </header>
+                    <div class="cart-carrinho">
+                        <div>
+                            <header class="ls-cart-header">
+                                <span class="ls-ico-cart ls-float-left"></span>
+                                <small>MEU CARRINHO</small>
+                                <input type="checkbox" class="ls-checkbox-cart" />
+                                <strong>
+                                    <%= qty %> Produtos
+                                </strong>
+                            </header>
+                        </div>
                     </div>
-                </div>
 
 
-                <div class="products-container">
+                    <div class="products-container">
 
-                    <h2 class="index-title">Produtos</h2>
-                    <div class="products-wrapper">
-                        <% for (p of products) { %>
-                            <div class="product-box">
-                                <section>
-                                    <a href="/products/detail/<%= p.idProdutos %>">
+                        <h2 class="index-title">
+                            <%= title %>
+                        </h2>
+                        <div class="products-wrapper">
+                            <% for (p of products) { %>
+                                <div class="product-box">
+                                    <section>
+                                        <a href="/products/detail/<%= p.idProdutos %>">
 
-                                        <img class="product-box-image" src="<%= p['images.Imagem']%>"
-                                            alt="imagem do produto" />
+                                            <img class="product-box-image" src="<%= p['images.Imagem']%>"
+                                                alt="imagem do produto" />
 
                                         <article class="product-box_data">
                                             <h2>
@@ -53,6 +55,5 @@
                             </div>
                             <% } %>
                     </div>
-                </div>
-            </main>
-            <%- include('partials/footer') %>
+                </main>
+                <%- include('partials/footer') %>
