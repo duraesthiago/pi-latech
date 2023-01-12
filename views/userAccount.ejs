@@ -22,6 +22,9 @@
       <ul class="avatar">
         <li>
           <img class="img-avatar" src="<%= userLogged.Avatar %> ">
+          <form method="get" action="/users/accountUpdate/<%= userLogged.idUser %>">
+            <button class="btn-update-avatar" type="submit">Editar</button>
+          </form>
         </li>
         </ul>
   
@@ -34,7 +37,7 @@
       </ul>
         <div class="wrapper-form-buttons">
           
-          <form method="post" action="/users/accountUpdate/<%= userLogged.idUser %>">
+          <form method="get" action="/users/accountUpdate/<%= userLogged.idUser %>">
           <button class="btn-update" type="submit">Editar</button>
         </form>
   

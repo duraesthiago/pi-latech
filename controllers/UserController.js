@@ -117,7 +117,7 @@ const UserController = {
     let userLogged = await User.findByPk(userId);
 
     if (userLogged)
-      res.render("updateUser", {
+      res.render("updateUser.ejs", {
         userLogged
       });
     console.log(userLogged)
