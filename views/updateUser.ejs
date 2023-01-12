@@ -9,16 +9,26 @@
     <br>
     <div class="account-container">
         <div class="user-info-container">
-            <h3>Olá, <%= userLogged.Nome %></h3>
+            <h3>Olá, <%= userLogged.Nome %></h3> <br><br>
+
+            <form 
+            class="user-info-form" 
+            method="post" 
+            action="/users/updateUserAvatar/<%= userLogged.idUser %>" 
+            enctype="multipart/form-data"
+            >
+                  <img class="user-avatar-img" src="<%= userLogged.Avatar %> ">
+                <label for="avatar">Update Avatar</label>
+                <input class="input-label"  type="file" name="newAvatar" id="newAvatar">
+                <button class="btn-update-avatar" type="submit">Salvar</button>
+              </form>
+
             <form 
             class="user-info-form"
             method="post" 
-            action="/users/updateUserData/ <%= userLogged.idUser%>/updateUserData?_method=PUT"
+            action="/users/updateUserData/ <%= userLogged.idUser%>"
             >
-            <div class="user-avatar">
-                <img src="<%= userLogged.Avatar %>" alt="">
-            </div>
-            <div class="user-form">
+            <div>
                 <div class="user-form-class">
                     <label class="form-label" for="nome">Nome do Usuário</label>
                     <input
@@ -29,8 +39,7 @@
                     value="<%= userLogged.Nome %>"
                     />
                 </div>
-                <div class="user-form">
-                    <div class="user-form-class">
+                <div class="user-form-class">
                         <label class="form-label" for="nome">Sobrenome do Usuário</label>
                         <input
                         class="input-label"
@@ -39,9 +48,9 @@
                         name="lastName"
                         value="<%= userLogged.Sobrenome %>"
                         />
-                    </div><div class="user-form">
-                        <div class="user-form-class">
-                            <label class="form-label" for="nome">Nome do Usuário</label>
+                </div>
+                <div class="user-form-class">
+                            <label class="form-label" for="nome">Telefone do Usuário</label>
                             <input
                             class="input-label"
                             type="text"
@@ -49,11 +58,12 @@
                             name="phone"
                             value="<%= userLogged.Telefone %>"
                             />
-                        </div>
-                        <button class="btn-save" type="submit">Salvar</button>
+                </div>
             </div>
+            <div>
+                        <button class="btn-save" type="submit">Salvar</button>
+             </div>
         </form>
-        </div>
     </div>
 </main>
 <%- include('partials/footer') %>

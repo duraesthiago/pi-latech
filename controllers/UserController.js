@@ -77,7 +77,7 @@ const UserController = {
 
             delete userToLogin.Senha;
             req.session.userLogged = userToLogin;
-            console.log(req.session.userLogged);
+            // console.log(req.session.userLogged);
           }
 
           if (req.body.remember_user) {
@@ -112,13 +112,20 @@ const UserController = {
     res.send("Um email foi enviado para sua caixa Postal para recuperar sua senha.");
   },
 
+   showUserAccount: async (req, res) => {
+    res.render("userAccount", {
+      userLogged: req.session.userLogged,
+    });
+  },
+
   userToUpdate: async (req, res) => {
     let userId = req.params.id;
     let userLogged = await User.findByPk(userId);
 
-   if(userLogged)
-    console.log(userLogged)
-
+   if(userLogged){
+    res.render('updateUser', { userLogged })
+   }
+   
   },
 
   updateUserData: async (req, res) => {
@@ -127,24 +134,24 @@ const UserController = {
         Nome: req.body.name,
         Sobrenome: req.body.lastName,
         Telefone: req.body.phone,
-        Avatar: req.body.avatar,
       },
+
       {
         where: {
           idUser: req.params.id
         }
       }
     )
-    //   console.log(userLogged)
-    //  console.log(req.body);
-    //  console.log(req.params.id);
-    return res.redirect('/')
+    
+    return res.redirect('/users/account')
   },
 
   updateUserAvatar: async (req, res) => {
+    let newAvatarFileName = req.file.filename;
+
     let userLogged = await User.update(
       {
-        Avatar: req.body.avatar,
+        Avatar: `/img/avatars/${newAvatarFileName}`,
       },
       {
         where: {
@@ -152,17 +159,10 @@ const UserController = {
         }
       }
     )
-    //   console.log(userLogged)
-    //  console.log(req.body);
-    //  console.log(req.params.id);
-    return res.redirect('/')
+  
+    return res.redirect('/users/account')
   },
 
-  showUserAccount: async (req, res) => {
-    res.render("userAccount", {
-      userLogged: req.session.userLogged,
-    });
-  },
 
   logout: (req, res) => {
     req.session.destroy();

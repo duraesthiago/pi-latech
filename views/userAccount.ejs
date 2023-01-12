@@ -15,11 +15,15 @@
   <div class="order-container">
     <div class="user-info-container">
       <h3 class="greeting">Dados da Conta</h3>
+
+      <form method="get" action="/users/updateUser/<%= userLogged.idUser %>">
+        <li>
+          <img class="img-avatar" src="<%= userLogged.Avatar %> ">
+        </li>
+        <button class="btn-update" type="submit">Editar</button>
+      </form>
       
       <ul class="user-info">
-          <li>
-            <img class="img-avatar" src="<%= userLogged.Avatar %> ">
-          </li>
         <li>Nome do usuário: <%= userLogged.Nome %> </li> <br>
         <li>Sobrenome do usuário: <%= userLogged.Sobrenome %></li> <br>
         <li>E-mail: <%= userLogged.Email %></li> <br>
@@ -28,7 +32,7 @@
       </ul>
         <div class="wrapper-form-buttons">
           
-          <form method="get" action="/users/updateUser<%= userLogged.idUser %>">
+          <form method="get" action="/users/updateUser/<%= userLogged.idUser %>">
           <button class="btn-update" type="submit">Editar</button>
         </form>
   
@@ -43,25 +47,14 @@
     <div class="ordered-products-container">
       <h3>Minhas Compras</h3>
       <br>
-      <div class="list-of-products">
-        <div class="ordered-product">
-          <img src="/img/celular.png" alt="" />
-          <ul class="order-info">
-            <li>Produto:</li>
-            <br>
-            <li>Preço:</li>
-            <br>
-            <li>Quantidade:</li>
-            <br> 
-            <li>Subtotal:</li>
-            <br>
-          </ul>
-        </div>
-      </div>
+    
       <ul class="total-of-products">
-        <li>Valor do Frete:</li>
         <br>
-        <li>Total do Pedido:</li>
+        <li>Produto:</li>
+        <li>Preço: R$ </li>
+        <li>Data do Pedido</li>
+        <li>Endereço de Entrega:</li>
+        <li>Total do Pedido: R$</li>
         <br>
       </ul>
     </div>

@@ -68,7 +68,12 @@
                               <% if(locals.errors && errors.personal_id) {%>
                                 <div class="danger">
                                   <%= errors.personal_id.msg %>
-                                </div>
+                                </div> <form method="get" action="/users/updateUser/<%= userLogged.idUser %>">
+        <li>
+          <img class="img-avatar" src="<%= userLogged.Avatar %> ">
+        </li>
+        <button class="btn-update" type="submit">Editar</button>
+      </form>
                                 <% } %>
 
                                   <label for="input_password">Senha</label>
