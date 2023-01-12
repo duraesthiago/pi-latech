@@ -120,7 +120,7 @@ const UserController = {
       res.render("updateUser", {
         userLogged
       });
-    //console.log(userLogged)
+    console.log(userLogged)
 
   },
 
