@@ -24,7 +24,7 @@ router.get('/account/', notLoggedUserMiddleware, UserController.showUserAccount)
 
 router.get('/accountUpdate/:id', UserController.updateUser);
 router.post('/updateUserData/:id', UserController.updateUserData);
-
+router.post ('/updateUserAvatar/:id', UserController.updateUserAvatar)
 
 router.get('/logout', notLoggedUserMiddleware, UserController.logout);
 

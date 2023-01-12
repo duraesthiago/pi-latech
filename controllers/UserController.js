@@ -144,6 +144,23 @@ const UserController = {
     return res.redirect('/')
   },
 
+  updateUserAvatar: async (req, res) => {
+    let userLogged = await User.update(
+      {
+        Avatar: req.body.avatar,
+      },
+      {
+        where: {
+          idUser: req.params.id
+        }
+      }
+    )
+    //   console.log(userLogged)
+    //  console.log(req.body);
+    //  console.log(req.params.id);
+    return res.redirect('/')
+  },
+
   showUserAccount: async (req, res) => {
     res.render("userAccount", {
       userLogged: req.session.userLogged,
