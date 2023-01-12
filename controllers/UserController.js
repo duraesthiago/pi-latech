@@ -91,8 +91,8 @@ const UserController = {
 
             });
           }
-
-          res.redirect("/");
+          let url = req.session.cart? "/orders/payment" : "/"
+          res.redirect(url);
         }
       }
     } catch (error) {
