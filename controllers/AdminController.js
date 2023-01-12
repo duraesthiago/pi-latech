@@ -12,7 +12,8 @@ const bcrypt = require("bcrypt");
 const { raw } = require("express");
 
 let onlyNumber = (s) => {
-  let numStr = s.replace(/[^\d\.\,]+/g, '')
+  let numStr = s.replace(/[^\d\.\,]+/g, '');
+  numStr = numStr.replace(/,/g, '.');
   return numStr;
 };
 
