@@ -12,6 +12,11 @@ const {
 const bcrypt = require("bcrypt");
 const { raw } = require("express");
 
+let onlyNumber = (s) => {
+  let numStr = s.replace(/[^\d\.\,]+/g, '')
+  return numStr;
+};
+
 const AdminController = {
   admin: (req, res) => {
     //let error = req.query.error ? 1 : 0;
@@ -217,8 +222,8 @@ const AdminController = {
     let product = await Product.findByPk(id);
     product.set({
       Nome: req.body.Nome,
-      Preco: req.body.Preco,
-      PrecoComDesconto: req.body.PrecoComDesconto,
+      Preco: onlyNumber(req.body.Preco),
+      PrecoComDesconto: onlyNumber(req.body.PrecoComDesconto),
       Marcas_id: req.body.idMarcas,
       Oferta: req.body.Oferta,
       Status: req.body.Status,
@@ -241,8 +246,8 @@ const AdminController = {
       const newProduct = await Product.create({
         Nome: req.body.Nome,
         Codigo: req.body.Codigo,
-        Preco: req.body.Preco,
-        PrecoComDesconto: req.body.PrecoComDesconto,
+        Preco: onlyNumber(req.body.Preco),
+        PrecoComDesconto: onlyNumber(req.body.PrecoComDesconto),
         Oferta: req.body.Oferta,
         Status: req.body.Status,
         Marcas_id: req.body.idMarcas,

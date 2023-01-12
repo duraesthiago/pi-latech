@@ -13,7 +13,7 @@ module.exports = (sequelize, DataTypes) => {
                 type: DataTypes.DATE,
                 allowNull: true
             },
-            
+
             Total: {
                 type: DataTypes.DECIMAL,
                 allowNull: false
@@ -22,24 +22,20 @@ module.exports = (sequelize, DataTypes) => {
                 type: DataTypes.STRING,
                 allowNull: true
             },
-            Endereço_de_Entrega: {
-                type: DataTypes.STRING,
-                allowNull: true
-            },
             Users_idUser: {
                 type: DataTypes.INTEGER,
                 allowNull: false
             },
-            admin_idAdmin:{
-                type: DataTypes.INTEGER,
+            Endereço_de_Entrega: {
+                type: DataTypes.STRING,
                 allowNull: true
-            }
+            },
         },
         {
             tableName: "purchases",
             timestamps: false,
             paranoid: false
-        
+
 
         }
 
@@ -60,8 +56,6 @@ module.exports = (sequelize, DataTypes) => {
                 timestamps: false
             }
         )
-        
-
 
 
     }

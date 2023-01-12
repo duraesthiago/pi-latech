@@ -43,8 +43,12 @@
                         <input type="number" id="quantidade" name="productQty" value="<%= p.quantidade %>" min="1"
                           max="99">
                         <input type="submit" value="Adicionar">
+                        
                       </form>
-
+                      <form action="/orders/removeProduct/<%=p.idProdutos %>?_method=DELETE" method="POST">
+                      <input type="submit" value="Remover">
+                    </form>
+                  
                     </div>
                   </li>
                   <% } %>
@@ -82,7 +86,7 @@
             <p>Total a pagar: R$ <%= total %>
             </p>
             <div class="wrap-btn-order">
-              <a href="/orders/payment"><button class="btn-order" type="submit">Continuar</button></a>
+              <a href="/orders/payment"><button class="btn-order" type="submit">Continuar para Pagamento</button></a>
             </div>
 
           </div>
