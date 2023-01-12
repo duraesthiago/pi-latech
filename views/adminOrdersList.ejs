@@ -7,7 +7,7 @@
       <main>
         <link rel="stylesheet" href="/stylesheets/adminProduct.css" />
 
-        <h3 class="edit_title">Painel de Administrador >> PRODUTOS</h3>
+        <h3 class="edit_title">Painel de Pedidos</h3>
 
         <!-- Search bar -->
         <div class="searchAdminForm">
@@ -19,27 +19,26 @@
           </form>
         </div>
 
-        <!-- Lista de Produtos Ativos -->
+        <!-- Lista de Produtos Ativos --> 
 
-        <h3>PRODUTOS ATIVOS</h3>
+        <h3>Pedidos</h3>
 
         <div class="product_list">
           <ul>
             <% for (Purchase of ordersList) { %>
               <li>
-                <p>Numero do Pedido: <%= Purchase.idPedidos %></p><br>
-                <p>Data do Pedido:<%= Purchase.Data_pedido %></p><br>
+                <p>Numero do Pedido:  <%= Purchase.idPedidos %></p>
+                <p>Data do Pedido: <%= Purchase.Data_pedido %></p>
                 <p>Total do Pedido: <%= Purchase.Total %></p> <br>
-                <p>Forma de Pagamento: <%= Purchase.Forma_de_Pagamento %></p> <br>
-                <p>Endereço de entrega <%= Purchase.Endereço_de_Entrega %></p><br>
-                <p>Nomedo do Usuario: <%= Purchase['users.Nome'] %></p><br>
+                <p>Forma de Pagamento: <%= Purchase.Forma_de_Pagamento %></p>
+                <p>Endereço de entrega <%= Purchase.Endereço_de_Entrega %></p>
+                <p>Nomedo do Usuario: <%= Purchase['users.Nome'] %></p>
                         
-                          <div class="btn-container">
-                            <a href="/admin/adminEditProduct/<%= p.idProdutos %>" class="btn-admin-products">Editar</a>
-                            <form action="/admin/adminDeleteProduct/<%= p.idProdutos %>" method="POST">
-                              <button type="submit" class="btn-admin-products">Excluir</button>
-                            </form>
-                          </div>
+                <div class="btn-container">
+                  <a href="/admin/adminEditProduct/<%= Purchase.idProdutos %>" class="btn-admin-products">Editar</a>
+                  <form action="/admin/adminDeleteProduct/<%= Purchase.idProdutos %>" method="POST">
+                 
+                </div>
               </li>
               <% } %>
           </ul>
