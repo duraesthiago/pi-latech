@@ -13,40 +13,58 @@ const ordersController = {
         } else {
             req.session.cart = [req.body.selectedProduct]
         }
-        console.log(req.body.selectedProduct)
-        console.log(req.session.cart)
+        
         res.redirect('/products')
     },
     showCart: async (req, res) => {
         let idsIntoCart = req.session.cart
-        
-        let idsFilter = [...new Set(idsIntoCart)]
-        
-        let qtyUpdated = idsFilter.length
-        req.session.cart = idsFilter
-        res.locals.qty = qtyUpdated
-        
+                
         let getProductById = async (id) => {
             let productFound = await Product.findByPk(
                 id, {
-                raw: true,
-                include: [
-                    { association: 'images' },
-                ]
-            })
-            return productFound
-        }
+                    raw: true,
+                    include: [
+                        { association: 'images' },
+                    ]
+                })
+                return productFound
+            }
+            
+            let productsIntoCart = req.session.cart ? await Promise.all(idsIntoCart.map(getProductById)) : [];
+            
+            productsIntoCart.forEach(p => {
+                let arr = req.session.cart;
+                let x = 0; //Agregador
+                for (i = 0; i < arr.length; i++) {
+                    if (p.idProdutos == arr[i]) {
+                        x += 1;
+                        p.quantidade = x; //Agregando contador nos produtos
+                    };
+                };
+            });
+            
+            //Elimina produtos duplicados para inserir na session
+            let newProductsIntoCart = {};
+            productsIntoCart = productsIntoCart.filter(function (product) {
+                let exists = !newProductsIntoCart[product.idProdutos];
+                newProductsIntoCart[product.idProdutos] = true;
+                return exists;
+            });
+            
+            let qtyUpdated = productsIntoCart.length;
+            let idsFilter = [...new Set(idsIntoCart)]            
+            req.session.cart = idsFilter
+            res.locals.qty = qtyUpdated
+            
 
-        let productsIntoCart = await Promise.all(idsFilter.map(getProductById))
-
-        productsIntoCart.forEach((p) => {
-            p.quantidade = 1;
-            p.totalProduto = p.Preco * p.quantidade;
-        });
-        req.session.order = productsIntoCart;
-        let total = 0
-        for(let i=0; i< productsIntoCart.length; i++)
-        total += productsIntoCart[i].totalProduto          
+            productsIntoCart.forEach((p) => {
+                p.totalProduto = p.Preco * p.quantidade;
+            });
+    
+            req.session.order = productsIntoCart;
+            let total = 0;
+            for (let i = 0; i < productsIntoCart.length; i++)
+                total += productsIntoCart[i].totalProduto;       
          
         req.session.total = total
 
@@ -91,19 +109,21 @@ const ordersController = {
             ]
         });
         let addressesUser = await Address.findAll({raw: true, where:{users_idUser: id}});
+        
         productsIntoCart = req.session.order
 
         total = req.session.total
-        
-        
+                
         res.render('cartPayment.ejs', { productsIntoCart, total, user, loggedUser, addressesUser, })
         
     },
 
         
     releaseOrder: async (req, res) => {
-        let pedidos = req.session.order
+        let purchase = req.session.order
         
+        let purchaseSummary = purchase.map(p=>detail={nome:p.Nome, preco:p.Preco, codigo:p.Codigo, quantidade:p.quantidade})    
+             
         let newAdress = await Address.create({
             Endereco: req.body.endereco,
             Cidade: req.body.cidade,
@@ -119,16 +139,17 @@ const ordersController = {
         }
                 
         req.session.total = total
-        
-                     
+                             
         let newPurchase = await Purchase.create({
             Data_pedido: new Date().toISOString(),
             Total: req.session.total,
             Forma_de_Pagamento: req.body.payment,
             Endereço_de_Entrega: deliveryAddress,
             Users_idUser: req.session.userLogged.idUser,
+            Detalhe_Produtos: purchaseSummary
         })
         res.send("Pedido Finalizado com sucesso");
+        req.session.cart = []
     }
 }
 module.exports = ordersController
