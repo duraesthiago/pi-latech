@@ -1,6 +1,12 @@
-h3 {
+.active  {
   font-size: 15px;
   color: var(--ligth-blue);
+  margin: 5%;
+}
+
+.inactive {
+  font-size: 15px;
+  color: var(--pink-degrade);
   margin: 5%;
 }
 
@@ -13,54 +19,63 @@ h3 {
     var(--dark-blue) 100%
   );
   padding: 2%;
-  color: #fbfbfb;
-  border-radius: 20px;
+  color: var(--dust-white);
+  border-radius: 10px;
   box-shadow: 4px 4px 4px var(--dark-gray);
 }
 
-.searchAdminForm {
-  max-width: 270px;
-  max-height: 30px;
-  border: 0.3px solid var(--ligth-blue);
+.search-form {
+  width: 300px;
+  height: 30px;
+  box-shadow: 2px 2px 2px var(--dark-gray);
   border-radius: 60px;
-  margin: auto;
-  margin-top: 20px;
+  margin: 10px 32px;
   background-color: var(--dust-white);
 }
 
-.searchAdminForm form {
+.search-form form {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
   padding-right: 8px;
+  border-radius: 60px;
+  background-color: var(--dust-white);
+  border-radius: 20px;
+  margin-bottom: 10px;
+
 }
+
 .search-bar input {
   min-width: 200px;
   border: 0;
   outline: none;
-  background: transparent;
+  background-color: var(--dust-white);
   margin-left: 8px;
 }
 
 .search-bar input::placeholder {
   color: var(--ligth-lilac);
   opacity: 0.2;
+  background-color: var(--dust-white);
+
 }
 
-.btn-sb {
-  max-width: 30px;
-  border: none;
-  background-color: var(--dust-white);
-  margin-left: 60px;
+.btn_sb {
+  width: 15px;
+  height: 20px;
+  margin-right: 20px;
+ background-color: var(--dust-white);
 }
 
 .btn_search {
-  max-width: 50%;
-  max-height: 50%;
-  border: none;
-  background: transparent;
+  width: 30px;
+  height: 20px;
+  background-color: var(--dust-white);
+ 
 }
+  
+
 
 .product_list {
   margin: 5%;

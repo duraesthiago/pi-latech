@@ -15,13 +15,16 @@ router.post('/create', uploadFile.single('avatar'), validationsSignUp, UserContr
 
 router.get('/login', loggedUserMiddleware, UserController.userLogin);
 router.post('/login', UserController.loginProcess);
+
+router.get('/forgotPassword', UserController.forgotPassword);
 router.get('/recoverPassword', UserController.recoverPassword);
 
 router.get('/account/', notLoggedUserMiddleware, UserController.showUserAccount);
 
 
-router.get('/accountUpdate/:id', UserController.updateUser);
+router.get('/updateUser/:id', UserController.userToUpdate);
 router.post('/updateUserData/:id', UserController.updateUserData);
+router.post ('/updateUserAvatar/:id',  uploadFile.single('newAvatar'), UserController.updateUserAvatar)
 
 
 router.get('/logout', notLoggedUserMiddleware, UserController.logout);
