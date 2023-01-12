@@ -30,7 +30,7 @@ const ordersController = {
                 return productFound
             }
             
-            let productsIntoCart = await Promise.all(idsIntoCart.map(getProductById))
+            let productsIntoCart = req.session.cart ? await Promise.all(idsIntoCart.map(getProductById)) : [];
             
             productsIntoCart.forEach(p => {
                 let arr = req.session.cart;
