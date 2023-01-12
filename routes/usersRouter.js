@@ -22,9 +22,9 @@ router.get('/recoverPassword', UserController.recoverPassword);
 router.get('/account/', notLoggedUserMiddleware, UserController.showUserAccount);
 
 
-router.get('/accountUpdate/:id', UserController.updateUser);
+router.get('/updateUser/:id', UserController.userToUpdate);
 router.post('/updateUserData/:id', UserController.updateUserData);
-router.post ('/updateUserAvatar/:id', UserController.updateUserAvatar)
+// router.post ('/updateUserAvatar/:id', UserController.updateUserAvatar)
 
 router.get('/logout', notLoggedUserMiddleware, UserController.logout);
 

@@ -13,11 +13,10 @@
             <form 
             class="user-info-form"
             method="post" 
-            action="/users/updateUserData/ <%= userLogged.idUser%>/update?_method=PUT"
+            action="/users/updateUserData/ <%= userLogged.idUser%>/updateUserData?_method=PUT"
             >
             <div class="user-avatar">
                 <img src="<%= userLogged.Avatar %>" alt="">
-                <button class="btn-update-avatar"></button>
             </div>
             <div class="user-form">
                 <div class="user-form-class">

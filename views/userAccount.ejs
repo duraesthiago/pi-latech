@@ -11,24 +11,15 @@
 <h2 class="index_title">Minha Conta: Olá,  <%= userLogged.Nome %></h2>
 <br>
 <div class="account-container">
-  <!-- <div class="user-menu">
-    <button class="btn-user-purchase-order" id="btn-user-purchaise">Meus pedidos</button>
-    <button class="btn-user-data" id="btn-user-data">Meus dados</button>
-  </div> -->
+ 
   <div class="order-container">
     <div class="user-info-container">
       <h3 class="greeting">Dados da Conta</h3>
-  
-      <ul class="avatar">
-        <li>
-          <img class="img-avatar" src="<%= userLogged.Avatar %> ">
-          <form method="get" action="/users/accountUpdate/<%= userLogged.idUser %>">
-            <button class="btn-update-avatar" type="submit">Editar</button>
-          </form>
-        </li>
-        </ul>
-  
-        <ul class="user-info">
+      
+      <ul class="user-info">
+          <li>
+            <img class="img-avatar" src="<%= userLogged.Avatar %> ">
+          </li>
         <li>Nome do usuário: <%= userLogged.Nome %> </li> <br>
         <li>Sobrenome do usuário: <%= userLogged.Sobrenome %></li> <br>
         <li>E-mail: <%= userLogged.Email %></li> <br>
@@ -37,7 +28,7 @@
       </ul>
         <div class="wrapper-form-buttons">
           
-          <form method="get" action="/users/accountUpdate/<%= userLogged.idUser %>">
+          <form method="get" action="/users/updateUser<%= userLogged.idUser %>">
           <button class="btn-update" type="submit">Editar</button>
         </form>
   

@@ -112,14 +112,11 @@ const UserController = {
     res.send("Um email foi enviado para sua caixa Postal para recuperar sua senha.");
   },
 
-  updateUser: async (req, res) => {
+  userToUpdate: async (req, res) => {
     let userId = req.params.id;
     let userLogged = await User.findByPk(userId);
 
-    if (userLogged)
-      res.render("updateUser.ejs", {
-        userLogged
-      });
+   if(userLogged)
     console.log(userLogged)
 
   },
