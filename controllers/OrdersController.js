@@ -13,8 +13,7 @@ const ordersController = {
         } else {
             req.session.cart = [req.body.selectedProduct]
         }
-        console.log(req.body.selectedProduct)
-        console.log(req.session.cart)
+        
         res.redirect('/products')
     },
     showCart: async (req, res) => {
@@ -94,16 +93,17 @@ const ordersController = {
         productsIntoCart = req.session.order
 
         total = req.session.total
-        
-        
+                
         res.render('cartPayment.ejs', { productsIntoCart, total, user, loggedUser, addressesUser, })
         
     },
 
         
     releaseOrder: async (req, res) => {
-        let pedidos = req.session.order
+        let purchase = req.session.order
         
+        let purchaseSummary = purchase.map(p=>detail={nome:p.Nome, preco:p.Preco, codigo:p.Codigo, quantidade:p.quantidade})    
+             
         let newAdress = await Address.create({
             Endereco: req.body.endereco,
             Cidade: req.body.cidade,
@@ -119,16 +119,17 @@ const ordersController = {
         }
                 
         req.session.total = total
-        
-                     
+                             
         let newPurchase = await Purchase.create({
             Data_pedido: new Date().toISOString(),
             Total: req.session.total,
             Forma_de_Pagamento: req.body.payment,
             Endereço_de_Entrega: deliveryAddress,
             Users_idUser: req.session.userLogged.idUser,
+            Detalhe_Produtos: purchaseSummary
         })
         res.send("Pedido Finalizado com sucesso");
+        req.session.cart = []
     }
 }
 module.exports = ordersController
