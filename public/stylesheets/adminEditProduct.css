@@ -1,6 +1,4 @@
-* {
-  box-sizing: border-box;
-}
+
 
 .edit_title {
   margin: 5% 4%;
@@ -11,8 +9,8 @@
     var(--dark-blue) 100%
   );
   padding: 2%;
-  color: #fbfbfb;
-  border-radius: 20px;
+  color: var(--dust-white);
+  border-radius: 10px;
   box-shadow: 4px 4px 4px var(--dark-gray);
 }
 

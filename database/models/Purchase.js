@@ -70,4 +70,3 @@ module.exports = (sequelize, DataTypes) => {
 
 
 
-

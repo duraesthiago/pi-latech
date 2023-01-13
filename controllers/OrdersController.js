@@ -29,12 +29,12 @@ const ordersController = {
         } else {
             req.session.cart = [req.body.selectedProduct]
         }
-        
+
         res.redirect('/products')
     },
     showCart: async (req, res) => {
         let idsIntoCart = req.session.cart
-                
+
         let getProductById = async (id) => {
             let productFound = await Product.findByPk(
                 id, {
@@ -93,7 +93,7 @@ const ordersController = {
         res.render('cart.ejs', { productsIntoCart, total, qtyUpdated, savings})
     },
     updateCart: (req, res) => {
-        
+
         let idProductToChange = req.body.productId;
         let productQtyChanged = req.body.productQty;
 
@@ -111,19 +111,19 @@ const ordersController = {
         res.render('cart.ejs', { productsIntoCart, total });
     },
     removeProduct: (req, res) => {
-        
+
         let idParaRemover = req.params.id
-        if(req.session.cart){
-            req.session.cart = req.session.cart.filter( id => id !=idParaRemover)
+        if (req.session.cart) {
+            req.session.cart = req.session.cart.filter(id => id != idParaRemover)
         }
         res.redirect('/orders/cart')
     },
 
-    payment: async (req, res) => {            
-                          
+    payment: async (req, res) => {
+
         let loggedUser = (req.session.userLogged !== undefined)
-        
-        let id = req.session.userLogged? req.session.userLogged.idUser : 0;
+
+        let id = req.session.userLogged ? req.session.userLogged.idUser : 0;
 
         let user = await User.findByPk(id, {
             raw: true,
@@ -131,38 +131,38 @@ const ordersController = {
                 { model: Address, as: 'addresses' }
             ]
         });
-        let addressesUser = await Address.findAll({raw: true, where:{users_idUser: id}});
-        
+        let addressesUser = await Address.findAll({ raw: true, where: { users_idUser: id } });
+
         productsIntoCart = req.session.order
 
         total = req.session.total
-                
+
         res.render('cartPayment.ejs', { productsIntoCart, total, user, loggedUser, addressesUser, })
-        
+
     },
 
-        
+
     releaseOrder: async (req, res) => {
         let purchase = req.session.order
-        
-        let purchaseSummary = purchase.map(p=>detail={nome:p.Nome, preco:p.Preco, codigo:p.Codigo, quantidade:p.quantidade})    
-             
+
+        let purchaseSummary = purchase.map(p => detail = { nome: p.Nome, preco: p.Preco, codigo: p.Codigo, quantidade: p.quantidade })
+
         let newAdress = await Address.create({
             Endereco: req.body.endereco,
             Cidade: req.body.cidade,
             Estado: req.body.estado,
             users_idUser: req.session.userLogged.idUser
         })
-        
+
         let deliveryAddress = ''
-        if(req.body.endereco){
+        if (req.body.endereco) {
             deliveryAddress = req.body.endereco
         } else {
             deliveryAddress = req.body.address_id
         }
-                
+
         req.session.total = total
-                             
+
         let newPurchase = await Purchase.create({
             Data_pedido: new Date().toISOString(),
             Total: req.session.total,

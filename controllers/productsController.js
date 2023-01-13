@@ -37,7 +37,7 @@ const controler = {
             { model: Image, as: 'images' }]
         });
 
-        res.render('products', { products: productsCategory });
+        res.render('products', { products: productsCategory, title: reqCategory });
     },
     detail: async (req, res) => {
         let id = req.params.id;

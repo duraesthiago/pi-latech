@@ -57,8 +57,8 @@ module.exports = (sequelize, DataTypes) => {
 
     )
     User.associate = function (models) {
-        User.hasMany(models.Purchase, { as: "purchases", foreignKey: "Users_idUser" })
-        User.hasMany(models.Address, { as: "addresses", foreignKey: "Users_idUser" })
+        User.hasMany(models.Purchase, { as: "purchases", foreignKey: "Users_idUser", onDelete: 'CASCADE' })
+        User.hasMany(models.Address, { as: "addresses", foreignKey: "users_idUser", onDelete: 'CASCADE' })
         User.belongsTo(models.Admin, { as: "admin", foreignKey: "admin_idAdmin" })
 
     }
