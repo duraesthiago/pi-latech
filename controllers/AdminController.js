@@ -304,7 +304,7 @@ const AdminController = {
       ]
 
     });
-    console.log(ordersList)
+   
     return res.render("adminOrdersList", { ordersList });
   }
 };
