@@ -5,7 +5,8 @@ const AdminController = require('../controllers/AdminController');
 
 const validationsAdminSignUp = require('../middlewares/validationsAdminSignUpMiddleware');
 const loggedAdminMiddleware = require('../middlewares/loggedAdminDataMiddleware')
-const notLoggedAdminMiddleware = require('../middlewares/notLoggedAdminMiddleware,')
+const notLoggedAdminMiddleware = require('../middlewares/notLoggedAdminMiddleware,');
+
 
 
 router.get('/',  AdminController.admin);
@@ -19,6 +20,8 @@ router.post('/login', AdminController.adminLoginProcess);
 router.get('/panel', notLoggedAdminMiddleware, AdminController.showAdminPanel);
 
 router.get('/adminUsersList', notLoggedAdminMiddleware, AdminController.getUsers);
+
+router.get('/adminOrdersList', notLoggedAdminMiddleware, AdminController.listOrders)
 
 router.get('/adminEditUser/:id', AdminController.adminUserToEdit);
 router.put('/adminEditUser/:id/update', AdminController.updateUserData);
