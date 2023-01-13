@@ -61,7 +61,7 @@ a:hover {
   font-size: 10px;
 }
 .discount-price {
-  font-size: 1px;
+  font-size: 12px;
   font-weight: bold;
   color: var(--medium-blue);
   margin-left: 12px;
