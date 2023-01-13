@@ -18,7 +18,7 @@ const IndexController = {
     //   product.PrecoComDesconto = product.Preco * product.Oferta
     //   return product
     // })
-    console.log(products[0])
+    // console.log(products[0])
     res.render("index", { title: "Latech", products });
   },
 
