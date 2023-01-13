@@ -1,0 +1,111 @@
+.edit-container {
+    width: 100%;
+    margin: auto;
+}
+.edit-title{
+    margin: 1% 4%;
+    background-color: linear-gradient( 120deg, var(--pink-degrade) 0%, var(--ligth-lilac) 52%, var(--dark-blue) 100% );
+    padding: 2%;
+    color: var(--dust-white);
+    border-radius: 10px;
+    box-shadow: 4px 4px 4px var(--dark-gray);
+}
+
+/* .account-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    column-gap: 20px;
+} */
+.user-info-container{
+    margin: 10px;
+    border: 1px solid var(--dark-gray);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.user-info-form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+/* 
+input[type='file']{
+    display: none;
+} */
+
+
+.user-avatar-img{
+    border: 0.5px solid var(--dark-gray);
+    border-radius: 50%;
+    margin-bottom: 30px;
+    width: 80px;
+    height: 80px;
+    cursor: pointer;
+}
+.btn-update-avatar{
+    font-size: 12px;
+    align-items: center;
+    width: 80px;
+    padding: 5px;
+    background-color: var(--ligth-lilac);
+    border-radius: 10px;    
+    color: var(--dust-white);
+    display: inline-block;
+    box-shadow: 2px 2px 2px var(--dark-gray);
+    justify-content: center;
+    margin: 10px;
+}
+.form-label{
+    width: 100%;
+    position: relative;
+    top: 8px;   
+    color: var(--dark-gray);
+    font-size: 12px;
+    background-color: var(--dust-white);
+    padding: 5px;
+}
+.input-label{
+    width: 94%;
+    height: 35px;
+    padding: 5px;
+    margin: 5px;
+    color: var(--medium-gray);
+    font-size: 12px;
+    border: 0.5px solid var(--dark-gray);
+    border-radius: 10px;
+}
+
+.btn-save{
+    font-size: 12px;
+    align-items: center;
+    width: 80px;
+    padding: 5px;
+    background-color: var(--ligth-lilac);
+    border-radius: 10px;    
+    color: var(--dust-white);
+    display: inline-block;
+    box-shadow: 2px 2px 2px var(--dark-gray);
+    justify-content: center;
+    margin: 10px;
+}
+
+@media (min-width: 600px){
+    .input-label{
+        width: 97%;
+    }
+    .btn-update-avatar{
+        margin-left: 20px;
+    }
+    .btn-save{
+        margin-left: 20px;
+    }
+}
+@media (min-width: 800px){}
+
+@media (min-width: 1200px){}
+
+@media (min-width: 1800px){}

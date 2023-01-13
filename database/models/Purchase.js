@@ -30,6 +30,10 @@ module.exports = (sequelize, DataTypes) => {
                 type: DataTypes.STRING,
                 allowNull: true
             },
+            Detalhe_Produtos: {
+                type: DataTypes.JSON,
+                allowNull: true
+            }
         },
         {
             tableName: "purchases",
@@ -61,7 +65,6 @@ module.exports = (sequelize, DataTypes) => {
     }
     return Purchase
 }
-
 
 
 

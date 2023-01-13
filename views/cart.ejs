@@ -20,20 +20,16 @@
               <%= qty %> Produtos
             </strong>
           </header>
+
           <div class="ls-cart-content">
             <% if(productsIntoCart.length> 0){ %>
               <ul class="ls-no-style-list">
                 <% for(p of productsIntoCart) {%>
                   <li>
-                    <a href="#">
-                      <h4 class="ls-title-product"><strong>01</strong></h4>
+                    
                       <img src="<%= p['images.Imagem'] %>" alt="" />
-                      <p>
-                        <%= p.Nome %>
-                      </p>
-                    </a>
-                    <p>R$ <%= p.Preco %>
-                    </p>
+                      <p><%= p.Nome %></p>
+                      <p>R$ <%= p.Preco %></p>
 
                     <div class="cart-btn-label">
 
@@ -50,7 +46,7 @@
                     </form>
                   
                     </div>
-                  </li>
+                 </li>
                   <% } %>
               </ul>
           </div>
@@ -81,19 +77,18 @@
 
 
 
-            <a href="/products">Continuar comprando...</a>
+            <a class="continue-buying" href="/products">Continuar comprando...</a>
 
-            <p>Total a pagar: R$ <%= total %>
-            </p>
+            <p>Total a pagar: R$ <%= total %></p>
             <div class="wrap-btn-order">
               <a href="/orders/payment"><button class="btn-order" type="submit">Continuar para Pagamento</button></a>
             </div>
 
           </div>
           <% } else { %>
-          <div class="empty-cart">
-           <h1>Seu carrinho está vazio</h1> 
-          </div>
+          
+           <h1 class="empty-cart">Seu carrinho está vazio</h1> 
+        
           <% } %>
         </div>
         </div>
