@@ -33,12 +33,6 @@
                 <p>Forma de Pagamento: <%= Purchase.Forma_de_Pagamento %></p>
                 <p>Endereço de entrega <%= Purchase.Endereço_de_Entrega %></p>
                 <p>Nomedo do Usuario: <%= Purchase['users.Nome'] %></p>
-                        
-                <div class="btn-container">
-                  <a href="/admin/adminEditProduct/<%= Purchase.idProdutos %>" class="btn-admin-products">Editar</a>
-                  <form action="/admin/adminDeleteProduct/<%= Purchase.idProdutos %>" method="POST">
-                 
-                </div>
               </li>
               <% } %>
           </ul>
