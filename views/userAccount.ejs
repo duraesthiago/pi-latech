@@ -47,16 +47,24 @@
     <div class="ordered-products-container">
       <h3>Minhas Compras</h3>
       <br>
-    
+    <% for (p of userPurchases) {%>
       <ul class="total-of-products">
-        <br>
-        <li>Produto:</li>
-        <li>Preço: R$ </li>
-        <li>Data do Pedido</li>
-        <li>Endereço de Entrega:</li>
-        <li>Total do Pedido: R$</li>
+        
+        <% for(let d = 0; d < p.Detalhe_Produtos.length; d++) { %>
+
+        <li>Produto: <%= p.Detalhe_Produtos[d].nome %></li>
+        <li>Preço: <%= p.Detalhe_Produtos[d].preco %></li>
+        <li>Quantidade: <%= p.Detalhe_Produtos[d].quantidade %></li>
+
+       
+        <% } %>
+        <p>XXXXXXXXXXXXXXXXXX</p>
+        <li>Data do Pedido <%= p.Data_pedido %></li>
+        <li>Endereço de Entrega: <%= p.Endereço_de_Entrega %></li>
+        <li>Total do Pedido: R$ <%= p.Total %></li>
         <br>
       </ul>
+      <% } %>
     </div>
   </div>
  
