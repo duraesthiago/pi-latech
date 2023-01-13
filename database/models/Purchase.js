@@ -33,6 +33,10 @@ module.exports = (sequelize, DataTypes) => {
             admin_idAdmin:{
                 type: DataTypes.INTEGER,
                 allowNull: true
+            },
+            Detalhe_Produtos: {
+                type: DataTypes.JSON,
+                allowNull: true
             }
         },
         {

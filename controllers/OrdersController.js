@@ -68,32 +68,32 @@ const ordersController = {
         total = req.session.total
         res.render('cartPayment.ejs', { productsIntoCart, total, user, loggedUser, addressesUser, })
     },
+   
     releaseOrder: async (req, res) => {
-        let pedidos = req.session.order;
+        let purchase = req.session.order
+        let purchaseSummary = purchase.map(p=>detail={nome:p.Nome, preco:p.Preco, codigo:p.Codigo, quantidade:p.quantidade})
         let newAdress = await Address.create({
             Endereco: req.body.endereco,
             Cidade: req.body.cidade,
             Estado: req.body.estado,
             users_idUser: req.session.userLogged.idUser
-        });
+        })
         let deliveryAddress = ''
         if(req.body.endereco){
             deliveryAddress = req.body.endereco
         } else {
             deliveryAddress = req.body.address_id
         }
-        console.log(deliveryAddress)
         req.session.total = total
-        console.log(total)
-        console.log(req.body.payment)
         let newPurchase = await Purchase.create({
             Data_pedido: new Date().toISOString(),
             Total: req.session.total,
             Forma_de_Pagamento: req.body.payment,
             Endereço_de_Entrega: deliveryAddress,
             Users_idUser: req.session.userLogged.idUser,
+            Detalhe_Produtos: purchaseSummary
         })
-        console.log(req.body)
+        req.session.cart = ''
         res.send("Pedido Finalizado com sucesso");
     }
 }
