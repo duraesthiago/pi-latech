@@ -1,4 +1,20 @@
 const { Product, Address, User, Purchase } = require('../database/models')
+
+const totalProduto = p => {
+    if(p.PrecoComDesconto > 0){
+        return p.PrecoComDesconto * p.quantidade
+    } else {
+        return p.Preco * p.quantidade
+    }
+}
+const totalProdutos = products => {
+    let total = 0
+    products.forEach(p => {
+        total += totalProduto(p)
+    }) 
+    return total
+}
+
 const ordersController = {
     index: (req, res) => {
         Product.findAll()
@@ -34,17 +50,16 @@ const ordersController = {
             
             productsIntoCart.forEach(p => {
                 let arr = req.session.cart;
-                let x = 0; //Agregador
+                let x = 0; 
                 for (i = 0; i < arr.length; i++) {
                     if (p.idProdutos == arr[i]) {
                         x += 1;
-                        p.quantidade = x; //Agregando contador nos produtos
+                        p.quantidade = x; 
                     };
                 };
             });
             
-            //Elimina produtos duplicados para inserir na session
-            let newProductsIntoCart = {};
+           let newProductsIntoCart = {};
             productsIntoCart = productsIntoCart.filter(function (product) {
                 let exists = !newProductsIntoCart[product.idProdutos];
                 newProductsIntoCart[product.idProdutos] = true;
@@ -54,33 +69,42 @@ const ordersController = {
             let qtyUpdated = productsIntoCart.length;
             let idsFilter = [...new Set(idsIntoCart)]            
             req.session.cart = idsFilter
-            res.locals.qty = qtyUpdated
-            
+            res.locals.qty = qtyUpdated            
 
             productsIntoCart.forEach((p) => {
-                p.totalProduto = p.Preco * p.quantidade;
+                p.totalProduto = totalProduto(p)
             });
-    
+            
             req.session.order = productsIntoCart;
-            let total = 0;
-            for (let i = 0; i < productsIntoCart.length; i++)
-                total += productsIntoCart[i].totalProduto;       
-         
+            let total = totalProdutos(productsIntoCart);
+            
+            productsIntoCart.forEach((p) => {
+                p.subTotalProduto = p.Preco * p.quantidade;
+            });         
+            let subTotal = 0
+            for(let i=0; i< productsIntoCart.length; i++)
+            subTotal += productsIntoCart[i].subTotalProduto    
+            
+            let savings = subTotal - total
+            
+            
         req.session.total = total
 
-        res.render('cart.ejs', { productsIntoCart, total, qtyUpdated})
+        res.render('cart.ejs', { productsIntoCart, total, qtyUpdated, savings})
     },
     updateCart: (req, res) => {
         
         let idProductToChange = req.body.productId;
         let productQtyChanged = req.body.productQty;
+
         productsIntoCart = req.session.order;
+
         let index = productsIntoCart.findIndex((p) => p.idProdutos == idProductToChange);
+
         productsIntoCart[index].quantidade = productQtyChanged;
-        productsIntoCart[index].totalProduto = productsIntoCart[index].Preco * productsIntoCart[index].quantidade;
-        let total = 0
-        for (let i = 0; i < productsIntoCart.length; i++)
-            total += productsIntoCart[i].totalProduto
+        productsIntoCart[index].totalProduto = totalProduto(productsIntoCart[index])
+
+        let total = totalProdutos(productsIntoCart)
         
         req.session.order = productsIntoCart;
         req.session.total = total
@@ -92,7 +116,6 @@ const ordersController = {
         if(req.session.cart){
             req.session.cart = req.session.cart.filter( id => id !=idParaRemover)
         }
-        
         res.redirect('/orders/cart')
     },
 
@@ -148,8 +171,8 @@ const ordersController = {
             Users_idUser: req.session.userLogged.idUser,
             Detalhe_Produtos: purchaseSummary
         })
+        req.session.cart = ''
         res.send("Pedido Finalizado com sucesso");
-        req.session.cart = []
     }
 }
 module.exports = ordersController
