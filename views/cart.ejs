@@ -26,14 +26,17 @@
                 <% for(p of productsIntoCart) {%>
                   <li>
                     <a href="#">
-                      <h4 class="ls-title-product"><strong>01</strong></h4>
+                      
                       <img src="<%= p['images.Imagem'] %>" alt="" />
-                      <p>
-                        <%= p.Nome %>
-                      </p>
+                      <p><%= p.Nome %></p>
                     </a>
-                    <p>R$ <%= p.Preco %>
-                    </p>
+                   <% if(p.PrecoComDesconto >0) { %>
+                    <p class="price">R$ <%= p.Preco %></p>
+                    <p class="discount-price">R$ <%= p.PrecoComDesconto %></p>
+                    <% } else { %>
+                      <p class="discount-price">R$ <%= p.Preco %></p>
+                    <% } %>
+
 
                     <div class="cart-btn-label">
 
@@ -48,8 +51,8 @@
                       <form action="/orders/removeProduct/<%=p.idProdutos %>?_method=DELETE" method="POST">
                       <input type="submit" value="Remover">
                     </form>
-                  
-                    </div>
+                        
+                      </div>
                   </li>
                   <% } %>
               </ul>
@@ -59,8 +62,7 @@
             <h5>resumo do pedido</h5>
 
             <img src="" alt="" />
-            <p>Subtotal: R$ <%= total %>
-            </p>
+            <p>Subtotal: R$ <%= total %></p>
 
 
             <p>Calcule frete e prazo</p>
