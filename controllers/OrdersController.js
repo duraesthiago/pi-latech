@@ -87,7 +87,7 @@ const ordersController = {
             
             let savings = subTotal - total
             
-            
+        req.session.savings = savings   
         req.session.total = total
 
         res.render('cart.ejs', { productsIntoCart, total, qtyUpdated, savings})
@@ -106,9 +106,11 @@ const ordersController = {
 
         let total = totalProdutos(productsIntoCart)
         
-        req.session.order = productsIntoCart;
-        req.session.total = total
-        res.render('cart.ejs', { productsIntoCart, total });
+        req.session.order = productsIntoCart;        
+        req.session.total = total        
+        savings = req.session.savings
+        
+        res.render('cart.ejs', { productsIntoCart, total, savings });
     },
     removeProduct: (req, res) => {
 
