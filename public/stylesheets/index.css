@@ -135,9 +135,11 @@ a {
 .products-box img { /*ok*/
   max-width: 10rem;
   max-height: 10rem;
-  border-radius: 10px;
+  border-radius: 10px;  
   justify-content: center;
+  
 }
+
 
 .product-description{ /*ok*/
   line-height: 20px;
