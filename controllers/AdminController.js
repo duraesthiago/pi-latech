@@ -7,6 +7,7 @@ const {
   Image,
   Brand,
   Category,
+  Purchase
 } = require("../database/models");
 const bcrypt = require("bcrypt");
 const { raw } = require("express");
@@ -292,5 +293,19 @@ const AdminController = {
     res.clearCookie("AdminEmail");
     return res.redirect("/");
   },
+
+  listOrders: async (req, res) => {
+    const ordersList = await Purchase.findAll({
+      raw: true,
+      include: [
+        { model: User, as: "users" },
+       // { model: Product, as: "product" }
+       
+      ]
+
+    });
+   
+    return res.render("adminOrdersList", { ordersList });
+  }
 };
 module.exports = AdminController;

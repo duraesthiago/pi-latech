@@ -11,7 +11,7 @@
                     <link rel="stylesheet" href="/stylesheets/products.css" />
                     <!-- todos los productos -->
 
-                    <div class="cart-carrinho">
+                    <!-- <div class="cart-carrinho">
                         <div>
                             <header class="ls-cart-header">
                                 <span class="ls-ico-cart ls-float-left"></span>
@@ -22,7 +22,7 @@
                                 </strong>
                             </header>
                         </div>
-                    </div>
+                    </div> -->
 
 
                     <div class="products-container">
@@ -39,21 +39,26 @@
                                             <img class="product-box-image" src="<%= p['images.Imagem']%>"
                                                 alt="imagem do produto" />
 
-                                        <article class="product-box_data">
-                                            <h2>
-                                                <%= p.Nome %>
-                                            </h2>
-                                            <p>R$ <%= p.Preco %>
-                                            </p>
-                                        </article>
-                                    </a>
-                                    <form action="/orders/addCart" method="POST">
-                                        <input type="hidden" name="selectedProduct" value="<%=p.idProdutos %>">
-                                        <button class="btn_order" type="submit">ADICIONAR</button>
-                                    </form>
-                                </section>
-                            </div>
-                            <% } %>
-                    </div>
+                                            <article class="product-box_data">
+                                                <h2>
+                                                    <%= p.Nome %>
+                                                </h2>
+                                                <% if (p.PrecoComDesconto> 0){ %>
+                                                    <p>DE: R$ <%= p.Preco %> POR R$ <%= p.PrecoComDesconto %>
+                                                    </p>
+                                                    <% } else { %>
+                                                        <p>R$ <%= p.Preco %>
+                                                        </p>
+                                                        <% } %>
+                                            </article>
+                                        </a>
+                                        <form action="/orders/addCart" method="POST">
+                                            <input type="hidden" name="selectedProduct" value="<%=p.idProdutos %>">
+                                            <button class="btn_order" type="submit">ADICIONAR</button>
+                                        </form>
+                                    </section>
+                                </div>
+                                <% } %>
+                        </div>
                 </main>
                 <%- include('partials/footer') %>
