@@ -9,6 +9,7 @@ const IndexController = {
         model: Image, as: 'images',
       }],
       where: {
+<<<<<<< HEAD
         Status: 1,
         Oferta: true,
       },
@@ -18,7 +19,16 @@ const IndexController = {
     //   product.PrecoComDesconto = product.Preco * product.Oferta
     //   return product
     // })
-    console.log(products[0])
+=======
+        idProdutos: idProdutosComDesconto
+      }
+  });    
+    products = products.map((product) => {
+      product.PrecoComDesconto = product.Preco * 0.7
+      return product
+    })
+>>>>>>> paula
+    // console.log(products[0])
     res.render("index", { title: "Latech", products });
   },
 

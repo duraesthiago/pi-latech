@@ -35,7 +35,7 @@ module.exports = (sequelize, DataTypes) => {
     )
     Address.associate = (models) => {
         Address.belongsTo(models.User, { foreignKey: 'users_idUser', as: 'users' });
-       // Address.hasMany(models.Purchase, { foreignKey: 'addresses_idAddresses', as: 'purchases' })
+        Address.hasMany(models.Purchase, { foreignKey: 'addresses_idAddresses', as: 'purchases' })
 
     }
 

@@ -1,5 +1,9 @@
 .detail {
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .product-details {
@@ -9,17 +13,17 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 16px auto;
+  justify-content: center;
 }
 
-.main-pic {
+ .main-pic {
   width: 50%;
   box-shadow: var(--medium-gray) 0px 1px 8px;
   border-radius: 8px;
-  margin: 16px 80px;
-}
+   margin: 16px 80px; 
+} 
 
-.small-pictures {
+.small-pictures, .main-pictures {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -30,7 +34,7 @@
   width: 25%;
   box-shadow: var(--medium-gray) 0px 1px 8px;
   border-radius: 8px;
-  margin: 10px;
+  margin: 10px;  
 }
 
 .btn_order_detail {
@@ -47,7 +51,8 @@
 .description-for-order {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
+  justify-content: center;
   margin: 16px;
   padding-top: 16px;
   width: 90%;
@@ -69,6 +74,10 @@
 
 .product-description {
   width: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   box-shadow: var(--medium-gray) 0px 1px 8px;
   border-radius: 8px;
   background-color: var(--dust-white);
@@ -91,9 +100,7 @@
 }
 
 @media (min-width: 600px) {
-  .product-details {
-    margin: 20px 30px;
-  }
+  
 
   .main-pic {
     width: 60%;
@@ -108,62 +115,27 @@
     margin: 20px 40px;
   }
 
-  .btn_order_detail {
-    margin-left: 220px;
-  }
-
   .product-description {
     margin: 20px 40px;
   }
 }
 
-@media (min-width: 900px) {
-  .detail {
-    max-width: 80%;
-    margin: 20px 100px;
-  }
+@media (min-width: 800px) {
+  
 
   .main-pic {
     width: 50%;
-    margin-left: 165px;
+    margin-left: 80px;
   }
 
   .small-pics {
     width: 16%;
   }
 
-  .btn_order_detail {
-    margin-left: 280px;
-  }
 }
 
 @media (min-width: 1200px) {
-  .detail {
-    max-width: 70%;
-    margin: 30px auto;
-  }
-
-  .small-pictures {
-    margin-left: 22px;
-  }
-  .main-pic {
-    margin-left: 200px;
-  }
-
-  .btn_order_detail {
-    margin-left: 330px;
-  }
 }
 
 @media (min-width: 1800px) {
-  .main-pic {
-    width: 40%;
-    margin-left: 355px;
-  }
-  .small-pictures {
-    margin-left: 18px;
-  }
-  .btn_order_detail {
-    margin-left: 530px;
-  }
 }
