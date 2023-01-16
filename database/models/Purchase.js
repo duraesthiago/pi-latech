@@ -33,16 +33,7 @@ module.exports = (sequelize, DataTypes) => {
             Detalhe_Produtos: {
                 type: DataTypes.JSON,
                 allowNull: true
-<<<<<<< HEAD
-            },
-            // addresses_idAddresses: {
-            //     type: DataTypes.INTEGER,
-            //     allowNull: false
-            // }
-
-=======
             }
->>>>>>> paula
         },
         {
             tableName: "purchases",
