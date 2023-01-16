@@ -1,5 +1,5 @@
 const { validationResult } = require("express-validator");
-const { User } = require("../database/models/");
+const { User, Purchase, Product, Address } = require("../database/models/");
 const bcrypt = require("bcrypt");
 
 const UserController = {
@@ -112,11 +112,28 @@ const UserController = {
     res.send("Um email foi enviado para sua caixa Postal para recuperar sua senha.");
   },
 
-   showUserAccount: async (req, res) => {
-    res.render("userAccount", {
-      userLogged: req.session.userLogged,
-    });
+  
+  showUserAccount: async (req, res) => {
+   const userLogged = req.session.userLogged;
+   console.log(userLogged)
+   let {idUser} = userLogged;
+   console.log(idUser);
+   let userPurchases = await Purchase.findAll(
+    {raw: true,
+      include: [{
+        association: 'users'
+      }],
+      where:{
+        Users_idUser: idUser
+      },
+    })
+    console.log(userPurchases[1].Detalhe_Produtos)
+    res.render('userAccount',{userLogged, userPurchases})
   },
+
+  
+
+  
 
   userToUpdate: async (req, res) => {
     let userId = req.params.id;

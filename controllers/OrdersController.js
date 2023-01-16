@@ -155,16 +155,13 @@ const ordersController = {
             Estado: req.body.estado,
             users_idUser: req.session.userLogged.idUser
         })
-
         let deliveryAddress = ''
         if (req.body.endereco) {
             deliveryAddress = req.body.endereco
         } else {
             deliveryAddress = req.body.address_id
         }
-
         req.session.total = total
-
         let newPurchase = await Purchase.create({
             Data_pedido: new Date().toISOString(),
             Total: req.session.total,

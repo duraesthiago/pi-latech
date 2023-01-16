@@ -4,48 +4,42 @@
         <!-- Include Banner -->
         <%- include('partials/navbarCategories') %>
 
-            <%- include('partials/slide') %>
-                <main>
-                    <link rel="stylesheet" href="/stylesheets/productDetail.css">
-                    <section class="detail">
-                        <div class="product-details">
+        <%- include('partials/slide') %>
+            <main>
+                <link rel="stylesheet" href="/stylesheets/productDetail.css">
+                <div class="detail">
+                    <div class="product-details">
 
-                            <div class="main-pictures">
-                                <img class="main-pic" src="<%=product['images.Imagem']%>" alt="" />
-
-                            </div>
-                            <div class="small-pictures">
-                                <img class="small-pics" src="<%=product['images.Imagem']%>" alt="" />
-                                <img class="small-pics" src="<%=product['images.Imagem']%>" alt="" />
-                                <img class="small-pics" src="<%=product['images.Imagem']%>" alt="" />
-                            </div>
+                        <div class="main-pictures">
+                            <img class="main-pic" src="<%=product['images.Imagem']%>" alt="" />
+                        
                         </div>
-                        <div class="description-for-order">
-                            <h4>Nome: <%= product.Nome %>
-                            </h4>
-                            <% if (product.PrecoComDesconto> 0){ %>
-                                <p>DE: R$ <%= product.Preco %> POR R$ <%= product.PrecoComDesconto %>
-                                </p>
-                                <% } else { %>
-                                    <p>R$ <%= product.Preco %>
-                                    </p>
-                                    <% } %>
-                                        <form action="/orders/addCart" method="POST">
-                                            <input type="hidden" name="selectedProduct"
-                                                value="<%=product.idProdutos %>">
-                                            <button class="btn_order_detail" type="submit">comprar</button>
-                                        </form>
+                        <div class="small-pictures">
+                            <img class="small-pics" src="<%=product['images.Imagem']%>" alt="" />
+                            <img class="small-pics" src="<%=product['images.Imagem']%>" alt="" />
+                            <img class="small-pics" src="<%=product['images.Imagem']%>" alt="" />
                         </div>
-                        </div>
-                        <div class="product-description">
-                            <h4>Descrição do Produto</h4>
-                            <ul>
-                                <li>Marca: <%=product['brands.Marca']%>
-                                </li>
-                                <li>Informações: <%=product.Informacao%>
-                                </li>
-                            </ul>
-                        </div>
-                    </section>
-                </main>
-                <%- include('partials/footer') %>
+                    </div>
+                    <div class="description-for-order">
+                        <h4>Nome: <%= product.Nome %>
+                        </h4>
+                        <p>valor: R$ <%= product.Preco %>
+                        </p>
+                        <form action="/orders/addCart" method="POST">
+                            <input type="hidden" name="selectedProduct" value="<%=product.idProdutos %>">
+                            <button class="btn_order_detail" type="submit">comprar</button>
+                        </form>
+                    </div>
+                    <div class="product-description">
+                        <h4>Descrição do Produto</h4>
+                        <ul>
+                            <li>Marca: <%=product['brands.Marca']%>
+                            </li>
+                            <li>Informações: <%=product.Informacao%>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+            </main>
+            <%- include('partials/footer') %>
