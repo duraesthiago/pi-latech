@@ -44,8 +44,12 @@
                                                     <%= p.Nome %>
                                                 </h2>
                                                 <% if (p.PrecoComDesconto> 0){ %>
-                                                    <p>DE: R$ <%= p.Preco %> POR R$ <%= p.PrecoComDesconto %>
-                                                    </p>
+                                                    <div class="price-tag">
+                                                        <p class="price-original">DE: R$ <%= p.Preco %>
+                                                        </p>
+                                                        <p>POR R$ <%= p.PrecoComDesconto %>
+                                                        </p>
+                                                    </div>
                                                     <% } else { %>
                                                         <p>R$ <%= p.Preco %>
                                                         </p>
