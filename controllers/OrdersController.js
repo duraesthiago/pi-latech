@@ -1,7 +1,7 @@
 const { Product, Address, User, Purchase } = require('../database/models')
 
 const totalProduto = p => {
-    if(p.PrecoComDesconto > 0){
+    if (p.PrecoComDesconto > 0) {
         return p.PrecoComDesconto * p.quantidade
     } else {
         return p.Preco * p.quantidade
@@ -11,7 +11,7 @@ const totalProdutos = products => {
     let total = 0
     products.forEach(p => {
         total += totalProduto(p)
-    }) 
+    })
     return total
 }
 
@@ -38,59 +38,59 @@ const ordersController = {
         let getProductById = async (id) => {
             let productFound = await Product.findByPk(
                 id, {
-                    raw: true,
-                    include: [
-                        { association: 'images' },
-                    ]
-                })
-                return productFound
-            }
-            
-            let productsIntoCart = req.session.cart ? await Promise.all(idsIntoCart.map(getProductById)) : [];
-            
-            productsIntoCart.forEach(p => {
-                let arr = req.session.cart;
-                let x = 0; 
-                for (i = 0; i < arr.length; i++) {
-                    if (p.idProdutos == arr[i]) {
-                        x += 1;
-                        p.quantidade = x; 
-                    };
-                };
-            });
-            
-           let newProductsIntoCart = {};
-            productsIntoCart = productsIntoCart.filter(function (product) {
-                let exists = !newProductsIntoCart[product.idProdutos];
-                newProductsIntoCart[product.idProdutos] = true;
-                return exists;
-            });
-            
-            let qtyUpdated = productsIntoCart.length;
-            let idsFilter = [...new Set(idsIntoCart)]            
-            req.session.cart = idsFilter
-            res.locals.qty = qtyUpdated            
+                raw: true,
+                include: [
+                    { association: 'images' },
+                ]
+            })
+            return productFound
+        }
 
-            productsIntoCart.forEach((p) => {
-                p.totalProduto = totalProduto(p)
-            });
-            
-            req.session.order = productsIntoCart;
-            let total = totalProdutos(productsIntoCart);
-            
-            productsIntoCart.forEach((p) => {
-                p.subTotalProduto = p.Preco * p.quantidade;
-            });         
-            let subTotal = 0
-            for(let i=0; i< productsIntoCart.length; i++)
-            subTotal += productsIntoCart[i].subTotalProduto    
-            
-            let savings = subTotal - total
-            
-        req.session.savings = savings   
+        let productsIntoCart = req.session.cart ? await Promise.all(idsIntoCart.map(getProductById)) : [];
+
+        productsIntoCart.forEach(p => {
+            let arr = req.session.cart;
+            let x = 0;
+            for (i = 0; i < arr.length; i++) {
+                if (p.idProdutos == arr[i]) {
+                    x += 1;
+                    p.quantidade = x;
+                };
+            };
+        });
+
+        let newProductsIntoCart = {};
+        productsIntoCart = productsIntoCart.filter(function (product) {
+            let exists = !newProductsIntoCart[product.idProdutos];
+            newProductsIntoCart[product.idProdutos] = true;
+            return exists;
+        });
+
+        let qtyUpdated = productsIntoCart.length;
+        let idsFilter = [...new Set(idsIntoCart)]
+        req.session.cart = idsFilter
+        res.locals.qty = qtyUpdated
+
+        productsIntoCart.forEach((p) => {
+            p.totalProduto = totalProduto(p)
+        });
+
+        req.session.order = productsIntoCart;
+        let total = totalProdutos(productsIntoCart);
+
+        productsIntoCart.forEach((p) => {
+            p.subTotalProduto = p.Preco * p.quantidade;
+        });
+        let subTotal = 0
+        for (let i = 0; i < productsIntoCart.length; i++)
+            subTotal += productsIntoCart[i].subTotalProduto
+
+        let savings = subTotal - total
+
+        req.session.savings = savings
         req.session.total = total
 
-        res.render('cart.ejs', { productsIntoCart, total, qtyUpdated, savings})
+        res.render('cart.ejs', { productsIntoCart, total, qtyUpdated, savings })
     },
     updateCart: (req, res) => {
 
@@ -105,11 +105,11 @@ const ordersController = {
         productsIntoCart[index].totalProduto = totalProduto(productsIntoCart[index])
 
         let total = totalProdutos(productsIntoCart)
-        
-        req.session.order = productsIntoCart;        
-        req.session.total = total        
+
+        req.session.order = productsIntoCart;
+        req.session.total = total
         savings = req.session.savings
-        
+
         res.render('cart.ejs', { productsIntoCart, total, savings });
     },
     removeProduct: (req, res) => {
@@ -174,7 +174,8 @@ const ordersController = {
             Detalhe_Produtos: purchaseSummary
         })
         req.session.cart = ''
-        res.send("Pedido Finalizado com sucesso");
+        //res.send("Pedido Finalizado com sucesso");
+        res.render("orderFinished", { newPurchase });
     }
 }
 module.exports = ordersController
