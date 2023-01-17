@@ -32,7 +32,7 @@ CREATE TABLE `addresses` (
   `users_idUser` int NOT NULL,
   PRIMARY KEY (`idAddresses`),
   KEY `fk_addresses_users1_idx` (`users_idUser`),
-  CONSTRAINT `fk_addresses_users1` FOREIGN KEY (`users_idUser`) REFERENCES `users` (`idUser`)
+  CONSTRAINT `fk_addresses_users1` FOREIGN KEY (`users_idUser`) REFERENCES `users` (`idUser`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=61 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -42,7 +42,6 @@ CREATE TABLE `addresses` (
 
 LOCK TABLES `addresses` WRITE;
 /*!40000 ALTER TABLE `addresses` DISABLE KEYS */;
-INSERT INTO `addresses` VALUES (59,'Rua Thiago, 02','Salvador','Bahia',12),(60,'','','',12);
 /*!40000 ALTER TABLE `addresses` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -237,7 +236,7 @@ CREATE TABLE `purchases` (
   KEY `fk_Purchases_Users1_idx` (`Users_idUser`) /*!80000 INVISIBLE */,
   KEY `fk_purchases_admin1_idx` (`admin_idAdmin`),
   CONSTRAINT `fk_purchases_admin1` FOREIGN KEY (`admin_idAdmin`) REFERENCES `admin` (`idAdmin`),
-  CONSTRAINT `fk_Purchases_Users1` FOREIGN KEY (`Users_idUser`) REFERENCES `users` (`idUser`)
+  CONSTRAINT `fk_Purchases_Users1` FOREIGN KEY (`Users_idUser`) REFERENCES `users` (`idUser`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=48 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -247,7 +246,6 @@ CREATE TABLE `purchases` (
 
 LOCK TABLES `purchases` WRITE;
 /*!40000 ALTER TABLE `purchases` DISABLE KEYS */;
-INSERT INTO `purchases` VALUES (46,'2023-01-17',6646.00,'Pix','Rua Thiago, 02',12,NULL,'[{\"nome\": \"Celular Moto E20 32GB 4G Wi-Fi Tela 6.5\' Dual Chip 2GB RAM Câmera Dupla + Selfie 5MP - Cinza\", \"preco\": \"799.00\", \"codigo\": \"6411494463\", \"quantidade\": 1}, {\"nome\": \"Computador 3020 core i5 4 geração 8gb ssd 240gb \", \"preco\": \"699.00\", \"codigo\": \"NP550XDA-KP3BR\", \"quantidade\": 2}, {\"nome\": \"Notebook intel core i5-1035 8gb 256gb ssd linux 15,6\\\" cinza\", \"preco\": \"4599.00\", \"codigo\": \"15-34-C9WH3\", \"quantidade\": 1}]'),(47,'2023-01-17',10995.00,'Pix','Rua Thiago, 02',12,NULL,'[{\"nome\": \"Notebook intel celeron-6305 4gb 2568gb tela 15,6\\\" windows 11\", \"preco\": \"2999.00\", \"codigo\": \"A315-34-C9WH\", \"quantidade\": 2}, {\"nome\": \"Notebook np550xda i3-1115g4 4gb intel 2568gb tela 15,6\\\" windows 11\", \"preco\": \"1999.00\", \"codigo\": \"05788-17-04423\", \"quantidade\": 2}, {\"nome\": \"Notebook ideapad 3i intel 128gb tela 15,6\\\" windows 11\", \"preco\": \"999.00\", \"codigo\": \"82MD000ABR\", \"quantidade\": 1}]');
 /*!40000 ALTER TABLE `purchases` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -281,7 +279,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (3,'Paula','Simon','paula@email.com','12345567898','99899 5544','$2b$10$c5/LTTGil85FRq7ksxnfR.4kRLHe036GRzw7eWUfkZB/Z2TITg4c2','/img/avatars/1672661555793_img.png',NULL),(4,'Sergio','Aguilar','sergio@email.com','16162273784','121234567890','$2b$10$Bc6jWmG946SSIBpS4mAMwe9y1jLLBv2hrbhhXTzaqeVerqMr4fRoi','/img/avatars/1672744673013_img.png',NULL),(5,'Arianne','Barbosa','ari@email.com','12345678901','51 18998 1111','$2b$10$iA5G/JBFRpjkUSpBJQQ90eK7Gw1X2i7SEARA/7z.ZQ5HjkpKwmVC2','/img/avatars/1672744798543_img.png',NULL),(6,'Sergio','Andres','aguilar@mail.com','01234567891','90021212121','$2b$10$F3q.RvpjxvXny46Ot13Vvuz0NXstsI6zRAbn9Lyhlr2Xb0WhPdkGe','/img/avatars/1672967025866_img.jpg',NULL),(12,'Thiago','Duraes','thiago@gmail.com','99999999999','999999999','$2b$10$objquKZimISgiO4kAipkM.bK8y3YAowLdG5pXKEJIn/.awD.mIELi','/img/avatars/1673914524599_img.jpg',NULL);
+INSERT INTO `users` VALUES (4,'Sergio','Aguilar','sergio@email.com','16162273784','121234567890','$2b$10$Bc6jWmG946SSIBpS4mAMwe9y1jLLBv2hrbhhXTzaqeVerqMr4fRoi','/img/avatars/1672744673013_img.png',NULL),(5,'Arianne','Barbosa','ari@email.com','12345678901','51 18998 1111','$2b$10$iA5G/JBFRpjkUSpBJQQ90eK7Gw1X2i7SEARA/7z.ZQ5HjkpKwmVC2','/img/avatars/1672744798543_img.png',NULL);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -294,4 +292,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-01-17  9:44:16
+-- Dump completed on 2023-01-17 11:10:02
