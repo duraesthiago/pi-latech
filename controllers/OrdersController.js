@@ -117,8 +117,7 @@ const ordersController = {
         
         req.session.order = productsIntoCart;        
         req.session.total = total        
-        //savings = req.session.savings
-        
+               
         res.render('cart.ejs', { productsIntoCart, total, savings });
     },
     removeProduct: (req, res) => {
@@ -145,7 +144,6 @@ const ordersController = {
         let addressesUser = await Address.findAll({ raw: true, where: { users_idUser: id } });
 
         productsIntoCart = req.session.order
-
         total = req.session.total
 
         res.render('cartPayment.ejs', { productsIntoCart, total, user, loggedUser, addressesUser, })
