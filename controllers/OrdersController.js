@@ -105,10 +105,19 @@ const ordersController = {
         productsIntoCart[index].totalProduto = totalProduto(productsIntoCart[index])
 
         let total = totalProdutos(productsIntoCart)
+
+        productsIntoCart.forEach((p) => {
+            p.subTotalProduto = p.Preco * p.quantidade;
+        });         
+        let subTotal = 0
+        for(let i=0; i< productsIntoCart.length; i++)
+        subTotal += productsIntoCart[i].subTotalProduto    
+        
+        let savings = subTotal - total
         
         req.session.order = productsIntoCart;        
         req.session.total = total        
-        savings = req.session.savings
+        //savings = req.session.savings
         
         res.render('cart.ejs', { productsIntoCart, total, savings });
     },
