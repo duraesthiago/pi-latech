@@ -1,0 +1,25 @@
+<%- include('partials/head') %>
+    <!-- Include Header -->
+    <%- include('partials/header') %>
+
+        <%- include('partials/navbarCategories') %>
+
+
+            <main class="orderFinished">
+                <link rel="stylesheet" href="/stylesheets/orderFinished.css">
+
+                <h2 class="of_title">Seu pedido foi confirmado!</h2>
+                <h3>Pedido nº: <%=newPurchase.idPedidos%>
+                </h3>
+                <h3>Data do pedido: <%=newPurchase.Data_pedido.toLocaleDateString("pt-BR")%>
+                </h3>
+                <h3>Endereço de Entrega: <%=newPurchase.Endereço_de_Entrega%>
+                </h3>
+                <h3>Prazo de Entrega: 7 dias úteis
+                </h3>
+                <a href="/">
+                    <button class="btn_close">Fechar</button>
+                </a>
+            </main>
+
+            <%- include('partials/footer') %>

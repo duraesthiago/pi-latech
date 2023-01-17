@@ -1,0 +1,26 @@
+.edit_title {
+    margin: 5% 4%;
+    background: linear-gradient(
+      120deg,
+      var(--pink-degrade) 0%,
+      var(--ligth-lilac) 52%,
+      var(--dark-blue) 100%
+    );
+    padding: 2%;
+    color: var(--dust-white);
+    border-radius: 10px;
+    box-shadow: 4px 4px 4px var(--dark-gray);
+  }
+  .product_list {
+    margin: 30px 0 0 30px;
+  }
+  
+  .product_list p {
+    padding: 0px 10px 10px ;
+    font-size: 16px;
+  }
+   hr {
+     height: 0.5px;
+  }
+  
+  
