@@ -49,6 +49,7 @@ module.exports = (sequelize, DataTypes) => {
 
         Purchase.belongsTo(models.User, { foreignKey: 'Users_idUser', as: 'users' })
         Purchase.belongsTo(models.Admin, { foreignKey: 'admin_idAdmin', as: 'admin' })
+        // Purchase.hasOne(models.Address, { foreignKey: 'addresses_idAddresses', as: 'address' })
 
         Purchase.belongsToMany(
             models.Product,

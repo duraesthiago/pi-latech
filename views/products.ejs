@@ -9,21 +9,7 @@
 
                 <main>
                     <link rel="stylesheet" href="/stylesheets/products.css" />
-                    <!-- todos los productos -->
-
-                    <div class="cart-carrinho">
-                        <div>
-                            <header class="ls-cart-header">
-                                <span class="ls-ico-cart ls-float-left"></span>
-                                <small>MEU CARRINHO</small>
-                                <input type="checkbox" class="ls-checkbox-cart" />
-                                <strong>
-                                    <%= qty %> Produtos
-                                </strong>
-                            </header>
-                        </div>
-                    </div>
-
+                   
 
                     <div class="products-container">
 
@@ -44,8 +30,12 @@
                                                     <%= p.Nome %>
                                                 </h2>
                                                 <% if (p.PrecoComDesconto> 0){ %>
-                                                    <p>DE: R$ <%= p.Preco %> POR R$ <%= p.PrecoComDesconto %>
-                                                    </p>
+                                                    <div class="price-tag">
+                                                        <p class="price-original">DE: R$ <%= p.Preco %>
+                                                        </p>
+                                                        <p>POR R$ <%= p.PrecoComDesconto %>
+                                                        </p>
+                                                    </div>
                                                     <% } else { %>
                                                         <p>R$ <%= p.Preco %>
                                                         </p>

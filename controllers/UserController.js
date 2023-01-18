@@ -1,5 +1,5 @@
 const { validationResult } = require("express-validator");
-const { User } = require("../database/models/");
+const { User, Purchase, Product, Address } = require("../database/models/");
 const bcrypt = require("bcrypt");
 
 const UserController = {
@@ -37,7 +37,6 @@ const UserController = {
         Avatar: `/img/avatars/${avatarFileName}`,
         Cpf: req.body.personal_id,
         Senha: bcrypt.hashSync(req.body.password, 10),
-        admin_idAdmin: 0 //Verificar como tratar isso
       });
       return res.redirect("/users/login");
     }
@@ -77,7 +76,6 @@ const UserController = {
 
             delete userToLogin.Senha;
             req.session.userLogged = userToLogin;
-            // console.log(req.session.userLogged);
           }
 
           if (req.body.remember_user) {
@@ -91,7 +89,7 @@ const UserController = {
 
             });
           }
-          let url = req.session.cart? "/orders/payment" : "/"
+          let url = req.session.cart ? "/orders/payment" : "/"
           res.redirect(url);
         }
       }
@@ -104,28 +102,40 @@ const UserController = {
   },
 
 
-  forgotPassword: (req, res) =>{
-     res.render("forgetPassword", { })
+  forgotPassword: (req, res) => {
+    res.render("forgetPassword", {})
   },
 
   recoverPassword: (req, res) => {
     res.send("Um email foi enviado para sua caixa Postal para recuperar sua senha.");
   },
 
-   showUserAccount: async (req, res) => {
-    res.render("userAccount", {
-      userLogged: req.session.userLogged,
-    });
+
+  showUserAccount: async (req, res) => {
+    const userLogged = req.session.userLogged;
+    let { idUser } = userLogged;
+    let userPurchases = await Purchase.findAll(
+      {
+        raw: true,
+        include: [{
+          association: 'users'
+        }],
+        where: {
+          Users_idUser: idUser
+        },
+      })
+
+    res.render('userAccount', { userLogged, userPurchases })
   },
 
   userToUpdate: async (req, res) => {
     let userId = req.params.id;
     let userLogged = await User.findByPk(userId);
 
-   if(userLogged){
-    res.render('updateUser', { userLogged })
-   }
-   
+    if (userLogged) {
+      res.render('updateUser', { userLogged })
+    }
+
   },
 
   updateUserData: async (req, res) => {
@@ -142,7 +152,7 @@ const UserController = {
         }
       }
     )
-    
+
     return res.redirect('/users/account')
   },
 
@@ -159,7 +169,7 @@ const UserController = {
         }
       }
     )
-  
+
     return res.redirect('/users/account')
   },
 

@@ -23,9 +23,7 @@
                       <div class="products-price" id="products-price">R$ <%= product.PrecoComDesconto %>
                       </div>
                       <form action="/products/detail/<%= product.idProdutos %>" method="GET">
-                        <button class="btn-detail" type="submit">VER MAIS
-                    </a>
-                    </Button>
+                        <button class="btn-detail" type="submit">VER MAIS</button>
                     </form>
                     </a>
                   </div>
@@ -33,7 +31,7 @@
                 <% } %>
             </div>
             <!-- Include Slide-->
-            <%- include('partials/indexCategory') %>            
+            <%- include('partials/indexOfferProduct') %>            
           </div>
           </div>
         </main>
