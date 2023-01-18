@@ -21,6 +21,12 @@
   border-radius: 10px;
   box-shadow: 4px 4px 4px var(--dark-gray);
 }
+.search {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
 .search-form {
   width: 300px;
   height: 30px;
@@ -96,18 +102,13 @@
 @media (min-width: 600px) {
   .search-form {
     width: 500px;
-    height: 30px;
-    margin: 20px 50px;
   }
 }
 @media (min-width: 900px) {
-  .search-form {
-    margin: 20px 200px;
-  }
 }
 @media (min-width: 1200px) {
   .search-form {
-    margin: 20px 350px;
+    width: 700px;
   }
 }
 @media (min-width: 1800px) {
