@@ -9,22 +9,28 @@
 
         <h3 class="edit_title">Painel de Pedidos</h3>
 
-       
+
 
 
 
         <div class="product_list">
-          
-            <% for (Purchase of ordersList) { %>
-            
-                <p>Numero do Pedido:  <%= Purchase.idPedidos %></p>
-                <p>Data do Pedido: <%= Purchase.Data_pedido %></p>
-                <p>Total do Pedido: <%= Purchase.Total %></p> 
-                <p>Forma de Pagamento: <%= Purchase.Forma_de_Pagamento %></p>
-                <p>Endereço de entrega <%= Purchase.Endereço_de_Entrega %></p>
-                <p>Nomedo do Usuario: <%= Purchase['users.Nome'] %></p><br>
-                <hr>
-                <% } %>
-              </div>
+
+          <% for (Purchase of ordersList) { %>
+
+            <p>Numero do Pedido: <%= Purchase.idPedidos %>
+            </p>
+            <p>Data do Pedido: <%= Purchase.Data_pedido %>
+            </p>
+            <p>Total do Pedido: <%= Purchase.Total %>
+            </p>
+            <p>Forma de Pagamento: <%= Purchase.Forma_de_Pagamento %>
+            </p>
+            <p>Endereço de entrega <%= Purchase.Endereço_de_Entrega %>
+            </p>
+            <p>Nomedo do Usuario: <%= Purchase['users.Nome'] %>
+            </p><br>
+            <hr>
+            <% } %>
+        </div>
       </main>
       <%- include('partials/footer') %>
