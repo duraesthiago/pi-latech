@@ -1,10 +1,11 @@
 <%- include('partials/head') %>
   <!-- Include Header -->
-  <%- include('partials/header', {title: 'Início' }) %> <%- include('partials/navbarCategories') %>
+  <%- include('partials/header', {title: 'Início' }) %>
+    <%- include('partials/navbarCategories') %>
       <!-- Include Banner -->
       <main>
         <link rel="stylesheet" href="../stylesheets/userSignUp.css" />
-        <br />
+        <br>
         <h2 class="index_title">Cadastrar</h2>
         <div class="register-account">
           <div>
@@ -74,12 +75,12 @@
                                             <%= errors.avatar.msg %>
                                           </div>
                                           <% } %>
-                                            <br />
+                                            <br>
                                             <button class="btn_registration" type="submit">Cadastrar-se</button>
-                                            <br />
+                                            <br>
+                                            <a href="/users/login">Ou faça login</a>
               </div>
             </form>
-            <a href="/users/login">Ou faça login</a>
           </div>
         </div>
       </main>
